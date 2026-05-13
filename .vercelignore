@@ -1,0 +1,53 @@
+# Exclude Webflow leftovers + heavy unused assets from the deploy.
+# These remain in the repo (so other pages can reference them) but
+# don't get uploaded to Vercel for the investors-page deployment.
+
+# Webflow leftover HTML pages not used by the investors flow.
+# (Remove a line here if a page actually needs to ship.)
+401.html
+404.html
+style-guide.html
+detail_careers.html
+detail_our-journey.html
+component-7e2c7920-b388-b329-699f-3d4ea4994270.html
+component-fb627452-c7d1-c6be-071c-fee785941822.html
+
+# Multi-megabyte GIFs from older designs — none are referenced
+# by investors.html. They live in /images and were inflating the
+# deploy by ~14 MB.
+images/abmcampaign.gif
+images/new-wbsite.gif
+images/Old-Web-1.gif
+images/e664c9666a08dac11d282aa3620646f13be87349.gif
+images/a580fc672c8af1c23b4c54d545643825c8145b08.gif
+images/outbound.gif
+images/bdc79545f90ded9c5e7b5cdbb498911c20a21cbd.gif
+images/Photon-legal-beefore.gif
+images/PL-case-study-before.gif
+images/capacitybuild.gif
+images/ecosystem.gif
+
+# Webflow's auto-generated AVIF/responsive variants of unused images.
+images/Frame-2085665427.png
+images/Frame-2085665427-1.png
+images/Frame-2085665427_1.png
+images/Frame-2085665427.avif
+images/Frame-2085665427-1-p-500.avif
+images/Frame-2085665427-1_1-p-800.avif
+images/Frame-2085665427-p-500.png
+images/Frame-2085665427_1-p-500.png
+images/Frame-2085665427_1-p-800.avif
+images/Frame-2085665427_1-p-800.png
+images/Frame-2085665520.png
+images/Frame-2085665520-p-500.png
+images/Frame-2085665605-p-500.png
+images/Frame-2085665605-p-800.png
+images/Frame-2085665690.png
+images/Frame-2085665690-p-500.png
+images/Frame-2085665690-p-800.png
+images/228c51048117b9ed23265ded66164cfd_Frame-2085665604-p-500.png
+images/228c51048117b9ed23265ded66164cfd_Frame-2085665604-p-1080.png
+
+# Local artifacts.
+.claude
+.DS_Store
