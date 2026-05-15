@@ -1451,26 +1451,10 @@ body.inv-wall-modal-open { overflow: hidden; position: fixed; width: 100%; }
 
 .inv-time-nav {
   position: relative;
-  margin-top: 2rem;
+  margin-top: 1.25rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--_primitives---opacity--white-15, #ffffff26);
-}
-/* The top hairline of .inv-time-nav doubles as the autoplay loader.
-   The fill (orange) overlays the base hairline and grows from 0% →
-   100% as the autoplay timer counts down to the next slide. */
-.inv-time-nav::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: -1px;
-  width: var(--time-progress, 0%);
-  height: 2px;
-  background: rgba(255, 255, 255, 0.30);
-  transition: width 0.1s linear;
-  pointer-events: none;
 }
 .inv-time-pos {
   color: var(--_primitives---opacity--white-50, #eeeeee80);
@@ -2639,7 +2623,15 @@ body.inv-hero-modal-open { overflow: hidden; }
   position: relative;
   width: 3.25rem;
   height: 3.25rem;
+  /* overflow stays VISIBLE — the company-flag badge below is
+     intentionally positioned with negative bottom/right offsets so it
+     hugs the chip's bottom-right corner. Clipping here would chop the
+     badge in half. The portrait IMG inside has its own width/height
+     100% + object-fit:cover so it never overflows the chip on its own. */
   overflow: visible;
+  /* Dark-grey fill behind the now-transparent portraits so they read
+     as a solid chip (not a floating cut-out) against the case-study
+     card. Matches the bento card's photo-wrap dark surface. */
   background: #2a2a2a;
   flex: 0 0 auto;
 }
@@ -2693,41 +2685,9 @@ body.inv-hero-modal-open { overflow: hidden; }
   display: flex;
   flex: 0 0 auto;
 }
-/* Multi-investor list: each investor gets a mini-row (photo + name +
-   role), arranged side by side in a single horizontal line so the
-   reader can see who did what without losing footprint. A thin
-   vertical hairline separates the two for visual rhythm. */
-.inv-time-investor-list {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  gap: 1.5rem;
-}
-.inv-time-investor-list .inv-time-investor-row {
-  flex: 1 1 0;
-  min-width: 0;
-  gap: 0.75rem; /* tighter photo↔text gap so the bio gets more width */
-}
-.inv-time-investor-list .inv-time-investor-row + .inv-time-investor-row {
-  padding-left: 1.5rem;
-  border-left: 1px solid rgba(255, 255, 255, 0.10);
-}
-/* In the 2-up list, smaller photo + smaller body text so neither
-   bio gets crammed into a 3-line block. */
-.inv-time-investor-list .inv-time-investor-img { width: 2.5rem; height: 2.5rem; }
-.inv-time-investor-list .inv-time-investor-flag { width: 0.9375rem; height: 0.9375rem; }
-.inv-time-investor-list .inv-time-investor-name { font-size: 0.9375rem; }
-.inv-time-investor-list .inv-time-investor-bio { font-size: 0.75rem; line-height: 1.4; }
-.inv-time-investor-list .inv-time-investor-role { font-size: 0.6875rem; }
-@media (max-width: 760px) {
-  .inv-time-investor-list { flex-direction: column; gap: 0.875rem; }
-  .inv-time-investor-list .inv-time-investor-row + .inv-time-investor-row {
-    padding-left: 0;
-    padding-top: 0.875rem;
-    border-left: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.10);
-  }
-}
+/* (Removed .inv-time-investor-list multi-row styling — the 2-investor
+   case study now uses an auto-cycling carousel via .has-cycle, so
+   each investor renders at full single-row width.) */
 .inv-time-investor-stack img {
   width: 2.75rem;
   height: 2.75rem;
@@ -4200,41 +4160,43 @@ body.inv-hero-modal-open { overflow: hidden; }
 
 
 /* ─────────────────────────────────────────────────────────────────
-   §02 Time-slide auto-cycling investor carousel (mobile)
-   When a time-slide has 2+ investors stacked in .inv-time-investor,
-   the mobile card grows too tall. On mobile we instead show one
-   investor at a time with an auto-cycle (1.8s) + dot pagination.
-   No swipe — purely passive cycling so the user doesn't have to
-   interact. JS adds the .has-cycle class and the .is-active row.
+   §02 Time-slide auto-cycling investor carousel.
+   Used by the 2-investor case study (Daruru + Reddy). Instead of
+   stacking two cramped half-width rows side-by-side, both rows live
+   inside .inv-time-investor.has-cycle and we show one at a time
+   with an auto-cycle (2s) + dot pagination. Single-investor cards
+   keep their normal layout — no .has-cycle, no dots. Applies at
+   ALL viewports (was previously mobile-only).
    ───────────────────────────────────────────────────────────── */
-@media (max-width: 767px) {
-  .inv-time-investor.has-cycle .inv-time-investor-row { display: none; }
-  .inv-time-investor.has-cycle .inv-time-investor-row.is-active {
-    display: flex;
-    animation: invTimeInvFade 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  @keyframes invTimeInvFade {
-    from { opacity: 0; transform: translateY(4px); }
-    to   { opacity: 1; transform: none; }
-  }
-  .inv-time-investor-dots {
-    display: flex;
-    gap: 0.4375rem;
-    margin-top: 0.75rem;
-    justify-content: flex-start;
-    align-items: center;
-  }
-  .inv-time-investor-dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.25);
-    transition: background 0.2s ease, transform 0.2s ease, width 0.2s ease;
-  }
-  .inv-time-investor-dot.is-active {
-    background: var(--_primitives---colors--brand-orange, #f56e38);
-    width: 14px;
-    border-radius: 999px;
-  }
+.inv-time-investor.has-cycle .inv-time-investor-row { display: none; }
+.inv-time-investor.has-cycle .inv-time-investor-row.is-active {
+  display: flex;
+  animation: invTimeInvFade 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@keyframes invTimeInvFade {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: none; }
+}
+.inv-time-investor-dots {
+  display: flex;
+  gap: 0.4375rem;
+  margin-top: 0.875rem;
+  justify-content: flex-start;
+  align-items: center;
+}
+.inv-time-investor-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  transition: background 0.2s ease, transform 0.2s ease, width 0.2s ease;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+}
+.inv-time-investor-dot.is-active {
+  background: var(--_primitives---colors--brand-orange, #f56e38);
+  width: 14px;
+  border-radius: 999px;
 }
 
 
@@ -4484,3 +4446,2546 @@ body.inv-form-modal-open .navbar { display: none; }
   .inv-form-fineprint { font-size: 0.75rem; }
 }
 
+
+
+/* ════════════════════════════════════════════════════════════════════
+   §01 — FOUNDERS / OPERATORS BENTO  (v3, A/B/C mosaic per sketch)
+   ────────────────────────────────────────────────────────────────────
+   12-col × 3-row mosaic. 8 cards per panel: 2 A + 2 B + 4 C.
+       Row 1 (200px) : A (span 8) │ B (span 4)
+       Row 2 (200px) : B (span 4) │ A (span 8)
+       Row 3 (180px) : C C C C (span 3 each)
+
+   Card shapes:
+     A — horizontal: photo left full-height · meta right (stamp top-right
+         absolute · name+designation middle · logo bottom-right).
+     B — split: top section has photo top-left + stamp top-right + logo
+         bottom-right; bottom strip is name + designation full-width.
+     C — compact horizontal: photo left (narrow) · meta right · same
+         vertical sequence as A but smaller type.
+
+   Every card: border-radius 0 (hard tech surface, matches 100-grid).
+   LinkedIn icon: square 30×30, photo bottom-right.
+   Stamp: brand-orange solid block, UPPERCASE, 0 radius, top:12 right:0
+   absolute on the card — meta has clear-zone padding-top so name never
+   overlaps the stamp regardless of stamp text length.
+   ════════════════════════════════════════════════════════════════════ */
+
+/* ── Toggle pill group (same as before) ────────────────────────── */
+.inv-bento-tabs {
+  display: inline-flex;
+  gap: 0.25rem;
+  padding: 0.3125rem;
+  background: var(--_primitives---opacity--white-5);
+  border: 1px solid var(--_primitives---opacity--white-15);
+  border-radius: 0.5rem;
+}
+.inv-bento-tab {
+  padding: 0.625rem 1.5rem;
+  background: transparent;
+  border: 0;
+  color: var(--brand-white-75);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease;
+  min-height: 44px;
+}
+.inv-bento-tab:hover { color: #fff; }
+.inv-bento-tab.is-active {
+  background: var(--_primitives---colors--brand-orange);
+  color: #fff;
+}
+
+/* Section header row — h2 + subhead on the left, Founders/Operators
+   toggle on the right. Saves the vertical space the toggle previously
+   occupied below the subhead. Collapses to stacked on mobile. */
+.inv-bento-section-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.inv-bento-section-row .section-tabs-header { flex: 1 1 auto; }
+.inv-bento-section-row .inv-bento-tabs       { flex: 0 0 auto; }
+
+/* Subtitle paragraphs were removed from the markup; rule retained
+   as a no-op in case future variants bring them back. */
+.inv-bento-sub.is-hidden { display: none; }
+
+/* ── Mosaic grid: 12-col × 3-row.
+   Rows 1+2 carry A + B pairings → 210px tall.
+   Row 3 carries the 4 C cards → 170px tall. C has less content
+   (shorter role, smaller logo) so a shorter row tightens the gap
+   between the stamp and the credentials block. Sizes tuned so the
+   toggle + full mosaic fit a standard ~1080px viewport without
+   overflow. */
+.inv-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 210px 210px 170px;
+  gap: 14px;
+}
+.inv-bento-grid.is-hidden { display: none; }
+
+.inv-bento-card.is-a { grid-column: span 8; }
+.inv-bento-card.is-b { grid-column: span 4; }
+.inv-bento-card.is-c { grid-column: span 3; }
+
+/* ── Card base: 0 radius, dark surface, subtle inner stroke (no
+      heavy border ring — looks more premium against the canvas) ─── */
+.inv-bento-card {
+  position: relative;
+  display: grid;
+  background: rgba(255, 255, 255, 0.022);
+  border: 0;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+  border-radius: 0;
+  overflow: hidden;
+  transition: background-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+.inv-bento-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+/* ── Photo column / wrapper — transparent so card surface flows
+      seamlessly under the cut-out portrait. Photo is rendered with
+      object-fit: contain so the full subject is always visible (no
+      heads cropped) — bottom-aligned so shoulders meet the card
+      bottom edge across all card sizes.
+      Note: NOT position:relative. The LinkedIn icon is absolutely
+      positioned and needs to anchor to the card itself (bottom-right
+      of the card, not bottom-right of the photo column), so we let
+      .inv-bento-card's relative positioning be the LI icon's
+      reference frame. The photo's overflow clipping works fine without
+      `position: relative` since the wrap has explicit dimensions. */
+.inv-bento-photo-wrap {
+  height: 100%;
+  background: transparent;
+  overflow: hidden;
+  align-self: stretch;
+}
+.inv-bento-photo-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+}
+
+/* ── LinkedIn icon — square 32×32 chip at the card's bottom-right
+      with a 14px inset from the corner so it doesn't feel jammed
+      into the edge. Translucent white background + 1px stroke; reads
+      as a subtle "ghost" chip on the dark card. Brand-orange on
+      hover. Hidden by default, fades in on card hover. */
+.inv-bento-li {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0;
+  text-decoration: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(4px);
+  transition: opacity 0.22s ease, visibility 0.22s, transform 0.22s ease, background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  z-index: 3;
+  backdrop-filter: blur(2px);
+}
+.inv-bento-card:hover .inv-bento-li,
+.inv-bento-li:focus-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.inv-bento-li:hover {
+  background: rgba(245, 110, 56, 0.18);
+  border-color: rgba(245, 110, 56, 0.65);
+  color: #f56e38;
+}
+
+/* ── Credibility strip — top-right (absolute), 0 radius, darker
+      panel + full-opacity brand-orange uppercase text. Reads as a
+      press-stamp / "credential tape" rather than a pill. A subtle
+      diagonal "shine" sweeps across the panel every ~3s via the
+      ::before pseudo-element — passive, hands-off, infinite loop.
+      Scope: ONLY the bento card stamp. No other element on the page
+      shares this effect. */
+.inv-bento-stamp {
+  position: absolute;
+  top: 18px;
+  right: 0;
+  padding: 11px 18px;
+  background: #141414;
+  color: #f56e38;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  line-height: 1.05;
+  white-space: nowrap;
+  opacity: 1;
+  border-left: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0;
+  z-index: 2;
+  overflow: hidden; /* clip the shine sweep inside the stamp's box */
+}
+
+.inv-bento-stamp::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.14) 50%,
+    transparent 70%
+  );
+  background-size: 250% 100%;
+  background-repeat: no-repeat;
+  background-position: 200% 0;
+  animation: invStampShine 2s ease-in-out infinite;
+}
+
+@keyframes invStampShine {
+  0%   { background-position: 200% 0; }
+  45%  { background-position: -100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+/* Respect users who've asked their OS to dial motion down. */
+@media (prefers-reduced-motion: reduce) {
+  .inv-bento-stamp::before { animation: none; }
+}
+
+/* ── Name + designation block (shared by A, B, C).
+      Per-variant `gap` overrides come below: A/B want a tighter pair
+      (4px), C wants a slightly looser one (5px) so the smaller type
+      doesn't feel cramped. */
+.inv-bento-name-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+.inv-bento-card.is-c .inv-bento-name-block { gap: 5px; }
+.inv-bento-name {
+  margin: 0;
+  font-weight: 500;
+  color: #fff;
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+  /* Up to 2 lines, ellipsis on overflow. */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.inv-bento-role {
+  color: rgba(255, 255, 255, 0.62);
+  line-height: 1.32;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ── Company logo (shared; per-variant size below).
+      `height` is set as a hard value (not max-height) so EVERY logo
+      renders at the same vertical size for a given card type — this
+      is what creates the visual "harmony" across cards regardless of
+      the source logo's natural dimensions. max-width caps very wide
+      wordmarks so they don't dominate compared to squarer marks.
+      `flex-shrink: 0` prevents the flex column from shrinking the
+      logo's height when other meta children claim vertical space. */
+.inv-bento-logo {
+  object-fit: contain;
+  object-position: left center;
+  filter: brightness(0) invert(1);
+  opacity: 0.92;
+  transition: opacity 0.2s ease;
+  width: auto;
+  flex-shrink: 0;
+}
+.inv-bento-card:hover .inv-bento-logo { opacity: 1; }
+
+/* ═══════════════════════════════════════════════════════════════
+   CARD A — horizontal: photo left, meta right.
+   Layout intent (matches the design reference):
+   • Stamp pinned to top-right (absolute, outside flex flow)
+   • Name + role + logo GROUPED at the BOTTOM of the card with a
+     small gap between them — they read as one "credentials block"
+     with the company logo confirming the role, not a separate item.
+   ═══════════════════════════════════════════════════════════════ */
+.inv-bento-card.is-a {
+  grid-template-columns: 240px 1fr;
+}
+.inv-bento-card.is-a .inv-bento-photo-wrap { width: 240px; }
+/* The A-card portraits read a touch too high in the frame; nudge the
+   image element down so the head sits lower in the card and the
+   subject's shoulders bleed just past the bottom edge. The wrap's
+   overflow:hidden clips the small bottom overflow. */
+.inv-bento-card.is-a .inv-bento-photo-img { transform: translateY(20px); }
+/* Operators panel's A-card subjects (Daruru, Sridhar) inherit the
+   founder A-card's default Y shift — no X offset, so the portraits
+   align with Karthik / Raveen on the founder side. */
+[data-bento-panel="operators"] .inv-bento-card.is-a .inv-bento-photo-img {
+  transform: translateY(20px);
+}
+/* Sridhar's portrait reads slightly larger than Daruru's because the
+   subject sits higher in the source PNG. Push him down an extra 8px
+   so both A-card subjects share the same visual weight. */
+[data-bento-panel="operators"] .inv-bento-card.is-a .inv-bento-photo-img[alt="Sridhar Anumandla"] {
+  transform: translateY(28px);
+}
+.inv-bento-card.is-a .inv-bento-meta {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 14px;
+  padding: 24px 26px 22px;
+  min-width: 0;
+}
+.inv-bento-card.is-a .inv-bento-name  { font-size: 26px; }
+.inv-bento-card.is-a .inv-bento-role  { font-size: 15px; }
+.inv-bento-card.is-a .inv-bento-stamp { font-size: 13px; padding: 11px 20px; }
+.inv-bento-card.is-a .inv-bento-logo {
+  align-self: flex-start;
+  height: 26px;
+  max-width: 140px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CARD B — same horizontal structure as A, just narrower (4 cols).
+   Photo column bumped to 190px so the profile portrait reads at a
+   confident size rather than feeling thumbnail-sized inside a wide
+   row. The meta column shifts right accordingly. */
+.inv-bento-card.is-b {
+  grid-template-columns: 190px 1fr;
+}
+.inv-bento-card.is-b .inv-bento-photo-wrap { width: 190px; }
+.inv-bento-card.is-b .inv-bento-meta {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 22px 22px 20px;
+  min-width: 0;
+}
+.inv-bento-card.is-b .inv-bento-name  { font-size: 22px; }
+.inv-bento-card.is-b .inv-bento-role  { font-size: 14px; }
+.inv-bento-card.is-b .inv-bento-stamp { font-size: 12px; padding: 10px 16px; }
+.inv-bento-card.is-b .inv-bento-logo {
+  align-self: flex-start;
+  height: 24px;
+  max-width: 120px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CARD C — compact horizontal: same layout as A/B, just narrower.
+   Photo column bumped to 140 so the portrait fills the column rather
+   than feeling postage-stamp-sized inside the row.
+   ═══════════════════════════════════════════════════════════════ */
+.inv-bento-card.is-c {
+  grid-template-columns: 140px 1fr;
+}
+.inv-bento-card.is-c .inv-bento-photo-wrap { width: 140px; }
+.inv-bento-card.is-c .inv-bento-meta {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 18px 18px 18px;
+  min-width: 0;
+}
+.inv-bento-card.is-c .inv-bento-name  { font-size: 18px; }
+.inv-bento-card.is-c .inv-bento-role  { font-size: 13px; }
+.inv-bento-card.is-c .inv-bento-stamp { font-size: 11px; padding: 9px 14px; letter-spacing: 0.08em; top: 10px; }
+.inv-bento-card.is-c .inv-bento-logo {
+  align-self: flex-start;
+  height: 22px;
+  max-width: 100px;
+}
+
+/* Per-logo size nudges — some marks (Multiply, Open Legal) are
+   geometric / small-content and read TOO small at the card-type
+   default height; some (Appknox) are wide wordmarks and read TOO
+   big. Tweak heights individually to balance perceived weight.
+
+   Multiply + Open Legal SVGs ship with internal transparent padding
+   on the left; we use Cloudinary's `e_trim` transform in the IMG src
+   to auto-crop that padding at the asset edge, so the visible logo
+   content starts flush with the name/designation block — no CSS
+   margin-shifts needed.
+
+   min-height matches height so flex/aspect-ratio quirks can't quietly
+   round the rendered height down (Open Legal kept resolving to 24px
+   from a 26px height because the SVG's intrinsic aspect was tugging
+   the box smaller). */
+.inv-bento-card .inv-bento-logo[alt="Multiply Ventures"] {
+  height: 34px;
+  min-height: 34px;
+}
+.inv-bento-card .inv-bento-logo[alt="Open Legal Inc"] {
+  height: 28px;
+  min-height: 28px;
+}
+.inv-bento-card .inv-bento-logo[alt="Appknox"] {
+  height: 17px;
+  min-height: 17px;
+}
+
+/* Operator-panel logo nudges. The Aerospike + Otter wordmarks are
+   geometrically very wide (aspect ~5.8 / ~4.9) so they need a slightly
+   smaller height to keep visible width in the same band as the founder
+   B logos. Aerospike + Meta now sit at the same 24px so the two
+   operator A cards (Sunil at Aerospike, Sridhar at Meta) read with
+   matched visual weight. */
+.inv-bento-card .inv-bento-logo[alt="Aerospike"] {
+  height: 24px;
+  min-height: 24px;
+}
+.inv-bento-card .inv-bento-logo[alt="Otter.ai"] {
+  height: 18px;
+  min-height: 18px;
+}
+.inv-bento-card .inv-bento-logo[alt="Meta"] {
+  height: 24px;
+  min-height: 24px;
+}
+
+/* ── LinkedIn icon: sized smaller on C cards (compact) ─────────── */
+.inv-bento-card.is-c .inv-bento-li { width: 26px; height: 26px; }
+.inv-bento-card.is-c .inv-bento-li svg { width: 11px; height: 11px; }
+
+/* ════════════════════════════════════════════════════════════════
+   MOBILE EXCEPTION (≤991px): every Strategic-Investor card uses the
+   B-card layout — same grid-column span (6), same photo-wrap width
+   (190px), same typography, same logo size band. The user-facing
+   reason: the A and C variants only make sense in the desktop mosaic
+   composition; on mobile/tablet they should all read uniformly so
+   the grid feels like a clean two-up list, not a stair-stepped
+   layout pretending to be a mosaic.
+   ════════════════════════════════════════════════════════════════ */
+@media screen and (max-width: 991px) {
+  .inv-bento-grid {
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+    grid-auto-rows: auto;
+  }
+  .inv-bento-card.is-a,
+  .inv-bento-card.is-b,
+  .inv-bento-card.is-c {
+    grid-column: span 6;
+    grid-template-columns: 190px 1fr;
+  }
+  .inv-bento-card.is-a .inv-bento-photo-wrap,
+  .inv-bento-card.is-c .inv-bento-photo-wrap {
+    width: 190px;
+  }
+  .inv-bento-card.is-a .inv-bento-meta,
+  .inv-bento-card.is-c .inv-bento-meta {
+    padding: 22px 22px 20px;
+    gap: 12px;
+  }
+  .inv-bento-card.is-a .inv-bento-name,
+  .inv-bento-card.is-c .inv-bento-name { font-size: 22px; }
+  .inv-bento-card.is-a .inv-bento-role,
+  .inv-bento-card.is-c .inv-bento-role { font-size: 14px; }
+  .inv-bento-card.is-a .inv-bento-stamp,
+  .inv-bento-card.is-c .inv-bento-stamp {
+    font-size: 12px;
+    padding: 10px 16px;
+  }
+  .inv-bento-card.is-a .inv-bento-logo,
+  .inv-bento-card.is-c .inv-bento-logo {
+    height: 24px;
+    max-width: 120px;
+  }
+  .inv-bento-card.is-a .inv-bento-name-block,
+  .inv-bento-card.is-c .inv-bento-name-block { gap: 4px; }
+  /* A-card photo transforms (translateY for founders, X+Y for the
+     operator A subjects) only make sense in the desktop A-card
+     framing. With A cards now sized like B on mobile, reset the
+     transform so photos are bottom-aligned naturally. */
+  .inv-bento-card.is-a .inv-bento-photo-img,
+  [data-bento-panel="operators"] .inv-bento-card.is-a .inv-bento-photo-img,
+  [data-bento-panel="operators"] .inv-bento-card.is-a .inv-bento-photo-img[alt="Sridhar Anumandla"] {
+    transform: none;
+  }
+  /* C cards use the LI hover icon size from the base B-card rule,
+     undo the C-specific shrink. */
+  .inv-bento-card.is-c .inv-bento-li { width: 32px; height: 32px; }
+  .inv-bento-card.is-c .inv-bento-li svg { width: 13px; height: 13px; }
+}
+
+/* ── Phones ≤767px: single-column stack, all cards still B-styled. */
+@media screen and (max-width: 767px) {
+  .inv-bento-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .inv-bento-card.is-a,
+  .inv-bento-card.is-b,
+  .inv-bento-card.is-c {
+    grid-column: span 1;
+  }
+}
+
+/* ── Small phones ≤479: tighten the B-styled photo column so the
+      meta side has room for the name + role to breathe. ───────── */
+@media screen and (max-width: 479px) {
+  .inv-bento-tab {
+    padding: 0.5rem 1.125rem;
+    font-size: 0.9375rem;
+  }
+  .inv-bento-card.is-a,
+  .inv-bento-card.is-b,
+  .inv-bento-card.is-c {
+    grid-template-columns: 130px 1fr;
+  }
+  .inv-bento-card.is-a .inv-bento-photo-wrap,
+  .inv-bento-card.is-b .inv-bento-photo-wrap,
+  .inv-bento-card.is-c .inv-bento-photo-wrap {
+    width: 130px;
+  }
+  .inv-bento-card.is-a .inv-bento-meta,
+  .inv-bento-card.is-b .inv-bento-meta,
+  .inv-bento-card.is-c .inv-bento-meta {
+    padding: 16px 16px 16px;
+  }
+  .inv-bento-card.is-a .inv-bento-name,
+  .inv-bento-card.is-b .inv-bento-name,
+  .inv-bento-card.is-c .inv-bento-name { font-size: 18px; }
+  .inv-bento-card.is-a .inv-bento-stamp,
+  .inv-bento-card.is-b .inv-bento-stamp,
+  .inv-bento-card.is-c .inv-bento-stamp { font-size: 10px; padding: 7px 12px; letter-spacing: 0.06em; }
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   §02 — TWO-BOX HEADER ("What we're looking for from a Strategic Investor")
+   Side-by-side ask boxes with a "+" between them. Replaces the prior
+   Time / Money tab navigation. The case-study carousel below is the
+   same Swiper as before, just no longer wrapped in a tab panel.
+   ════════════════════════════════════════════════════════════════════ */
+.inv-ask-boxes {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: stretch;
+  gap: 1.25rem;
+}
+.inv-ask-box {
+  /* Button reset — the boxes are clickable tab triggers but visually
+     still read as cards. */
+  appearance: none;
+  -webkit-appearance: none;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  padding: 1.75rem 1.75rem 1.5rem;
+  background: var(--_primitives---opacity--white-5, #ffffff0d);
+  border: 1px solid var(--_primitives---opacity--white-15, #ffffff26);
+  border-radius: 0;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+.inv-ask-box:hover {
+  border-color: var(--_primitives---opacity--white-25, #ffffff40);
+  background: var(--_primitives---opacity--white-10, #ffffff1a);
+}
+.inv-ask-box:focus-visible {
+  outline: 2px solid var(--_primitives---colors--brand-orange);
+  outline-offset: 2px;
+}
+/* Selected state — thin orange border + faint orange fill so the active
+   tab reads as "this is what's showing below" without shouting. */
+.inv-ask-box.is-active {
+  background: rgba(245, 110, 56, 0.06);
+  border-color: rgba(245, 110, 56, 0.55);
+}
+.inv-ask-box.is-active:hover {
+  background: rgba(245, 110, 56, 0.08);
+}
+.inv-ask-box-num {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--_primitives---colors--brand-orange);
+  margin-bottom: 0.375rem;
+}
+/* Label + sub group stacked under the 01/02 badge, left-aligned. */
+.inv-ask-box-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  min-width: 0;
+}
+.inv-ask-box-label {
+  font-size: 1.75rem;
+  font-weight: 500;
+  line-height: 1.15;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+.inv-ask-box-sub {
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  color: var(--paragraph-grey);
+}
+
+/* "+" glyph centered between the two boxes. Brand orange, subtle
+   bordered disc so it reads as an intentional join, not a number. */
+.inv-ask-plus {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  align-self: center;
+  color: var(--_primitives---colors--brand-orange);
+  background: var(--cards-grey, #2a2a2a);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0;
+  flex-shrink: 0;
+}
+
+/* Stack on tablet / mobile — plus stays orange, sits between the two
+   stacked boxes for the same "both, not either" semantic. */
+@media screen and (max-width: 767px) {
+  .inv-ask-boxes {
+    grid-template-columns: 1fr;
+    gap: 0.875rem;
+  }
+  .inv-ask-plus {
+    width: 44px;
+    height: 44px;
+    justify-self: center;
+  }
+  .inv-ask-box {
+    padding: 1.375rem 1.375rem 1.25rem;
+  }
+  .inv-ask-box-label {
+    font-size: 1.5rem;
+  }
+}
+@media screen and (max-width: 479px) {
+  .inv-ask-box-label {
+    font-size: 1.375rem;
+  }
+}
+
+/* Wrapper for the case carousel (was previously the active tab panel). */
+.inv-ask-cases { width: 100%; }
+
+/* ════════════════════════════════════════════════════════════════════
+   §03 — INVOLVE SECTION ("Three ways we involve you in the studio")
+   ────────────────────────────────────────────────────────────────────
+   Two-column layout: left rail (3 tabs with label + 1-line description)
+   + right media pane (VOSS GIF · monthly video · WhatsApp placeholder).
+   Active rail item gets the brand "frame and focus" L-bracket overlay
+   (Vector-31/32/33/34 SVGs in orange) — matches the about page's "core
+   values" tab pattern. Inactive items have no brackets.
+   ════════════════════════════════════════════════════════════════════ */
+.inv-involve {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 2rem;
+  align-items: stretch;
+}
+
+/* ── Left rail ─────────────────────────────────────────────────── */
+.inv-involve-rail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.inv-involve-item {
+  position: relative;
+  padding: 1.25rem 1.375rem;
+  background: var(--_primitives---opacity--white-5, #ffffff0d);
+  border: 1px solid var(--_primitives---opacity--white-15, #ffffff26);
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+.inv-involve-item:hover {
+  background: var(--_primitives---opacity--white-10, #ffffff1a);
+}
+.inv-involve-item.is-active {
+  background: var(--_primitives---opacity--white-10, #ffffff1a);
+  border-color: transparent;
+}
+.inv-involve-btn {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  width: 100%;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  color: inherit;
+}
+.inv-involve-num {
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--brand-white-50, #eeeeee80);
+  padding-top: 0.25rem;
+  min-width: 1.5rem;
+}
+.inv-involve-item.is-active .inv-involve-num {
+  color: var(--_primitives---colors--brand-orange);
+}
+.inv-involve-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  min-width: 0;
+}
+.inv-involve-label {
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--brand-white-75, #eeeeeebf);
+  transition: color 0.25s ease;
+}
+.inv-involve-item.is-active .inv-involve-label,
+.inv-involve-item:hover .inv-involve-label { color: #fff; }
+.inv-involve-desc {
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  color: var(--paragraph-grey, #eeeeee80);
+}
+
+/* L-bracket frame on the active item — uses the site-wide pattern.
+   Inactive items have the brackets in DOM but hidden via opacity:0. */
+.inv-involve-item .focused-bg {
+  position: absolute;
+  inset: -7px;
+  pointer-events: none;
+  color: var(--_primitives---colors--brand-orange);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.inv-involve-item.is-active .focused-bg { opacity: 1; }
+.inv-involve-item .focused-icon { position: absolute; width: 16px; height: 16px; }
+.inv-involve-item .focused-icon.top { top: 0; left: 0; right: auto; bottom: auto; }
+.inv-involve-item .focused-icon._2  { top: 0; right: 0; bottom: auto; left: auto; }
+.inv-involve-item .focused-icon._3  { bottom: 0; right: 0; top: auto; left: auto; }
+.inv-involve-item .focused-icon._4  { bottom: 0; left: 0; top: auto; right: auto; }
+
+/* ── Right media pane ──────────────────────────────────────────── */
+.inv-involve-media {
+  position: relative;
+  background: var(--_primitives---opacity--white-5);
+  border: 1px solid var(--_primitives---opacity--white-15);
+  overflow: hidden;
+  min-height: 360px;
+  aspect-ratio: 16 / 10;
+}
+.inv-involve-pane {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s;
+  background: var(--_primitives---opacity--white-5);
+}
+.inv-involve-pane.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+.inv-involve-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+/* Monthly video container — 16:9 frame inside the pane, with the
+   YouTube iframe filling it. The pane is wider than 16:9, so the
+   video gets letterboxed centered. */
+.inv-involve-video {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  overflow: hidden;
+}
+.inv-involve-iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  pointer-events: none;     /* preview-only autoplay, no user interaction */
+}
+
+/* Monthly tab — 3 vertical-format YouTube clips playing in parallel.
+   Each cell is a portrait slot; the YouTube player letterboxes the
+   video inside it. Small gap between cells separates the three. */
+.inv-involve-trio {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  width: 100%;
+  height: 100%;
+}
+.inv-involve-trio-cell {
+  position: relative;
+  background: #000;
+  overflow: hidden;
+}
+.inv-involve-trio-cell .inv-involve-iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  pointer-events: none;
+}
+
+/* WhatsApp placeholder — dark card with brand-orange chat icon. */
+.inv-involve-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+  height: 100%;
+  color: var(--brand-white-50);
+}
+.inv-involve-placeholder svg { color: var(--_primitives---colors--brand-orange); opacity: 0.7; }
+.inv-involve-placeholder-h {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: -0.005em;
+}
+.inv-involve-placeholder-d {
+  font-size: 0.875rem;
+  color: var(--brand-white-50);
+}
+
+/* ── Tablet ≤991: stack rail above media, rail goes horizontal-ish ─ */
+@media screen and (max-width: 991px) {
+  .inv-involve {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .inv-involve-media { aspect-ratio: 16 / 9; min-height: 280px; }
+}
+
+/* ── Mobile ≤767: tighten paddings, smaller rail labels ──────── */
+@media screen and (max-width: 767px) {
+  .inv-involve-item    { padding: 1rem 1.125rem; }
+  .inv-involve-label   { font-size: 1.0625rem; }
+  .inv-involve-desc    { font-size: 0.875rem; }
+  .inv-involve-media   { min-height: 220px; aspect-ratio: 16 / 9; }
+}
+
+/* ── Small phones ≤479: even tighter ──────────────────────────── */
+@media screen and (max-width: 479px) {
+  .inv-involve-item    { padding: 0.875rem 1rem; }
+  .inv-involve-label   { font-size: 1rem; }
+  .inv-involve-desc    { font-size: 0.8125rem; }
+  .inv-involve-num     { font-size: 0.6875rem; letter-spacing: 0.12em; }
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   REFINEMENTS — phase 1 & 2 second-pass
+   ────────────────────────────────────────────────────────────────────
+   - Plus glyph in §02 boxes: no box / fill / border, just a grey plus.
+   - Case-study carousel: wrapped in a labelled box for clear context.
+   - §03 Involve: bigger 01/02/03 number, L-brackets sit OUTSIDE the
+     active card (no overlap into right-side content), media pane gets
+     a darker chrome frame around the GIF.
+   - Centered heading variants for §02, §03, §05, §07.
+   ════════════════════════════════════════════════════════════════════ */
+
+/* ── Plus glyph: plain grey, larger, no chrome ─────────────────── */
+.inv-ask-plus {
+  width: auto;
+  height: auto;
+  background: transparent;
+  border: 0;
+  color: var(--brand-white-50, #eeeeee80);
+}
+
+/* ── Case-study carousel: boxed with a kicker label ───────────── */
+.inv-ask-cases.is-boxed {
+  background: var(--_primitives---opacity--white-5, #ffffff0d);
+  border: 1px solid var(--_primitives---opacity--white-15, #ffffff26);
+  padding: 1.75rem 1.75rem 1.5rem;
+}
+/* Panel-toggle: the two .inv-ask-cases panels share the same surface
+   styling; only one is visible at a time, driven by the tabs above. */
+.inv-ask-cases[hidden] { display: none !important; }
+
+/* ── Capital-flow diagram panel (shown when "$25K minimum" is selected).
+      Three nodes (You → Shifu → 100 PortCos) connected by arrows; the
+      grid of 100 cells makes the abstract "indirect exposure to every
+      PortCo" claim visually concrete. Uses the site's standard surface
+      tokens (no rounded corners, brand-orange for the active accent). */
+.inv-ask-flow .inv-flow-head {
+  margin-bottom: 1.5rem;
+  max-width: 720px;
+}
+.inv-flow-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.3;
+  color: #fff;
+  letter-spacing: -0.005em;
+}
+.inv-flow-sub {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--paragraph-grey, #eeeeee80);
+}
+/* Horizontal flow. Generous spacing between the three blocks (You /
+   Shifu / 100 PortCos) so each reads as its own beat, with long arrows
+   carrying the eye from one to the next — matches the sketch where
+   the blocks breathe with clear space around them. */
+.inv-flow-diagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1.75rem 0.5rem;
+  flex-wrap: nowrap;
+}
+.inv-flow-node {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  padding: 1.5rem 1.25rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  text-align: center;
+  min-height: 100px;
+  min-width: 160px;
+}
+.inv-flow-node-value {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: -0.005em;
+  line-height: 1.2;
+}
+.inv-flow-shifu {
+  background: rgba(245, 110, 56, 0.06);
+  border-color: rgba(245, 110, 56, 0.55);
+}
+.inv-flow-shifu-logo {
+  width: 110px;
+  height: auto;
+  display: block;
+}
+.inv-flow-arrow {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.375rem;
+  color: rgba(255, 255, 255, 0.4);
+  width: 140px;
+}
+.inv-flow-arrow-label {
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.inv-flow-arrow-svg {
+  width: 100%;
+  height: 8px;
+}
+.inv-flow-portcos {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.625rem;
+}
+/* Subtle bordered chrome around the 5-cell fractional row + 90-cell
+   grid so the right side reads as one cohesive "100 PortCos" block. */
+.inv-flow-portcos-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+}
+/* Top row: 5 fractional pillars (CMO / CRO / CPO / CHRO / CFO).
+   Wider than the cells below + brighter orange so they read as
+   "these five are special" while still belonging to the 100 set. */
+.inv-flow-fractional-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 4px;
+  width: 256px;
+}
+.inv-flow-fractional-cell {
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Figtree', sans-serif;
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: #fff;
+  text-transform: uppercase;
+  background: rgba(245, 110, 56, 0.06);
+  border: 1px solid rgba(245, 110, 56, 0.55);
+  line-height: 1;
+}
+/* 90 cells = 10 cols × 9 rows. Clean symmetric grid (no leftover
+   partial row); represents the 90 future PortCos behind the 5 visible
+   fractional pillars above. Each cell has a small orange inset square
+   — the "you own a fraction of every PortCo" tell. Cells now 22×22
+   so the PL + CMF logos in the first two slots are recognisable. */
+.inv-flow-portcos-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 22px);
+  grid-template-rows: repeat(9, 22px);
+  gap: 4px;
+  justify-content: start;
+}
+.inv-flow-portcos-cell {
+  width: 22px;
+  height: 22px;
+  background: rgba(20, 20, 20, 1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  position: relative;
+}
+.inv-flow-portcos-cell::after {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  background: rgba(245, 110, 56, 0.22);
+}
+/* First two cells render real Photon Legal + CMF logos so the grid
+   reads as "these are actual PortCos, the rest are slots we're filling
+   over the next 100". Same dark fill as the standard cells — the logo
+   itself is the only distinguishing mark. */
+.inv-flow-portcos-cell.is-pl,
+.inv-flow-portcos-cell.is-cmf {
+  background-color: rgba(20, 20, 20, 1);
+  background-size: 78% auto;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.inv-flow-portcos-cell.is-pl {
+  background-image: url('https://cdn.prod.website-files.com/68aff49a2d99cde3f08d8936/68c6b2f88a596f31bd92b6c4_98dd3ba5fb5b7bf4e229f2289c6c5a79_Photon%20Legal%201%20%281%29.webp');
+}
+.inv-flow-portcos-cell.is-cmf {
+  background-image: url('../images/Frame-2085665473.avif');
+}
+.inv-flow-portcos-cell.is-pl::after,
+.inv-flow-portcos-cell.is-cmf::after {
+  display: none;
+}
+/* Label sits BELOW the chrome (per the sketch). */
+.inv-flow-portcos-label {
+  font-size: 0.6875rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--_primitives---colors--brand-orange);
+  margin-top: 0.25rem;
+}
+
+/* Mobile: stack diagram vertically. */
+@media screen and (max-width: 767px) {
+  .inv-flow-diagram {
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.25rem 0;
+  }
+  .inv-flow-arrow {
+    flex-direction: row;
+    width: auto;
+    gap: 0.5rem;
+  }
+  .inv-flow-arrow-svg {
+    transform: rotate(90deg);
+    width: 24px;
+    height: 24px;
+  }
+}
+.inv-ask-cases-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--_primitives---colors--brand-orange);
+}
+.inv-ask-cases-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--_primitives---colors--brand-orange);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* ── Centered header modifier — applies to all section-header
+      wrappers used on the page (3 different markup patterns). ──── */
+.section-tabs-header.is-center {
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  text-align: center;
+}
+.section-tabs-header.is-center > * { width: 100%; }
+.inv-long-game-text.is-center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  max-width: 43.4375rem;
+}
+.section-header.is-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.section-header.is-center > * {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ── §03 Involve: bigger 01/02/03 numbers ──────────────────────── */
+.inv-involve-num {
+  font-size: 1.625rem;        /* ~26px (was 12) */
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--brand-white-50, #eeeeee80);
+  line-height: 1;
+  min-width: 2.25rem;
+  padding-top: 0.125rem;
+}
+.inv-involve-item.is-active .inv-involve-num {
+  color: var(--_primitives---colors--brand-orange);
+}
+
+/* ── §03 Involve: L-bracket frame hugs the active card corners.
+      bg extends -8px beyond the item; brackets are 12×12, so they sit
+      just outside the corner with arms reaching slightly inward into
+      the card's padding gutter. */
+.inv-involve-item .focused-bg {
+  inset: -8px;
+  width: auto;       /* override `width:100%` from the generic .focused-bg rule */
+  height: auto;
+}
+.inv-involve-item .focused-icon {
+  width: 12px;
+  height: 12px;
+}
+
+/* ── §03 Involve: media pane chrome — "viewer" treatment.
+      Outer surface is dark grey (deeper than the card surface so the
+      pane visually recedes); subtle inner hairline separates the
+      chrome from the actual content. Generous padding gives the
+      content room to breathe so it doesn't look pasted on. */
+.inv-involve-media {
+  background: #161616;
+  border: 1px solid var(--_primitives---opacity--white-15);
+  padding: 12px;
+  display: grid;
+  grid-template-areas: "stack";
+}
+.inv-involve-pane {
+  position: relative;
+  inset: auto;
+  grid-area: stack;
+  width: 100%;
+  height: 100%;
+  background: #0d0d0d;
+  border: 1px solid var(--_primitives---opacity--white-10);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.inv-involve-pane.is-active { z-index: 1; }
+.inv-involve-img,
+.inv-involve-video,
+.inv-involve-placeholder {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.inv-involve-img { object-position: center top; }
+@media screen and (max-width: 767px) {
+  .inv-involve-media { padding: 9px; }
+}
+
+/* ── Mobile tweaks for refinements ─────────────────────────────── */
+@media screen and (max-width: 767px) {
+  .inv-ask-plus svg { width: 32px; height: 32px; }
+  .inv-ask-cases.is-boxed { padding: 1.25rem 1.25rem 1rem; }
+  .inv-ask-cases-kicker { font-size: 0.6875rem; letter-spacing: 0.12em; margin-bottom: 1rem; }
+  .inv-involve-num { font-size: 1.375rem; min-width: 1.875rem; }
+  .inv-involve-media { padding: 6px; }
+}
+@media screen and (max-width: 479px) {
+  .inv-ask-plus svg { width: 28px; height: 28px; }
+  .inv-involve-num { font-size: 1.25rem; }
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   §01 BENTO — full-width toggle (sits above the mosaic with 8px gap,
+   matches the mosaic's grid gap so it reads as part of the grid). The
+   header h2 + p is now centered (.section-tabs-header.is-center). The
+   row-style header layout (.inv-bento-section-row) is no longer used.
+   ════════════════════════════════════════════════════════════════════ */
+.inv-bento-tabs.is-fullwidth {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  max-width: 26rem;          /* narrowed: was full-width, felt too dominant */
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  background: var(--_primitives---opacity--white-5, #ffffff0d);
+  border: 1px solid var(--_primitives---opacity--white-15, #ffffff26);
+  border-radius: 0;
+  gap: 0;
+  margin-bottom: 24px;       /* a little air between toggle and mosaic */
+}
+.inv-bento-tabs.is-fullwidth .inv-bento-tab {
+  position: relative;
+  border-radius: 0;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  background: transparent;
+  color: var(--brand-white-75, #eeeeeebf);
+  min-height: 56px;
+  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+.inv-bento-tabs.is-fullwidth .inv-bento-tab:hover { color: #fff; }
+/* Active state — subtle: 10% orange fill + 40% orange inset stroke
+   (overlapping the parent's white-15 border so it reads as an active
+   surface, not a chunky solid orange block). */
+.inv-bento-tabs.is-fullwidth .inv-bento-tab.is-active {
+  background: rgba(245, 110, 56, 0.1);
+  color: #fff;
+  box-shadow: inset 0 0 0 1px rgba(245, 110, 56, 0.45);
+  z-index: 1;
+}
+
+@media screen and (max-width: 479px) {
+  .inv-bento-tabs.is-fullwidth .inv-bento-tab {
+    font-size: 0.9375rem;
+    padding: 0.875rem 1rem;
+    min-height: 48px;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   HERO (investors page) — sized to content + generous padding rather
+   than forced to 100vh. Bottom padding is intentionally large so the
+   hero reads as its own complete section and §01 has clear visual
+   separation; without this gap the hero content and §01 headline pile
+   into the same viewport and feel overwhelming.
+   ════════════════════════════════════════════════════════════════════ */
+.section_header30 .padding-section-large.hero {
+  /* Hero hugs its content. Cap is set just above content + padding
+     (~686px) so on every viewport the section ends right where the
+     content ends — no dead empty band below the video, and §01's
+     heading sits just past the fold on a standard 900px viewport
+     (ready to appear on first scroll). The 92vh floor only matters
+     on viewports shorter than ~760px. */
+  min-height: min(92vh, 700px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 12rem;
+  padding-bottom: 4rem;
+}
+
+.section_header30 + section .padding-section-large {
+  padding-top: 5rem;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   §01 BENTO — logo refresh: drop the white-silhouette filter so brand
+   colors show through. Wrap the colored logo in a light, on-brand plate
+   so it reads clearly against the dark card. (Padding on the <img>
+   itself with background — no extra wrapper needed.)
+   ════════════════════════════════════════════════════════════════════ */
+.inv-bento-logo {
+  filter: none;
+  opacity: 1;
+  background: transparent;
+  box-sizing: border-box;
+  padding: 0;
+  border-radius: 0;
+  display: block;
+}
+.inv-bento-card:hover .inv-bento-logo { opacity: 1; }
+
+/* Per-size logo plate sizes (slightly bigger so the actual brand mark
+   has room inside the plate). */
+.inv-bento-card.is-a .inv-bento-logo { max-height: 32px; max-width: 140px; }
+.inv-bento-card.is-b .inv-bento-logo { max-height: 28px; max-width: 120px; }
+.inv-bento-card.is-c .inv-bento-logo { max-height: 24px; max-width: 100px; }
+@media screen and (max-width: 479px) {
+  .inv-bento-card.is-a .inv-bento-logo,
+  .inv-bento-card.is-b .inv-bento-logo,
+  .inv-bento-card.is-c .inv-bento-logo { max-height: 22px; max-width: 90px; }
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   §05 LONG-GAME FIT — settings-table treatment
+   ────────────────────────────────────────────────────────────────────
+   3-column comparison: row label | "fit" column | "not fit" column.
+   Reads like a settings / preferences table. No bullets — the rows
+   themselves do the categorical work. The fit column gets a subtle
+   orange accent on the header to signal the positive side.
+   ════════════════════════════════════════════════════════════════════ */
+
+/* Subhead — keep tight (2 lines on desktop) by capping width. */
+.inv-long-game-text.is-center .inv-long-game-sub {
+  max-width: 38rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Table grid. display:contents on row wrappers lets the cells flow
+   into the outer 3-col grid so we get a real table rhythm.
+
+   Redesign intent (this table is one of the page's hero blocks):
+   • Left column is just a thin TEXT GUTTER for row labels — no
+     background, no border, no column-block feeling. The labels sit
+     flush in the leftmost grid cell like a sidebar caption.
+   • The Built-for column is the HERO: orange-wrapped, biggest type,
+     full white. Brand-orange edges + tinted bg make it pop.
+   • The Not-fit column is in clear visual demotion: smaller type,
+     ghost-grey colour, no accent.
+   • The contrast between the two opinion columns is what makes the
+     row skimmable in one beat: "Think in years…" vs "Need short-
+     term liquidity" — instantly readable as fit / not-fit. */
+.inv-fit-table {
+  display: grid;
+  /* Built-for and Not-fit are now EQUAL-WIDTH (1fr each) so the
+     comparison reads on a balanced left/right axis. The table is
+     capped at ~1040px and centred within the section container so it
+     doesn't span the full content width — row separators stop where
+     the Not-fit column ends instead of running to the page edge. */
+  grid-template-columns: 140px minmax(0, 1fr) minmax(0, 1fr);
+  max-width: 1040px;
+  margin: 0 auto;
+  border: 0;
+  background: transparent;
+}
+.inv-fit-table-head,
+.inv-fit-table-row { display: contents; }
+
+/* Base cell rhythm; per-column variants below override. */
+.inv-fit-cell-head,
+.inv-fit-cell-label,
+.inv-fit-cell {
+  padding: 1.5rem 1.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  display: flex;
+  align-items: center;
+  min-height: 88px;
+  line-height: 1.4;
+}
+
+/* Header row — empty label cell, small kicker on Built-for and Not-
+   fit. The Built-for header is brand-orange and carries the TOP +
+   L/R of the column-wrap border. */
+.inv-fit-cell-head {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand-white-50, #eeeeee80);
+  background: transparent;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  min-height: 52px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+.inv-fit-cell-head.label {
+  background: transparent;
+  /* No left padding — the row label below sits flush at the table's
+     left edge, treated as caption text not a column block. */
+  padding-left: 0;
+}
+.inv-fit-cell-head.fit {
+  position: relative;
+  color: var(--_primitives---colors--brand-orange);
+  font-size: 0.8125rem;
+  letter-spacing: 0.16em;
+  background: rgba(255, 255, 255, 0.04);
+}
+.inv-fit-cell-head.no {
+  color: var(--brand-white-50);
+  font-size: 0.8125rem;
+  letter-spacing: 0.16em;
+}
+
+/* Row label — naked text in the left gutter. No background, no
+   border, no padding-left. Reads as a caption attached to the row
+   on its right, not a separate "cell". */
+.inv-fit-cell-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.38);
+  background: transparent;
+  border-right: 0;
+  padding-left: 0;
+  padding-right: 1.5rem;
+}
+
+/* Built-for content cells = the hero column. Big type, bright white,
+   subtle orange-tinted bg. The column is framed by L-bracket corner
+   accents at its four outer corners (defined further below) instead
+   of a continuous border. */
+.inv-fit-cell {
+  font-size: 1rem;
+}
+.inv-fit-cell.fit {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.005em;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* Not-the-right-fit cells. Same TYPE SIZE as Built-for so both
+   statements read at the same scale — the contrast comes from
+   colour + weight, not size. */
+.inv-fit-cell.no {
+  color: rgba(255, 255, 255, 0.34);
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* No bottom border on the last data row. */
+.inv-fit-table-row:last-child .inv-fit-cell-label,
+.inv-fit-table-row:last-child .inv-fit-cell {
+  border-bottom: 0;
+}
+
+/* Last row of the Built-for column anchors the bottom L-bracket corners
+   — gets position:relative so the corner pseudo-elements below can
+   absolutely position themselves against it. */
+.inv-fit-table-row:last-child .inv-fit-cell.fit {
+  position: relative;
+}
+
+/* L-bracket corner accents at the four outer corners of the Built-for
+   column. Matches the §03 Involve active-card pattern — orange L-arms
+   sit outside the cell at -8px, with 2px strokes (same visual weight
+   as the §03 SVG brackets). 16px arm length, sides intentionally open. */
+.inv-fit-cell-head.fit::before,
+.inv-fit-cell-head.fit::after,
+.inv-fit-table-row:last-child .inv-fit-cell.fit::before,
+.inv-fit-table-row:last-child .inv-fit-cell.fit::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--_primitives---colors--brand-orange);
+  pointer-events: none;
+  z-index: 1;
+}
+.inv-fit-cell-head.fit::before {
+  top: -8px; left: -8px;
+  border-right: 0; border-bottom: 0;
+}
+.inv-fit-cell-head.fit::after {
+  top: -8px; right: -8px;
+  border-left: 0; border-bottom: 0;
+}
+.inv-fit-table-row:last-child .inv-fit-cell.fit::before {
+  bottom: -8px; left: -8px;
+  border-right: 0; border-top: 0;
+}
+.inv-fit-table-row:last-child .inv-fit-cell.fit::after {
+  bottom: -8px; right: -8px;
+  border-left: 0; border-top: 0;
+}
+
+/* Tablet ≤991: keep table layout but trim widths. */
+@media screen and (max-width: 991px) {
+  .inv-fit-table {
+    grid-template-columns: minmax(7rem, 0.7fr) minmax(0, 1.8fr) minmax(0, 1.1fr);
+  }
+  .inv-fit-cell-head,
+  .inv-fit-cell-label,
+  .inv-fit-cell {
+    padding: 1rem 1.125rem;
+    min-height: 68px;
+  }
+  .inv-fit-cell.fit { font-size: 1rem; }
+  .inv-fit-cell.no  { font-size: 1rem; }
+}
+
+/* Mobile ≤767: stack rows. Each row becomes label / fit / not-fit
+   stacked vertically inside its own card. Header row hidden — the
+   per-cell sub-labels ("Built for…" / "Not the right fit…") carry
+   the column meaning in stacked form. */
+@media screen and (max-width: 767px) {
+  .inv-fit-table {
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+    border: 0;
+  }
+  .inv-fit-table-head { display: none; }
+  .inv-fit-table-row {
+    display: flex;
+    flex-direction: column;
+    background: var(--_primitives---opacity--white-5);
+    border: 1px solid var(--_primitives---opacity--white-15);
+    margin-bottom: 0.75rem;
+  }
+  .inv-fit-cell-label,
+  .inv-fit-cell {
+    border-right: 0;
+    border-bottom: 1px solid var(--_primitives---opacity--white-10);
+    padding: 0.875rem 1.125rem;
+    min-height: 0;
+    background: transparent;
+  }
+  .inv-fit-cell:last-child { border-bottom: 0; }
+  /* Add column kicker prefix on mobile so meaning is preserved. */
+  .inv-fit-cell.fit::before,
+  .inv-fit-cell.no::before {
+    content: attr(data-prefix);
+    display: block;
+    font-size: 0.625rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+  }
+  .inv-fit-cell.fit::before { color: var(--_primitives---colors--brand-orange); content: "Built for you if you"; }
+  .inv-fit-cell.no::before  { color: var(--brand-white-50); content: "Not the right fit if you"; }
+  .inv-fit-cell.fit,
+  .inv-fit-cell.no {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Override the prior 2-col .inv-long-game grid (was: text-left + cards-right
+   for the side-by-side fit cards). The new structure is a vertical stack:
+   centered header → spacer → 3-column comparison table. */
+.inv-long-game {
+  display: block;
+  grid-template-columns: none;
+  gap: 0;
+}
+
+/* ============================================================
+   §02 SRI'S JOURNEY
+   Scroll-pinned timeline. The whole .sri-journey-stage gets
+   pinned via ScrollTrigger; JS writes --sri-progress (0..1) onto
+   the stage as the user scrolls. Line / fill / avatar / dots
+   ALL share one coordinate system: top: calc(PAD + (100% - 2*PAD)
+   * f), where f ∈ {progress, 0, 0.25, 0.5, 0.75, 1}. This is
+   how the avatar lands exactly on the active dot.
+   ============================================================ */
+[data-sri-journey] {
+  position: relative;
+}
+
+/* Webflow's .text-size-medium ships with a hard-coded width: 506px which
+   pins the subheading paragraph to that width — so even with the wrapper
+   centered and text-align-center applied, the paragraph itself doesn't
+   stretch to its parent and reads as left-aligned. Override that width
+   inside this section so the subheading actually centers under the h2. */
+[data-sri-journey] .section-header.is-center .text-size-medium {
+  width: 100%;
+  max-width: 38rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.sri-journey-stage {
+  --sri-progress: 0;
+  --sri-avatar: 0;
+  --sri-rail-pad: 40px;
+  display: grid;
+  grid-template-columns: minmax(240px, 320px) 1fr;
+  gap: 64px;
+  align-items: stretch;
+  min-height: 72vh;
+}
+
+/* Left rail — unified coordinate system */
+.sri-rail {
+  position: relative;
+  min-height: 540px;
+}
+
+.sri-rail-line {
+  position: absolute;
+  left: 28px;
+  top: var(--sri-rail-pad);
+  bottom: var(--sri-rail-pad);
+  width: 2px;
+  /* Slightly softer line — reads as a "future track" rather than a wire */
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 1px;
+  z-index: 1;
+}
+
+.sri-rail-fill {
+  position: absolute;
+  left: 28px;
+  top: var(--sri-rail-pad);
+  height: calc((100% - var(--sri-rail-pad) * 2) * var(--sri-progress));
+  /* Match the avatar's slide-to-next-milestone curve so the fill grows
+     and the avatar both arrive at the same dot at the same time. */
+  transition: height 0.72s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 2px;
+  /* Subtle vertical sheen on the fill — top is nearly the brand orange,
+     bottom fades to a deeper variant. Reads as light running down a wire. */
+  background: linear-gradient(
+    to bottom,
+    rgba(245, 110, 56, 0.7) 0%,
+    var(--_primitives---colors--brand-orange) 40%,
+    var(--_primitives---colors--brand-orange) 100%
+  );
+  border-radius: 1px;
+  /* Faint orange halo around the lit part of the line */
+  box-shadow: 0 0 10px rgba(245, 110, 56, 0.25);
+  z-index: 2;
+}
+
+.sri-rail-avatar {
+  position: absolute;
+  left: 29px;
+  top: var(--sri-rail-pad);
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 64px;
+  z-index: 4;
+  /* Slower, ease-out-expo curve for a more luxurious arrival on each
+     stop — the avatar coasts to its target instead of snapping. */
+  transition: top 0.72s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: top;
+}
+
+/* Single mode: one link covers the full container; its <img> child
+   provides the circular clip + outer ring (so the link itself can let
+   the hover tooltip overflow). */
+.sri-rail-avatar-link {
+  position: absolute;
+  inset: 0;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+.sri-rail-avatar-link img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #0a0a0a;
+  box-shadow: 0 0 0 6px #050505;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.2s ease;
+}
+.sri-rail-avatar-link.is-secondary { display: none; }
+.sri-rail-avatar-link:hover img { transform: scale(1.05); }
+
+/* Duo state — from milestone 3 (BSY) onward Prateek joins Sri on the
+   rail. Two smaller circles (36px) sit side-by-side with a slight
+   overlap so the duo reads as one unit but with both faces visible. */
+.sri-rail-avatar.has-duo { width: 64px; height: 36px; }
+.sri-rail-avatar.has-duo .sri-rail-avatar-link {
+  width: 36px;
+  height: 36px;
+  inset: auto;
+  top: 0;
+}
+.sri-rail-avatar.has-duo .sri-rail-avatar-link img {
+  box-shadow: 0 0 0 3px #050505;
+}
+.sri-rail-avatar.has-duo .sri-rail-avatar-link.is-primary { left: 0; z-index: 1; }
+.sri-rail-avatar.has-duo .sri-rail-avatar-link.is-secondary {
+  display: block;
+  right: 0;
+  z-index: 2;
+}
+
+/* Hover tooltip — sits above the avatar with a small connecting arrow
+   pointing down at the photo. Site design language: dark surface, hair-
+   line border, brand-orange CTA divider. Hidden until the parent link
+   is hovered or focused. */
+.sri-rail-tooltip {
+  position: absolute;
+  bottom: calc(100% + 14px);
+  left: 50%;
+  transform: translate(-50%, 4px);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 16px;
+  min-width: 180px;
+  background: rgba(15, 15, 15, 0.97);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 50;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  white-space: nowrap;
+  font-family: 'Figtree', sans-serif;
+}
+.sri-rail-tooltip::after {
+  /* Down-pointing arrow connecting tooltip to the avatar. */
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: rgba(15, 15, 15, 0.97);
+}
+/* Invisible bridge across the 14px gap between the tooltip and the
+   avatar — keeps the link's :hover state alive when the cursor
+   travels from one to the other (otherwise the tooltip vanishes
+   mid-traversal). Only captures events when the tooltip itself is
+   interactive (pointer-events: auto on hover). */
+.sri-rail-tooltip::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 18px;
+}
+.sri-rail-tooltip-name {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1.2;
+}
+.sri-rail-tooltip-role {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 6px;
+}
+.sri-rail-tooltip-cta {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--_primitives---colors--brand-orange);
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.sri-rail-avatar-link:hover .sri-rail-tooltip,
+.sri-rail-avatar-link:focus-visible .sri-rail-tooltip {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+}
+
+.sri-rail-stop {
+  position: absolute;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding-left: 64px;
+  z-index: 3;
+}
+
+.sri-rail-stop[data-sri-stop="0"] { top: calc(var(--sri-rail-pad) + (100% - var(--sri-rail-pad) * 2) * 0); }
+.sri-rail-stop[data-sri-stop="1"] { top: calc(var(--sri-rail-pad) + (100% - var(--sri-rail-pad) * 2) * 0.25); }
+.sri-rail-stop[data-sri-stop="2"] { top: calc(var(--sri-rail-pad) + (100% - var(--sri-rail-pad) * 2) * 0.5); }
+.sri-rail-stop[data-sri-stop="3"] { top: calc(var(--sri-rail-pad) + (100% - var(--sri-rail-pad) * 2) * 0.75); }
+.sri-rail-stop[data-sri-stop="4"] { top: calc(var(--sri-rail-pad) + (100% - var(--sri-rail-pad) * 2) * 1); }
+
+/* Dot base — sized at 14px so its centre always sits on the rail line
+   at x=29. State variants below use transform:scale() to change visual
+   size without shifting the centre off the line. */
+.sri-rail-dot {
+  position: absolute;
+  left: 22px;
+  top: 50%;
+  /* No CSS transition on the dot — ScrollTrigger's scrub flips classes
+     several times during a single scroll, and chained class transitions
+     get stuck in a queued state on Chrome (Web Animation API reports
+     currentTime: 0 forever and the final value never applies). Snapping
+     state changes IS correct visually here; the avatar's slow glide
+     between stops carries all the premium motion in the section. */
+  transform: translate(0, -50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
+  box-sizing: border-box;
+}
+
+/* ── Future stops (ahead of the avatar) ────────────────────────────
+   Small, hollow, dim. They read as "track waiting to be lit".
+   width/height shrink to 10px but `left` shifts in to keep the dot
+   centred on the rail line (always at x=29). */
+.sri-rail-stop.is-future .sri-rail-dot {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.18);
+  width: 10px;
+  height: 10px;
+  left: 24px;
+}
+
+/* ── Passed stops (avatar has already gone through) ────────────────
+   Filled orange with a soft outer halo — visually "checked off".
+   12px so the active stop still feels biggest. */
+.sri-rail-stop.is-passed .sri-rail-dot {
+  background: var(--_primitives---colors--brand-orange);
+  border-color: var(--_primitives---colors--brand-orange);
+  width: 12px;
+  height: 12px;
+  left: 23px;
+  box-shadow: 0 0 0 4px rgba(245, 110, 56, 0.08);
+}
+
+/* ── Active stop (currently under the avatar) ──────────────────────
+   Full size, filled orange. Mostly hidden by the avatar but the
+   strong fill prevents any "empty dot" flash during the transition. */
+.sri-rail-stop.is-active .sri-rail-dot {
+  background: var(--_primitives---colors--brand-orange);
+  border-color: var(--_primitives---colors--brand-orange);
+  width: 14px;
+  height: 14px;
+  left: 22px;
+}
+
+/* The text wrapper carries the state's fill — soft grey on passed
+   (visited but not current), orange on active (currently here).
+   No border-radius: the squared edges echo the section-tabs / bento
+   pattern across the rest of the page. */
+.sri-rail-stop-text {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 9px 14px;
+  border-radius: 0;
+  background: transparent;
+}
+
+.sri-rail-stop.is-passed .sri-rail-stop-text {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.sri-rail-stop.is-active .sri-rail-stop-text {
+  background: rgba(245, 110, 56, 0.1);
+}
+
+.sri-rail-stop-year {
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-family: 'Figtree', sans-serif;
+  font-weight: 500;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.32);
+  /* No transition — same scrub-induced "stuck transition" issue as the
+     dot. Colour snaps when state class changes. */
+}
+
+.sri-rail-stop-title {
+  font-size: 1.18rem;
+  line-height: 1.2;
+  font-family: 'Figtree', sans-serif;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Selected stops (active + passed) read slightly larger so the rail's
+   visited section feels weightier than the future one. Capped well
+   below the slide title size so the rail never competes with the
+   right-hand pane. */
+.sri-rail-stop.is-active .sri-rail-stop-year   { font-size: 0.9rem; }
+.sri-rail-stop.is-active .sri-rail-stop-title  { font-size: 1.28rem; }
+.sri-rail-stop.is-passed .sri-rail-stop-title  { font-size: 1.22rem; }
+
+/* Future text — dimmest tier (waiting). */
+.sri-rail-stop.is-future .sri-rail-stop-year   { color: rgba(255, 255, 255, 0.3); }
+.sri-rail-stop.is-future .sri-rail-stop-title  { color: rgba(255, 255, 255, 0.38); }
+
+/* Passed text — middle tier (visited). Year picks up an orange tint
+   to echo the filled dot, title brightens but isn't pure white. */
+.sri-rail-stop.is-passed .sri-rail-stop-year   { color: rgba(245, 110, 56, 0.65); }
+.sri-rail-stop.is-passed .sri-rail-stop-title  { color: rgba(255, 255, 255, 0.78); }
+
+/* Active text — brightest tier. */
+.sri-rail-stop.is-active .sri-rail-stop-year { color: var(--_primitives---colors--brand-orange); }
+.sri-rail-stop.is-active .sri-rail-stop-title { color: #ffffff; }
+
+/* Right stage — overlaid slides. align-items + justify-items: center
+   on the grid stack vertically centres each slide's content block in
+   the pinned stage height, so the slide's midpoint always sits at the
+   stage's midpoint regardless of how tall the slide is. */
+.sri-slides {
+  position: relative;
+  display: grid;
+  grid-template-areas: "stack";
+  align-items: center;
+  justify-items: stretch;
+  min-height: 540px;
+}
+
+.sri-slide {
+  grid-area: stack;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity 0.55s ease, transform 0.55s ease, visibility 0s linear 0.55s;
+  pointer-events: none;
+}
+
+.sri-slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+  transition: opacity 0.55s ease, transform 0.55s ease, visibility 0s linear 0s;
+}
+
+.sri-slide-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sri-slide-title {
+  margin: 0;
+  color: #ffffff;
+  font-family: 'Figtree', sans-serif;
+  font-size: clamp(1.6rem, 2.4vw, 2.15rem);
+  line-height: 1.2;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  /* No artificial max-width clamp — the parent .sri-slide already has
+     a comfortable width (slides column in the stage grid). Letting the
+     title flow the full pane width prevents the cramped 60%-look the
+     short max-width was creating. */
+  max-width: none;
+}
+
+.sri-slide-body {
+  color: var(--paragraph-grey, rgba(255, 255, 255, 0.68));
+  font-family: 'Figtree', sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  /* Body can run wider too — long-form reads better at ~70ch than the
+     previous ~54ch, and lines up with the wider title above. */
+  max-width: 72ch;
+  margin: 0;
+}
+
+.sri-slide-media {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 6px;
+}
+
+/* BSY slide uses a single full-width video tile instead of the
+   default two-photo grid. */
+.sri-slide-media.is-video {
+  grid-template-columns: 1fr;
+}
+
+.sri-video-frame {
+  aspect-ratio: 2 / 1;
+  background: #000;
+  border: 0;
+  border-radius: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Two stacked <video> elements crossfade for seamless transitions
+   between clips. While one plays the other is preloaded with the
+   next source so playback never has to wait on network. */
+.sri-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 280ms ease;
+  pointer-events: none;
+  background: #000;
+}
+.sri-video.is-active { opacity: 1; }
+
+/* Same viewfinder L-bracket corners as the photo placeholders so
+   the video tile shares the section's visual language. */
+.sri-video-frame::before {
+  --c: rgba(255, 255, 255, 0.2);
+  --len: 18px;
+  --thick: 1px;
+  content: "";
+  position: absolute;
+  inset: 16px;
+  pointer-events: none;
+  background:
+    linear-gradient(var(--c), var(--c)) top    left  / var(--len) var(--thick) no-repeat,
+    linear-gradient(var(--c), var(--c)) top    left  / var(--thick) var(--len) no-repeat,
+    linear-gradient(var(--c), var(--c)) top    right / var(--len) var(--thick) no-repeat,
+    linear-gradient(var(--c), var(--c)) top    right / var(--thick) var(--len) no-repeat,
+    linear-gradient(var(--c), var(--c)) bottom left  / var(--len) var(--thick) no-repeat,
+    linear-gradient(var(--c), var(--c)) bottom left  / var(--thick) var(--len) no-repeat,
+    linear-gradient(var(--c), var(--c)) bottom right / var(--len) var(--thick) no-repeat,
+    linear-gradient(var(--c), var(--c)) bottom right / var(--thick) var(--len) no-repeat;
+}
+
+/* Centered orange-ringed play affordance. */
+.sri-video-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(245, 110, 56, 0.14);
+  border: 1px solid rgba(245, 110, 56, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--_primitives---colors--brand-orange);
+  pointer-events: none;
+}
+.sri-video-play svg { margin-left: 3px; }
+
+.sri-video-frame .sri-photo-label {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  color: rgba(255, 255, 255, 0.42);
+  font-family: 'Figtree', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  z-index: 1;
+}
+
+.sri-photo {
+  aspect-ratio: 4 / 3;
+  background:
+    radial-gradient(
+      ellipse at 50% 100%,
+      rgba(255, 255, 255, 0.025) 0%,
+      transparent 60%
+    ),
+    #141414;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Viewfinder L-brackets in all 4 corners — echoes the brand's L-bracket
+   "focus" pattern at a much subtler weight, so the placeholder reads as
+   "frame waiting for a photo" rather than an empty box. */
+.sri-photo::before {
+  --c: rgba(255, 255, 255, 0.2);
+  --len: 18px;
+  --thick: 1px;
+  content: "";
+  position: absolute;
+  inset: 16px;
+  pointer-events: none;
+  background:
+    linear-gradient(var(--c), var(--c)) top    left  / var(--len) var(--thick) no-repeat,
+    linear-gradient(var(--c), var(--c)) top    left  / var(--thick) var(--len) no-repeat,
+    linear-gradient(var(--c), var(--c)) top    right / var(--len) var(--thick) no-repeat,
+    linear-gradient(var(--c), var(--c)) top    right / var(--thick) var(--len) no-repeat,
+    linear-gradient(var(--c), var(--c)) bottom left  / var(--len) var(--thick) no-repeat,
+    linear-gradient(var(--c), var(--c)) bottom left  / var(--thick) var(--len) no-repeat,
+    linear-gradient(var(--c), var(--c)) bottom right / var(--len) var(--thick) no-repeat,
+    linear-gradient(var(--c), var(--c)) bottom right / var(--thick) var(--len) no-repeat;
+}
+
+/* Centered "image" icon — replaces the plain plus sign with a refined
+   image-frame glyph so the placeholder reads as "photo coming". */
+.sri-photo::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-opacity='0.22' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='3' width='18' height='18' rx='2'/><circle cx='8.5' cy='8.5' r='1.5'/><path d='M21 15l-5-5L5 21'/></svg>");
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+.sri-photo-label {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  color: rgba(255, 255, 255, 0.42);
+  font-family: 'Figtree', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  z-index: 1;
+}
+
+/* When a real photo is dropped into the placeholder, the image fills
+   the frame and we hide all the empty-state affordances (corner
+   L-brackets, image-icon, the "Photo · …" caption). */
+.sri-photo:has(img) { background: #0a0a0a; }
+.sri-photo:has(img)::before,
+.sri-photo:has(img)::after { display: none; }
+.sri-photo:has(img) .sri-photo-label { display: none; }
+.sri-photo > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: inherit;
+}
+
+.sri-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 10px;
+}
+
+/* Metric card: thin orange accent stripe across the top, then a big
+   number and an UPPERCASE tracked label below. The stripe ties the
+   metric block to the brand-orange column treatment used on the fit
+   table without flooding the card itself with orange. */
+.sri-metric {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0;
+  padding: 22px 22px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* (Removed the previous ::before orange top-stripe — the metric cards
+   read cleaner without it.) */
+
+.sri-metric-num {
+  color: var(--_primitives---colors--brand-orange);
+  font-family: 'Figtree', sans-serif;
+  font-size: 2.25rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.sri-metric-label {
+  color: rgba(255, 255, 255, 0.58);
+  font-family: 'Figtree', sans-serif;
+  font-size: 0.72rem;
+  line-height: 1.35;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   MOBILE-ONLY badge that sits above each slide on phones. Hidden on
+   desktop — desktop carries the year/title in the left rail instead.
+   ════════════════════════════════════════════════════════════════ */
+.sri-slide-badge { display: none; }
+
+/* ════════════════════════════════════════════════════════════════
+   MOBILE-ONLY sticky horizontal timeline. Hidden on desktop.
+   The dot row + the connecting line live inside a relative-positioned
+   inner wrapper; the OUTER wrapper sticks to the top of the viewport
+   while the user scrolls the slide column.
+   ════════════════════════════════════════════════════════════════ */
+.sri-mobile-track { display: none; }
+
+/* ════════════════════════════════════════════════════════════════
+   ≤991px — Phones & tablets in portrait.
+   Layout strategy:
+   • Desktop's left rail is hidden.
+   • A sticky horizontal timeline rides the top of the section (the
+     small year dots stay onscreen as the user scrolls through the
+     stacked slides).
+   • Each slide carries a year/title badge so the milestone is
+     anchored even if the sticky strip ever scrolls off (older WebKit).
+   • IntersectionObserver in JS lights the dot that matches whichever
+     slide is currently most visible; tapping a dot smooth-scrolls to
+     the matching slide.
+   ════════════════════════════════════════════════════════════════ */
+@media screen and (max-width: 991px) {
+  .sri-journey-stage {
+    grid-template-columns: 1fr;
+    gap: 0;
+    min-height: 0;
+  }
+  .sri-rail {
+    display: none;
+  }
+
+  /* Sticky timeline strip — visible only here. Solid background so
+     content scrolling underneath doesn't bleed through; a soft scrim
+     fades to transparent BELOW the strip via a ::after pseudo so the
+     boundary between strip and content feels gradual instead of harsh. */
+  .sri-mobile-track {
+    display: block;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: #0a0a0a;
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.06);
+    padding: 14px 20px 16px;
+    margin-bottom: 28px;
+  }
+
+  /* Soft fade below the sticky strip — gives a subtle gradient hand-off
+     between the strip and the slide content underneath as the user
+     scrolls. */
+  .sri-mobile-track::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 18px;
+    background: linear-gradient(to bottom, rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0));
+    pointer-events: none;
+  }
+
+  .sri-mobile-track-inner {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    padding: 0 8px;
+  }
+
+  /* The horizontal track line. Sits behind the dots; pinned to dot 0
+     and dot 4 centres at runtime by JS so it never visibly overshoots
+     either end. */
+  .sri-mobile-track-line {
+    position: absolute;
+    top: 7px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 1px;
+    z-index: 0;
+  }
+
+  /* Orange fill grows left → right as the user progresses through the
+     milestones. JS pegs left/width directly in pixels so the orange
+     line begins precisely under dot 0 and ends precisely under the
+     current active dot. NO CSS transition: the same scrub-restart
+     issue that affected the dot states applies here — width/left
+     transitions get stuck at the queued state. Snap is fine; the
+     orange flag updates as you scroll, no animation needed. */
+  .sri-mobile-track-fill {
+    position: absolute;
+    top: 7px;
+    height: 2px;
+    width: 0;
+    left: 0;
+    background: var(--_primitives---colors--brand-orange);
+    border-radius: 1px;
+    box-shadow: 0 0 8px rgba(245, 110, 56, 0.35);
+    z-index: 1;
+  }
+
+  /* Each dot button. Year label sits underneath. */
+  .sri-mobile-dot {
+    position: relative;
+    z-index: 2;
+    appearance: none;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    color: inherit;
+    font: inherit;
+    /* Bigger hit area than the visible mark for thumbable tapping. */
+    min-height: 44px;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .sri-mobile-dot-mark {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #0a0a0a;
+    border: 1.5px solid rgba(255, 255, 255, 0.22);
+    box-sizing: border-box;
+  }
+
+  .sri-mobile-dot.is-passed .sri-mobile-dot-mark {
+    background: var(--_primitives---colors--brand-orange);
+    border-color: var(--_primitives---colors--brand-orange);
+  }
+
+  .sri-mobile-dot.is-active .sri-mobile-dot-mark {
+    background: var(--_primitives---colors--brand-orange);
+    border-color: var(--_primitives---colors--brand-orange);
+    box-shadow: 0 0 0 4px rgba(245, 110, 56, 0.18);
+  }
+
+  .sri-mobile-dot-year {
+    font-family: 'Figtree', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: rgba(255, 255, 255, 0.45);
+    line-height: 1;
+  }
+
+  .sri-mobile-dot.is-passed .sri-mobile-dot-year {
+    color: rgba(245, 110, 56, 0.72);
+  }
+
+  .sri-mobile-dot.is-active .sri-mobile-dot-year {
+    color: var(--_primitives---colors--brand-orange);
+  }
+
+  /* Slides: all visible, stacked, scroll-into-view targets. */
+  .sri-slides {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    min-height: 0;
+    /* Provide scroll offset so smooth-scroll to a slide lands just
+       below the sticky timeline strip instead of hidden behind it. */
+    scroll-padding-top: 80px;
+  }
+
+  .sri-slide {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    pointer-events: auto;
+    transition: none;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    /* Each slide is a scroll target; offset compensates for sticky. */
+    scroll-margin-top: 80px;
+  }
+
+  /* In-slide badge — small kicker that visually anchors the slide to
+     its milestone even when the sticky strip is scrolled past. */
+  .sri-slide-badge {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 10px;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 2px solid var(--_primitives---colors--brand-orange);
+    margin-bottom: 14px;
+    align-self: flex-start;
+  }
+  .sri-slide-badge-year {
+    color: var(--_primitives---colors--brand-orange);
+    font-family: 'Figtree', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    line-height: 1;
+  }
+  .sri-slide-badge-title {
+    color: rgba(255, 255, 255, 0.85);
+    font-family: 'Figtree', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  /* Title and body — single-column phone friendly sizes. */
+  .sri-slide-title {
+    font-size: 1.45rem;
+    line-height: 1.22;
+    letter-spacing: -0.01em;
+    max-width: none;
+  }
+  .sri-slide-body {
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: none;
+  }
+
+  /* Photo + metric grids collapse a step earlier on this breakpoint. */
+  .sri-slide-media {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 4px;
+  }
+
+  .sri-metrics {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .sri-metric {
+    padding: 16px 14px 14px;
+  }
+  .sri-metric-num {
+    font-size: 1.65rem;
+  }
+  .sri-metric-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+  }
+}
+
+/* ≤767px — phones. Single-column photos + metrics. */
+@media screen and (max-width: 767px) {
+  .sri-mobile-track {
+    padding: 12px 14px 14px;
+    margin-bottom: 22px;
+  }
+  .sri-mobile-track-inner {
+    padding: 0 4px;
+  }
+  .sri-mobile-dot-year {
+    font-size: 0.65rem;
+  }
+  .sri-slide-media {
+    grid-template-columns: 1fr 1fr;
+  }
+  .sri-metrics {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .sri-metric {
+    padding: 14px 16px 12px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 12px;
+    align-items: center;
+  }
+  .sri-metric-num {
+    font-size: 1.65rem;
+  }
+  .sri-slide-title {
+    font-size: 1.35rem;
+  }
+  .sri-slides {
+    gap: 36px;
+  }
+}
+
+/* ≤479px — small phones. Tighten further. */
+@media screen and (max-width: 479px) {
+  .sri-mobile-track {
+    padding: 10px 10px 12px;
+  }
+  .sri-mobile-dot-year {
+    font-size: 0.6rem;
+    letter-spacing: 0.02em;
+  }
+  .sri-mobile-dot-mark {
+    width: 12px;
+    height: 12px;
+  }
+  .sri-mobile-track-line,
+  .sri-mobile-track-fill {
+    top: 6px;
+  }
+  .sri-slide-title {
+    font-size: 1.25rem;
+  }
+  .sri-slide-body {
+    font-size: 0.94rem;
+  }
+  .sri-slide-media {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+
+/* Footer CTA heading ("Back the next 100 AI-first B2B companies.") —
+   slightly larger than the global h3-2 so it carries more weight in the
+   footer; tighter line-height to keep the two-line wrap compact; tighter
+   letter-spacing for a more confident, less airy feel at this size. */
+h2.inv-footer-cta-h {
+  font-size: 1.75rem;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+}

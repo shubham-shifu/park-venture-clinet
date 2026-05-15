@@ -1,0 +1,877 @@
+/* ════════════════════════════════════════════════════════════════
+   About v2 — Journey timeline, Team grid, Hiring grid
+   Scoped exclusively to about.html. Shares design tokens with the
+   investor page (brand-orange, white-15/25/50, L-bracket corners)
+   so the new sections feel like the same family as the rest of the
+   site.
+   ════════════════════════════════════════════════════════════════ */
+
+
+/* ════════════════════════════════════════════════════════════════
+   §01 JOURNEY — 2024 / 2025 / 2026 stepped timeline
+   ════════════════════════════════════════════════════════════════ */
+
+.section-journey-v2 {
+  position: relative;
+  /* Transparent — sit on the body's neutral-darkest like every other section. */
+  background: transparent;
+}
+
+.section-journey-v2 .padding-section-medium {
+  padding-top: 4rem;
+  padding-bottom: 3.5rem;
+}
+
+@media (max-width: 991px) {
+  .section-journey-v2 .padding-section-medium {
+    padding-top: 2.5rem;
+    padding-bottom: 3rem;
+  }
+}
+
+/* Centre the heading so the rail underneath reads as the next, distinct row. */
+.journey-v2-heading-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.journey-v2-heading-wrap .heading-style-h2 {
+  display: inline-block;
+  text-align: center;
+}
+
+
+/* ───── Year rail: pills + connecting progress tracks ───── */
+.journey-v2-rail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.journey-v2-year {
+  appearance: none;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.5rem 1.125rem;
+  margin: 0;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+}
+
+.journey-v2-year:hover {
+  color: rgba(255, 255, 255, 0.85);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.journey-v2-year:focus-visible {
+  outline: 2px solid var(--_primitives---colors--brand-orange, #f56e38);
+  outline-offset: 3px;
+}
+
+/* Past years — same dim treatment as future years. The filled connector
+   track to their right is the only "visited" affordance, keeping the
+   pills minimal and the active year unmistakable. */
+.journey-v2-year.is-passed {
+  color: rgba(255, 255, 255, 0.5);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Active year — solid orange outline + warm tint + bright text.
+   No more diagonal hatching (was too noisy). */
+.journey-v2-year.is-active {
+  color: #fff;
+  border-color: var(--_primitives---colors--brand-orange, #f56e38);
+  background: rgba(245, 110, 56, 0.08);
+}
+
+.journey-v2-year-num { display: inline-block; }
+
+.journey-v2-dot { display: none; }
+
+
+/* Connector track. Default: dim line. Currently-loading track: orange
+   progress bar. Passed (already crossed) track: a muted gray so it
+   reads as "we came from there" without competing with the orange. */
+.journey-v2-track {
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+  min-width: 40px;
+}
+
+.journey-v2-track-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0%;
+  background: var(--_primitives---colors--brand-orange, #f56e38);
+}
+
+.journey-v2-track-fill.is-loading {
+  animation: journeyV2Progress var(--journey-progress-ms, 8000ms) linear forwards;
+  box-shadow: 0 0 6px rgba(245, 110, 56, 0.4);
+}
+
+.journey-v2-track-fill.is-passed {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.22);
+  box-shadow: none;
+}
+
+@keyframes journeyV2Progress {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+
+
+/* ───── Deck (content card) ───── */
+.journey-v2-deck {
+  position: relative;
+  margin-top: 2.25rem;
+  padding: 2.5rem 2.5rem 2.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: transparent;
+}
+
+/* Tab notch — a thin orange underline segment on the deck's top
+   border that subtly connects the active year pill to the content
+   below. No chunky triangle; just a refined hairline anchor. JS sets
+   --journey-notch-x to the active year's horizontal centre. */
+.journey-v2-deck-notch {
+  position: absolute;
+  top: -1px;
+  left: var(--journey-notch-x, 14%);
+  transform: translateX(-50%);
+  z-index: 3;
+  width: 28px;
+  height: 2px;
+  pointer-events: none;
+  background: var(--_primitives---colors--brand-orange, #f56e38);
+  transition: left 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Stage — slides stack inside the deck. */
+.journey-v2-stage {
+  position: relative;
+}
+
+.journey-v2-slide {
+  display: none;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.journey-v2-slide.is-active {
+  display: grid;
+}
+
+.journey-v2-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.125rem;
+  max-width: 30rem;
+}
+
+.journey-v2-eyebrow {
+  display: inline-block;
+  color: var(--_primitives---colors--brand-orange, #f56e38);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+}
+
+.journey-v2-heading {
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1.15;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+.journey-v2-body {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  margin: 0;
+  letter-spacing: -0.005em;
+}
+
+.journey-v2-body strong {
+  color: #fff;
+  font-weight: 500;
+}
+
+.journey-v2-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.journey-v2-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 1rem;
+  line-height: 1.55;
+  letter-spacing: -0.005em;
+}
+
+.journey-v2-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6rem;
+  width: 6px;
+  height: 6px;
+  background: var(--_primitives---colors--brand-orange, #f56e38);
+  border-radius: 50%;
+}
+
+.journey-v2-list li strong {
+  color: #fff;
+  font-weight: 500;
+}
+
+
+/* Media frame — L-bracket corners on the photo. */
+.journey-v2-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+}
+
+.journey-v2-frame {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #0a0a0a;
+}
+
+.journey-v2-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.journey-v2-video.is-active {
+  opacity: 1;
+}
+
+/* L-bracket corners on the media frame, brand vocabulary. */
+.journey-v2-corner-tl,
+.journey-v2-corner-tr,
+.journey-v2-corner-bl,
+.journey-v2-corner-br {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+  z-index: 2;
+  border-color: rgba(245, 110, 56, 0.7);
+  border-style: solid;
+}
+
+.journey-v2-corner-tl { top: 10px; left: 10px;  border-width: 1.5px 0 0 1.5px; }
+.journey-v2-corner-tr { top: 10px; right: 10px; border-width: 1.5px 1.5px 0 0; }
+.journey-v2-corner-bl { bottom: 10px; left: 10px;  border-width: 0 0 1.5px 1.5px; }
+.journey-v2-corner-br { bottom: 10px; right: 10px; border-width: 0 1.5px 1.5px 0; }
+
+
+/* Placeholder for years without a video yet. Subtle film-strip
+   grid + play glyph, brand-orange accented. */
+.journey-v2-frame.is-placeholder {
+  background:
+    radial-gradient(circle at 30% 20%, rgba(245, 110, 56, 0.08), transparent 55%),
+    radial-gradient(circle at 75% 80%, rgba(245, 110, 56, 0.05), transparent 60%),
+    #0a0a0a;
+}
+
+.journey-v2-frame.is-placeholder::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-position: center;
+  pointer-events: none;
+}
+
+.journey-v2-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.875rem;
+  color: rgba(255, 255, 255, 0.55);
+  z-index: 1;
+}
+
+.journey-v2-placeholder-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(245, 110, 56, 0.12);
+  border: 1px solid rgba(245, 110, 56, 0.35);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--_primitives---colors--brand-orange, #f56e38);
+}
+
+.journey-v2-placeholder-icon svg { display: block; }
+
+.journey-v2-placeholder-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.42);
+}
+
+
+/* Tablet */
+@media (max-width: 991px) {
+  .journey-v2-slide.is-active {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .journey-v2-heading {
+    font-size: 1.625rem;
+  }
+
+  .journey-v2-text { max-width: 100%; }
+  .journey-v2-media { aspect-ratio: 16 / 10; }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .journey-v2-rail {
+    padding: 0 0.25rem;
+  }
+
+  .journey-v2-year {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.25rem;
+  }
+
+  .journey-v2-heading {
+    font-size: 1.375rem;
+  }
+
+  .journey-v2-body {
+    font-size: 0.9375rem;
+  }
+
+  .journey-v2-list li {
+    font-size: 0.9375rem;
+  }
+
+  .journey-v2-corner-tl,
+  .journey-v2-corner-tr,
+  .journey-v2-corner-bl,
+  .journey-v2-corner-br {
+    width: 16px;
+    height: 16px;
+  }
+  .journey-v2-corner-tl { top: 8px; left: 8px; }
+  .journey-v2-corner-tr { top: 8px; right: 8px; }
+  .journey-v2-corner-bl { bottom: 8px; left: 8px; }
+  .journey-v2-corner-br { bottom: 8px; right: 8px; }
+}
+
+
+/* ════════════════════════════════════════════════════════════════
+   §02 TEAM v2 — calm 4-up grid. Photo on top, identity block below.
+   Name + role + tagline are visually one unit (no overlay text on
+   the photo, no orange L-brackets). LinkedIn icon sits next to the
+   name and brightens on card hover.
+   ════════════════════════════════════════════════════════════════ */
+
+.team-v2-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.75rem 1.5rem;
+}
+
+.team-v2-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: transparent;
+  text-align: left;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.team-v2-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Photo — square, consistent rounded corners across all sources.
+   overflow:hidden + border-radius on the wrapper normalises both the
+   AVIFs (baked-in rounded corners) and the Cloudinary PNGs (full-bleed
+   squares) so every card reads the same. */
+.team-v2-photo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #000;
+  border-radius: 14px;
+}
+
+.team-v2-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  /* Full-colour by default, very slightly dimmed so the grid reads as
+     a cohesive set. Hover lights the photo and zooms in subtly. */
+  filter: brightness(0.88) saturate(1.02);
+  transform: scale(1.001);
+  transition: filter 0.45s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.team-v2-card:hover .team-v2-photo img,
+.team-v2-card:focus-within .team-v2-photo img {
+  filter: brightness(1) saturate(1.06);
+  transform: scale(1.045);
+}
+
+.team-v2-card:hover .team-v2-photo img,
+.team-v2-card:focus-within .team-v2-photo img {
+  filter: grayscale(0%) contrast(1);
+}
+
+/* Identity block — name + LinkedIn share a row, role + tagline stack
+   below. The whole block reads as one connected unit. */
+.team-v2-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.team-v2-name {
+  color: #fff;
+  font-size: 1.0625rem;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.team-v2-role {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.8125rem;
+  line-height: 1.35;
+  letter-spacing: 0;
+  margin: 0;
+}
+
+.team-v2-tagline {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.875rem;
+  line-height: 1.45;
+  letter-spacing: -0.005em;
+  margin: 0.5rem 0 0;
+}
+
+/* LinkedIn chip — 1:1 with .inv-portrait-li from the star-investor
+   section. Pinned to the photo's bottom-right; chip styling with
+   backdrop blur. Hover-revealed only (opacity 0 → 1 on card hover). */
+.team-v2-li {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  text-decoration: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease, color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.team-v2-card:hover .team-v2-li,
+.team-v2-card:focus-within .team-v2-li {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.team-v2-li:hover {
+  color: var(--_primitives---colors--brand-orange, #f56e38);
+  border-color: rgba(245, 110, 56, 0.6);
+  background: rgba(245, 110, 56, 0.08);
+}
+
+.team-v2-li:focus-visible {
+  outline: 2px solid var(--_primitives---colors--brand-orange, #f56e38);
+  outline-offset: 2px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.team-v2-li svg { display: block; }
+
+
+/* Responsive — same identity-block rhythm at every breakpoint. */
+@media (max-width: 991px) {
+  .team-v2-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem 1.25rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .team-v2-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem 1rem;
+  }
+  .team-v2-name { font-size: 1rem; }
+  .team-v2-role { font-size: 0.75rem; }
+  .team-v2-tagline { font-size: 0.8125rem; }
+  /* Touch devices have no hover — show the LinkedIn chip always. */
+  .team-v2-li {
+    opacity: 1;
+    pointer-events: auto;
+    bottom: 0.625rem;
+    right: 0.625rem;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+
+/* ════════════════════════════════════════════════════════════════
+   §03 HIRING v2 — role cards with JD links.
+   Layout: role title + arrow chip on top, blurb below, meta line
+   anchored to the bottom. L-bracket corners + radial gradient wash
+   on hover (matches the rest of the site's brand vocabulary).
+   ════════════════════════════════════════════════════════════════ */
+
+.hiring-v2-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.hiring-v2-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  padding: 1.5rem 1.5rem 1.375rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: inherit;
+  text-decoration: none;
+  overflow: hidden;
+  isolation: isolate;
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hiring-v2-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 0% 0%, rgba(245, 110, 56, 0.12), transparent 55%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.hiring-v2-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(245, 110, 56, 0.35);
+  transform: translateY(-2px);
+}
+
+.hiring-v2-card:hover::before { opacity: 1; }
+
+.hiring-v2-card:focus-visible {
+  outline: 2px solid var(--_primitives---colors--brand-orange, #f56e38);
+  outline-offset: 3px;
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(245, 110, 56, 0.5);
+}
+
+/* Top row — role title on the left, arrow chip pinned top-right. */
+.hiring-v2-header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.hiring-v2-role {
+  color: #fff;
+  font-size: 1.1875rem;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.hiring-v2-blurb {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  letter-spacing: -0.005em;
+  margin: 0;
+}
+
+/* Meta line pinned to the card bottom. Uppercase tracking treatment
+   (matches the eyebrow rhythm used elsewhere). */
+.hiring-v2-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.875rem;
+  margin-top: auto;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.hiring-v2-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hiring-v2-meta span::before {
+  content: "";
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.hiring-v2-meta span:first-child::before { display: none; }
+
+/* Arrow chip — pinned to top-right of the card. */
+.hiring-v2-arrow {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.03);
+  transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.hiring-v2-arrow svg { display: block; transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1); }
+
+.hiring-v2-card:hover .hiring-v2-arrow {
+  color: var(--_primitives---colors--brand-orange, #f56e38);
+  border-color: rgba(245, 110, 56, 0.5);
+  background: rgba(245, 110, 56, 0.06);
+}
+
+.hiring-v2-card:hover .hiring-v2-arrow svg {
+  transform: translate(2px, -2px);
+}
+
+@media (max-width: 991px) {
+  .hiring-v2-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 600px) {
+  .hiring-v2-grid { grid-template-columns: 1fr; }
+  .hiring-v2-role { font-size: 1.0625rem; }
+  .hiring-v2-card { padding: 1.5rem 1.5rem 1.25rem; }
+}
+
+
+/* ════════════════════════════════════════════════════════════════
+   §04 CORE-VALUES VIDEO LIGHTBOX
+   Click-to-expand preview tile inside the Core Values tab, plus the
+   fullscreen modal that loads a Google Drive iframe and autoplays.
+   ════════════════════════════════════════════════════════════════ */
+
+.cv-video-trigger {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: #111;
+  cursor: pointer;
+  overflow: hidden;
+  font: inherit;
+  color: inherit;
+}
+
+.cv-video-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), filter 0.4s ease;
+}
+
+.cv-video-trigger:hover .cv-video-thumb,
+.cv-video-trigger:focus-visible .cv-video-thumb {
+  transform: scale(1.03);
+  filter: brightness(0.9);
+}
+
+/* Subtle vignette so the play button always has enough contrast. */
+.cv-video-trigger::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.45) 100%);
+  pointer-events: none;
+}
+
+.cv-video-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 4rem;
+  height: 4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: rgba(245, 110, 56, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  z-index: 1;
+  transition: background 0.25s ease, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cv-video-play svg {
+  display: block;
+  margin-left: 3px; /* nudge the play glyph optically into centre */
+}
+
+.cv-video-trigger:hover .cv-video-play,
+.cv-video-trigger:focus-visible .cv-video-play {
+  transform: translate(-50%, -50%) scale(1.06);
+  background: var(--_primitives---colors--brand-orange, #f56e38);
+}
+
+.cv-video-trigger:focus-visible {
+  outline: 2px solid var(--_primitives---colors--brand-orange, #f56e38);
+  outline-offset: 3px;
+}
+
+
+/* Fullscreen lightbox modal. */
+.cv-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.92);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.cv-lightbox[hidden] { display: none; }
+
+.cv-lightbox-frame {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+}
+
+.cv-lightbox-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.cv-lightbox-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  z-index: 1;
+}
+
+.cv-lightbox-close:hover,
+.cv-lightbox-close:focus-visible {
+  background: rgba(245, 110, 56, 0.16);
+  border-color: rgba(245, 110, 56, 0.6);
+}
+
+.cv-lightbox-close:focus-visible {
+  outline: 2px solid var(--_primitives---colors--brand-orange, #f56e38);
+  outline-offset: 2px;
+}
+
+@media (max-width: 600px) {
+  .cv-lightbox { padding: 1rem; }
+  .cv-lightbox-close { top: 0.75rem; right: 0.75rem; width: 2.25rem; height: 2.25rem; }
+  .cv-video-play { width: 3.25rem; height: 3.25rem; }
+}
