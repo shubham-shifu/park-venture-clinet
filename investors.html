@@ -605,6 +605,10 @@ Webflow.push(() => {
         </div>
       </header>
 
+      <!-- §02 SRI'S JOURNEY moved further down the page — section now
+           sits directly above §07 FAQ. The original markup lives there
+           verbatim (search "SRI'S JOURNEY" again). -->
+
       <!-- ============================================================
            §01 STRATEGIC INVESTORS
            - 5 named portrait cards (about_team_item pattern)
@@ -615,12 +619,299 @@ Webflow.push(() => {
           <div class="container-large">
             <div class="padding-section-large">
               <div fd-section-reveal="">
-                <div class="section-tabs-header">
+                <!-- ============================================================
+                     §01 — FOUNDERS / OPERATORS BENTO
+                     Section header row: h2 + subhead on the left, Founders /
+                     Operators toggle on the right (saves the vertical gap
+                     between the subheading and the mosaic). Per-tab subtitle
+                     paragraphs have been removed for now.
+                     Mosaic = 12-col × 3-row · 2 A + 2 B + 4 C cards / panel.
+                     ============================================================ -->
+                <div class="section-tabs-header is-center">
                   <h2 fd-heading-reveal="" class="heading-style-h2">Deliberately architecting investors. <span fd-svg-underline-text="scroll" fd-svg-underline-stroke="2">By geography. By expertise.</span></h2>
                   <p fd-fade-reveal="" class="text-size-medium">Every Strategic Investor on our cap table is deliberately picked — by expertise (GTM, product, hiring) and by geography (US, India, Canada).</p>
                 </div>
                 <div class="spacer-56"></div>
 
+                <!-- Full-width toggle bar, sits directly above the mosaic
+                     grid with the same 8px gap the grid uses internally —
+                     reads as part of the mosaic, not a separate widget. -->
+                <div class="inv-bento-tabs is-fullwidth" role="tablist" aria-label="Filter cap-table members by role">
+                  <button class="inv-bento-tab is-active" type="button" role="tab" data-bento-tab="founders" aria-pressed="true">Founders</button>
+                  <button class="inv-bento-tab" type="button" role="tab" data-bento-tab="operators" aria-pressed="false">Operators</button>
+                </div>
+
+                <div fd-fade-reveal="" id="inv-bento" class="inv-bento" data-bento>
+                  <div class="inv-bento-grid" data-bento-panel="founders" role="tabpanel">
+                <article class="inv-bento-card is-a">
+                  <div class="inv-bento-photo-wrap">
+                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_640/v1778818002/b9b41550-5a74-461b-94be-c2847d177333.png" alt="Karthik Ramamoorthy" class="inv-bento-photo-img">
+                    <a class="inv-bento-li" href="https://www.linkedin.com/in/karthikramamoorthy5" target="_blank" rel="noopener noreferrer" aria-label="Karthik Ramamoorthy on LinkedIn"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+                  </div>
+                  <div class="inv-bento-meta">
+                    <span class="inv-bento-stamp">EXITED TO ZUORA</span>
+                    <div class="inv-bento-name-block">
+                      <h3 class="inv-bento-name">Karthik Ramamoorthy</h3>
+                      <div class="inv-bento-role">Co-Founder &amp; CEO</div>
+                    </div>
+                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_320/v1778756624/numero_logp_xsp8ul.png" alt="Numero" class="inv-bento-logo">
+                  </div>
+                </article>
+                <article class="inv-bento-card is-b">
+                  <div class="inv-bento-photo-wrap">
+                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_640/v1778818131/9f466440-04ac-40fc-ba82-93de9d3a85b5.png" alt="Lalit Kundu" class="inv-bento-photo-img">
+                    <a class="inv-bento-li" href="https://www.linkedin.com/in/lalitkundu" target="_blank" rel="noopener noreferrer" aria-label="Lalit Kundu on LinkedIn"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+                  </div>
+                  <div class="inv-bento-meta">
+                    <span class="inv-bento-stamp">BUILT GOOGLE PAY</span>
+                    <div class="inv-bento-name-block">
+                      <h3 class="inv-bento-name">Lalit Kundu</h3>
+                      <div class="inv-bento-role">Co-Founder</div>
+                    </div>
+                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/v1778821712/image_314_Vectorized_yv6mxj.svg" alt="delty" class="inv-bento-logo">
+                  </div>
+                </article>
+                <article class="inv-bento-card is-b">
+                  <div class="inv-bento-photo-wrap">
+                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_640/v1778819377/3301537e-8366-4e10-b893-fc36af37972c.png" alt="Kesavan K" class="inv-bento-photo-img">
+                    <a class="inv-bento-li" href="https://www.linkedin.com/in/kesavankk/" target="_blank" rel="noopener noreferrer" aria-label="Kesavan K on LinkedIn"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+                  </div>
+                  <div class="inv-bento-meta">
+                    <span class="inv-bento-stamp">FOUNDER, KRITA.AI</span>
+                    <div class="inv-bento-name-block">
+                      <h3 class="inv-bento-name">Kesavan K</h3>
+                      <div class="inv-bento-role">Co-Founder &amp; CEO</div>
+                    </div>
+                    <img loading="lazy" src="https://krita.ai/wp-content/uploads/2025/06/Krita-Logo-in-DT360-Brand-Colours-Final-143x50.png" alt="Krita.ai" class="inv-bento-logo">
+                  </div>
+                </article>
+                <article class="inv-bento-card is-a">
+                  <div class="inv-bento-photo-wrap">
+                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_640/v1778818692/15d2cdc5-f96c-4a6b-bca7-c50a76196130.png" alt="Raveen Sastry" class="inv-bento-photo-img">
+                    <a class="inv-bento-li" href="https://www.linkedin.com/in/raveens/" target="_blank" rel="noopener noreferrer" aria-label="Raveen Sastry on LinkedIn"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+                  </div>
+                  <div class="inv-bento-meta">
+                    <span class="inv-bento-stamp">3&times; EXITED FOUNDER</span>
+                    <div class="inv-bento-name-block">
+                      <h3 class="inv-bento-name">Raveen Sastry</h3>
+                      <div class="inv-bento-role">Founding Partner</div>
+                    </div>
+                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_png,h_120/e_trim/v1778821713/image_315_Vectorized_jtqis9.svg" alt="Multiply Ventures" class="inv-bento-logo">
+                  </div>
+                </article>
+                <article class="inv-bento-card is-c">
+                  <div class="inv-bento-photo-wrap">
+                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_640/v1778819168/6d9f8fda-9063-41be-b8fd-1bbc452ac256.png" alt="Prateek Bondala" class="inv-bento-photo-img">
+                    <a class="inv-bento-li" href="https://www.linkedin.com/in/prateekb" target="_blank" rel="noopener noreferrer" aria-label="Prateek Bondala on LinkedIn"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+                  </div>
+                  <div class="inv-bento-meta">
+                    <span class="inv-bento-stamp">EX-RIPPLING, LYFT</span>
+                    <div class="inv-bento-name-block">
+                      <h3 class="inv-bento-name">Prateek Bondala</h3>
+                      <div class="inv-bento-role">Founder &amp; CEO</div>
+                    </div>
+                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_png,h_120/e_trim/v1778821713/image_316_Vectorized_gyokvx.svg" alt="Open Legal Inc" class="inv-bento-logo">
+                  </div>
+                </article>
+                <article class="inv-bento-card is-c">
+                  <div class="inv-bento-photo-wrap">
+                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_640/v1778818799/bd5fa35b-6914-4501-996b-126190e6d1c3.png" alt="Nageswara Rao M" class="inv-bento-photo-img">
+                    <a class="inv-bento-li" href="https://www.linkedin.com/in/naagas" target="_blank" rel="noopener noreferrer" aria-label="Nageswara Rao M on LinkedIn"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+                  </div>
+                  <div class="inv-bento-meta">
+                    <span class="inv-bento-stamp">SNAPCHAT FIRST 15</span>
+                    <div class="inv-bento-name-block">
+                      <h3 class="inv-bento-name">Nageswara Rao M</h3>
+                      <div class="inv-bento-role">Co-Founder</div>
+                    </div>
+                    <img loading="lazy" src="https://syft.com/assets/Uploads/syft-rev-RGB2x.png" alt="Syft" class="inv-bento-logo">
+                  </div>
+                </article>
+                <article class="inv-bento-card is-c">
+                  <div class="inv-bento-photo-wrap">
+                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_640/v1778818898/6699394e-b16c-43ba-9236-2b922a4cd1fc.png" alt="Harshit Agarwal" class="inv-bento-photo-img">
+                    <a class="inv-bento-li" href="https://www.linkedin.com/in/agarwalharshit/" target="_blank" rel="noopener noreferrer" aria-label="Harshit Agarwal on LinkedIn"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+                  </div>
+                  <div class="inv-bento-meta">
+                    <span class="inv-bento-stamp">CEO @ APPKNOX</span>
+                    <div class="inv-bento-name-block">
+                      <h3 class="inv-bento-name">Harshit Agarwal</h3>
+                      <div class="inv-bento-role">CEO</div>
+                    </div>
+                    <img loading="lazy" src="https://www.appknox.com/hubfs/appknox-logo.svg" alt="Appknox" class="inv-bento-logo">
+                  </div>
+                </article>
+                <article class="inv-bento-card is-c">
+                  <div class="inv-bento-photo-wrap">
+                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_640/v1778818565/71477b34-3a6c-4f02-b262-8f2e7e57649f.png" alt="Amit Koshal" class="inv-bento-photo-img">
+                    <a class="inv-bento-li" href="https://www.linkedin.com/in/koshalamit" target="_blank" rel="noopener noreferrer" aria-label="Amit Koshal on LinkedIn"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+                  </div>
+                  <div class="inv-bento-meta">
+                    <span class="inv-bento-stamp">$1.5M ARR FOUNDER</span>
+                    <div class="inv-bento-name-block">
+                      <h3 class="inv-bento-name">Amit<br>Koshal</h3>
+                      <div class="inv-bento-role">Founder &amp; CEO</div>
+                    </div>
+                    <img loading="lazy" src="https://cdn.prod.website-files.com/68aff49a2d99cde3f08d8936/68c6b2f88a596f31bd92b6c4_98dd3ba5fb5b7bf4e229f2289c6c5a79_Photon%20Legal%201%20%281%29.webp" alt="Photon Legal" class="inv-bento-logo">
+                  </div>
+                </article>
+                  </div>
+                  <div class="inv-bento-grid is-hidden" data-bento-panel="operators" role="tabpanel" aria-hidden="true">
+                <article class="inv-bento-card is-a">
+                  <div class="inv-bento-photo-wrap">
+                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_640/v1778827499/10b576ae-760b-486d-a901-35d5c76b816c.png" alt="Srivatsava Daruru" class="inv-bento-photo-img">
+                    <a class="inv-bento-li" href="https://www.linkedin.com/in/srivatsava-daruru-4abb269" target="_blank" rel="noopener noreferrer" aria-label="Srivatsava Daruru on LinkedIn"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+                  </div>
+                  <div class="inv-bento-meta">
+                    <span class="inv-bento-stamp">EXITED TO SERVICENOW</span>
+                    <div class="inv-bento-name-block">
+                      <h3 class="inv-bento-name">Srivatsava Daruru</h3>
+                      <div class="inv-bento-role">Chief AI Officer</div>
+                    </div>
+                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/v1778823429/exlens_a5v7iq.svg" alt="eXlens.ai" class="inv-bento-logo">
+                  </div>
+                </article>
+                <article class="inv-bento-card is-b">
+                  <div class="inv-bento-photo-wrap">
+                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_640/v1778823369/0448fde4-6050-494e-aca3-f587977dfce8.png" alt="Sayyaparaju Sunil" class="inv-bento-photo-img">
+                    <a class="inv-bento-li" href="https://www.linkedin.com/in/sayyaparaju-sunil-8a82515" target="_blank" rel="noopener noreferrer" aria-label="Sayyaparaju Sunil on LinkedIn"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+                  </div>
+                  <div class="inv-bento-meta">
+                    <span class="inv-bento-stamp">VP ENG @ AEROSPIKE</span>
+                    <div class="inv-bento-name-block">
+                      <h3 class="inv-bento-name">S. Sunil</h3>
+                      <div class="inv-bento-role">VP of Engineering</div>
+                    </div>
+                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/v1778839879/aerospike_jfrnic.svg" alt="Aerospike" class="inv-bento-logo">
+                  </div>
+                </article>
+                <article class="inv-bento-card is-b">
+                  <div class="inv-bento-photo-wrap">
+                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_640/v1778822349/b274bb01-bfe7-4617-a7f2-56b4f5d27cc1.png" alt="Hitesh Gupta" class="inv-bento-photo-img">
+                    <a class="inv-bento-li" href="https://www.linkedin.com/in/hiteshag" target="_blank" rel="noopener noreferrer" aria-label="Hitesh Gupta on LinkedIn"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+                  </div>
+                  <div class="inv-bento-meta">
+                    <span class="inv-bento-stamp">FOUNDING ENG @ OTTER</span>
+                    <div class="inv-bento-name-block">
+                      <h3 class="inv-bento-name">Hitesh Gupta</h3>
+                      <div class="inv-bento-role">Founding Engineer</div>
+                    </div>
+                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/v1778821711/image_313_Vectorized_ckmekf.svg" alt="Otter.ai" class="inv-bento-logo">
+                  </div>
+                </article>
+                <article class="inv-bento-card is-a">
+                  <div class="inv-bento-photo-wrap">
+                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_640/v1778827744/14b68ffb-fc4e-436b-8723-1b3e0c3c78f8.png" alt="Sridhar Anumandla" class="inv-bento-photo-img">
+                    <a class="inv-bento-li" href="https://www.linkedin.com/in/sridhar-anumandla" target="_blank" rel="noopener noreferrer" aria-label="Sridhar Anumandla on LinkedIn"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+                  </div>
+                  <div class="inv-bento-meta">
+                    <span class="inv-bento-stamp">BUILT VELOX @ META</span>
+                    <div class="inv-bento-name-block">
+                      <h3 class="inv-bento-name">Sridhar Anumandla</h3>
+                      <div class="inv-bento-role">Engineering Manager</div>
+                    </div>
+                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/v1778823915/image_320_Vectorized_l8ds47.svg" alt="Meta" class="inv-bento-logo">
+                  </div>
+                </article>
+                <article class="inv-bento-card is-c">
+                  <div class="inv-bento-photo-wrap">
+                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_640/v1778822674/1536a9a3-2428-4a2d-9394-fd8b20b9ea22.png" alt="Srihari BT" class="inv-bento-photo-img">
+                    <a class="inv-bento-li" href="https://www.linkedin.com/in/sriharibt/" target="_blank" rel="noopener noreferrer" aria-label="Srihari BT on LinkedIn"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+                  </div>
+                  <div class="inv-bento-meta">
+                    <span class="inv-bento-stamp">WHATFIX #2 SALES</span>
+                    <div class="inv-bento-name-block">
+                      <h3 class="inv-bento-name">Srihari BT</h3>
+                      <div class="inv-bento-role">Global VP Partnership</div>
+                    </div>
+                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/v1778823912/image_318_Vectorized_e2k5v9.svg" alt="Whatfix" class="inv-bento-logo">
+                  </div>
+                </article>
+                <article class="inv-bento-card is-c">
+                  <div class="inv-bento-photo-wrap">
+                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_640/v1778823034/f99a9978-fc4c-404f-9080-6272045676ab.png" alt="Aravind Selvan" class="inv-bento-photo-img">
+                    <a class="inv-bento-li" href="https://www.linkedin.com/in/aravindselvan" target="_blank" rel="noopener noreferrer" aria-label="Aravind Selvan on LinkedIn"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+                  </div>
+                  <div class="inv-bento-meta">
+                    <span class="inv-bento-stamp">AI INFRA @ NOTION</span>
+                    <div class="inv-bento-name-block">
+                      <h3 class="inv-bento-name">Aravind S</h3>
+                      <div class="inv-bento-role">Software Engineer</div>
+                    </div>
+                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/v1778823914/image_319_Vectorized_trxy34.svg" alt="Notion" class="inv-bento-logo">
+                  </div>
+                </article>
+                <article class="inv-bento-card is-c">
+                  <div class="inv-bento-photo-wrap">
+                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_640/v1778823254/ea8648d3-9587-49d9-9603-8d214735c5cf.png" alt="Aravind K" class="inv-bento-photo-img">
+                    <a class="inv-bento-li" href="https://www.linkedin.com/in/akalavagattu" target="_blank" rel="noopener noreferrer" aria-label="Aravind K on LinkedIn"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+                  </div>
+                  <div class="inv-bento-meta">
+                    <span class="inv-bento-stamp">ENG MGR @ LENDINGCLUB</span>
+                    <div class="inv-bento-name-block">
+                      <h3 class="inv-bento-name">Aravind K</h3>
+                      <div class="inv-bento-role">Director of Engineering</div>
+                    </div>
+                    <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/LendingClub_logo.svg" alt="LendingClub" class="inv-bento-logo">
+                  </div>
+                </article>
+                <article class="inv-bento-card is-c">
+                  <div class="inv-bento-photo-wrap">
+                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_640/v1778823400/9b0e11a1-59ba-40b7-9f38-504ee0666263.png" alt="Hemanth Mantri" class="inv-bento-photo-img">
+                    <a class="inv-bento-li" href="https://www.linkedin.com/in/mantri" target="_blank" rel="noopener noreferrer" aria-label="Hemanth Mantri on LinkedIn"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+                  </div>
+                  <div class="inv-bento-meta">
+                    <span class="inv-bento-stamp">CLOUD INFRA PATENTS</span>
+                    <div class="inv-bento-name-block">
+                      <h3 class="inv-bento-name">Hemant M</h3>
+                      <div class="inv-bento-role">Engineering Leader</div>
+                    </div>
+                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/v1778823916/image_321_Vectorized_jdhznf.svg" alt="Harness.io" class="inv-bento-logo">
+                  </div>
+                </article>
+                  </div>
+                </div>
+
+                <script>
+                  (function () {
+                    var root = document.querySelector('[data-bento]');
+                    if (!root) return;
+                    /* Tabs now live outside [data-bento] (they sit beside
+                       the section header) — query at document scope. */
+                    var tabs   = document.querySelectorAll('[data-bento-tab]');
+                    var panels = document.querySelectorAll('[data-bento-panel]');
+                    function activate (which) {
+                      tabs.forEach(function (t) {
+                        var on = t.getAttribute('data-bento-tab') === which;
+                        t.classList.toggle('is-active', on);
+                        t.setAttribute('aria-pressed', on ? 'true' : 'false');
+                      });
+                      panels.forEach(function (p) {
+                        var on = p.getAttribute('data-bento-panel') === which;
+                        p.classList.toggle('is-hidden', !on);
+                        p.setAttribute('aria-hidden', on ? 'false' : 'true');
+                      });
+                    }
+                    tabs.forEach(function (t) {
+                      t.addEventListener('click', function () {
+                        activate(t.getAttribute('data-bento-tab'));
+                      });
+                    });
+                  })();
+                </script>
+
+                <!-- ============================================================
+                     §01-ARCHIVED — Original "Star Investors" portraits,
+                     "+33 more on the cap table" roster CTA, and the entire
+                     "By Geography / By Expertise" toggle (map + lane wall).
+
+                     Preserved verbatim inside <template> so the markup stays
+                     in the repo for reference / future resurrection, but
+                     doesn't render or weigh anything on the live page. The
+                     heavy map/wall init code in js/investors.js short-circuits
+                     when these DOM elements aren't in the live tree.
+                     ============================================================ -->
+                <template id="inv-archive-geo-expertise">
                 <div fd-fade-reveal="" class="inv-portraits" data-portrait-variant="b">
                   <div class="about_team_item inv-portrait">
                     <div class="about_team_image-wrapper">
@@ -682,7 +973,7 @@ Webflow.push(() => {
                   <div class="about_team_item inv-portrait">
                     <div class="about_team_image-wrapper">
                       <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_640/v1778567170/a99f6407-c682-4002-b0ba-2765203b8f1b.png" alt="Sridhar Anumandla" class="about_team_image">
-                      <img loading="lazy" src="images/co/meta-com.png" alt="Meta" class="inv-portrait-flag">
+                      <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Meta_Platforms_Inc._logo.svg" alt="Meta" class="inv-portrait-flag">
                       <div class="focused-bg" aria-hidden="true">
                         <img loading="lazy" src="images/Vector-31.svg" alt="" class="focused-icon top">
                         <img loading="lazy" src="images/Vector-32.svg" alt="" class="focused-icon _2">
@@ -701,7 +992,7 @@ Webflow.push(() => {
                   <div class="about_team_item inv-portrait">
                     <div class="about_team_image-wrapper">
                       <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_640/v1778567088/dd9daa69-bb73-4f6b-9e97-fb008dc14296.png" alt="Sayyaparaju Sunil" class="about_team_image">
-                      <img loading="lazy" src="images/co/aerospike-com.png" alt="Aerospike" class="inv-portrait-flag">
+                      <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/v1778839879/aerospike_jfrnic.svg" alt="Aerospike" class="inv-portrait-flag">
                       <div class="focused-bg" aria-hidden="true">
                         <img loading="lazy" src="images/Vector-31.svg" alt="" class="focused-icon top">
                         <img loading="lazy" src="images/Vector-32.svg" alt="" class="focused-icon _2">
@@ -880,6 +1171,8 @@ Webflow.push(() => {
                     </div>
                   </div>
                 </div>
+                </template>
+
 
               </div>
             </div>
@@ -895,30 +1188,45 @@ Webflow.push(() => {
           <div class="container-large">
             <div class="padding-section-large">
               <div fd-section-reveal="">
-                <div class="section-tabs-header">
+                <div class="section-tabs-header is-center">
                   <h2 fd-heading-reveal="" class="heading-style-h2">What we’re looking for from <span fd-svg-underline-text="scroll" fd-svg-underline-stroke="2">Strategic Investors.</span></h2>
                   <p fd-fade-reveal="" class="text-size-medium">Two simple asks. In return: indirect exposure to every PortCo we co-build, with <em>3× priority</em> on this tranche.</p>
                 </div>
                 <div class="spacer-56"></div>
 
-                <div fd-fade-reveal="" class="inv-ask-tabs" id="inv-ask-tabs" role="tablist">
-                  <button class="inv-ask-tab" type="button" role="tab" data-inv-asktab="time" aria-pressed="true">
-                    <div class="inv-ask-tab-num">01</div>
-                    <div>
-                      <div class="inv-ask-tab-label">1–2 hours / month</div>
-                      <div class="inv-ask-tab-sub">Time with Shifu and PortCos</div>
+                <!-- Two-box header. Both are wanted from a Strategic Investor
+                     ("+" indicates AND, not OR), but each box also acts as a
+                     tab into a panel below: 01 → case-study carousel,
+                     02 → capital-flow diagram. Default = 01 active. -->
+                <div fd-fade-reveal="" class="inv-ask-boxes" role="tablist" data-ask-tabs>
+                  <button type="button" class="inv-ask-box is-active" role="tab" data-ask-tab="time" aria-pressed="true">
+                    <div class="inv-ask-box-num">01</div>
+                    <div class="inv-ask-box-text">
+                      <div class="inv-ask-box-label">1&ndash;2 hours / month</div>
+                      <div class="inv-ask-box-sub">Time with Shifu and PortCos</div>
                     </div>
                   </button>
-                  <button class="inv-ask-tab" type="button" role="tab" data-inv-asktab="money" aria-pressed="false">
-                    <div class="inv-ask-tab-num">02</div>
-                    <div>
-                      <div class="inv-ask-tab-label">$25K minimum</div>
-                      <div class="inv-ask-tab-sub">Capital · priority returns</div>
+                  <div class="inv-ask-plus" aria-hidden="true">
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round">
+                      <line x1="12" y1="5" x2="12" y2="19"/>
+                      <line x1="5" y1="12" x2="19" y2="12"/>
+                    </svg>
+                  </div>
+                  <button type="button" class="inv-ask-box" role="tab" data-ask-tab="capital" aria-pressed="false">
+                    <div class="inv-ask-box-num">02</div>
+                    <div class="inv-ask-box-text">
+                      <div class="inv-ask-box-label">$25K minimum</div>
+                      <div class="inv-ask-box-sub">Capital &middot; priority returns</div>
                     </div>
                   </button>
                 </div>
 
-                <div class="inv-ask-panel active" data-inv-askpanel="time" role="tabpanel">
+                <div class="spacer-large"></div>
+
+                <!-- Case-study carousel — shown when "1–2 hours / month" tab
+                     is active. Wrapped in a boxed surface; carries
+                     data-ask-panel="time". -->
+                <div class="inv-ask-cases is-boxed" data-ask-panel="time" role="tabpanel">
                   <div class="swiper" id="inv-time-swiper">
                     <div class="swiper-wrapper">
                       <div class="swiper-slide">
@@ -933,7 +1241,7 @@ Webflow.push(() => {
                               <div class="inv-time-investor-kicker">Investor Involved</div>
                               <div class="inv-time-investor-row">
                                 <div class="inv-time-investor-img">
-                                  <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_192/v1778577160/43de1f07-7dc2-4ec9-a72d-d9870727ca18.png" alt="Raveen Sastry">
+                                  <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_192/v1778818692/15d2cdc5-f96c-4a6b-bca7-c50a76196130.png" alt="Raveen Sastry">
                                   <img loading="lazy" src="images/multiply-ventures.svg" alt="Multiply Ventures" class="inv-time-investor-flag">
                                 </div>
                                 <div>
@@ -960,7 +1268,7 @@ Webflow.push(() => {
                               <div class="inv-time-investor-kicker">Investor Involved</div>
                               <div class="inv-time-investor-row">
                                 <div class="inv-time-investor-img">
-                                  <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_192/v1778593716/d24075ce-f4a2-4065-9cf1-fd9dace81ccb.png" alt="Srihari BT">
+                                  <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_192/v1778822674/1536a9a3-2428-4a2d-9394-fd8b20b9ea22.png" alt="Srihari BT">
                                   <img loading="lazy" src="images/co/whatfix-com.png" alt="Whatfix" class="inv-time-investor-flag">
                                 </div>
                                 <div>
@@ -987,7 +1295,7 @@ Webflow.push(() => {
                               <div class="inv-time-investor-kicker">Investor Involved</div>
                               <div class="inv-time-investor-row">
                                 <div class="inv-time-investor-img">
-                                  <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_192/v1769247073/52acaa2d-4c52-48ba-bc29-ceef6d307feb.png" alt="Karthik Ramamoorthy">
+                                  <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_192/v1778818002/b9b41550-5a74-461b-94be-c2847d177333.png" alt="Karthik Ramamoorthy">
                                   <img loading="lazy" src="images/co/numero-com.png" alt="Numero" class="inv-time-investor-flag">
                                 </div>
                                 <div>
@@ -1010,35 +1318,37 @@ Webflow.push(() => {
                           <div>
                             <h3 class="inv-time-h">Translating Photon Legal’s business outcomes into product.</h3>
                             <p class="inv-time-p">Srivatsava and Ramprasad partnered with the Photon Legal team to bridge business goals and product reality. They pinned down the current ARR motion, the target outcome, and how PL plugs into the customer’s day-to-day workflow.</p>
-                            <div class="inv-time-investor">
-                              <div class="inv-time-investor-kicker">Investors Involved</div>
-                              <div class="inv-time-investor-list">
-                                <div class="inv-time-investor-row">
-                                  <div class="inv-time-investor-img">
-                                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_192/v1769247429/c6e9b871-8ad5-4035-90ba-8cda1cfeaf43.png" alt="Srivatsava Daruru">
-                                    <img loading="lazy" src="images/co/exlens-ai.png" alt="eXlens.ai" class="inv-time-investor-flag">
-                                  </div>
-                                  <div>
-                                    <div class="inv-time-investor-tag">Operator</div>
-                                    <div class="inv-time-investor-name">Srivatsava Daruru</div>
-                                    <div class="inv-time-investor-bio">Got his company acquired by ServiceNow.</div>
-                                    <div class="inv-time-investor-role">Chief AI Officer at eXlens.ai</div>
-                                  </div>
-                                  <a class="inv-time-investor-li" href="https://www.linkedin.com/in/srivatsava-daruru-4abb269" target="_blank" rel="noopener noreferrer" aria-label="Srivatsava Daruru on LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+                            <div class="inv-time-investor has-cycle" data-investor-cycle>
+                              <div class="inv-time-investor-kicker">Two investors involved</div>
+                              <div class="inv-time-investor-row is-active">
+                                <div class="inv-time-investor-img">
+                                  <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_192/v1778827499/10b576ae-760b-486d-a901-35d5c76b816c.png" alt="Srivatsava Daruru">
+                                  <img loading="lazy" src="images/co/exlens-ai.png" alt="eXlens.ai" class="inv-time-investor-flag">
                                 </div>
-                                <div class="inv-time-investor-row">
-                                  <div class="inv-time-investor-img">
-                                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_192/v1769247143/ac592c01-ad7c-4623-9a32-46d1f38a9485.png" alt="Ramprasad Reddy">
-                                    <img loading="lazy" src="images/co/foresite-labs-com.png" alt="Foresite Labs" class="inv-time-investor-flag">
-                                  </div>
-                                  <div>
-                                    <div class="inv-time-investor-tag">Operator</div>
-                                    <div class="inv-time-investor-name">Ramprasad Reddy</div>
-                                    <div class="inv-time-investor-bio">Ex-Meta. First hire at Foresite Labs.</div>
-                                    <div class="inv-time-investor-role">Staff Data Infra Engineer at Foresite Labs</div>
-                                  </div>
-                                  <a class="inv-time-investor-li" href="https://www.linkedin.com/in/ramprasad-reddy-akavaram" target="_blank" rel="noopener noreferrer" aria-label="Ramprasad Reddy on LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+                                <div>
+                                  <div class="inv-time-investor-tag">Operator</div>
+                                  <div class="inv-time-investor-name">Srivatsava Daruru</div>
+                                  <div class="inv-time-investor-bio">Got his company acquired by ServiceNow.</div>
+                                  <div class="inv-time-investor-role">Chief AI Officer at eXlens.ai</div>
                                 </div>
+                                <a class="inv-time-investor-li" href="https://www.linkedin.com/in/srivatsava-daruru-4abb269" target="_blank" rel="noopener noreferrer" aria-label="Srivatsava Daruru on LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+                              </div>
+                              <div class="inv-time-investor-row">
+                                <div class="inv-time-investor-img">
+                                  <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_192/v1778828323/942247ce-88e5-429e-8c7f-9563fde2097e.png" alt="Ramprasad Reddy">
+                                  <img loading="lazy" src="images/co/foresite-labs-com.png" alt="Foresite Labs" class="inv-time-investor-flag">
+                                </div>
+                                <div>
+                                  <div class="inv-time-investor-tag">Operator</div>
+                                  <div class="inv-time-investor-name">Ramprasad Reddy</div>
+                                  <div class="inv-time-investor-bio">Ex-Meta. First hire at Foresite Labs.</div>
+                                  <div class="inv-time-investor-role">Staff Data Infra Engineer at Foresite Labs</div>
+                                </div>
+                                <a class="inv-time-investor-li" href="https://www.linkedin.com/in/ramprasad-reddy-akavaram" target="_blank" rel="noopener noreferrer" aria-label="Ramprasad Reddy on LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+                              </div>
+                              <div class="inv-time-investor-dots" role="tablist" aria-label="Cycle through investors">
+                                <button type="button" class="inv-time-investor-dot is-active" data-cycle-dot="0" aria-label="Show Srivatsava Daruru"></button>
+                                <button type="button" class="inv-time-investor-dot" data-cycle-dot="1" aria-label="Show Ramprasad Reddy"></button>
                               </div>
                             </div>
                           </div>
@@ -1061,7 +1371,7 @@ Webflow.push(() => {
                               <div class="inv-time-investor-row">
                                 <div class="inv-time-investor-img">
                                   <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/v1778593548/23bea57f-1797-477e-89ed-4a9d82c729b3.png" alt="Kesavan K">
-                                  <img loading="lazy" src="images/co/krita-ai.png" alt="Krita.ai" class="inv-time-investor-flag">
+                                  <img loading="lazy" src="https://krita.ai/wp-content/uploads/2025/06/Krita-Logo-in-DT360-Brand-Colours-Final-143x50.png" alt="Krita.ai" class="inv-time-investor-flag">
                                 </div>
                                 <div>
                                   <div class="inv-time-investor-tag">Founder</div>
@@ -1087,12 +1397,70 @@ Webflow.push(() => {
                   </div>
                 </div>
 
+                <!-- Capital-flow diagram — shown when "$25K minimum" tab is
+                     active. Renders the implicit value: a single cheque into
+                     Shifu Ventures translates into a fraction of every PortCo
+                     in the studio (drawn here as a 10×10 grid of 100). Same
+                     is-boxed container so the panel reads at the same size as
+                     the case-study carousel. -->
+                <div class="inv-ask-cases is-boxed inv-ask-flow" data-ask-panel="capital" role="tabpanel" hidden>
+                  <div class="inv-flow-head">
+                    <h3 class="inv-flow-title">Your investment buys a fraction of every PortCo we co-build.</h3>
+                    <p class="inv-flow-sub">One cheque into Shifu Ventures gives you indirect exposure to every AI-first B2B company in the studio. You don&rsquo;t pick winners &mdash; the whole portfolio compounds for you.</p>
+                  </div>
+
+                  <div class="inv-flow-diagram">
+                    <div class="inv-flow-node inv-flow-you">
+                      <div class="inv-flow-node-value">Your investment</div>
+                    </div>
+                    <div class="inv-flow-arrow" aria-hidden="true">
+                      <span class="inv-flow-arrow-label">Capital</span>
+                      <svg viewBox="0 0 140 8" class="inv-flow-arrow-svg">
+                        <path d="M0 4 H132 M127 1 L132 4 L127 7" stroke="currentColor" stroke-width="0.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </div>
+                    <div class="inv-flow-node inv-flow-shifu">
+                      <img src="images/Logo.svg" alt="Shifu Ventures" class="inv-flow-shifu-logo">
+                    </div>
+                    <div class="inv-flow-arrow" aria-hidden="true">
+                      <span class="inv-flow-arrow-label">Indirect exposure</span>
+                      <svg viewBox="0 0 140 8" class="inv-flow-arrow-svg">
+                        <path d="M0 4 H132 M127 1 L132 4 L127 7" stroke="currentColor" stroke-width="0.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </div>
+                    <div class="inv-flow-portcos">
+                      <!-- Subtle bordered wrap holds the 5-cell fractional
+                           row plus the 90-cell grid below. Symmetric 10×9
+                           grid (no leftover partial row); the first two cells
+                           carry the real Photon Legal + CMF logos so the
+                           grid reads as "real PortCos, more coming". -->
+                      <div class="inv-flow-portcos-wrap" aria-hidden="true">
+                        <div class="inv-flow-fractional-row">
+                          <div class="inv-flow-fractional-cell">CMO</div>
+                          <div class="inv-flow-fractional-cell">CRO</div>
+                          <div class="inv-flow-fractional-cell">CPO</div>
+                          <div class="inv-flow-fractional-cell">CHRO</div>
+                          <div class="inv-flow-fractional-cell">CFO</div>
+                        </div>
+                        <div class="inv-flow-portcos-grid" data-flow-grid></div>
+                      </div>
+                      <div class="inv-flow-portcos-label">100 PortCos</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- ============================================================
+                     §02-ARCHIVED — original "Money" panel: 3× Priority Return
+                     emphasis, live-tranche strip, the 4-row Priority Return
+                     Ladder, and the realisation foot-note. Preserved verbatim
+                     inside <template> so the markup stays in the repo for
+                     resurrection; nothing here renders or runs on the live
+                     page (the JS that drove the ladder fills naturally
+                     no-ops because #inv-ladder doesn't exist in live DOM).
+                     ============================================================ -->
+                <template id="inv-archive-money-ladder">
                 <div class="inv-ask-panel" data-inv-askpanel="money" role="tabpanel">
 
-                  <!-- One focused statement. Big 3× anchors the panel; a
-                       single headline + a one-line urgency tagline carry
-                       the rest. No verbose paragraph, no second emphasis
-                       card — the ladder below is the time dimension. -->
                   <div fd-fade-reveal="" class="inv-money-focus">
                     <div class="inv-money-grid">
                       <div class="inv-money-big">
@@ -1106,10 +1474,6 @@ Webflow.push(() => {
                     </div>
                   </div>
 
-                  <!-- Live tranche — the FOMO anchor of this panel.
-                       Left column: kicker, big headline, supporting
-                       line. Right column: underlined-text secondary
-                       CTA to act on the urgency. -->
                   <div fd-fade-reveal="" class="inv-money-tranche-strip" role="note">
                     <div class="inv-money-strip-content">
                       <div class="inv-money-strip-kicker">
@@ -1121,9 +1485,6 @@ Webflow.push(() => {
                     </div>
                   </div>
 
-                  <!-- Ladder — supporting visual under the live-tranche
-                       strip above. Bar width scales with the multiple
-                       (3x widest, 1x narrowest). -->
                   <div fd-fade-reveal="" class="inv-ladder-head">
                     <span>Priority Return Ladder</span>
                     <span>Deadline</span>
@@ -1154,6 +1515,7 @@ Webflow.push(() => {
                   <p fd-fade-reveal="" class="inv-money-foot">Returns realised through dividends, structured secondaries, buybacks, or liquidity events. Common stock participates after the multiple is met.</p>
 
                 </div>
+                </template>
               </div>
             </div>
           </div>
@@ -1168,49 +1530,153 @@ Webflow.push(() => {
           <div class="container-large">
             <div class="padding-section-large">
               <div fd-section-reveal="">
-                <div class="section-tabs-header">
-                  <h2 fd-heading-reveal="" class="heading-style-h2"><span fd-svg-underline-text="scroll" fd-svg-underline-stroke="4">Venture OS.</span> The workspace, between office hours.</h2>
-                  <p fd-fade-reveal="" class="text-size-medium">Weekly updates, founder asks routed by lane, and your live cap-table position — all in one place.</p>
+                <div class="section-tabs-header is-center">
+                  <h2 fd-heading-reveal="" class="heading-style-h2">Three ways we <span fd-svg-underline-text="scroll" fd-svg-underline-stroke="4">involve</span> you in the studio.</h2>
+                  <p fd-fade-reveal="" class="text-size-medium">From a live workspace to monthly videos and a private channel — you stay close to every PortCo without booking a single meeting.</p>
                 </div>
                 <div class="spacer-56"></div>
 
-                <div fd-fade-reveal="" class="inv-vos">
-                  <div class="inv-vos-left">
-                    <div class="inv-vos-row">
-                      <span class="inv-vos-row-n">01</span>
-                      <div class="inv-vos-row-body">
-                        <h3 class="inv-vos-row-h">Ecosystem</h3>
-                        <p class="inv-vos-row-d">Other Strategic Investors, supporters, and consultants on the cap table — who they are and what they bring.</p>
+                <!-- ============================================================
+                     §03 — INVOLVE: 3-tab vertical rail + media pane.
+                     Left rail = label + 1-line "what's in it for you".
+                     Right pane swaps the media when you click a tab.
+                     Default selection: VOSS.
+                     ============================================================ -->
+                <div fd-fade-reveal="" class="inv-involve" data-involve>
+                  <ul class="inv-involve-rail" role="tablist" aria-label="How we keep investors involved">
+                    <li class="inv-involve-item is-active">
+                      <button type="button" role="tab" class="inv-involve-btn" data-involve-tab="voss" aria-pressed="true">
+                        <span class="inv-involve-num">01</span>
+                        <span class="inv-involve-text">
+                          <span class="inv-involve-label">Venture OS</span>
+                          <span class="inv-involve-desc">Your live workspace — track dealflow, ecosystem, asks, and updates from every PortCo at a glance.</span>
+                        </span>
+                      </button>
+                      <div class="focused-bg" aria-hidden="true">
+                        <img loading="lazy" src="images/Vector-31.svg" alt="" class="focused-icon top">
+                        <img loading="lazy" src="images/Vector-32.svg" alt="" class="focused-icon _2">
+                        <img loading="lazy" src="images/Vector-34.svg" alt="" class="focused-icon _3">
+                        <img loading="lazy" src="images/Vector-33.svg" alt="" class="focused-icon _4">
+                      </div>
+                    </li>
+                    <li class="inv-involve-item">
+                      <button type="button" role="tab" class="inv-involve-btn" data-involve-tab="monthly" aria-pressed="false">
+                        <span class="inv-involve-num">02</span>
+                        <span class="inv-involve-text">
+                          <span class="inv-involve-label">Monthly Update</span>
+                          <span class="inv-involve-desc">A founder video on the 1st of every month — what we shipped, what we missed, what's next.</span>
+                        </span>
+                      </button>
+                      <div class="focused-bg" aria-hidden="true">
+                        <img loading="lazy" src="images/Vector-31.svg" alt="" class="focused-icon top">
+                        <img loading="lazy" src="images/Vector-32.svg" alt="" class="focused-icon _2">
+                        <img loading="lazy" src="images/Vector-34.svg" alt="" class="focused-icon _3">
+                        <img loading="lazy" src="images/Vector-33.svg" alt="" class="focused-icon _4">
+                      </div>
+                    </li>
+                    <li class="inv-involve-item">
+                      <button type="button" role="tab" class="inv-involve-btn" data-involve-tab="whatsapp" aria-pressed="false">
+                        <span class="inv-involve-num">03</span>
+                        <span class="inv-involve-text">
+                          <span class="inv-involve-label">WhatsApp Channel</span>
+                          <span class="inv-involve-desc">A private investor channel for real-time broadcasts and one-on-one threads with the studio.</span>
+                        </span>
+                      </button>
+                      <div class="focused-bg" aria-hidden="true">
+                        <img loading="lazy" src="images/Vector-31.svg" alt="" class="focused-icon top">
+                        <img loading="lazy" src="images/Vector-32.svg" alt="" class="focused-icon _2">
+                        <img loading="lazy" src="images/Vector-34.svg" alt="" class="focused-icon _3">
+                        <img loading="lazy" src="images/Vector-33.svg" alt="" class="focused-icon _4">
+                      </div>
+                    </li>
+                  </ul>
+
+                  <div class="inv-involve-media">
+                    <div class="inv-involve-pane is-active" data-involve-pane="voss" role="tabpanel">
+                      <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/v1778596489/VOS_sR_f1zoum.gif" alt="Venture OS — dashboard preview" class="inv-involve-img">
+                    </div>
+                    <div class="inv-involve-pane" data-involve-pane="monthly" role="tabpanel" aria-hidden="true">
+                      <div class="inv-involve-trio">
+                        <div class="inv-involve-trio-cell">
+                          <iframe class="inv-involve-iframe"
+                            data-src="https://www.youtube-nocookie.com/embed/Db4XNeTg6sc?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=Db4XNeTg6sc&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playsinline=1&amp;disablekb=1&amp;iv_load_policy=3&amp;fs=0&amp;start=8&amp;enablejsapi=1"
+                            src="about:blank"
+                            allow="autoplay; encrypted-media; picture-in-picture"
+                            title="February 2026 investor update — muted preview"
+                            loading="lazy"></iframe>
+                        </div>
+                        <div class="inv-involve-trio-cell">
+                          <iframe class="inv-involve-iframe"
+                            data-src="https://www.youtube-nocookie.com/embed/9F0quI-tjBM?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=9F0quI-tjBM&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playsinline=1&amp;disablekb=1&amp;iv_load_policy=3&amp;fs=0&amp;start=9&amp;enablejsapi=1"
+                            src="about:blank"
+                            allow="autoplay; encrypted-media; picture-in-picture"
+                            title="March 2026 investor update — muted preview"
+                            loading="lazy"></iframe>
+                        </div>
+                        <div class="inv-involve-trio-cell">
+                          <iframe class="inv-involve-iframe"
+                            data-src="https://www.youtube-nocookie.com/embed/qBTsetZf4k4?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=qBTsetZf4k4&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playsinline=1&amp;disablekb=1&amp;iv_load_policy=3&amp;fs=0&amp;start=8&amp;enablejsapi=1"
+                            src="about:blank"
+                            allow="autoplay; encrypted-media; picture-in-picture"
+                            title="April 2026 investor update — muted preview"
+                            loading="lazy"></iframe>
+                        </div>
                       </div>
                     </div>
-                    <div class="inv-vos-row">
-                      <span class="inv-vos-row-n">02</span>
-                      <div class="inv-vos-row-body">
-                        <h3 class="inv-vos-row-h">Dealflow</h3>
-                        <p class="inv-vos-row-d">Every PortCo Shifu is co-building, with traction, stage, and current open asks at a glance.</p>
+                    <div class="inv-involve-pane" data-involve-pane="whatsapp" role="tabpanel" aria-hidden="true">
+                      <div class="inv-involve-placeholder">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                        </svg>
+                        <div class="inv-involve-placeholder-h">WhatsApp Channel</div>
+                        <div class="inv-involve-placeholder-d">Visual coming soon</div>
                       </div>
-                    </div>
-                    <div class="inv-vos-row">
-                      <span class="inv-vos-row-n">03</span>
-                      <div class="inv-vos-row-body">
-                        <h3 class="inv-vos-row-h">Asks</h3>
-                        <p class="inv-vos-row-d">Intros, hires, customer panels, and pricing reviews — routed only to investors tagged for that lane.</p>
-                      </div>
-                    </div>
-                    <div class="inv-vos-row">
-                      <span class="inv-vos-row-n">04</span>
-                      <div class="inv-vos-row-body">
-                        <h3 class="inv-vos-row-h">Updates</h3>
-                        <p class="inv-vos-row-d">Weekly notes from Shifu and every PortCo, plus the monthly founder video — async, no live calls.</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="inv-vos-right">
-                    <div class="inv-vos-screen">
-                      <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/v1778596489/VOS_sR_f1zoum.gif" alt="Venture OS — login & dashboard preview">
                     </div>
                   </div>
                 </div>
+
+                <script>
+                  (function () {
+                    var root = document.querySelector('[data-involve]');
+                    if (!root) return;
+                    var items = root.querySelectorAll('.inv-involve-item');
+                    var btns  = root.querySelectorAll('[data-involve-tab]');
+                    var panes = root.querySelectorAll('[data-involve-pane]');
+                    var iframes = root.querySelectorAll('.inv-involve-iframe[data-src]');
+                    /* YouTube iframes are kept dormant (src=about:blank) until
+                       the user activates the Monthly Update tab — saves the
+                       up-front YouTube load on first paint. Swap src once,
+                       then leave it alone (looping autoplay handles repeats). */
+                    function lazyLoadIframes (which) {
+                      if (which !== 'monthly') return;
+                      iframes.forEach(function (f) {
+                        var ds = f.getAttribute('data-src');
+                        if (ds && f.src !== ds) f.src = ds;
+                      });
+                    }
+                    function activate (which) {
+                      items.forEach(function (it) {
+                        var on = it.querySelector('[data-involve-tab]').getAttribute('data-involve-tab') === which;
+                        it.classList.toggle('is-active', on);
+                      });
+                      btns.forEach(function (b) {
+                        var on = b.getAttribute('data-involve-tab') === which;
+                        b.setAttribute('aria-pressed', on ? 'true' : 'false');
+                      });
+                      panes.forEach(function (p) {
+                        var on = p.getAttribute('data-involve-pane') === which;
+                        p.classList.toggle('is-active', on);
+                        p.setAttribute('aria-hidden', on ? 'false' : 'true');
+                      });
+                      lazyLoadIframes(which);
+                    }
+                    btns.forEach(function (b) {
+                      b.addEventListener('click', function () {
+                        activate(b.getAttribute('data-involve-tab'));
+                      });
+                    });
+                  })();
+                </script>
               </div>
             </div>
           </div>
@@ -1218,8 +1684,13 @@ Webflow.push(() => {
       </section>
 
       <!-- ============================================================
-           §04 MONTHLY INVESTOR VIDEOS — 3 cards
+           §04-ARCHIVED — Monthly investor videos (3 video cards).
+           Replaced by the Monthly Update tab inside §03 Involve.
+           Preserved verbatim inside <template> for future resurrection;
+           doesn't render or run on the live page. Heavy YouTube iframes
+           inside stay dormant (src=about:blank) because they're inert.
            ============================================================ -->
+      <template id="inv-archive-monthly-videos">
       <section>
         <div class="padding-global">
           <div class="container-large">
@@ -1335,6 +1806,7 @@ Webflow.push(() => {
           </div>
         </div>
       </section>
+      </template>
 
       <!-- ============================================================
            §05 LONG-GAME FIT — intro + ✓ card + ✕ card
@@ -1345,46 +1817,40 @@ Webflow.push(() => {
             <div class="padding-section-large">
               <div fd-section-reveal="">
                 <div class="inv-long-game">
-                  <div class="inv-long-game-text">
+                  <div class="inv-long-game-text is-center">
                     <h2 fd-heading-reveal="" class="heading-style-h2">Built for the <span fd-svg-underline-text="scroll" fd-svg-underline-stroke="4">long game.</span></h2>
-                    <p fd-fade-reveal="" class="inv-long-game-sub">We co-build 4–5 AI-first B2B companies every year, all the way to $10M ARR — profitable and founder-controlled. For investors who think in years, not months.</p>
+                    <p fd-fade-reveal="" class="inv-long-game-sub">Co-building 100 AI-first B2B companies to <em>$10M ARR</em> — profitable and founder-controlled. For investors who think in years, not quarters.</p>
                   </div>
-                  <div fd-fade-reveal="" class="inv-fit-cards">
-                    <div class="inv-fit-card yes">
-                      <div class="inv-fit-card-head">
-                        <div class="inv-fit-icon" aria-hidden="true">✓</div>
-                        <h3 class="inv-fit-title">Built for investors who:</h3>
-                      </div>
-                      <ul class="inv-fit-list">
-                        <li>Think in years, not quarters</li>
-                        <li>Want to be hands-on (1–2 hrs / month)</li>
-                        <li>Believe in profitable, founder-controlled growth</li>
-                        <li>Bring more than capital — networks, hiring, GTM</li>
-                      </ul>
-                      <div class="focused-bg" aria-hidden="true">
-                        <img loading="lazy" src="images/Vector-31.svg" alt="" class="focused-icon top">
-                        <img loading="lazy" src="images/Vector-32.svg" alt="" class="focused-icon _2">
-                        <img loading="lazy" src="images/Vector-34.svg" alt="" class="focused-icon _3">
-                        <img loading="lazy" src="images/Vector-33.svg" alt="" class="focused-icon _4">
-                      </div>
+                  <div class="spacer-large"></div>
+
+                  <!-- 3-column comparison table: row label | fit | not-fit.
+                       Reads like a settings table, no bullets — the rows
+                       themselves carry the categorical structure. -->
+                  <div fd-fade-reveal="" class="inv-fit-table">
+                    <div class="inv-fit-table-head">
+                      <div class="inv-fit-cell-head label"></div>
+                      <div class="inv-fit-cell-head fit"><span>Built for investors who</span></div>
+                      <div class="inv-fit-cell-head no"><span>Not the right fit if you</span></div>
                     </div>
-                    <div class="inv-fit-card no">
-                      <div class="inv-fit-card-head">
-                        <div class="inv-fit-icon" aria-hidden="true">✕</div>
-                        <h3 class="inv-fit-title">Not the right fit if you:</h3>
-                      </div>
-                      <ul class="inv-fit-list">
-                        <li>Need short-term liquidity</li>
-                        <li>Want passive cheque-writing only</li>
-                        <li>Chase unicorns over profitable exits</li>
-                        <li>Can’t tolerate early-stage execution risk</li>
-                      </ul>
-                      <div class="focused-bg" aria-hidden="true">
-                        <img loading="lazy" src="images/Vector-31.svg" alt="" class="focused-icon top">
-                        <img loading="lazy" src="images/Vector-32.svg" alt="" class="focused-icon _2">
-                        <img loading="lazy" src="images/Vector-34.svg" alt="" class="focused-icon _3">
-                        <img loading="lazy" src="images/Vector-33.svg" alt="" class="focused-icon _4">
-                      </div>
+                    <div class="inv-fit-table-row">
+                      <div class="inv-fit-cell-label">Time horizon</div>
+                      <div class="inv-fit-cell fit">Think in years, not quarters</div>
+                      <div class="inv-fit-cell no">Need short-term liquidity</div>
+                    </div>
+                    <div class="inv-fit-table-row">
+                      <div class="inv-fit-cell-label">Engagement</div>
+                      <div class="inv-fit-cell fit">Want to be hands-on (1&ndash;2 hrs / month)</div>
+                      <div class="inv-fit-cell no">Want passive cheque-writing only</div>
+                    </div>
+                    <div class="inv-fit-table-row">
+                      <div class="inv-fit-cell-label">What you optimise for</div>
+                      <div class="inv-fit-cell fit">Profitable, founder-controlled growth</div>
+                      <div class="inv-fit-cell no">Chase unicorns over profitable exits</div>
+                    </div>
+                    <div class="inv-fit-table-row">
+                      <div class="inv-fit-cell-label">What you bring</div>
+                      <div class="inv-fit-cell fit">Networks, hiring, GTM beyond capital</div>
+                      <div class="inv-fit-cell no">Capital only, no operator help</div>
                     </div>
                   </div>
                 </div>
@@ -1395,8 +1861,13 @@ Webflow.push(() => {
       </section>
 
       <!-- ============================================================
-           §06 INVESTMENT PROCESS — 4-step timeline
+           §06-ARCHIVED — Investment process 4-step timeline
+           ("From hello to first wire — ~14 days"). Preserved verbatim
+           inside <template>; doesn't render or run on the live page.
+           The process-timeline init JS short-circuits because the
+           [data-process-timeline] selector returns null.
            ============================================================ -->
+      <template id="inv-archive-process">
       <section>
         <div class="padding-global">
           <div class="container-large">
@@ -1435,6 +1906,272 @@ Webflow.push(() => {
                     <span class="inv-process-when">Day 12–14</span>
                     <h3 class="inv-process-t">Onboarded on Venture OS</h3>
                     <p class="inv-process-d">Calendar live. Asks routed by lane.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      </template>
+
+      <!-- ============================================================
+           §02 SRI'S JOURNEY (relocated to sit directly above the FAQ)
+           - Desktop: scroll-pinned timeline. Left rail with Sri's avatar
+             that rides the rail down as the user scrolls. Right pane
+             crossfades between 5 milestones (NIT Warangal 2006 →
+             Lakshya 2008 → Almabase 2014 → BSY 2023 → Shifu 2024).
+             Almabase / BSY / SV slides carry 3 placeholder metrics each.
+           - Mobile (≤991px): pin is dropped. A sticky horizontal
+             timeline rides along the top of the section while the user
+             scrolls through stacked slides; the active dot tracks the
+             slide currently in view via IntersectionObserver. Each
+             slide ALSO carries a small year badge so the milestone is
+             always anchored on screen.
+           ============================================================ -->
+      <section data-sri-journey>
+        <div class="padding-global">
+          <div class="container-large">
+            <div class="padding-section-large">
+              <div fd-section-reveal="">
+                <div class="section-tabs-header is-center">
+                  <div class="section-header is-center">
+                    <div class="margin-bottom margin-xxsmall">
+                      <div fd-heading-reveal="">
+                        <h2 class="heading-style-h2">A long-game built one decade <em><span fd-svg-underline-text="scroll" fd-svg-underline-offset="4">at a time</span></em>.</h2>
+                      </div>
+                    </div>
+                    <div class="max-width-large align-center text-align-center" fd-fade-reveal="">
+                      <p class="text-size-medium text-color-secondary">From an engineering campus in 2006 to building Shifu Ventures in 2024 — Sri has spent every decade in one craft. Operators who back you have been on the same road.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="spacer-huge"></div>
+
+                <!-- MOBILE-ONLY sticky horizontal timeline. Sits inside
+                     the section so it sticks within the section's scroll
+                     range only. Dots use the same .is-active / is-passed
+                     / is-future classes the desktop rail uses, driven by
+                     a tiny IntersectionObserver on the .sri-slide blocks
+                     so that whichever slide is centred in viewport lights
+                     its corresponding dot. Tapping a dot smooth-scrolls
+                     to the matching slide. -->
+                <div class="sri-mobile-track" data-sri-mobile-track aria-hidden="true">
+                  <div class="sri-mobile-track-inner">
+                    <div class="sri-mobile-track-line"></div>
+                    <div class="sri-mobile-track-fill" data-sri-mobile-fill></div>
+                    <button type="button" class="sri-mobile-dot is-active" data-sri-mtdot="0" aria-label="Jump to 2006 — NIT Warangal">
+                      <span class="sri-mobile-dot-mark"></span>
+                      <span class="sri-mobile-dot-year">2006</span>
+                    </button>
+                    <button type="button" class="sri-mobile-dot" data-sri-mtdot="1" aria-label="Jump to 2008 — Lakshya Foundation">
+                      <span class="sri-mobile-dot-mark"></span>
+                      <span class="sri-mobile-dot-year">2008</span>
+                    </button>
+                    <button type="button" class="sri-mobile-dot" data-sri-mtdot="2" aria-label="Jump to 2014 — Almabase">
+                      <span class="sri-mobile-dot-mark"></span>
+                      <span class="sri-mobile-dot-year">2014</span>
+                    </button>
+                    <button type="button" class="sri-mobile-dot" data-sri-mtdot="3" aria-label="Jump to 2023 — Bharat SaaS Yatra">
+                      <span class="sri-mobile-dot-mark"></span>
+                      <span class="sri-mobile-dot-year">2023</span>
+                    </button>
+                    <button type="button" class="sri-mobile-dot" data-sri-mtdot="4" aria-label="Jump to 2024 — Shifu Ventures">
+                      <span class="sri-mobile-dot-mark"></span>
+                      <span class="sri-mobile-dot-year">2024</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="sri-journey-stage" data-sri-stage>
+                  <aside class="sri-rail" aria-hidden="true">
+                    <div class="sri-rail-line"></div>
+                    <div class="sri-rail-fill"></div>
+                    <div class="sri-rail-avatar" data-sri-avatar>
+                      <a class="sri-rail-avatar-link is-primary" href="https://www.linkedin.com/in/srimaneru/" target="_blank" rel="noopener noreferrer" aria-label="Sri Maneru, Co-Founder &amp; CEO — open LinkedIn">
+                        <img src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_240/v1769246644/808af0fe-bcc6-46ea-adc6-221e749bb1bc.png" alt="Sri Maneru" loading="lazy" decoding="async">
+                        <span class="sri-rail-tooltip" role="tooltip">
+                          <span class="sri-rail-tooltip-name">Sri Maneru</span>
+                          <span class="sri-rail-tooltip-role">Co-Founder &amp; CEO</span>
+                          <span class="sri-rail-tooltip-cta">View LinkedIn <span aria-hidden="true">↗</span></span>
+                        </span>
+                      </a>
+                      <a class="sri-rail-avatar-link is-secondary" href="https://www.linkedin.com/in/pratsethi/" target="_blank" rel="noopener noreferrer" aria-label="Prateek Sethi, Co-Founder &amp; COO — open LinkedIn">
+                        <img src="images/image-302-1.avif" alt="Prateek Sethi" loading="lazy" decoding="async">
+                        <span class="sri-rail-tooltip" role="tooltip">
+                          <span class="sri-rail-tooltip-name">Prateek Sethi</span>
+                          <span class="sri-rail-tooltip-role">Co-Founder &amp; COO</span>
+                          <span class="sri-rail-tooltip-cta">View LinkedIn <span aria-hidden="true">↗</span></span>
+                        </span>
+                      </a>
+                    </div>
+                    <div class="sri-rail-stop is-active" data-sri-stop="0">
+                      <span class="sri-rail-dot" aria-hidden="true"></span>
+                      <div class="sri-rail-stop-text">
+                        <span class="sri-rail-stop-year">2006</span>
+                        <span class="sri-rail-stop-title">NIT Warangal</span>
+                      </div>
+                    </div>
+                    <div class="sri-rail-stop" data-sri-stop="1">
+                      <span class="sri-rail-dot" aria-hidden="true"></span>
+                      <div class="sri-rail-stop-text">
+                        <span class="sri-rail-stop-year">2008</span>
+                        <span class="sri-rail-stop-title">Lakshya Foundation</span>
+                      </div>
+                    </div>
+                    <div class="sri-rail-stop" data-sri-stop="2">
+                      <span class="sri-rail-dot" aria-hidden="true"></span>
+                      <div class="sri-rail-stop-text">
+                        <span class="sri-rail-stop-year">2014</span>
+                        <span class="sri-rail-stop-title">Almabase</span>
+                      </div>
+                    </div>
+                    <div class="sri-rail-stop" data-sri-stop="3">
+                      <span class="sri-rail-dot" aria-hidden="true"></span>
+                      <div class="sri-rail-stop-text">
+                        <span class="sri-rail-stop-year">2023</span>
+                        <span class="sri-rail-stop-title">Bharat SaaS Yatra</span>
+                      </div>
+                    </div>
+                    <div class="sri-rail-stop" data-sri-stop="4">
+                      <span class="sri-rail-dot" aria-hidden="true"></span>
+                      <div class="sri-rail-stop-text">
+                        <span class="sri-rail-stop-year">2024</span>
+                        <span class="sri-rail-stop-title">Shifu Ventures</span>
+                      </div>
+                    </div>
+                  </aside>
+                  <div class="sri-slides">
+                    <article class="sri-slide is-active" data-sri-slide="0">
+                      <div class="sri-slide-badge" aria-hidden="true">
+                        <span class="sri-slide-badge-year">2006</span>
+                        <span class="sri-slide-badge-title">NIT Warangal</span>
+                      </div>
+                      <div class="sri-slide-meta">
+                        <h3 class="sri-slide-title">President of the student union at one of India's premier institutes.</h3>
+                      </div>
+                      <p class="sri-slide-body">Four years on campus, but the real classroom was student organising. Sri ran fests, led clubs, mobilised batches — first encounter with what it takes to get a thousand smart people pulling in one direction.</p>
+                      <div class="sri-slide-media">
+                        <div class="sri-photo">
+                          <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_960/v1778829489/image_323_xowocn.png" alt="NIT Warangal campus · 2006">
+                        </div>
+                        <div class="sri-photo">
+                          <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_960/v1778829488/image_322_gajpqz.png" alt="NIT Warangal · campus life">
+                        </div>
+                      </div>
+                    </article>
+                    <article class="sri-slide" data-sri-slide="1">
+                      <div class="sri-slide-badge" aria-hidden="true">
+                        <span class="sri-slide-badge-year">2008</span>
+                        <span class="sri-slide-badge-title">Lakshya Foundation</span>
+                      </div>
+                      <div class="sri-slide-meta">
+                        <h3 class="sri-slide-title">Co-founded an education nonprofit while still in college.</h3>
+                      </div>
+                      <p class="sri-slide-body">Lakshya prepared rural India's brightest students for India's top engineering colleges. Sri's first lesson in compounding: back the right people early, hold for years, and the ripple is enormous.</p>
+                      <div class="sri-slide-media">
+                        <div class="sri-photo">
+                          <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_960/v1778829490/image_324_du4ldb.png" alt="Lakshya Foundation cohort · 2009">
+                        </div>
+                        <div class="sri-photo">
+                          <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_960/v1778829486/image_129_y8m8ix.png" alt="Lakshya Foundation classroom · 2010">
+                        </div>
+                      </div>
+                    </article>
+                    <article class="sri-slide" data-sri-slide="2">
+                      <div class="sri-slide-badge" aria-hidden="true">
+                        <span class="sri-slide-badge-year">2014</span>
+                        <span class="sri-slide-badge-title">Almabase</span>
+                      </div>
+                      <div class="sri-slide-meta">
+                        <h3 class="sri-slide-title">Co-founded Almabase, which became a market leader in alumni engagement.</h3>
+                      </div>
+                      <p class="sri-slide-body">The alumni-engagement platform of choice for hundreds of US universities. Ten years of compounding inside a single thesis — sales, retention, hiring, fundraising, the long unglamorous middle.</p>
+                      <div class="sri-slide-media">
+                        <div class="sri-photo">
+                          <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_960/v1778829495/image_327_bvzdhk.png" alt="Almabase YC batch · 2014">
+                        </div>
+                        <div class="sri-photo">
+                          <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_960/v1778829493/image_326_ozf4i1.png" alt="Almabase HQ · 2019">
+                        </div>
+                      </div>
+                      <div class="sri-metrics">
+                        <div class="sri-metric">
+                          <span class="sri-metric-num">240+</span>
+                          <span class="sri-metric-label">Institutions served</span>
+                        </div>
+                        <div class="sri-metric">
+                          <span class="sri-metric-num">$3.8M</span>
+                          <span class="sri-metric-label">Annual revenue</span>
+                        </div>
+                        <div class="sri-metric">
+                          <span class="sri-metric-num">10 yrs</span>
+                          <span class="sri-metric-label">One bet, compounded</span>
+                        </div>
+                      </div>
+                    </article>
+                    <article class="sri-slide" data-sri-slide="3">
+                      <div class="sri-slide-badge" aria-hidden="true">
+                        <span class="sri-slide-badge-year">2023</span>
+                        <span class="sri-slide-badge-title">Bharat SaaS Yatra</span>
+                      </div>
+                      <div class="sri-slide-meta">
+                        <h3 class="sri-slide-title">Took an idea on the road. Surfaced India's serious SaaS founders.</h3>
+                      </div>
+                      <p class="sri-slide-body">A 10-city movement to connect the next generation of Indian SaaS founders with operators who'd already built. Prateek joined Sri on the road — the partnership that became Shifu Ventures was forged here.</p>
+                      <div class="sri-slide-media is-video">
+                        <div class="sri-video-frame" data-bsy-reel>
+                          <video class="sri-video sri-video-a is-active" playsinline muted autoplay preload="auto" aria-hidden="true"></video>
+                          <video class="sri-video sri-video-b" playsinline muted preload="auto" aria-hidden="true"></video>
+                        </div>
+                      </div>
+                      <div class="sri-metrics">
+                        <div class="sri-metric">
+                          <span class="sri-metric-num">5,200+</span>
+                          <span class="sri-metric-label">Attendees</span>
+                        </div>
+                        <div class="sri-metric">
+                          <span class="sri-metric-num">11+</span>
+                          <span class="sri-metric-label">Cities visited</span>
+                        </div>
+                        <div class="sri-metric">
+                          <span class="sri-metric-num">200+</span>
+                          <span class="sri-metric-label">B2B SaaS founders</span>
+                        </div>
+                      </div>
+                    </article>
+                    <article class="sri-slide" data-sri-slide="4">
+                      <div class="sri-slide-badge" aria-hidden="true">
+                        <span class="sri-slide-badge-year">2024</span>
+                        <span class="sri-slide-badge-title">Shifu Ventures</span>
+                      </div>
+                      <div class="sri-slide-meta">
+                        <h3 class="sri-slide-title">The studio bet. Operators who've lived the road, backing founders who're starting it.</h3>
+                      </div>
+                      <p class="sri-slide-body">Sri and Prateek now build Shifu Ventures together — pairing proven operators with early-stage founders. Capital plus the unfair-advantage compounding of a peer group that's already been there.</p>
+                      <div class="sri-slide-media">
+                        <div class="sri-photo">
+                          <span class="sri-photo-label">Photo · Studio kickoff · 2024</span>
+                        </div>
+                        <div class="sri-photo">
+                          <span class="sri-photo-label">Photo · Founder offsite · 2025</span>
+                        </div>
+                      </div>
+                      <div class="sri-metrics">
+                        <div class="sri-metric">
+                          <span class="sri-metric-num">X</span>
+                          <span class="sri-metric-label">PortCos backed</span>
+                        </div>
+                        <div class="sri-metric">
+                          <span class="sri-metric-num">Y</span>
+                          <span class="sri-metric-label">Operator-investors</span>
+                        </div>
+                        <div class="sri-metric">
+                          <span class="sri-metric-num">Z</span>
+                          <span class="sri-metric-label">First-cheque size</span>
+                        </div>
+                      </div>
+                    </article>
                   </div>
                 </div>
               </div>
@@ -1768,7 +2505,7 @@ Webflow.push(() => {
                 <div class="footer11_left-wrapper">
                   <div class="max-width-small bit-sm">
                     <div class="footer11_details-wrapper">
-                      <h2 class="heading-style-h3-2"><strong class="bold-text-2">Back the next </strong><span><strong fd-svg-underline-stroke="2.5" fd-svg-underline-text="scroll" class="bold-text-2">100 AI-first B2B</strong></span><strong class="bold-text-2"> companies.</strong></h2>
+                      <h2 class="heading-style-h3-2 inv-footer-cta-h"><strong class="bold-text-2">Back the next</strong><br><span><strong fd-svg-underline-stroke="2.5" fd-svg-underline-text="scroll" fd-svg-underline-offset="2" class="bold-text-2">100 AI-first B2B</strong></span><strong class="bold-text-2"> companies.</strong></h2>
                     </div>
                   </div>
                   <div class="mobile-hide">
@@ -1948,6 +2685,300 @@ const isMobile = matchMedia("(max-width: 768px)").matches;
   });
 
   // ----------------------------------------------------------------
+  // §02 Time-slide auto-cycling investor carousel.
+  // For every [data-investor-cycle] block (the 2-investor case study),
+  // cycle through .inv-time-investor-row children every 2s. Dots
+  // (.inv-time-investor-dot) reflect the active row; tapping a dot
+  // jumps to that row and resets the cycle timer.
+  // ----------------------------------------------------------------
+  document.querySelectorAll('[data-investor-cycle]').forEach(block => {
+    const rows = block.querySelectorAll('.inv-time-investor-row');
+    const dots = block.querySelectorAll('.inv-time-investor-dot');
+    if (rows.length < 2) return;
+    let idx = 0;
+    let timer = 0;
+    function set (i) {
+      idx = ((i % rows.length) + rows.length) % rows.length;
+      rows.forEach((r, n) => r.classList.toggle('is-active', n === idx));
+      dots.forEach((d, n) => d.classList.toggle('is-active', n === idx));
+    }
+    function tick () { set(idx + 1); }
+    function start () {
+      stop();
+      timer = setInterval(tick, 2000);
+    }
+    function stop () {
+      if (timer) { clearInterval(timer); timer = 0; }
+    }
+    dots.forEach((d, n) => {
+      d.addEventListener('click', () => { set(n); start(); });
+    });
+    // Pause auto-cycle when hovered so the user can read.
+    block.addEventListener('mouseenter', stop);
+    block.addEventListener('mouseleave', start);
+    set(0);
+    start();
+  });
+
+  // ----------------------------------------------------------------
+  // §02 Sri's Journey — scroll-pinned timeline.
+  // The whole .sri-journey-stage is pinned for ~(N-1)*0.8 viewport
+  // heights. JS writes --sri-progress (0..1) onto the stage; CSS
+  // drives the avatar's `top` and the rail-fill's height from it.
+  // Active milestone = Math.round(progress * (N-1)). Mobile (≤991)
+  // skips the pin entirely and stacks the slides plainly.
+  // ----------------------------------------------------------------
+  (function initSriJourney () {
+    const section = document.querySelector('[data-sri-journey]');
+    if (!section) return;
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+    const stage  = section.querySelector('[data-sri-stage]');
+    const rail   = section.querySelector('.sri-rail');
+    const avatar = section.querySelector('[data-sri-avatar]');
+    const stops  = section.querySelectorAll('[data-sri-stop]');
+    const slides = section.querySelectorAll('[data-sri-slide]');
+    if (!stage || !slides.length) return;
+
+    const total = slides.length;
+
+    function railPad () {
+      const v = parseFloat(getComputedStyle(stage).getPropertyValue('--sri-rail-pad'));
+      return isFinite(v) ? v : 32;
+    }
+
+    function setAvatarTo (frac) {
+      if (!avatar || !rail) return;
+      const pad = railPad();
+      const h = rail.offsetHeight;
+      const top = pad + (h - pad * 2) * frac;
+      avatar.style.top = top + 'px';
+    }
+
+    let activeIndex = -1;
+    function setActive (i) {
+      if (i === activeIndex) return;
+      activeIndex = i;
+      stops.forEach((s, idx) => {
+        // Three lifecycle states for each stop: future = ahead of the
+        // user (dim, small), active = current (orange, full size, sits
+        // under the avatar), passed = behind the user (filled orange,
+        // slightly smaller than active so active still feels biggest).
+        s.classList.toggle('is-passed', idx < i);
+        s.classList.toggle('is-future', idx > i);
+        s.classList.toggle('is-active', idx === i);
+      });
+      slides.forEach((s, idx) => s.classList.toggle('is-active', idx === i));
+      // Duo avatar (Sri + Prateek) from BSY onward — Prateek joined the
+      // journey at milestone 3 (Bharat SaaS Yatra) and continues on to
+      // Shifu Ventures (milestone 4).
+      if (avatar) avatar.classList.toggle('has-duo', i >= 3);
+      setAvatarTo(i / (total - 1));
+    }
+
+    let st = null;
+    function buildST () {
+      if (st) { st.kill(); st = null; }
+      const distance = window.innerHeight * (total - 1) * 0.8;
+      // start 'center center' parks the stage's vertical center on the
+      // viewport's vertical center the moment pinning engages, so there's
+      // breathing room above and below — the section feels intentionally
+      // framed rather than slammed against the navbar.
+      st = ScrollTrigger.create({
+        trigger: stage,
+        start: 'center center',
+        end: '+=' + distance,
+        pin: true,
+        scrub: 1,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
+        onUpdate: (self) => {
+          const p = self.progress;
+          const i = Math.min(total - 1, Math.max(0, Math.round(p * (total - 1))));
+          // --sri-progress is the SAME milestone fraction the avatar uses,
+          // so the orange rail-fill and the avatar always finish at the
+          // same vertical point. CSS animates the height change so the
+          // fill catches up smoothly when scroll snaps to a new milestone.
+          const frac = i / (total - 1);
+          stage.style.setProperty('--sri-progress', frac.toFixed(4));
+          setActive(i);
+        }
+      });
+    }
+
+    function destroyST () {
+      if (st) { st.kill(); st = null; }
+      stage.style.setProperty('--sri-progress', '0');
+    }
+
+    // Desktop-only pin. Mobile/tablet renders the stack plainly via CSS.
+    ScrollTrigger.matchMedia({
+      '(min-width: 992px)': function () {
+        // Disable transition during initial paint so the avatar lands on
+        // stop 0 without animating from top:0. Re-enable after one frame.
+        if (avatar) {
+          avatar.style.transition = 'none';
+          setActive(0);
+          requestAnimationFrame(() => { avatar.style.transition = ''; });
+        } else {
+          setActive(0);
+        }
+        buildST();
+        return function cleanup () { destroyST(); };
+      },
+      '(max-width: 991px)': function () {
+        // Show all slides via CSS; clear any lingering desktop state.
+        destroyST();
+        stops.forEach((s, idx) => s.classList.toggle('is-active', idx === 0));
+        slides.forEach((s) => s.classList.add('is-active'));
+        if (avatar) avatar.style.top = '';
+
+        // ── Mobile sticky timeline wiring ─────────────────────────
+        const track = section.querySelector('[data-sri-mobile-track]');
+        const trackInner = track ? track.querySelector('.sri-mobile-track-inner') : null;
+        const trackLine = track ? track.querySelector('.sri-mobile-track-line') : null;
+        const mtDots = section.querySelectorAll('[data-sri-mtdot]');
+        const mtFill = section.querySelector('[data-sri-mobile-fill]');
+        let mtActiveIndex = 0;
+        let mtClickGuardUntil = 0;
+
+        // Pin the line + fill to exact dot centres so the orange line
+        // begins under dot 0 and ends under the active dot regardless of
+        // viewport width or padding. Line + fill are positioned absolute
+        // inside .sri-mobile-track-inner (the position:relative wrapper),
+        // so we measure dot centres relative to trackInner, NOT to the
+        // outer .sri-mobile-track which adds its own padding.
+        function syncTrackGeometry () {
+          if (!trackInner || !trackLine || !mtFill || !mtDots.length) return;
+          const innerRect = trackInner.getBoundingClientRect();
+          const first = mtDots[0].getBoundingClientRect();
+          const last = mtDots[mtDots.length - 1].getBoundingClientRect();
+          const startX = first.left + first.width / 2 - innerRect.left;
+          const endX = last.left + last.width / 2 - innerRect.left;
+          trackLine.style.left = startX + 'px';
+          trackLine.style.width = (endX - startX) + 'px';
+          // Fill: starts at startX, length = (endX - startX) * activeIndex/(total-1)
+          const ratio = mtActiveIndex / Math.max(total - 1, 1);
+          mtFill.style.left = startX + 'px';
+          mtFill.style.width = ((endX - startX) * ratio) + 'px';
+        }
+
+        function setMobileActive (i) {
+          if (i === mtActiveIndex) return;
+          mtActiveIndex = i;
+          mtDots.forEach((d, idx) => {
+            d.classList.toggle('is-passed', idx < i);
+            d.classList.toggle('is-active', idx === i);
+          });
+          syncTrackGeometry();
+        }
+
+        // Tap-to-jump: each dot smooth-scrolls to its slide.
+        function onDotClick (e) {
+          const btn = e.currentTarget;
+          const idx = parseInt(btn.getAttribute('data-sri-mtdot'), 10);
+          if (!Number.isFinite(idx)) return;
+          const target = slides[idx];
+          if (!target) return;
+          // Suppress IntersectionObserver-driven active updates during the
+          // programmatic scroll so the target slide stays active even as
+          // intermediate slides whip past on the way down.
+          mtClickGuardUntil = Date.now() + 900;
+          setMobileActive(idx);
+          // Use Lenis if present (smooth scroll), else native smooth scroll.
+          const rect = target.getBoundingClientRect();
+          const y = window.scrollY + rect.top - 96; // leave room under sticky strip
+          if (window.lenis && window.lenis.scrollTo) {
+            window.lenis.scrollTo(y, { duration: 0.8 });
+          } else {
+            window.scrollTo({ top: y, behavior: 'smooth' });
+          }
+        }
+
+        mtDots.forEach(d => d.addEventListener('click', onDotClick));
+
+        // Scroll-driven active detection. On each scroll tick we compute
+        // which slide occupies the most of the viewport's "reading band"
+        // (25% from top → 85% from top) and mark its dot active. This is
+        // simpler & more reliable than IntersectionObserver — fires on
+        // every scroll including programmatic ones, no threshold edge
+        // cases, no fixed up-front threshold list.
+        function computeActive () {
+          if (Date.now() < mtClickGuardUntil) return;
+          const vh = window.innerHeight;
+          // Reading band: ignore top 25% and bottom 15% of viewport when
+          // judging "what's the user looking at?"
+          const bandTop = vh * 0.25;
+          const bandBot = vh * 0.85;
+          let dominantIdx = 0;
+          let dominantOverlap = -1;
+          slides.forEach((s, idx) => {
+            const r = s.getBoundingClientRect();
+            const overlap = Math.max(0, Math.min(bandBot, r.bottom) - Math.max(bandTop, r.top));
+            if (overlap > dominantOverlap) {
+              dominantOverlap = overlap;
+              dominantIdx = idx;
+            }
+          });
+          setMobileActive(dominantIdx);
+        }
+
+        // Run computeActive directly on each scroll tick. The earlier
+        // requestAnimationFrame batching approach turned out unreliable
+        // in the preview env (RAFs throttled when window wasn't focused),
+        // and the work computeActive does is cheap — 5 getBoundingClientRect
+        // calls — so a synchronous tick is fine.
+        function onScroll () {
+          computeActive();
+        }
+
+        // Lenis smooth-scrolls via transforms, so the native window
+        // 'scroll' event NEVER fires on this site. Hook into Lenis's own
+        // 'scroll' event instead (and keep window scroll as a fallback
+        // for non-Lenis environments / Webflow editor).
+        if (window.lenis && typeof window.lenis.on === 'function') {
+          window.lenis.on('scroll', onScroll);
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+
+        function onResize () { syncTrackGeometry(); onScroll(); }
+        window.addEventListener('resize', onResize, { passive: true });
+
+        // Initial state: slide 0 active + sync geometry now that dots
+        // have been laid out + run one immediate check in case the
+        // section is already in view on first paint.
+        setMobileActive(0);
+        // Wait two frames so the layout settles (fonts, padding) before
+        // measuring dot centres.
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            syncTrackGeometry();
+            computeActive();
+          });
+        });
+
+        return function cleanup () {
+          if (window.lenis && typeof window.lenis.off === 'function') {
+            window.lenis.off('scroll', onScroll);
+          }
+          window.removeEventListener('scroll', onScroll);
+          window.removeEventListener('resize', onResize);
+          mtDots.forEach(d => d.removeEventListener('click', onDotClick));
+          slides.forEach((s, idx) => s.classList.toggle('is-active', idx === 0));
+          mtDots.forEach(d => d.classList.remove('is-active', 'is-passed'));
+          if (mtFill) { mtFill.style.width = '0'; mtFill.style.left = '0'; }
+          if (trackLine) { trackLine.style.width = '0'; trackLine.style.left = '0'; }
+        };
+      }
+    });
+
+    // Recompute avatar pixel position on resize since rail height changes.
+    window.addEventListener('resize', () => {
+      if (activeIndex >= 0) setAvatarTo(activeIndex / (total - 1));
+    });
+  })();
+
+  // ----------------------------------------------------------------
   // §06 Process timeline — sequential walk-and-glow loop.
   // Line draws from 1→2, then 2 glows; 2→3, then 3 glows; 3→4, then
   // 4 glows; reset and repeat. Each step picks up an "active" trail
@@ -2038,6 +3069,158 @@ const isMobile = matchMedia("(max-width: 768px)").matches;
     obs.observe(timeline);
   });
 });
+</script>
+
+<script>
+// §02 Ask — tab switching between the time (case-study carousel) and
+// capital (flow diagram) panels. The two boxes above act as triggers;
+// the corresponding panel below shows. Also generates 100 PortCo cells
+// once on init so the markup stays clean.
+(function () {
+  const tabs   = document.querySelectorAll('[data-ask-tab]');
+  const panels = document.querySelectorAll('[data-ask-panel]');
+  if (!tabs.length || !panels.length) return;
+
+  function activate (name) {
+    tabs.forEach(t => {
+      const on = t.dataset.askTab === name;
+      t.classList.toggle('is-active', on);
+      t.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    panels.forEach(p => {
+      const on = p.dataset.askPanel === name;
+      if (on) p.removeAttribute('hidden');
+      else p.setAttribute('hidden', '');
+    });
+  }
+  tabs.forEach(t => {
+    t.addEventListener('click', () => activate(t.dataset.askTab));
+  });
+
+  // 90 cells in a clean 10×9 grid beneath the 5-cell fractional row.
+  // Total reads as "5 fractional + 90 representative slots = 100 PortCos"
+  // (the label below the wrap carries the conceptual count). Cells 0 and
+  // 1 get is-pl / is-cmf and render the real Photon Legal + CMF logos as
+  // background images.
+  const grid = document.querySelector('[data-flow-grid]');
+  if (grid && grid.children.length === 0) {
+    const frag = document.createDocumentFragment();
+    for (let i = 0; i < 90; i++) {
+      const c = document.createElement('span');
+      c.className = 'inv-flow-portcos-cell';
+      if (i === 0) c.classList.add('is-pl');
+      if (i === 1) c.classList.add('is-cmf');
+      frag.appendChild(c);
+    }
+    grid.appendChild(frag);
+  }
+})();
+</script>
+
+<script>
+// BSY video reel — five clips in continuous loop with crossfade between
+// them. Two <video> elements alternate as "current" and "next"; while one
+// plays, the other is preloaded with the upcoming source so the swap is
+// instant and free of buffering jerk.
+(function () {
+  // Each entry is { src, trim }. `trim` is how many seconds before the
+  // clip's natural end we crossfade to the next clip — used to skip
+  // glitchy or frozen tail frames. Default 0.35s (just past the last
+  // motion); sfvid5 has a stuck final ~2s so we cut it short.
+  const sources = [
+    { src: 'https://res.cloudinary.com/dkwqszhed/video/upload/v1775221784/sfvid5_s1lqbs.mp4', trim: 2.0 },
+    { src: 'https://res.cloudinary.com/dkwqszhed/video/upload/v1775221784/sf_vid_12_li9eeg.mp4', trim: 0.35 },
+    { src: 'https://res.cloudinary.com/dkwqszhed/video/upload/v1775221784/sfvid2_umlxgp.mp4', trim: 0.35 },
+    { src: 'https://res.cloudinary.com/dkwqszhed/video/upload/v1775225401/Drone_prr0ih.mp4', trim: 0.35 },
+    { src: 'https://res.cloudinary.com/dkwqszhed/video/upload/v1775222434/sfvid15_jtcyfi.mp4', trim: 0.35 },
+  ];
+
+  function init() {
+    const reel = document.querySelector('[data-bsy-reel]');
+    if (!reel) return;
+    const a = reel.querySelector('.sri-video-a');
+    const b = reel.querySelector('.sri-video-b');
+    if (!a || !b) return;
+
+    let idx = 0;
+    let current = a;
+    let next = b;
+    let swapping = false;
+
+    current.src = sources[idx].src;
+    next.src = sources[(idx + 1) % sources.length].src;
+    next.load();
+
+    // Slide 3 (BSY) starts with visibility:hidden until the user scrolls
+    // to it — Chrome blocks autoplay on hidden elements. Watch the
+    // slide's is-active class and play/pause accordingly.
+    const slide = reel.closest('[data-sri-slide]');
+    function syncPlayback() {
+      if (slide && slide.classList.contains('is-active')) {
+        current.play().catch(() => {});
+      } else if (slide) {
+        current.pause();
+      }
+    }
+    syncPlayback();
+    if (slide) {
+      new MutationObserver(syncPlayback).observe(slide, {
+        attributes: true, attributeFilter: ['class']
+      });
+    }
+
+    function advance() {
+      if (swapping) return;
+      swapping = true;
+
+      next.currentTime = 0;
+      const p = next.play();
+      if (p && typeof p.catch === 'function') p.catch(() => {});
+
+      next.classList.add('is-active');
+      current.classList.remove('is-active');
+
+      const outgoing = current;
+      current = next;
+      next = outgoing;
+      idx = (idx + 1) % sources.length;
+
+      setTimeout(() => {
+        outgoing.pause();
+        outgoing.currentTime = 0;
+        const upcomingSrc = sources[(idx + 1) % sources.length].src;
+        if (outgoing.src !== upcomingSrc) {
+          outgoing.src = upcomingSrc;
+          outgoing.load();
+        }
+        swapping = false;
+      }, 320);
+    }
+
+    // Trigger crossfade trim-seconds before the clip's natural end so
+    // glitchy tail frames never reach the viewer.
+    function watch(e) {
+      const v = e.target;
+      if (v !== current) return;
+      const dur = v.duration;
+      const trim = sources[idx].trim;
+      if (Number.isFinite(dur) && dur > 0 && v.currentTime >= dur - trim) {
+        advance();
+      }
+    }
+
+    a.addEventListener('timeupdate', watch);
+    b.addEventListener('timeupdate', watch);
+    a.addEventListener('ended', () => { if (current === a) advance(); });
+    b.addEventListener('ended', () => { if (current === b) advance(); });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
 </script>
 </body>
 </html>

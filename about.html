@@ -16,6 +16,7 @@
   <link href="css/normalize.css" rel="stylesheet" type="text/css">
   <link href="css/webflow.css" rel="stylesheet" type="text/css">
   <link href="css/shifu-ventures-staging.webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/about-v2.css" rel="stylesheet" type="text/css">
   <style>html.w-mod-js:not(.w-mod-ix3):not(.fd-reveals-released) :is([fd-heading-reveal], [fd-fade-reveal], [fd-child-fade]) {visibility: hidden !important;}</style>
   <script>setTimeout(function(){document.documentElement.classList.add('fd-reveals-released');},1500);</script>
   <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
@@ -108,32 +109,6 @@ html.lenis {height: auto;}
 }
 .orange-blink-animation {
   animation: brandBlink 1.2s infinite linear;
-}
-/* DEFAULT (non-active slides) */
-.team .team-name {
-  color: rgba(255, 255, 255, 0.75);
-}
-.team .social-link {
-  opacity: 0;
-}
-.team .team-focused-bg {
-  filter: grayscale(100%);
-}
-.team .about_core-values_item {
-  background-color: rgba(35, 35, 35, 0);
-}
-/* ACTIVE SLIDE */
-.swiper-slide-active .team-name {
-  color: #ffffff;
-}
-.swiper-slide-active .social-link {
-  opacity: 1;
-}
-.swiper-slide-active .team-focused-bg {
-  filter: grayscale(0%);
-}
-.swiper-slide-active .about_core-values_item {
-  background-color: rgba(35, 35, 35, 1);
 }
 </style>
 <!-- Removed: https://8z4lrp.csb.app/styles.css (duplicate of inline reveal/team styles above; was render-blocking with cache-control: no-store) -->
@@ -584,56 +559,371 @@ Webflow.push(() => {
           </div>
         </div>
       </header>
-      <div class="section-journey">
+      <section class="section-journey-v2" id="our-journey">
         <div class="padding-global">
           <div class="padding-section-medium about">
             <div class="container-large">
-              <div fd-section-reveal="">
-                <div fd-heading-reveal="" class="section-header right">
-                  <div>
-                    <h2 fd-svg-underline-stroke="4" fd-svg-underline-text="scroll" class="heading-style-h2">Our Journey</h2>
-                  </div>
+              <div>
+                <div class="journey-v2-heading-wrap">
+                  <h2 fd-svg-underline-stroke="4" fd-svg-underline-text="scroll" class="heading-style-h2">Our Journey</h2>
                 </div>
                 <div class="spacer-64"></div>
-                <div fd-fade-reveal="">
-                  <div class="about-journery-swiper-wrap">
-                    <div class="swiper journey w-dyn-list">
-                      <div role="list" class="swiper-wrapper journey-sw w-dyn-items">
-                        <div role="listitem" class="swiper-slide journey-card w-dyn-item">
-                          <div class="journey-header">
-                            <h3 class="journey-heading w-dyn-bind-empty"></h3>
-                            <div class="spacer-xxsmall"></div>
-                            <p class="para-75 w-dyn-bind-empty"></p>
-                          </div>
-                          <div class="swiper-image-wrap"></div>
+
+                <div class="journey-v2-rail" data-journey-rail role="tablist" aria-label="Shifu Ventures journey by year">
+                  <button type="button" class="journey-v2-year is-active" data-journey-year="2024" role="tab" aria-selected="true" aria-controls="journey-slide-2024" id="journey-tab-2024">
+                    <span class="journey-v2-year-num">2024</span>
+                  </button>
+                  <span class="journey-v2-track" data-journey-track="2024-2025" aria-hidden="true"><span class="journey-v2-track-fill" data-journey-fill="2024-2025"></span></span>
+                  <button type="button" class="journey-v2-year" data-journey-year="2025" role="tab" aria-selected="false" aria-controls="journey-slide-2025" id="journey-tab-2025">
+                    <span class="journey-v2-year-num">2025</span>
+                  </button>
+                  <span class="journey-v2-track" data-journey-track="2025-2026" aria-hidden="true"><span class="journey-v2-track-fill" data-journey-fill="2025-2026"></span></span>
+                  <button type="button" class="journey-v2-year" data-journey-year="2026" role="tab" aria-selected="false" aria-controls="journey-slide-2026" id="journey-tab-2026">
+                    <span class="journey-v2-year-num">2026</span>
+                  </button>
+                </div>
+
+                <div class="journey-v2-deck">
+                  <span class="journey-v2-deck-notch" data-journey-notch aria-hidden="true"></span>
+
+                  <div class="journey-v2-stage" data-journey-stage>
+                    <article class="journey-v2-slide is-active" data-journey-slide="2024" id="journey-slide-2024" role="tabpanel" aria-labelledby="journey-tab-2024">
+                      <div class="journey-v2-text">
+                        <span class="journey-v2-eyebrow">2024 &middot; Bharat SaaS Yatra</span>
+                        <h3 class="journey-v2-heading">Hit the road. Met India&rsquo;s serious SaaS founders.</h3>
+                        <p class="journey-v2-body">Prateek and I spent <strong>9 months literally travelling across India in a bus</strong>. The Bharat SaaS Yatra gave us the clarity and conviction to start something we can spend the next few decades on.</p>
+                      </div>
+                      <div class="journey-v2-media">
+                        <div class="journey-v2-frame" data-journey-reel>
+                          <video class="journey-v2-video is-active" data-journey-video-a playsinline muted autoplay loop preload="auto" aria-hidden="true"></video>
+                          <video class="journey-v2-video" data-journey-video-b playsinline muted loop preload="auto" aria-hidden="true"></video>
+                          <span class="journey-v2-corner-tl" aria-hidden="true"></span>
+                          <span class="journey-v2-corner-tr" aria-hidden="true"></span>
+                          <span class="journey-v2-corner-bl" aria-hidden="true"></span>
+                          <span class="journey-v2-corner-br" aria-hidden="true"></span>
                         </div>
                       </div>
-                      <div class="w-dyn-empty">
-                        <div>No items found.</div>
+                    </article>
+
+                    <article class="journey-v2-slide" data-journey-slide="2025" id="journey-slide-2025" role="tabpanel" aria-labelledby="journey-tab-2025">
+                      <div class="journey-v2-text">
+                        <span class="journey-v2-eyebrow">2025 &middot; The studio takes shape</span>
+                        <h3 class="journey-v2-heading">Set up the studio. Started co-building.</h3>
+                        <ul class="journey-v2-list">
+                          <li>Launched <strong>Shifu Ventures</strong> and <strong>Shifu Foundation</strong>.</li>
+                          <li>Onboarded <strong>Mausmi Ambastha</strong> as CEO, Shifu Foundation.</li>
+                          <li>Onboarded our <strong>first two portfolio companies</strong> for full-time co-build.</li>
+                        </ul>
                       </div>
-                    </div>
-                  </div>
-                  <div class="swiper-nav-wrap">
-                    <div class="swiper-pagination"></div>
-                    <div class="swiper-navigation journey-slider">
-                      <div class="swiper-btn prev">
-                        <div class="icon-18 w-embed"><svg width="100%" height="100%" viewbox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12.9375 15.2156L12.0879 16.1719L4.3125 8.625L12.0879 1.07812L12.9375 2.03442L6.14747 8.625L12.9375 15.2156Z" fill="currentColor"></path>
-                          </svg></div>
+                      <div class="journey-v2-media">
+                        <div class="journey-v2-frame is-placeholder">
+                          <div class="journey-v2-placeholder">
+                            <span class="journey-v2-placeholder-icon" aria-hidden="true">
+                              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 5v14l11-7L8 5z" fill="currentColor"/>
+                              </svg>
+                            </span>
+                            <span class="journey-v2-placeholder-label">Film coming soon</span>
+                          </div>
+                          <span class="journey-v2-corner-tl" aria-hidden="true"></span>
+                          <span class="journey-v2-corner-tr" aria-hidden="true"></span>
+                          <span class="journey-v2-corner-bl" aria-hidden="true"></span>
+                          <span class="journey-v2-corner-br" aria-hidden="true"></span>
+                        </div>
                       </div>
-                      <div class="swiper-btn next">
-                        <div class="icon-18 w-embed"><svg width="100%" height="100%" viewbox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4.3125 15.2156L5.16206 16.1719L12.9375 8.625L5.16206 1.07812L4.3125 2.03442L11.1025 8.625L4.3125 15.2156Z" fill="currentColor"></path>
-                          </svg></div>
+                    </article>
+
+                    <article class="journey-v2-slide" data-journey-slide="2026" id="journey-slide-2026" role="tabpanel" aria-labelledby="journey-tab-2026">
+                      <div class="journey-v2-text">
+                        <span class="journey-v2-eyebrow">2026 &middot; Scaling the model</span>
+                        <h3 class="journey-v2-heading">Two companies in motion. Three new bets ahead.</h3>
+                        <ul class="journey-v2-list">
+                          <li>One co-build <strong>crossed $2M ARR</strong>; the second is on a strong trajectory.</li>
+                          <li>Onboarded <strong>three fractional portfolio companies</strong>.</li>
+                          <li>Spinning up <strong>Marketing, Finance, and Product</strong> as fractional studios.</li>
+                        </ul>
                       </div>
-                    </div>
+                      <div class="journey-v2-media">
+                        <div class="journey-v2-frame is-placeholder">
+                          <div class="journey-v2-placeholder">
+                            <span class="journey-v2-placeholder-icon" aria-hidden="true">
+                              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 5v14l11-7L8 5z" fill="currentColor"/>
+                              </svg>
+                            </span>
+                            <span class="journey-v2-placeholder-label">Film coming soon</span>
+                          </div>
+                          <span class="journey-v2-corner-tl" aria-hidden="true"></span>
+                          <span class="journey-v2-corner-tr" aria-hidden="true"></span>
+                          <span class="journey-v2-corner-bl" aria-hidden="true"></span>
+                          <span class="journey-v2-corner-br" aria-hidden="true"></span>
+                        </div>
+                      </div>
+                    </article>
                   </div>
                 </div>
+
+                <script>
+                /* Journey v2 — year-stepped timeline with progress-bar loader + BSY video reel.
+                   Each track between two years carries an 8-second CSS animation that telegraphs
+                   the upcoming year change. Clicking a year resets to that point. The notch under
+                   the active year slides to anchor the deck card to the active pill. */
+                (function () {
+                  var rail = document.querySelector('[data-journey-rail]');
+                  var stage = document.querySelector('[data-journey-stage]');
+                  var deck = document.querySelector('.journey-v2-deck');
+                  var notch = document.querySelector('[data-journey-notch]');
+                  if (!rail || !stage) return;
+
+                  var tabs = rail.querySelectorAll('[data-journey-year]');
+                  var slides = stage.querySelectorAll('[data-journey-slide]');
+                  var fills = rail.querySelectorAll('[data-journey-fill]');
+                  var tracks = rail.querySelectorAll('[data-journey-track]');
+
+                  var years = ['2024', '2025', '2026'];
+                  var current = '2024';
+                  var autoTimer = null;
+                  var userPaused = false;
+                  var AUTO_MS = 8000;
+
+                  function positionNotch(year) {
+                    if (!notch || !deck) return;
+                    var tab = rail.querySelector('[data-journey-year="' + year + '"]');
+                    if (!tab) return;
+                    var tabRect = tab.getBoundingClientRect();
+                    var deckRect = deck.getBoundingClientRect();
+                    var x = tabRect.left + tabRect.width / 2 - deckRect.left;
+                    deck.style.setProperty('--journey-notch-x', x + 'px');
+                  }
+
+                  function setActive(year, opts) {
+                    opts = opts || {};
+                    var activeIdx = years.indexOf(year);
+
+                    tabs.forEach(function (t) {
+                      var ty = t.getAttribute('data-journey-year');
+                      var idx = years.indexOf(ty);
+                      t.classList.toggle('is-active', ty === year);
+                      t.classList.toggle('is-passed', idx < activeIdx);
+                      t.setAttribute('aria-selected', ty === year ? 'true' : 'false');
+                    });
+
+                    /* Track fills: past tracks → 100%; future tracks → 0%; current outgoing track → loading. */
+                    fills.forEach(function (f, i) {
+                      f.classList.remove('is-loading', 'is-passed');
+                      f.style.width = '';
+                      f.style.animation = '';
+                      if (i < activeIdx) {
+                        f.classList.add('is-passed');  /* already passed — full bar */
+                      } else if (i === activeIdx && opts.runLoader) {
+                        /* The track immediately AFTER the active year. Animate it. */
+                        // Force reflow before re-adding animation so it restarts cleanly
+                        // eslint-disable-next-line no-unused-expressions
+                        f.offsetWidth;
+                        f.classList.add('is-loading');
+                      }
+                    });
+
+                    slides.forEach(function (s) {
+                      var sy = s.getAttribute('data-journey-slide');
+                      s.classList.toggle('is-active', sy === year);
+                    });
+
+                    current = year;
+                    positionNotch(year);
+                  }
+
+                  function startAuto() {
+                    stopAuto();
+                    if (userPaused) return;
+                    var i = years.indexOf(current);
+                    if (i >= years.length - 1) {
+                      /* Reached the last year — pause the loop; user can click to reset. */
+                      return;
+                    }
+                    /* Kick the loader animation on the outgoing track */
+                    var outgoingFill = fills[i];
+                    if (outgoingFill) {
+                      outgoingFill.classList.remove('is-loading');
+                      // restart by forcing reflow
+                      // eslint-disable-next-line no-unused-expressions
+                      outgoingFill.offsetWidth;
+                      outgoingFill.classList.add('is-loading');
+                    }
+                    autoTimer = setTimeout(function () {
+                      var next = years[i + 1];
+                      setActive(next, { runLoader: true });
+                      startAuto();
+                    }, AUTO_MS);
+                  }
+                  function stopAuto() {
+                    if (autoTimer) { clearTimeout(autoTimer); autoTimer = null; }
+                  }
+
+                  function pauseLoaders() {
+                    fills.forEach(function (f) {
+                      var cs = window.getComputedStyle(f);
+                      if (cs.animationName && cs.animationName !== 'none') {
+                        f.style.animationPlayState = 'paused';
+                      }
+                    });
+                  }
+                  function resumeLoaders() {
+                    fills.forEach(function (f) {
+                      f.style.animationPlayState = '';
+                    });
+                  }
+
+                  tabs.forEach(function (t) {
+                    t.addEventListener('click', function () {
+                      var y = t.getAttribute('data-journey-year');
+                      userPaused = true;
+                      stopAuto();
+                      setActive(y, { runLoader: false });
+                      /* Clear any in-progress loaders */
+                      fills.forEach(function (f) { f.classList.remove('is-loading'); });
+                    });
+                  });
+
+                  /* Pause loader + auto-advance on hover/focus */
+                  ['mouseenter', 'focusin'].forEach(function (ev) {
+                    stage.addEventListener(ev, function () { stopAuto(); pauseLoaders(); });
+                    rail.addEventListener(ev, function () { stopAuto(); pauseLoaders(); });
+                  });
+                  ['mouseleave', 'focusout'].forEach(function (ev) {
+                    stage.addEventListener(ev, function () {
+                      if (!userPaused) { resumeLoaders(); startAuto(); }
+                    });
+                    rail.addEventListener(ev, function () {
+                      if (!userPaused) { resumeLoaders(); startAuto(); }
+                    });
+                  });
+
+                  /* Reposition notch on resize */
+                  window.addEventListener('resize', function () { positionNotch(current); });
+
+                  var section = document.getElementById('our-journey');
+                  function kickoff() {
+                    positionNotch(current);
+                    /* Start the loader + auto-advance immediately. IntersectionObserver
+                       below additionally pauses/resumes as the user scrolls in/out so we
+                       don't keep cycling out of view. */
+                    startAuto();
+                    if (section && 'IntersectionObserver' in window) {
+                      var wasInView = true;
+                      var inViewObs = new IntersectionObserver(function (entries) {
+                        entries.forEach(function (e) {
+                          if (e.isIntersecting && !wasInView && !userPaused) {
+                            wasInView = true;
+                            startAuto();
+                          } else if (!e.isIntersecting && wasInView) {
+                            wasInView = false;
+                            stopAuto();
+                          }
+                        });
+                      }, { threshold: 0.2 });
+                      inViewObs.observe(section);
+                    }
+                  }
+                  /* Wait two frames so the rail's bounding rects settle before we
+                     measure for the notch offset. */
+                  function delayedKickoff() {
+                    /* setTimeout (not rAF) — background tabs throttle rAFs. */
+                    setTimeout(kickoff, 50);
+                  }
+                  if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', delayedKickoff);
+                  } else {
+                    delayedKickoff();
+                  }
+
+                  /* ─── BSY-style crossfade video reel for the 2024 slide ─── */
+                  var reel = stage.querySelector('[data-journey-reel]');
+                  if (reel) {
+                    var sources = [
+                      'https://res.cloudinary.com/dkwqszhed/video/upload/v1775221784/sfvid5_s1lqbs.mp4',
+                      'https://res.cloudinary.com/dkwqszhed/video/upload/v1775221784/sf_vid_12_li9eeg.mp4',
+                      'https://res.cloudinary.com/dkwqszhed/video/upload/v1775221784/sfvid2_umlxgp.mp4',
+                      'https://res.cloudinary.com/dkwqszhed/video/upload/v1775225401/Drone_prr0ih.mp4',
+                      'https://res.cloudinary.com/dkwqszhed/video/upload/v1775222434/sfvid15_jtcyfi.mp4'
+                    ];
+                    var trims = [2.0, 0.35, 0.35, 0.35, 0.35];
+
+                    var a = reel.querySelector('[data-journey-video-a]');
+                    var b = reel.querySelector('[data-journey-video-b]');
+
+                    if (a && b) {
+                      var idx = 0;
+                      var cur = a;
+                      var nxt = b;
+                      var swapping = false;
+
+                      cur.src = sources[idx];
+                      nxt.src = sources[(idx + 1) % sources.length];
+                      nxt.load();
+
+                      function syncPlayback() {
+                        var slide = reel.closest('[data-journey-slide]');
+                        if (slide && slide.classList.contains('is-active')) {
+                          cur.play().catch(function () {});
+                        } else if (slide) {
+                          cur.pause();
+                        }
+                      }
+                      syncPlayback();
+
+                      var slide2024 = reel.closest('[data-journey-slide]');
+                      if (slide2024) {
+                        new MutationObserver(syncPlayback).observe(slide2024, {
+                          attributes: true, attributeFilter: ['class']
+                        });
+                      }
+
+                      function advance() {
+                        if (swapping) return;
+                        swapping = true;
+                        nxt.currentTime = 0;
+                        var p = nxt.play();
+                        if (p && typeof p.catch === 'function') p.catch(function () {});
+                        nxt.classList.add('is-active');
+                        cur.classList.remove('is-active');
+                        var out = cur;
+                        cur = nxt; nxt = out;
+                        idx = (idx + 1) % sources.length;
+                        setTimeout(function () {
+                          out.pause();
+                          out.currentTime = 0;
+                          var upcoming = sources[(idx + 1) % sources.length];
+                          if (out.src !== upcoming) {
+                            out.src = upcoming;
+                            out.load();
+                          }
+                          swapping = false;
+                        }, 350);
+                      }
+
+                      function watch(e) {
+                        var v = e.target;
+                        if (v !== cur) return;
+                        var dur = v.duration;
+                        var trim = trims[idx];
+                        if (isFinite(dur) && dur > 0 && v.currentTime >= dur - trim) {
+                          advance();
+                        }
+                      }
+                      a.addEventListener('timeupdate', watch);
+                      b.addEventListener('timeupdate', watch);
+                      a.addEventListener('ended', function () { if (cur === a) advance(); });
+                      b.addEventListener('ended', function () { if (cur === b) advance(); });
+                    }
+                  }
+                })();
+                </script>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
       <section class="section_about_layout">
         <div class="padding-global">
           <div class="container-large">
@@ -707,9 +997,12 @@ Webflow.push(() => {
                     </div>
                     <div data-w-tab="Tab 2" tabs-nesting-src="2" class="about_layout_tab-pane w-tab-pane">
                       <div class="about_layout_tab-content">
-                        <div class="about-us-tabs-video w-embed"><video autoplay="" muted="" loop="" playsinline="" loading="lazy" preload="none" style="height:100%; width:100%; object-fit: cover;">
-                            <source src="https://flowdojo.github.io/webflow-public-files/Shifu/Healthy-Family-Over-Work.mp4" type="video/mp4">
-                          </video></div>
+                        <button type="button" class="cv-video-trigger" data-cv-video="1YbBHPGGYeQkp7UIfpcm-mj3mRH0FvAWU" aria-label="Play: Balance — health, family and work">
+                          <img class="cv-video-thumb" loading="lazy" src="videos/About-us-hero-video_poster.0000000.jpg" alt="" onerror="this.style.display='none'">
+                          <span class="cv-video-play" aria-hidden="true">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7L8 5z"/></svg>
+                          </span>
+                        </button>
                       </div>
                     </div>
                     <div data-w-tab="Tab 3" tabs-nesting-src="3" class="about_layout_tab-pane w-tab-pane">
@@ -767,237 +1060,135 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="padding-global">
           <div class="container-large">
             <div class="padding-section-large">
-              <div fd-section-reveal="" class="about_core-values_component">
+              <div class="about_core-values_component">
                 <div class="section-tabs-header">
-                  <h2 fd-heading-reveal="" class="heading-style-h2">The <span fd-svg-underline-text="">team behind</span> this massive vision</h2>
-                  <p fd-fade-reveal="">We’re founders and operators who’ve scaled companies to $10M ARR - empathetic, execution-first partners obsessed with building sustainably.</p>
+                  <h2 class="heading-style-h2">The <span fd-svg-underline-text="">team behind</span> this massive vision</h2>
+                  <p>We’re founders and operators who’ve scaled companies to $10M ARR &mdash; empathetic, execution-first partners obsessed with building sustainably.</p>
                 </div>
                 <div class="spacer-60 mob-36"></div>
-                <div fd-fade-reveal="" class="team-wrapper swiper">
-                  <div class="swiper-wrapper team-list">
-                    <div class="swiper-slide team">
-                      <div data-w-id="9616e82c-8a67-a546-95ee-9376f87a0ebf" class="about_core-values_item">
-                        <div class="about_core-values_image-wrapper"><img loading="lazy" src="images/image-302.avif" alt="Man wearing glasses and gray shirt smiling outdoors with blurred green foliage background." sizes="(max-width: 800px) 100vw, 800px, 100vw" srcset="images/image-302-p-500.avif 500w, images/image-302.avif 735w" class="about_core-values_image"></div>
-                        <div class="about_core-values_title-wrapper">
-                          <div>
-                            <div class="team-name">Sri Maneru</div>
-                            <div class="team-designation">Co-Founder &amp; CEO</div>
-                          </div>
-                          <a href="#" target="_blank" class="social-link w-inline-block">
-                            <div class="social-icon w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3ZM8 18C8.27614 18 8.5 17.7761 8.5 17.5V10.5C8.5 10.2239 8.27614 10 8 10H6.5C6.22386 10 6 10.2239 6 10.5V17.5C6 17.7761 6.22386 18 6.5 18H8ZM7.25 9C6.42157 9 5.75 8.32843 5.75 7.5C5.75 6.67157 6.42157 6 7.25 6C8.07843 6 8.75 6.67157 8.75 7.5C8.75 8.32843 8.07843 9 7.25 9ZM17.5 18C17.7761 18 18 17.7761 18 17.5V12.9C18.0325 11.3108 16.8576 9.95452 15.28 9.76C14.177 9.65925 13.1083 10.1744 12.5 11.1V10.5C12.5 10.2239 12.2761 10 12 10H10.5C10.2239 10 10 10.2239 10 10.5V17.5C10 17.7761 10.2239 18 10.5 18H12C12.2761 18 12.5 17.7761 12.5 17.5V13.75C12.5 12.9216 13.1716 12.25 14 12.25C14.8284 12.25 15.5 12.9216 15.5 13.75V17.5C15.5 17.7761 15.7239 18 16 18H17.5Z" fill="CurrentColor"></path>
-                              </svg></div>
-                          </a>
-                        </div>
-                        <div class="team-focused-bg">
-                          <div class="faq-focused-bg-copy"><img src="images/Vector-31.svg" loading="lazy" alt="" class="focused-icon top"><img src="images/Vector-32.svg" loading="lazy" alt="" class="focused-icon _2"><img src="images/Vector-34.svg" loading="lazy" alt="" class="focused-icon _3"><img src="images/Vector-33.svg" loading="lazy" alt="" class="focused-icon _4"></div>
-                        </div>
-                      </div>
+
+                <div class="team-v2-grid">
+                  <article class="team-v2-card">
+                    <div class="team-v2-photo">
+                      <img loading="lazy" src="images/image-302.avif" alt="Sri Maneru" sizes="(max-width: 800px) 100vw, 400px" srcset="images/image-302-p-500.avif 500w, images/image-302.avif 735w">
+                        <a class="team-v2-li" href="#" target="_blank" rel="noopener noreferrer" aria-label="Sri Maneru on LinkedIn">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+                        </a>
+
                     </div>
-                    <div class="swiper-slide team">
-                      <div data-w-id="9616e82c-8a67-a546-95ee-9376f87a0ebf" class="about_core-values_item">
-                        <div class="about_core-values_image-wrapper"><img loading="lazy" src="images/image-302-1.avif" alt="Smiling man with short dark hair and beard wearing a white t-shirt, standing in a room with dim lighting." sizes="(max-width: 800px) 100vw, 800px, 100vw" srcset="images/image-302-1-p-500.avif 500w, images/image-302-1.avif 735w" class="about_core-values_image"></div>
-                        <div class="about_core-values_title-wrapper">
-                          <div>
-                            <div class="team-name">Prateek Sethi</div>
-                            <div class="team-designation">Co-Founder &amp; COO</div>
-                          </div>
-                          <a href="https://www.linkedin.com/in/pratsethi/" target="_blank" class="social-link w-inline-block">
-                            <div class="social-icon w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3ZM8 18C8.27614 18 8.5 17.7761 8.5 17.5V10.5C8.5 10.2239 8.27614 10 8 10H6.5C6.22386 10 6 10.2239 6 10.5V17.5C6 17.7761 6.22386 18 6.5 18H8ZM7.25 9C6.42157 9 5.75 8.32843 5.75 7.5C5.75 6.67157 6.42157 6 7.25 6C8.07843 6 8.75 6.67157 8.75 7.5C8.75 8.32843 8.07843 9 7.25 9ZM17.5 18C17.7761 18 18 17.7761 18 17.5V12.9C18.0325 11.3108 16.8576 9.95452 15.28 9.76C14.177 9.65925 13.1083 10.1744 12.5 11.1V10.5C12.5 10.2239 12.2761 10 12 10H10.5C10.2239 10 10 10.2239 10 10.5V17.5C10 17.7761 10.2239 18 10.5 18H12C12.2761 18 12.5 17.7761 12.5 17.5V13.75C12.5 12.9216 13.1716 12.25 14 12.25C14.8284 12.25 15.5 12.9216 15.5 13.75V17.5C15.5 17.7761 15.7239 18 16 18H17.5Z" fill="CurrentColor"></path>
-                              </svg></div>
-                          </a>
-                        </div>
-                        <div class="team-focused-bg">
-                          <div class="faq-focused-bg-copy"><img src="images/Vector-31.svg" loading="lazy" alt="" class="focused-icon top"><img src="images/Vector-32.svg" loading="lazy" alt="" class="focused-icon _2"><img src="images/Vector-34.svg" loading="lazy" alt="" class="focused-icon _3"><img src="images/Vector-33.svg" loading="lazy" alt="" class="focused-icon _4"></div>
-                        </div>
-                      </div>
+                    <div class="team-v2-info">
+                        <p class="team-v2-name">Sri Maneru</p>
+                      <p class="team-v2-role">Co-Founder &amp; CEO</p>
+                      <p class="team-v2-tagline">Built Almabase for a decade, now Shifu.</p>
                     </div>
-                    <div class="swiper-slide team">
-                      <div data-w-id="9616e82c-8a67-a546-95ee-9376f87a0ebf" class="about_core-values_item">
-                        <div class="about_core-values_image-wrapper"><img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_960/v1778363786/d439dced-23bc-4708-a997-dfe12545594d.png" alt="Mausmi Ambastha" class="about_core-values_image"></div>
-                        <div class="about_core-values_title-wrapper">
-                          <div>
-                            <div class="team-name">Mausmi Ambastha</div>
-                            <div class="team-designation">Co-Founder &amp; CEO, Shifu Foundation</div>
-                          </div>
-                          <a href="https://www.linkedin.com/in/mausmiambastha/" target="_blank" class="social-link w-inline-block">
-                            <div class="social-icon w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3ZM8 18C8.27614 18 8.5 17.7761 8.5 17.5V10.5C8.5 10.2239 8.27614 10 8 10H6.5C6.22386 10 6 10.2239 6 10.5V17.5C6 17.7761 6.22386 18 6.5 18H8ZM7.25 9C6.42157 9 5.75 8.32843 5.75 7.5C5.75 6.67157 6.42157 6 7.25 6C8.07843 6 8.75 6.67157 8.75 7.5C8.75 8.32843 8.07843 9 7.25 9ZM17.5 18C17.7761 18 18 17.7761 18 17.5V12.9C18.0325 11.3108 16.8576 9.95452 15.28 9.76C14.177 9.65925 13.1083 10.1744 12.5 11.1V10.5C12.5 10.2239 12.2761 10 12 10H10.5C10.2239 10 10 10.2239 10 10.5V17.5C10 17.7761 10.2239 18 10.5 18H12C12.2761 18 12.5 17.7761 12.5 17.5V13.75C12.5 12.9216 13.1716 12.25 14 12.25C14.8284 12.25 15.5 12.9216 15.5 13.75V17.5C15.5 17.7761 15.7239 18 16 18H17.5Z" fill="CurrentColor"></path>
-                              </svg></div>
-                          </a>
-                        </div>
-                        <div class="team-focused-bg">
-                          <div class="faq-focused-bg-copy"><img src="images/Vector-31.svg" loading="lazy" alt="" class="focused-icon top"><img src="images/Vector-32.svg" loading="lazy" alt="" class="focused-icon _2"><img src="images/Vector-34.svg" loading="lazy" alt="" class="focused-icon _3"><img src="images/Vector-33.svg" loading="lazy" alt="" class="focused-icon _4"></div>
-                        </div>
-                      </div>
+                  </article>
+
+                  <article class="team-v2-card">
+                    <div class="team-v2-photo">
+                      <img loading="lazy" src="images/image-302-1.avif" alt="Prateek Sethi" sizes="(max-width: 800px) 100vw, 400px" srcset="images/image-302-1-p-500.avif 500w, images/image-302-1.avif 735w">
+                        <a class="team-v2-li" href="https://www.linkedin.com/in/pratsethi/" target="_blank" rel="noopener noreferrer" aria-label="Prateek Sethi on LinkedIn">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+                        </a>
+
                     </div>
-                    <div class="swiper-slide team">
-                      <div data-w-id="9616e82c-8a67-a546-95ee-9376f87a0ebf" class="about_core-values_item">
-                        <div class="about_core-values_image-wrapper"><img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_960/v1778363757/ecfd5c0a-a966-4d9e-ab17-cc8e82c8da81.png" alt="Saurabh" class="about_core-values_image"></div>
-                        <div class="about_core-values_title-wrapper">
-                          <div>
-                            <div class="team-name">Saurabh</div>
-                            <div class="team-designation">Everything Product</div>
-                          </div>
-                          <a href="https://www.linkedin.com/in/saurrx/" target="_blank" class="social-link w-inline-block">
-                            <div class="social-icon w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3ZM8 18C8.27614 18 8.5 17.7761 8.5 17.5V10.5C8.5 10.2239 8.27614 10 8 10H6.5C6.22386 10 6 10.2239 6 10.5V17.5C6 17.7761 6.22386 18 6.5 18H8ZM7.25 9C6.42157 9 5.75 8.32843 5.75 7.5C5.75 6.67157 6.42157 6 7.25 6C8.07843 6 8.75 6.67157 8.75 7.5C8.75 8.32843 8.07843 9 7.25 9ZM17.5 18C17.7761 18 18 17.7761 18 17.5V12.9C18.0325 11.3108 16.8576 9.95452 15.28 9.76C14.177 9.65925 13.1083 10.1744 12.5 11.1V10.5C12.5 10.2239 12.2761 10 12 10H10.5C10.2239 10 10 10.2239 10 10.5V17.5C10 17.7761 10.2239 18 10.5 18H12C12.2761 18 12.5 17.7761 12.5 17.5V13.75C12.5 12.9216 13.1716 12.25 14 12.25C14.8284 12.25 15.5 12.9216 15.5 13.75V17.5C15.5 17.7761 15.7239 18 16 18H17.5Z" fill="CurrentColor"></path>
-                              </svg></div>
-                          </a>
-                        </div>
-                        <div class="team-focused-bg">
-                          <div class="faq-focused-bg-copy"><img src="images/Vector-31.svg" loading="lazy" alt="" class="focused-icon top"><img src="images/Vector-32.svg" loading="lazy" alt="" class="focused-icon _2"><img src="images/Vector-34.svg" loading="lazy" alt="" class="focused-icon _3"><img src="images/Vector-33.svg" loading="lazy" alt="" class="focused-icon _4"></div>
-                        </div>
-                      </div>
+                    <div class="team-v2-info">
+                        <p class="team-v2-name">Prateek Sethi</p>
+                      <p class="team-v2-role">Co-Founder &amp; COO</p>
+                      <p class="team-v2-tagline">Runs ops across every Shifu sprint.</p>
                     </div>
-                    <div class="swiper-slide team">
-                      <div data-w-id="9616e82c-8a67-a546-95ee-9376f87a0ebf" class="about_core-values_item">
-                        <div class="about_core-values_image-wrapper"><img loading="lazy" src="images/image-302-4.avif" alt="Smiling young man with short black hair wearing a dark blue shirt outdoors with blurred greenery in the background." sizes="(max-width: 800px) 100vw, 800px, 100vw" srcset="images/image-302-4-p-500.avif 500w, images/image-302-4.avif 735w" class="about_core-values_image"></div>
-                        <div class="about_core-values_title-wrapper">
-                          <div>
-                            <div class="team-name">Ritik Goyal</div>
-                            <div class="team-designation">Everything Design</div>
-                          </div>
-                          <a href="https://www.linkedin.com/in/ritik-goyal8/" target="_blank" class="social-link w-inline-block">
-                            <div class="social-icon w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3ZM8 18C8.27614 18 8.5 17.7761 8.5 17.5V10.5C8.5 10.2239 8.27614 10 8 10H6.5C6.22386 10 6 10.2239 6 10.5V17.5C6 17.7761 6.22386 18 6.5 18H8ZM7.25 9C6.42157 9 5.75 8.32843 5.75 7.5C5.75 6.67157 6.42157 6 7.25 6C8.07843 6 8.75 6.67157 8.75 7.5C8.75 8.32843 8.07843 9 7.25 9ZM17.5 18C17.7761 18 18 17.7761 18 17.5V12.9C18.0325 11.3108 16.8576 9.95452 15.28 9.76C14.177 9.65925 13.1083 10.1744 12.5 11.1V10.5C12.5 10.2239 12.2761 10 12 10H10.5C10.2239 10 10 10.2239 10 10.5V17.5C10 17.7761 10.2239 18 10.5 18H12C12.2761 18 12.5 17.7761 12.5 17.5V13.75C12.5 12.9216 13.1716 12.25 14 12.25C14.8284 12.25 15.5 12.9216 15.5 13.75V17.5C15.5 17.7761 15.7239 18 16 18H17.5Z" fill="CurrentColor"></path>
-                              </svg></div>
-                          </a>
-                        </div>
-                        <div class="team-focused-bg">
-                          <div class="faq-focused-bg-copy"><img src="images/Vector-31.svg" loading="lazy" alt="" class="focused-icon top"><img src="images/Vector-32.svg" loading="lazy" alt="" class="focused-icon _2"><img src="images/Vector-34.svg" loading="lazy" alt="" class="focused-icon _3"><img src="images/Vector-33.svg" loading="lazy" alt="" class="focused-icon _4"></div>
-                        </div>
-                      </div>
+                  </article>
+
+                  <article class="team-v2-card">
+                    <div class="team-v2-photo">
+                      <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_960/v1778363786/d439dced-23bc-4708-a997-dfe12545594d.png" alt="Mausmi Ambastha">
+                        <a class="team-v2-li" href="https://www.linkedin.com/in/mausmiambastha/" target="_blank" rel="noopener noreferrer" aria-label="Mausmi Ambastha on LinkedIn">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+                        </a>
+
                     </div>
-                    <div class="swiper-slide team">
-                      <div data-w-id="9616e82c-8a67-a546-95ee-9376f87a0ebf" class="about_core-values_item">
-                        <div class="about_core-values_image-wrapper"><img loading="lazy" src="images/image-302-2.avif" alt="Man with dark hair, beard, and sunglasses wearing a light blue denim jacket against a green outdoor background." sizes="(max-width: 800px) 100vw, 800px, 100vw" srcset="images/image-302-2-p-500.avif 500w, images/image-302-2.avif 735w" class="about_core-values_image"></div>
-                        <div class="about_core-values_title-wrapper">
-                          <div>
-                            <div class="team-name">Aniruddha Khanwilkar</div>
-                            <div class="team-designation">Documentary Director</div>
-                          </div>
-                          <a href="https://www.linkedin.com/in/aniruddha-khanwilkar-ba3609139/" target="_blank" class="social-link w-inline-block">
-                            <div class="social-icon w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3ZM8 18C8.27614 18 8.5 17.7761 8.5 17.5V10.5C8.5 10.2239 8.27614 10 8 10H6.5C6.22386 10 6 10.2239 6 10.5V17.5C6 17.7761 6.22386 18 6.5 18H8ZM7.25 9C6.42157 9 5.75 8.32843 5.75 7.5C5.75 6.67157 6.42157 6 7.25 6C8.07843 6 8.75 6.67157 8.75 7.5C8.75 8.32843 8.07843 9 7.25 9ZM17.5 18C17.7761 18 18 17.7761 18 17.5V12.9C18.0325 11.3108 16.8576 9.95452 15.28 9.76C14.177 9.65925 13.1083 10.1744 12.5 11.1V10.5C12.5 10.2239 12.2761 10 12 10H10.5C10.2239 10 10 10.2239 10 10.5V17.5C10 17.7761 10.2239 18 10.5 18H12C12.2761 18 12.5 17.7761 12.5 17.5V13.75C12.5 12.9216 13.1716 12.25 14 12.25C14.8284 12.25 15.5 12.9216 15.5 13.75V17.5C15.5 17.7761 15.7239 18 16 18H17.5Z" fill="CurrentColor"></path>
-                              </svg></div>
-                          </a>
-                        </div>
-                        <div class="team-focused-bg">
-                          <div class="faq-focused-bg-copy"><img src="images/Vector-31.svg" loading="lazy" alt="" class="focused-icon top"><img src="images/Vector-32.svg" loading="lazy" alt="" class="focused-icon _2"><img src="images/Vector-34.svg" loading="lazy" alt="" class="focused-icon _3"><img src="images/Vector-33.svg" loading="lazy" alt="" class="focused-icon _4"></div>
-                        </div>
-                      </div>
+                    <div class="team-v2-info">
+                        <p class="team-v2-name">Mausmi Ambastha</p>
+                      <p class="team-v2-role">Co-Founder &amp; CEO, Shifu Foundation</p>
+                      <p class="team-v2-tagline">Mobilising India&rsquo;s next 100 SaaS founders.</p>
                     </div>
-                    <div class="swiper-slide team">
-                      <div data-w-id="9616e82c-8a67-a546-95ee-9376f87a0ebf" class="about_core-values_item">
-                        <div class="about_core-values_image-wrapper"><img loading="lazy" src="images/image-302-3.avif" alt="Smiling man with short hair wearing a dark hoodie against a textured wall." sizes="(max-width: 800px) 100vw, 800px, 100vw" srcset="images/image-302-3-p-500.avif 500w, images/image-302-3.avif 735w" class="about_core-values_image"></div>
-                        <div class="about_core-values_title-wrapper">
-                          <div>
-                            <div class="team-name">Ritesh Varma</div>
-                            <div class="team-designation">Documentary DoP</div>
-                          </div>
-                          <a href="https://www.linkedin.com/in/ritesh-varma-76801899/" target="_blank" class="social-link w-inline-block">
-                            <div class="social-icon w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3ZM8 18C8.27614 18 8.5 17.7761 8.5 17.5V10.5C8.5 10.2239 8.27614 10 8 10H6.5C6.22386 10 6 10.2239 6 10.5V17.5C6 17.7761 6.22386 18 6.5 18H8ZM7.25 9C6.42157 9 5.75 8.32843 5.75 7.5C5.75 6.67157 6.42157 6 7.25 6C8.07843 6 8.75 6.67157 8.75 7.5C8.75 8.32843 8.07843 9 7.25 9ZM17.5 18C17.7761 18 18 17.7761 18 17.5V12.9C18.0325 11.3108 16.8576 9.95452 15.28 9.76C14.177 9.65925 13.1083 10.1744 12.5 11.1V10.5C12.5 10.2239 12.2761 10 12 10H10.5C10.2239 10 10 10.2239 10 10.5V17.5C10 17.7761 10.2239 18 10.5 18H12C12.2761 18 12.5 17.7761 12.5 17.5V13.75C12.5 12.9216 13.1716 12.25 14 12.25C14.8284 12.25 15.5 12.9216 15.5 13.75V17.5C15.5 17.7761 15.7239 18 16 18H17.5Z" fill="CurrentColor"></path>
-                              </svg></div>
-                          </a>
-                        </div>
-                        <div class="team-focused-bg">
-                          <div class="faq-focused-bg-copy"><img src="images/Vector-31.svg" loading="lazy" alt="" class="focused-icon top"><img src="images/Vector-32.svg" loading="lazy" alt="" class="focused-icon _2"><img src="images/Vector-34.svg" loading="lazy" alt="" class="focused-icon _3"><img src="images/Vector-33.svg" loading="lazy" alt="" class="focused-icon _4"></div>
-                        </div>
-                      </div>
+                  </article>
+
+                  <article class="team-v2-card">
+                    <div class="team-v2-photo">
+                      <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_960/v1778363757/ecfd5c0a-a966-4d9e-ab17-cc8e82c8da81.png" alt="Saurabh">
+                        <a class="team-v2-li" href="https://www.linkedin.com/in/saurrx/" target="_blank" rel="noopener noreferrer" aria-label="Saurabh on LinkedIn">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+                        </a>
+
                     </div>
-                    <div class="swiper-slide team">
-                      <div data-w-id="9616e82c-8a67-a546-95ee-9376f87a0ebf" class="about_core-values_item">
-                        <div class="about_core-values_image-wrapper"><img loading="lazy" src="images/kunal.png" alt="Man with short hair and trimmed beard wearing a light purple polo shirt, standing with arms crossed against a solid purple background." sizes="(max-width: 800px) 100vw, 800px, 100vw" srcset="images/kunal-p-500.png 500w, images/kunal.png 800w" class="about_core-values_image"></div>
-                        <div class="about_core-values_title-wrapper">
-                          <div>
-                            <div class="team-name">Kunal Purkait</div>
-                            <div class="team-designation">Head Chef</div>
-                          </div>
-                          <a href="https://www.linkedin.com/in/kunal-purkait-8bba72306/" target="_blank" class="social-link w-inline-block">
-                            <div class="social-icon w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3ZM8 18C8.27614 18 8.5 17.7761 8.5 17.5V10.5C8.5 10.2239 8.27614 10 8 10H6.5C6.22386 10 6 10.2239 6 10.5V17.5C6 17.7761 6.22386 18 6.5 18H8ZM7.25 9C6.42157 9 5.75 8.32843 5.75 7.5C5.75 6.67157 6.42157 6 7.25 6C8.07843 6 8.75 6.67157 8.75 7.5C8.75 8.32843 8.07843 9 7.25 9ZM17.5 18C17.7761 18 18 17.7761 18 17.5V12.9C18.0325 11.3108 16.8576 9.95452 15.28 9.76C14.177 9.65925 13.1083 10.1744 12.5 11.1V10.5C12.5 10.2239 12.2761 10 12 10H10.5C10.2239 10 10 10.2239 10 10.5V17.5C10 17.7761 10.2239 18 10.5 18H12C12.2761 18 12.5 17.7761 12.5 17.5V13.75C12.5 12.9216 13.1716 12.25 14 12.25C14.8284 12.25 15.5 12.9216 15.5 13.75V17.5C15.5 17.7761 15.7239 18 16 18H17.5Z" fill="CurrentColor"></path>
-                              </svg></div>
-                          </a>
-                        </div>
-                        <div class="team-focused-bg">
-                          <div class="faq-focused-bg-copy"><img src="images/Vector-31.svg" loading="lazy" alt="" class="focused-icon top"><img src="images/Vector-32.svg" loading="lazy" alt="" class="focused-icon _2"><img src="images/Vector-34.svg" loading="lazy" alt="" class="focused-icon _3"><img src="images/Vector-33.svg" loading="lazy" alt="" class="focused-icon _4"></div>
-                        </div>
-                      </div>
+                    <div class="team-v2-info">
+                        <p class="team-v2-name">Saurabh</p>
+                      <p class="team-v2-role">Everything Product</p>
+                      <p class="team-v2-tagline">Builds product founders actually use.</p>
                     </div>
-                  </div>
+                  </article>
+
+                  <article class="team-v2-card">
+                    <div class="team-v2-photo">
+                      <img loading="lazy" src="images/image-302-4.avif" alt="Ritik Goyal" sizes="(max-width: 800px) 100vw, 400px" srcset="images/image-302-4-p-500.avif 500w, images/image-302-4.avif 735w">
+                        <a class="team-v2-li" href="https://www.linkedin.com/in/ritik-goyal8/" target="_blank" rel="noopener noreferrer" aria-label="Ritik Goyal on LinkedIn">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+                        </a>
+
+                    </div>
+                    <div class="team-v2-info">
+                        <p class="team-v2-name">Ritik Goyal</p>
+                      <p class="team-v2-role">Everything Design</p>
+                      <p class="team-v2-tagline">Designs every pixel you scroll past.</p>
+                    </div>
+                  </article>
+
+                  <article class="team-v2-card">
+                    <div class="team-v2-photo">
+                      <img loading="lazy" src="images/image-302-2.avif" alt="Aniruddha Khanwilkar" sizes="(max-width: 800px) 100vw, 400px" srcset="images/image-302-2-p-500.avif 500w, images/image-302-2.avif 735w">
+                        <a class="team-v2-li" href="https://www.linkedin.com/in/aniruddha-khanwilkar-ba3609139/" target="_blank" rel="noopener noreferrer" aria-label="Aniruddha Khanwilkar on LinkedIn">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+                        </a>
+
+                    </div>
+                    <div class="team-v2-info">
+                        <p class="team-v2-name">Aniruddha Khanwilkar</p>
+                      <p class="team-v2-role">Documentary Director</p>
+                      <p class="team-v2-tagline">Films founder stories on the road.</p>
+                    </div>
+                  </article>
+
+                  <article class="team-v2-card">
+                    <div class="team-v2-photo">
+                      <img loading="lazy" src="images/image-302-3.avif" alt="Ritesh Varma" sizes="(max-width: 800px) 100vw, 400px" srcset="images/image-302-3-p-500.avif 500w, images/image-302-3.avif 735w">
+                        <a class="team-v2-li" href="https://www.linkedin.com/in/ritesh-varma-76801899/" target="_blank" rel="noopener noreferrer" aria-label="Ritesh Varma on LinkedIn">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+                        </a>
+
+                    </div>
+                    <div class="team-v2-info">
+                        <p class="team-v2-name">Ritesh Varma</p>
+                      <p class="team-v2-role">Documentary DoP</p>
+                      <p class="team-v2-tagline">Frames every founder portrait we shoot.</p>
+                    </div>
+                  </article>
+
+                  <article class="team-v2-card">
+                    <div class="team-v2-photo">
+                      <img loading="lazy" src="images/kunal.png" alt="Kunal Purkait" sizes="(max-width: 800px) 100vw, 400px" srcset="images/kunal-p-500.png 500w, images/kunal.png 800w">
+                        <a class="team-v2-li" href="https://www.linkedin.com/in/kunal-purkait-8bba72306/" target="_blank" rel="noopener noreferrer" aria-label="Kunal Purkait on LinkedIn">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+                        </a>
+
+                    </div>
+                    <div class="team-v2-info">
+                        <p class="team-v2-name">Kunal Purkait</p>
+                      <p class="team-v2-role">Head Chef</p>
+                      <p class="team-v2-tagline">Fuels late-night builds in the studio.</p>
+                    </div>
+                  </article>
                 </div>
-                <div class="w-embed w-script">
-                  <script>
-document.addEventListener("DOMContentLoaded", function () {
-  if (window.innerWidth < 768) {
-    new Swiper(".team-wrapper.swiper", {
-      slidesPerView: 1,
-      spaceBetween: 16,
-      speed: 400,
-      grabCursor: true,
-      navigation: {
-        nextEl: ".team-swiper-btn.next",
-        prevEl: ".team-swiper-btn.prev"
-      },
-    });
-  }
-});
-</script>
-                  <style>
-@media (max-width: 767px) {
-  /* DEFAULT (non-active slides) */
-  .team .team-name {
-    color: rgba(255, 255, 255, 0.75);
-  }
-  .team .social-link {
-    opacity: 0;
-  }
-  .team .team-focused-bg {
-    filter: grayscale(100%);
-  }
-  .team .about_core-values_item {
-    background-color: rgba(35, 35, 35, 0);
-  }
-  /* ACTIVE SLIDE */
-  .swiper-slide-active .team-name {
-    color: #ffffff;
-  }
-  .swiper-slide-active .social-link {
-    opacity: 1;
-  }
-  .swiper-slide-active .team-focused-bg {
-    filter: grayscale(0%);
-  }
-  .swiper-slide-active .about_core-values_item {
-    background-color: rgba(35, 35, 35, 1);
-  }
-  /* Smooth transitions */
-  .team-name,
-  .social-link,
-  .team-focused-bg,
-  .about_core-values_item {
-    transition: all 0.4s ease;
-  }
-}
-</style>
-                </div>
-                <div class="team-swiper-bottom">
-                  <div class="swiper-navigation team">
-                    <div class="team-swiper-btn prev">
-                      <div class="icon-18 w-embed"><svg width="100%" height="100%" viewbox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M12.9375 15.2156L12.0879 16.1719L4.3125 8.625L12.0879 1.07812L12.9375 2.03442L6.14747 8.625L12.9375 15.2156Z" fill="currentColor"></path>
-                        </svg></div>
-                    </div>
-                    <div class="team-swiper-btn next">
-                      <div class="icon-18 w-embed"><svg width="100%" height="100%" viewbox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M4.3125 15.2156L5.16206 16.1719L12.9375 8.625L5.16206 1.07812L4.3125 2.03442L11.1025 8.625L4.3125 15.2156Z" fill="currentColor"></path>
-                        </svg></div>
-                    </div>
-                  </div>
-                </div>
+
               </div>
             </div>
           </div>
@@ -1006,199 +1197,89 @@ document.addEventListener("DOMContentLoaded", function () {
       <section class="section_about_team">
         <div class="padding-global">
           <div class="container-large">
-            <div class="padding-section-large top-big bottom-200">
-              <div fd-section-reveal="" class="about_team_component">
+            <div class="padding-section-large">
+              <div class="about_team_component">
                 <div class="section-tabs-header">
-                  <h2 fd-heading-reveal="" class="heading-style-h2"><span fd-svg-underline-text="">Actively hiring</span> for these positions</h2>
-                  <p fd-fade-reveal="">Work alongside founders and operators obsessed with building sustainable companies.</p>
+                  <h2 class="heading-style-h2"><span fd-svg-underline-text="">Actively hiring</span> for these positions</h2>
+                  <p>Work alongside founders and operators obsessed with building sustainable companies.</p>
                 </div>
-                <div class="spacer-60"></div>
-                <div fd-fade-reveal="">
-                  <div class="about-careers-swiper swiper w-dyn-list">
-                    <div role="list" class="about-careers-swiper-list swiper-wrapper w-dyn-items">
-                      <div role="listitem" class="swiper-slide team w-dyn-item">
-                        <div data-w-id="fb627452-c7d1-c6be-071c-fee785941822" class="about_team_item">
-                          <div class="about_team_image-wrapper"><img loading="lazy" src="images/Frame-2085665658.avif" alt="" class="about_team_image">
-                            <div class="hiring-overlay"></div>
-                          </div>
-                          <div class="about_team_title-wrapper">
-                            <div class="team-name"></div>
-                            <div class="job-descriptin-wrap">
-                              <div class="team-designation">Exp: </div>
-                              <div class="team-designation"></div>
-                            </div>
-                          </div>
-                          <div class="careers-card-bg">
-                            <div class="faq-focused-bg-copy"><img src="images/Vector-31.svg" loading="lazy" alt="" class="focused-icon top"><img src="images/Vector-32.svg" loading="lazy" alt="" class="focused-icon _2"><img src="images/Vector-34.svg" loading="lazy" alt="" class="focused-icon _3"><img src="images/Vector-33.svg" loading="lazy" alt="" class="focused-icon _4"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="w-dyn-empty">
-                      <div>No items found.</div>
-                    </div>
-                  </div>
-                  <script>
-                  /* CMS render: Our Journeys + Careers (from Webflow CSV export) */
-                  (function () {
-                    var journeys = [
-                      { name: "Sri’s Journey", description: "From humble beginnings to building one of India’s respected B2B SaaS companies. Sri’s journey began at NIT Warangal, where he led the student community and founded Lakshya Foundation, raising support from alumni to help underserved students access education. That mission became Almabase, a bootstrapped, profitable SaaS company now scaling toward $10M ARR.", image: "https://cdn.prod.website-files.com/697c4a955b0f9e64b8c6dd95/6994415d38ddc47399c7c829_Frame%202085665740.png", order: 1 },
-                      { name: "Prateek’s Journey", description: "An operator-turned-founder obsessed with scaling B2B companies. Prateek started building early, then joined Almabase in its formative years - helping drive growth as one of the earliest GTM operators. Since then, he has worked closely with multiple companies globally, helping them scale to multi-million ARR with operational rigor and speed.", image: "https://cdn.prod.website-files.com/697c4a955b0f9e64b8c6dd95/6994416ecb00280a4be353af_Frame%202085665741.png", order: 2 },
-                      { name: "The Bharat SaaS Yaatra", description: "Before committing decades to co-building, we chose to learn first. We literally took a bus and went across India to meet founders, operators, and aspiring entrepreneurs building B2B companies. What began as market discovery became a deeper conviction - and gave birth to Shifu Ventures and Shifu Foundation.", video: "https://flowdojo.github.io/webflow-public-files/Shifu/The%20Bharat%20Saas.mp4", order: 3 },
-                      { name: "Shifu Ventures", description: "We saw a gap in the ecosystem - most accelerators and VCs are built to chase unicorn outcomes (for the right reasons). Building AlmaBase showed us how durable, capital-efficient scale can be life-changing for founders - creating real ownership and optionality. That conviction led us to co-build more companies the same way via Shifu Ventures", image: "https://cdn.prod.website-files.com/697c4a955b0f9e64b8c6dd95/69834c1a8a2db2b8e4c93924_ezgif.com-animated-gif-maker.gif", order: 4 },
-                      { name: "Shifu Foundation", description: "During the Bharat SaaS Yatra, we discovered remarkable entrepreneurial stories from Tier 3 and Tier 4 India. We realised the next wave of Indian tech entrepreneurship will come not from a few cities, but from every district, and we wanted to be part of that change. Shifu Foundation, our non-profit, inspires and educates founders from Tier 2+ districts to become tech entrepreneurs.", image: "https://cdn.prod.website-files.com/697c4a955b0f9e64b8c6dd95/69834c2cb9f19a2de40211af_SF.gif", order: 5 }
-                    ].sort(function (a, b) { return a.order - b.order; });
+                <div class="spacer-64"></div>
 
-                    /* Only published, non-draft career roles. */
-                    var careers = [
-                      { role: "Founder’s Office", exp: "2-4 Years | In-Office", image: "https://cdn.prod.website-files.com/697c4a955b0f9e64b8c6dd95/69818f8c16058afb7f990418_Frame%202085665658.png", apply: "mailto:team@shifuventures.com" }
-                    ];
-
-                    function renderJourneys() {
-                      var list = document.querySelector('.swiper.journey .w-dyn-items');
-                      if (!list) return;
-                      var tmpl = list.querySelector('.w-dyn-item');
-                      if (!tmpl) return;
-                      var nodes = journeys.map(function (j) {
-                        var node = tmpl.cloneNode(true);
-                        var h = node.querySelector('.journey-heading');
-                        if (h) { h.textContent = j.name; h.classList.remove('w-dyn-bind-empty'); }
-                        var p = node.querySelector('.para-75');
-                        if (p) { p.textContent = j.description; p.classList.remove('w-dyn-bind-empty'); }
-                        var wrap = node.querySelector('.swiper-image-wrap');
-                        if (wrap) {
-                          wrap.innerHTML = '';
-                          var media;
-                          if (j.video) {
-                            media = document.createElement('video');
-                            media.src = j.video;
-                            media.muted = true; media.autoplay = true; media.loop = true; media.playsInline = true;
-                            media.setAttribute('playsinline', '');
-                          } else if (j.image) {
-                            media = document.createElement('img');
-                            media.src = j.image;
-                            media.loading = 'lazy';
-                            media.alt = j.name;
-                          }
-                          if (media) {
-                            media.style.cssText = 'width:100%;height:100%;display:block;object-fit:cover;';
-                            wrap.appendChild(media);
-                          }
-                        }
-                        return node;
-                      });
-                      list.replaceChildren.apply(list, nodes);
-                      var empty = document.querySelector('.swiper.journey .w-dyn-empty');
-                      if (empty) empty.style.display = 'none';
-                    }
-
-                    function renderCareers() {
-                      var list = document.querySelector('.about-careers-swiper .w-dyn-items');
-                      if (!list) return;
-                      var tmpl = list.querySelector('.w-dyn-item');
-                      if (!tmpl) return;
-                      var nodes = careers.map(function (c) {
-                        var node = tmpl.cloneNode(true);
-                        var img = node.querySelector('.about_team_image');
-                        if (img) { img.src = c.image; img.alt = c.role; }
-                        var name = node.querySelector('.team-name');
-                        if (name) name.textContent = c.role;
-                        var designations = node.querySelectorAll('.team-designation');
-                        if (designations.length >= 2) designations[1].textContent = c.exp;
-                        if (c.apply) {
-                          var item = node.querySelector('.about_team_item');
-                          if (item) {
-                            item.style.cursor = 'pointer';
-                            item.addEventListener('click', function () { window.location.href = c.apply; });
-                          }
-                        }
-                        return node;
-                      });
-                      list.replaceChildren.apply(list, nodes);
-                      var empty = document.querySelector('.about-careers-swiper .w-dyn-empty');
-                      if (empty) empty.style.display = 'none';
-                    }
-
-                    renderJourneys();
-                    renderCareers();
-                  })();
-                  </script>
-                  <div class="careers-swiper-bottom">
-                    <div class="swiper-navigation team">
-                      <div class="careers-swiper-btn prev">
-                        <div class="icon-18 w-embed"><svg width="100%" height="100%" viewbox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12.9375 15.2156L12.0879 16.1719L4.3125 8.625L12.0879 1.07812L12.9375 2.03442L6.14747 8.625L12.9375 15.2156Z" fill="currentColor"></path>
-                          </svg></div>
-                      </div>
-                      <div class="careers-swiper-btn next">
-                        <div class="icon-18 w-embed"><svg width="100%" height="100%" viewbox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4.3125 15.2156L5.16206 16.1719L12.9375 8.625L5.16206 1.07812L4.3125 2.03442L11.1025 8.625L4.3125 15.2156Z" fill="currentColor"></path>
-                          </svg></div>
-                      </div>
+                <div class="hiring-v2-grid">
+                  <a class="hiring-v2-card" href="https://founders-office.pages.dev/" target="_blank" rel="noopener noreferrer" aria-label="Founder’s Office &mdash; view job description">
+                    <div class="hiring-v2-header-row">
+                      <h3 class="hiring-v2-role">Founder&rsquo;s Office</h3>
+                      <span class="hiring-v2-arrow" aria-hidden="true">
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 11L11 3M11 3H4M11 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      </span>
                     </div>
-                    <div class="hide w-embed w-script">
-                      <script>
-document.addEventListener("DOMContentLoaded", function () {
-  if (window.innerWidth < 991) {
-    const swiperEl = document.querySelector(".about-careers-swiper.swiper");
-    const nextBtn = document.querySelector(".careers-swiper-btn.next");
-    const prevBtn = document.querySelector(".careers-swiper-btn.prev");
-    if (!swiperEl || !nextBtn || !prevBtn) {
-      console.warn("Careers swiper elements not found");
-      return;
-    }
-    new Swiper(swiperEl, {
-      slidesPerView: 1,
-      spaceBetween: 24,
-      grabCursor: true,
-      speed: 600,
-      navigation: {
-        nextEl: nextBtn,
-        prevEl: prevBtn
-      },
-      breakpoints: {
-        768: {
-          slidesPerView: 2
-        }
-      }
-    });
-  }
-});
-</script>
-                      <style>
-@media (max-width: 767px) {
-  /* DEFAULT (non-active slides) */
-  .hiring-overlay {
-    opacity: 0;
-  }
-  .team-focused-bg {
-    filter: grayscale(100%);
-  }
-  .about_team_item {
-    background-color: rgba(35, 35, 35, 0);
-  }
-  /* ACTIVE SLIDE */
-  .swiper-slide-active .hiring-overlay {
-    opacity: 1;
-  }
-  .swiper-slide-active .team-focused-bg {
-    filter: grayscale(0%);
-  }
-  .swiper-slide-active .about_team_item {
-    background-color: rgba(35, 35, 35, 0.5);
-  }
-  /* Smooth transitions */
-  .hiring-overlay,
-  .team-focused-bg,
-  .about_team_item {
-    transition: opacity 0.4s ease,
-                filter 0.4s ease,
-                background-color 0.4s ease;
-  }
-}
-</style>
+                    <p class="hiring-v2-blurb">Right hand to the founders. Own AI automation and GTM across the studio.</p>
+                    <div class="hiring-v2-meta">
+                      <span>2&ndash;4 yrs</span>
+                      <span>Full-time</span>
+                      <span>In-Office, Bangalore</span>
                     </div>
-                  </div>
+                  </a>
+
+                  <a class="hiring-v2-card" href="https://site-s-5ecc81c4.vercel.app/sv-dev/" target="_blank" rel="noopener noreferrer" aria-label="SDE Intern &mdash; view job description">
+                    <div class="hiring-v2-header-row">
+                      <h3 class="hiring-v2-role">SDE Intern</h3>
+                      <span class="hiring-v2-arrow" aria-hidden="true">
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 11L11 3M11 3H4M11 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      </span>
+                    </div>
+                    <p class="hiring-v2-blurb">Ship features alongside a lean engineering team on day-tight cycles.</p>
+                    <div class="hiring-v2-meta">
+                      <span>Internship</span>
+                      <span>Shifu Ventures</span>
+                      <span>In-Office, Bangalore</span>
+                    </div>
+                  </a>
+
+                  <a class="hiring-v2-card" href="https://site-s-5ecc81c4.vercel.app/sv-product/" target="_blank" rel="noopener noreferrer" aria-label="Product Design Intern &mdash; view job description">
+                    <div class="hiring-v2-header-row">
+                      <h3 class="hiring-v2-role">Product Design Intern</h3>
+                      <span class="hiring-v2-arrow" aria-hidden="true">
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 11L11 3M11 3H4M11 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      </span>
+                    </div>
+                    <p class="hiring-v2-blurb">Design surfaces across multiple Shifu products in parallel.</p>
+                    <div class="hiring-v2-meta">
+                      <span>Internship</span>
+                      <span>Shifu Ventures</span>
+                      <span>In-Office, Bangalore</span>
+                    </div>
+                  </a>
+
+                  <a class="hiring-v2-card" href="https://site-s-5ecc81c4.vercel.app/sv-generalist/" target="_blank" rel="noopener noreferrer" aria-label="Generalist Intern at Shifu Ventures &mdash; view job description">
+                    <div class="hiring-v2-header-row">
+                      <h3 class="hiring-v2-role">Generalist Intern, Shifu Ventures</h3>
+                      <span class="hiring-v2-arrow" aria-hidden="true">
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 11L11 3M11 3H4M11 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      </span>
+                    </div>
+                    <p class="hiring-v2-blurb">Bandwidth between leadership and execution at the studio.</p>
+                    <div class="hiring-v2-meta">
+                      <span>Internship</span>
+                      <span>Shifu Ventures</span>
+                      <span>In-Office, Bangalore</span>
+                    </div>
+                  </a>
+
+                  <a class="hiring-v2-card" href="https://site-s-5ecc81c4.vercel.app/sf-generalist/" target="_blank" rel="noopener noreferrer" aria-label="Generalist Intern at Shifu Foundation &mdash; view job description">
+                    <div class="hiring-v2-header-row">
+                      <h3 class="hiring-v2-role">Generalist Intern, Shifu Foundation</h3>
+                      <span class="hiring-v2-arrow" aria-hidden="true">
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 11L11 3M11 3H4M11 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      </span>
+                    </div>
+                    <p class="hiring-v2-blurb">Operational backbone for India&rsquo;s Tier 2+ founder movement.</p>
+                    <div class="hiring-v2-meta">
+                      <span>Internship</span>
+                      <span>Shifu Foundation</span>
+                      <span>In-Office, Bangalore</span>
+                    </div>
+                  </a>
                 </div>
               </div>
             </div>
@@ -1400,94 +1481,52 @@ const isMobile = matchMedia("(max-width: 768px)").matches;
   });
 });
 </script>
-  <script>
-gsap.registerPlugin(ScrollTrigger);
-let journeySwiper;
-let journeyST;
-/* -------------------------------
-   INIT SWIPER
---------------------------------- */
-function initJourneySwiper() {
-  journeySwiper = new Swiper('.swiper.journey', {
-    slidesPerView: 1,
-    spaceBetween: 20,
-    speed: 700,
-    watchSlidesProgress: true,
-    allowTouchMove: true,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: false,
-    },
-    navigation: {
-      nextEl: '.swiper-btn.next',
-      prevEl: '.swiper-btn.prev',
-    },
-    breakpoints: {
-      991: { spaceBetween: 60 },
-      1280: { spaceBetween: 100 },
-    },
-  });
-}
-/* -------------------------------
-   SCROLLTRIGGER (DESKTOP ONLY)
---------------------------------- */
-function initJourneyScrollTrigger() {
-  const totalSlides = journeySwiper.slides.length - 1;
-  journeySwiper.allowTouchMove = false;
-  journeyST = ScrollTrigger.create({
-    trigger: ".section-journey",
-    start: "top top",
-    end: `+=${window.innerHeight * totalSlides}`,
-    pin: true,
-    scrub: 1,
-    anticipatePin: 1,
-    onUpdate: (self) => {
-      const min = journeySwiper.minTranslate();
-      const max = journeySwiper.maxTranslate();
-      const translate =
-        min + (max - min) * self.progress;
-      // move slides
-      journeySwiper.setTranslate(translate);
-      // 🔑 sync Swiper state (pagination fix)
-      journeySwiper.updateProgress(translate);
-      journeySwiper.updateActiveIndex();
-      journeySwiper.updateSlidesClasses();
-    },
-    onLeave: () => journeySwiper.allowTouchMove = true,
-    onEnterBack: () => journeySwiper.allowTouchMove = false,
-  });
-}
-/* -------------------------------
-   DESTROY SCROLLTRIGGER
---------------------------------- */
-function destroyJourneyScrollTrigger() {
-  if (journeyST) {
-    journeyST.kill();
-    journeyST = null;
+
+<!-- Core-values video lightbox — used by any [data-cv-video] trigger.
+     Opens a centred iframe of the matching Google Drive video and auto-
+     plays. Esc / backdrop click / × button closes it. -->
+<div class="cv-lightbox" data-cv-lightbox role="dialog" aria-modal="true" aria-label="Video player" hidden>
+  <button type="button" class="cv-lightbox-close" data-cv-lightbox-close aria-label="Close video">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <div class="cv-lightbox-frame">
+    <iframe data-cv-iframe title="Shifu Ventures video" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+
+<script>
+/* Core-values video lightbox controller. */
+(function () {
+  var lightbox = document.querySelector('[data-cv-lightbox]');
+  var iframe = document.querySelector('[data-cv-iframe]');
+  var closeBtn = document.querySelector('[data-cv-lightbox-close]');
+  if (!lightbox || !iframe) return;
+
+  function open(fileId) {
+    iframe.src = 'https://drive.google.com/file/d/' + fileId + '/preview';
+    lightbox.removeAttribute('hidden');
+    document.documentElement.style.overflow = 'hidden';
   }
-  if (journeySwiper) {
-    journeySwiper.allowTouchMove = true;
-    journeySwiper.setTranslate(0);
-    journeySwiper.updateProgress(0);
-    journeySwiper.updateActiveIndex();
-    journeySwiper.updateSlidesClasses();
+  function close() {
+    iframe.src = '';
+    lightbox.setAttribute('hidden', '');
+    document.documentElement.style.overflow = '';
   }
-}
-/* -------------------------------
-   RESPONSIVE LOGIC
---------------------------------- */
-ScrollTrigger.matchMedia({
-  // DESKTOP (SCROLL BASED)
-  "(min-width: 991px)": function () {
-    initJourneySwiper();
-    initJourneyScrollTrigger();
-  },
-  // MOBILE / TABLET (NORMAL SWIPER)
-  "(max-width: 990px)": function () {
-    initJourneySwiper();
-    destroyJourneyScrollTrigger();
-  },
-});
+
+  document.querySelectorAll('[data-cv-video]').forEach(function (trigger) {
+    trigger.addEventListener('click', function () {
+      open(trigger.getAttribute('data-cv-video'));
+    });
+  });
+
+  closeBtn.addEventListener('click', close);
+  lightbox.addEventListener('click', function (e) {
+    if (e.target === lightbox) close();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !lightbox.hasAttribute('hidden')) close();
+  });
+})();
 </script>
 </body>
 </html>

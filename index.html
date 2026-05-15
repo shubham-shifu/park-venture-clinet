@@ -16,6 +16,7 @@
   <link href="css/normalize.css" rel="stylesheet" type="text/css">
   <link href="css/webflow.css" rel="stylesheet" type="text/css">
   <link href="css/shifu-ventures-staging.webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/homepage-v2.css" rel="stylesheet" type="text/css">
   <style>html.w-mod-js:not(.w-mod-ix3):not(.fd-reveals-released) :is([fd-heading-reveal], [fd-fade-reveal], [fd-child-fade]) {visibility: hidden !important;}</style>
   <script>setTimeout(function(){document.documentElement.classList.add('fd-reveals-released');},1500);</script>
   <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
@@ -908,6 +909,24 @@ Webflow.push(function () {
           </div>
         </div>
       </section>
+      <!-- ============================================================
+           §A-ARCHIVED — Original "On a mission to co-build 100 Companies"
+           section: 5 fractional cards (CMO/CRO/CPO/CHRO/CFO) with closed-
+           state badges on the right + a 100-tile mission grid where only
+           tiles #1 (Photon Legal) and #2 (Curious Men Films) were filled.
+
+           Replaced by .sv-mission2 below, a three-tier proof stack:
+             ·01 Live Portfolio (2)
+             ·02 Fractional Co-Founders Onboarded (3)
+             ·03 Closing 2026 (2)
+           which reads as evidence-first rather than the previous 98
+           empty boxes of unfilled aspiration.
+
+           Preserved verbatim inside <template> so the markup stays in the
+           repo for reference / future resurrection, but doesn't render
+           or weigh anything on the live page.
+           ============================================================ -->
+      <template id="home-archive-mission-v1">
       <section class="section_home_mission">
         <div class="padding-global">
           <div class="container-large">
@@ -1138,6 +1157,171 @@ Webflow.push(function () {
           </div>
         </div>
       </section>
+      </template>
+      <!-- ============================================================
+           §A-LIVE — Mission v2: three-tier proof stack
+           ============================================================ -->
+      <section class="section_home_mission sv-mission2-section">
+        <div class="padding-global">
+          <div class="container-large">
+            <div class="padding-section-large">
+              <div fd-section-reveal="" class="sv-mission2">
+
+                <!-- Header — headline + sub-copy. Single column so the
+                     statement lands cleanly without a competing right-side stat. -->
+                <header class="sv-mission2-head">
+                  <div class="sv-mission2-head-left">
+                    <h2 fd-heading-reveal="" class="heading-style-h2 text-color-white">On a mission to co-build <span fd-svg-underline-offset="-4" fd-svg-underline-text="scroll">100 Companies</span> in lifetime.</h2>
+                    <p fd-fade-reveal="" class="sv-mission2-head-sub">We cap intake at 4&ndash;5 a year and only expand after each PortCo is scaled. Here&rsquo;s how the first seven are filling up &mdash; and the 93 still to come.</p>
+                  </div>
+                </header>
+
+                <!-- ·01 Fractional Co-Founders (5 cards): 3 closed + 2 closing.
+                     Closed cards have a green top hairline + ambient tint;
+                     closing cards are dashed-stroke with italic copy so an
+                     investor reads the split in a single glance. -->
+                <div fd-fade-reveal="" class="sv-mission2-tier">
+                  <div class="sv-mission2-tier-label">
+                    <span class="sv-mission2-tier-num">01</span>
+                    <span class="sv-mission2-tier-name">Fractional Companies</span>
+                    <span class="sv-mission2-tier-rule" aria-hidden="true"></span>
+                  </div>
+                  <div fd-child-fade="" class="sv-mission2-frac-row">
+                    <div class="sv-mission2-frac-card is-closed">
+                      <span class="sv-mission2-status">Closed</span>
+                      <div class="sv-mission2-frac-role">
+                        <div class="sv-mission2-frac-eyebrow">Fractional</div>
+                        <div class="sv-mission2-frac-title">CMO</div>
+                      </div>
+                      <div class="sv-mission2-frac-divider"></div>
+                      <div class="sv-mission2-frac-person">
+                        <div class="sv-mission2-frac-avatar" aria-hidden="true"><img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/v1778847942/ce18fadf-9c1f-4486-b9dc-ea0a55e0f931.png" alt=""></div>
+                        <div class="sv-mission2-frac-person-meta">
+                          <div class="sv-mission2-frac-name">Prateek Panda</div>
+                          <div class="sv-mission2-frac-name-sub">Co-Founder</div>
+                        </div>
+                      </div>
+                      <a class="sv-mission2-frac-li" href="https://www.linkedin.com/in/prateekpanda/" target="_blank" rel="noopener noreferrer" aria-label="Prateek Panda on LinkedIn"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+                    </div>
+                    <div class="sv-mission2-frac-card is-closed">
+                      <span class="sv-mission2-status">Closed</span>
+                      <div class="sv-mission2-frac-role">
+                        <div class="sv-mission2-frac-eyebrow">Fractional</div>
+                        <div class="sv-mission2-frac-title">CPO</div>
+                      </div>
+                      <div class="sv-mission2-frac-divider"></div>
+                      <div class="sv-mission2-frac-person">
+                        <div class="sv-mission2-frac-avatar" aria-hidden="true"><img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/v1778848054/a92ff1a4-8c5f-44be-9517-0884a40f23bb.png" alt=""></div>
+                        <div class="sv-mission2-frac-person-meta">
+                          <div class="sv-mission2-frac-name">Saurabh</div>
+                          <div class="sv-mission2-frac-name-sub">Co-Founder</div>
+                        </div>
+                      </div>
+                      <a class="sv-mission2-frac-li" href="https://www.linkedin.com/in/saurrx/" target="_blank" rel="noopener noreferrer" aria-label="Saurabh on LinkedIn"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+                    </div>
+                    <div class="sv-mission2-frac-card is-closed">
+                      <span class="sv-mission2-status">Closed</span>
+                      <div class="sv-mission2-frac-role">
+                        <div class="sv-mission2-frac-eyebrow">Fractional</div>
+                        <div class="sv-mission2-frac-title">CFO</div>
+                      </div>
+                      <div class="sv-mission2-frac-divider"></div>
+                      <div class="sv-mission2-frac-person">
+                        <div class="sv-mission2-frac-avatar" aria-hidden="true"><img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/v1778847997/5e81208f-d9b4-456d-833e-5a2c84a201d3.png" alt=""></div>
+                        <div class="sv-mission2-frac-person-meta">
+                          <div class="sv-mission2-frac-name">Amit Nahata</div>
+                          <div class="sv-mission2-frac-name-sub">Co-Founder</div>
+                        </div>
+                      </div>
+                      <a class="sv-mission2-frac-li" href="https://www.linkedin.com/in/amit-nahata-44357652/" target="_blank" rel="noopener noreferrer" aria-label="Amit Nahata on LinkedIn"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+                    </div>
+                    <div class="sv-mission2-frac-card is-soon">
+                      <span class="sv-mission2-soon-status">Closing 2026</span>
+                      <div class="sv-mission2-frac-role">
+                        <div class="sv-mission2-frac-eyebrow">Fractional</div>
+                        <div class="sv-mission2-frac-title">CRO</div>
+                      </div>
+                      <div class="sv-mission2-frac-divider"></div>
+                      <div class="sv-mission2-frac-person">
+                        <div class="sv-mission2-frac-avatar" aria-hidden="true">TBA</div>
+                        <div class="sv-mission2-frac-person-meta">
+                          <div class="sv-mission2-frac-name">Co-Founder TBA</div>
+                          <div class="sv-mission2-frac-name-sub">In talks</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="sv-mission2-frac-card is-soon">
+                      <span class="sv-mission2-soon-status">Closing 2026</span>
+                      <div class="sv-mission2-frac-role">
+                        <div class="sv-mission2-frac-eyebrow">Fractional</div>
+                        <div class="sv-mission2-frac-title">CHRO</div>
+                      </div>
+                      <div class="sv-mission2-frac-divider"></div>
+                      <div class="sv-mission2-frac-person">
+                        <div class="sv-mission2-frac-avatar" aria-hidden="true">TBA</div>
+                        <div class="sv-mission2-frac-person-meta">
+                          <div class="sv-mission2-frac-name">Co-Founder TBA</div>
+                          <div class="sv-mission2-frac-name-sub">In talks</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- ·02 Portfolio Companies (3 cards): Photon Legal + Curious Men
+                     Films + the "+93 others" stat block that closes the math
+                     from the headline in a single row. -->
+                <div fd-fade-reveal="" class="sv-mission2-tier">
+                  <div class="sv-mission2-tier-label">
+                    <span class="sv-mission2-tier-num">02</span>
+                    <span class="sv-mission2-tier-name">Portfolio Companies</span>
+                    <span class="sv-mission2-tier-rule" aria-hidden="true"></span>
+                  </div>
+                  <div fd-child-fade="" class="sv-mission2-pc-row">
+                    <a href="https://photonlegal.com/" target="_blank" rel="noopener" class="sv-mission2-pc-card">
+                      <span class="sv-mission2-pc-arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 11 L11 5 M5.75 5 L11 5 L11 10.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                      <img loading="lazy" src="images/Frame-2085665472.avif" alt="Photon Legal logo" class="sv-mission2-pc-card-logo">
+                      <div class="sv-mission2-pc-card-body">
+                        <div class="sv-mission2-pc-card-stat">₹6.7Cr <em>&rarr;</em> ₹22Cr</div>
+                        <div class="sv-mission2-pc-card-meta">ARR in 18 months &middot; AI-First Legal Tech</div>
+                      </div>
+                    </a>
+                    <a href="https://curiousmenfilms.com/" target="_blank" rel="noopener" class="sv-mission2-pc-card">
+                      <span class="sv-mission2-pc-arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 11 L11 5 M5.75 5 L11 5 L11 10.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                      <img loading="lazy" src="images/Frame-2085665473.avif" alt="Curious Men Films logo" class="sv-mission2-pc-card-logo">
+                      <div class="sv-mission2-pc-card-body">
+                        <div class="sv-mission2-pc-card-stat">AI-Native Studio</div>
+                        <div class="sv-mission2-pc-card-meta">Onboarded Q4 2024 &middot; scale phase</div>
+                      </div>
+                    </a>
+                    <div class="sv-mission2-pc-card is-plus" aria-label="93 more portfolio companies to come">
+                      <div class="sv-mission2-pc-plus-num">+93</div>
+                      <div class="sv-mission2-pc-plus-label">Others to come</div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ============================================================
+           §B-ARCHIVED — Original "How we help our Portfolio Companies"
+           section (nested-tabs system: GTM / Product / Fundraising / OPS
+           / Hiring / Ecosystem with sub-tabs and per-pane image cards),
+           PLUS the standalone "Here's how we helped Photon Legal achieve
+           300% growth" testimonial video band that used to sit below it.
+
+           Replaced by .sv-pl-bento below — a Photon Legal case-study
+           bento grid that absorbs the testimonial video into one tile
+           and leads with proof (ARR jump, deal size, named customers)
+           in a single scan rather than buried behind tab interactions.
+
+           Preserved verbatim inside <template> so the markup stays in
+           the repo for reference / future resurrection.
+           ============================================================ -->
+      <template id="home-archive-portfolio-and-testimonial-v1">
       <section id="how-we-help" class="section_home_portfolio-companies">
         <div class="padding-global">
           <div class="container-large">
@@ -1749,6 +1933,284 @@ Webflow.push(function () {
                     <div class="play-btn"><img src="images/image-8-1.avif" loading="lazy" alt="YouTube play button icon with a white triangle on a red rounded rectangle background."></div><img src="images/Frame-2085665520.png" loading="lazy" style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" sizes="(max-width: 758px) 100vw, 758px" alt="Thumbnail with text &#x27;How Shifu helped Photon Legal achieve 300% growth in just months? Watch now!&#x27; showing portraits of two men on either side and a red play button in the center." srcset="images/Frame-2085665520-p-500.png 500w, images/Frame-2085665520.png 758w" class="home_testimonial_lightbox-image">
                   </div>
                   <p class="image-caption">Photon Legal’s Testimonial</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      </template>
+      <!-- ============================================================
+           §B-LIVE — Photon Legal case-study bento grid
+           Replaces both .section_home_portfolio-companies and
+           .section_home_testimonial (folded into the video tile).
+           ============================================================ -->
+      <section id="how-we-help" class="section_home_portfolio-companies sv-pl-section">
+        <div class="padding-global">
+          <div class="container-large">
+            <div class="padding-section-large top-big">
+              <div fd-section-reveal="" class="sv-pl">
+                <header class="sv-pl-head">
+                  <div class="sv-pl-head-left">
+                    <span fd-fade-reveal="" class="sv-pl-eyebrow">Photon Legal Case Study</span>
+                    <h2 fd-heading-reveal="" class="heading-style-h2 text-color-white">How we helped <span fd-svg-underline-text="scroll">Photon Legal</span> go from a traditional law firm to <em>₹22 Cr ARR</em> in 18 months.</h2>
+                  </div>
+                  <a href="https://photonlegal.com/" target="_blank" rel="noopener" class="sv-pl-visit">Visit Photon Legal
+                    <svg width="14" height="14" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M15.625 5V13.125C15.625 13.2908 15.5592 13.4497 15.442 13.5669C15.3247 13.6842 15.1658 13.75 15 13.75C14.8343 13.75 14.6753 13.6842 14.5581 13.5669C14.4409 13.4497 14.375 13.2908 14.375 13.125V6.50891L5.44195 15.442C5.32473 15.5592 5.16575 15.625 4.99999 15.625C4.83422 15.625 4.67525 15.5592 4.55804 15.4419C4.44084 15.3247 4.37499 15.1657 4.375 15C4.37501 14.8342 4.44086 14.6752 4.55808 14.558L13.4911 5.625H6.87501C6.70925 5.625 6.55028 5.55915 6.43307 5.44194C6.31586 5.32473 6.25001 5.16576 6.25001 5C6.25001 4.83424 6.31586 4.67527 6.43307 4.55806C6.55028 4.44085 6.70925 4.375 6.87501 4.375H15C15.1658 4.37501 15.3247 4.44086 15.4419 4.55807C15.5592 4.67528 15.625 4.83424 15.625 5Z" fill="currentColor"></path></svg>
+                  </a>
+                </header>
+
+                <div fd-child-fade="" class="sv-pl-bento-wrap">
+                <div class="sv-pl-bento">
+
+                  <!-- Hero tile — ARR jump (₹6.7 Cr → ₹22 Cr) -->
+                  <article class="sv-pl-tile is-hero">
+                    <div class="sv-pl-tile-eyebrow">Annual Recurring Revenue</div>
+                    <div class="sv-pl-hero-stat">
+                      <span class="sv-pl-hero-from">₹6.7 Cr</span>
+                      <svg class="sv-pl-hero-arrow" viewBox="0 0 36 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M0 9 H30 M22 1 L34 9 L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" fill="none"/></svg>
+                      <span class="sv-pl-hero-to">₹22 Cr</span>
+                    </div>
+                    <div class="sv-pl-hero-meta">
+                      <span><strong>4×</strong> in just 18 months</span>
+                      <span><strong>300%+</strong> ARR growth</span>
+                    </div>
+                  </article>
+
+                  <!-- Repositioning tile — Before/After blocks make the
+                       traditional-firm → AI-tech-co transformation legible
+                       at a glance. -->
+                  <article class="sv-pl-tile is-position">
+                    <div class="sv-pl-tile-eyebrow">Repositioning</div>
+                    <div class="sv-pl-position-row">
+                      <div class="sv-pl-position-block is-before">
+                        <div class="sv-pl-position-block-tag"></div>
+                        <div class="sv-pl-position-block-name">Traditional Law Firm</div>
+                      </div>
+                      <div class="sv-pl-position-arrow-down" aria-hidden="true"></div>
+                      <div class="sv-pl-position-block is-after">
+                        <div class="sv-pl-position-block-tag"></div>
+                        <div class="sv-pl-position-block-name">AI-First Legal Tech Co.</div>
+                      </div>
+                    </div>
+                  </article>
+
+                  <!-- ACV / biggest-deal tile — leads with the ₹9 Cr
+                       wow number (biggest single deal closed), with the
+                       ICP-refinement → ACV-jump story in the sub. -->
+                  <article class="sv-pl-tile is-acv">
+                    <div class="sv-pl-tile-eyebrow">Biggest deal closed</div>
+                    <div class="sv-pl-acv-stat">₹9 Cr</div>
+                    <div class="sv-pl-acv-sub">We helped them find their right ICPs &mdash; avg ACV jumped from <strong>₹50K to $100K</strong>, unlocking enterprise-size contracts.</div>
+                  </article>
+
+                  <!-- Time-to-scale tile — axis-based growth chart with
+                       two zones (Before Shifu / With Shifu). The
+                       gentle slope through 6 years to ₹6.7Cr inflects
+                       into a steep orange arrow up to ₹22Cr over just
+                       1.5 years — the slope contrast tells the story. -->
+                  <article class="sv-pl-tile is-time">
+                    <div class="sv-pl-tile-eyebrow">Time to scale</div>
+                    <div class="sv-pl-time-graph-wrap">
+                      <svg class="sv-pl-time-graph" viewBox="0 0 400 240" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+
+                        <!-- Background zones (very subtle): Before Shifu (wide) | With Shifu (narrow, orange-tinted) -->
+                        <rect x="44" y="20" width="196" height="170" fill="rgba(255,255,255,0.018)"/>
+                        <rect x="240" y="20" width="124" height="170" fill="rgba(245,110,56,0.06)"/>
+
+                        <!-- Zone divider: dashed vertical line at the inflection point -->
+                        <line x1="240" y1="20" x2="240" y2="190" stroke="rgba(245,110,56,0.35)" stroke-width="1" stroke-dasharray="3 3"/>
+
+                        <!-- Y-axis -->
+                        <line x1="44" y1="20" x2="44" y2="190" stroke="rgba(255,255,255,0.28)" stroke-width="1"/>
+                        <!-- X-axis -->
+                        <line x1="44" y1="190" x2="364" y2="190" stroke="rgba(255,255,255,0.28)" stroke-width="1"/>
+
+                        <!-- "ARR" Y-axis label -->
+                        <text x="54" y="34" font-family="Figtree, Arial, sans-serif" font-size="11" font-weight="600" letter-spacing="0.08em" fill="rgba(255,255,255,0.55)">ARR</text>
+
+                        <!-- Before Shifu — gentle slope from origin to inflection point (240, 95) -->
+                        <line x1="44" y1="190" x2="240" y2="95" stroke="rgba(255,255,255,0.38)" stroke-width="2" stroke-linecap="round"/>
+
+                        <!-- Inflection dot + label "₹6.7 Cr" -->
+                        <circle cx="240" cy="95" r="4" fill="rgba(255,255,255,0.55)"/>
+                        <text x="232" y="89" font-family="Figtree, Arial, sans-serif" font-size="14" font-weight="600" fill="rgba(255,255,255,0.78)" text-anchor="end">₹6.7 Cr</text>
+
+                        <!-- With Shifu — steep orange arrow up to the endpoint (348, 38) -->
+                        <line x1="240" y1="95" x2="348" y2="40" stroke="#f56e38" stroke-width="3" stroke-linecap="round"/>
+                        <!-- Arrow head at the endpoint, angled along the slope -->
+                        <path d="M 348 40 L 332 40 M 348 40 L 346 56" stroke="#f56e38" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+                        <!-- "₹22 Cr" endpoint label, big + orange -->
+                        <text x="360" y="32" font-family="Figtree, Arial, sans-serif" font-size="20" font-weight="600" fill="#f56e38" text-anchor="end" letter-spacing="-0.015em">₹22 Cr</text>
+
+                        <!-- X-axis zone labels -->
+                        <text x="142" y="210" font-family="Figtree, Arial, sans-serif" font-size="11" font-weight="600" letter-spacing="0.1em" fill="rgba(255,255,255,0.55)" text-anchor="middle">6 YEARS</text>
+                        <text x="142" y="225" font-family="Figtree, Arial, sans-serif" font-size="9" letter-spacing="0.06em" fill="rgba(255,255,255,0.4)" text-anchor="middle">BEFORE SHIFU</text>
+
+                        <text x="302" y="210" font-family="Figtree, Arial, sans-serif" font-size="11" font-weight="600" letter-spacing="0.1em" fill="#f56e38" text-anchor="middle">1.5 YEARS</text>
+                        <text x="302" y="225" font-family="Figtree, Arial, sans-serif" font-size="9" letter-spacing="0.06em" fill="rgba(245,110,56,0.7)" text-anchor="middle">WITH SHIFU</text>
+                      </svg>
+                    </div>
+                  </article>
+
+                  <!-- Product MVP tile — we literally built the AI
+                       product MVP for Photon Legal, transforming them
+                       from a services firm to an AI-prioritized one. -->
+                  <article class="sv-pl-tile is-product">
+                    <div class="sv-pl-tile-eyebrow">Product we built</div>
+                    <div class="sv-pl-product-headline">An AI-native legal product MVP &mdash; shipped end-to-end.</div>
+                    <div class="sv-pl-product-body">Moved them from a service-only firm to an AI-prioritized service company. Their team uses it every day.</div>
+                    <div class="sv-pl-product-tags">
+                      <span class="sv-pl-product-tag">MVP shipped</span>
+                      <span class="sv-pl-product-tag">In daily use</span>
+                    </div>
+                  </article>
+
+                  <!-- What we did tile — quick reference of every play
+                       we ran. Fundraising removed per scope; Product
+                       added (also gets its own tile above). -->
+                  <article class="sv-pl-tile is-plays">
+                    <div class="sv-pl-tile-eyebrow">What we did</div>
+                    <div class="sv-pl-plays-grid">
+                      <span class="sv-pl-play-chip">ICP Research</span>
+                      <span class="sv-pl-play-chip">Positioning</span>
+                      <span class="sv-pl-play-chip">Product</span>
+                      <span class="sv-pl-play-chip">Sales Deck</span>
+                      <span class="sv-pl-play-chip">Website Rebuild</span>
+                      <span class="sv-pl-play-chip">Demand Gen</span>
+                      <span class="sv-pl-play-chip">Outbound</span>
+                      <span class="sv-pl-play-chip">Hiring</span>
+                    </div>
+                  </article>
+
+                  <!-- Testimonial video tile (absorbs the old standalone band).
+                       Eyebrow + caption + play indicator live in a clean
+                       footer strip BELOW the thumbnail — nothing overlays
+                       the already-busy marketing thumbnail. -->
+                  <article fd-video-modal-src="https://flowdojo.github.io/webflow-public-files/Shifu/Pl%20Testimonial%20Video.mp4" fd-video-modal-trigger="" class="sv-pl-tile is-video" role="button" tabindex="0" aria-label="Play Photon Legal founder testimonial video">
+                    <div class="sv-pl-video-inner">
+                      <img loading="lazy" src="images/Frame-2085665520.png" sizes="(max-width: 758px) 100vw, 758px" srcset="images/Frame-2085665520-p-500.png 500w, images/Frame-2085665520.png 758w" alt="Thumbnail: How Shifu helped Photon Legal achieve 300% growth in just 18 months">
+                    </div>
+                    <div class="sv-pl-video-caption">
+                      <div class="sv-pl-video-caption-text">
+                        <div class="sv-pl-video-eyebrow">Hear it from the founder</div>
+                        <div class="sv-pl-video-caption-body"><strong>3-min testimonial</strong> &middot; the founder of Photon Legal on co-building with Shifu</div>
+                      </div>
+                      <span class="sv-pl-video-play-chip" aria-hidden="true">
+                        <span class="sv-pl-video-play-chip-icon"><svg viewBox="0 0 8 8" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M1.5 0.5 L7 4 L1.5 7.5 Z"/></svg></span>
+                        Watch
+                      </span>
+                    </div>
+                  </article>
+
+                  <!-- Customers logo wall. Each cell carries a refined
+                       typographic wordmark for now; when real logo files
+                       arrive drop them into /images/co/ and swap each
+                       <span> with: <img src="images/co/[brand].svg" alt="...">
+                       The .sv-pl-customer CSS handles both shapes. -->
+                  <article class="sv-pl-tile is-customers">
+                    <div class="sv-pl-tile-eyebrow">Customers won</div>
+                    <div class="sv-pl-customers-grid">
+                      <div class="sv-pl-customer"><span class="sv-pl-customer-wordmark">Automation Anywhere</span></div>
+                      <div class="sv-pl-customer"><span class="sv-pl-customer-wordmark">WebEngage</span></div>
+                      <div class="sv-pl-customer"><span class="sv-pl-customer-wordmark">Whatfix</span></div>
+                      <div class="sv-pl-customer"><span class="sv-pl-customer-wordmark">Hiver</span></div>
+                      <div class="sv-pl-customer"><span class="sv-pl-customer-wordmark">Innovaccer</span></div>
+                      <div class="sv-pl-customer"><span class="sv-pl-customer-wordmark">Celebal Tech</span></div>
+                    </div>
+                  </article>
+
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           §C-LIVE — Investor Gateway band (new on homepage)
+           Slim band funnelling investor-mode traffic to investors.html
+           with a portrait teaser + round-close FOMO line.
+           ============================================================ -->
+      <section class="section_home_investor-gateway">
+        <div class="padding-global">
+          <div class="container-large">
+            <div class="padding-section-large">
+              <div fd-section-reveal="" class="sv-invgw">
+                <div class="sv-invgw-left">
+                  <div class="sv-invgw-left-top">
+                    <span fd-fade-reveal="" class="sv-invgw-eyebrow">For Investors</span>
+                    <h2 fd-heading-reveal="" class="sv-invgw-headline">Operators, not just capital.</h2>
+                    <p fd-fade-reveal="" class="sv-invgw-sub">38 strategic investors who&rsquo;ve built and shipped at Snapchat, Lyft, Rippling, and Krita. Picked deliberately by expertise (GTM &middot; Product &middot; Hiring) and geography (US &middot; India &middot; Canada).</p>
+                  </div>
+                  <div class="sv-invgw-left-bottom">
+                    <div fd-fade-reveal="" class="sv-invgw-fomo" aria-label="Active investment round, closing May 2026, with 3x priority returns">
+                      <div class="sv-invgw-fomo-header">
+                        <span class="sv-invgw-fomo-pulse" aria-hidden="true"></span>
+                        <span>Active Round &middot; Closing Soon</span>
+                      </div>
+                      <div class="sv-invgw-fomo-stats">
+                        <div class="sv-invgw-fomo-stat is-accent">
+                          <div class="sv-invgw-fomo-num">3&times;</div>
+                          <div class="sv-invgw-fomo-label">Priority Returns</div>
+                        </div>
+                        <div class="sv-invgw-fomo-sep" aria-hidden="true"></div>
+                        <div class="sv-invgw-fomo-stat">
+                          <div class="sv-invgw-fomo-num">May &rsquo;26</div>
+                          <div class="sv-invgw-fomo-label">Round Closes</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div fd-fade-reveal="" class="sv-invgw-ctas">
+                      <a href="investors.html" class="button w-inline-block">
+                        <div>Meet our investors</div>
+                        <div class="button-icon w-embed"><svg width="100%" height="100%" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.625 5V13.125C15.625 13.2908 15.5592 13.4497 15.442 13.5669C15.3247 13.6842 15.1658 13.75 15 13.75C14.8343 13.75 14.6753 13.6842 14.5581 13.5669C14.4409 13.4497 14.375 13.2908 14.375 13.125V6.50891L5.44195 15.442C5.32473 15.5592 5.16575 15.625 4.99999 15.625C4.83422 15.625 4.67525 15.5592 4.55804 15.4419C4.44084 15.3247 4.37499 15.1657 4.375 15C4.37501 14.8342 4.44086 14.6752 4.55808 14.558L13.4911 5.625H6.87501C6.70925 5.625 6.55028 5.55915 6.43307 5.44194C6.25001 5.16576 6.25001 5C6.25001 4.83424 6.31586 4.67527 6.43307 4.55806C6.55028 4.44085 6.70925 4.375 6.87501 4.375H15C15.1658 4.37501 15.3247 4.44086 15.4419 4.55807C15.5592 4.67528 15.625 4.83424 15.625 5Z" fill="currentColor"></path></svg></div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div fd-fade-reveal="" class="sv-invgw-portraits" aria-label="Sample of strategic investors on the cap table">
+                  <a href="investors.html" class="sv-invgw-portrait">
+                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_640/v1778819377/3301537e-8366-4e10-b893-fc36af37972c.png" alt="Kesavan K">
+                    <div class="sv-invgw-portrait-meta">
+                      <div class="sv-invgw-portrait-name">Kesavan K</div>
+                      <div class="sv-invgw-portrait-co">Founder, Krita.ai</div>
+                    </div>
+                  </a>
+                  <a href="investors.html" class="sv-invgw-portrait">
+                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_640/v1778818692/15d2cdc5-f96c-4a6b-bca7-c50a76196130.png" alt="Raveen Sastry">
+                    <div class="sv-invgw-portrait-meta">
+                      <div class="sv-invgw-portrait-name">Raveen Sastry</div>
+                      <div class="sv-invgw-portrait-co">3× Exited · Multiply</div>
+                    </div>
+                  </a>
+                  <a href="investors.html" class="sv-invgw-portrait">
+                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_640/v1778819168/6d9f8fda-9063-41be-b8fd-1bbc452ac256.png" alt="Prateek Bondala">
+                    <div class="sv-invgw-portrait-meta">
+                      <div class="sv-invgw-portrait-name">Prateek Bondala</div>
+                      <div class="sv-invgw-portrait-co">Ex-Rippling, Lyft</div>
+                    </div>
+                  </a>
+                  <a href="investors.html" class="sv-invgw-portrait">
+                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_640/v1778818799/bd5fa35b-6914-4501-996b-126190e6d1c3.png" alt="Nageswara Rao M">
+                    <div class="sv-invgw-portrait-meta">
+                      <div class="sv-invgw-portrait-name">Nageswara Rao M</div>
+                      <div class="sv-invgw-portrait-co">Snapchat First 15</div>
+                    </div>
+                  </a>
+                  <a href="investors.html" class="sv-invgw-portrait">
+                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_640/v1778818131/9f466440-04ac-40fc-ba82-93de9d3a85b5.png" alt="Lalit Kundu">
+                    <div class="sv-invgw-portrait-meta">
+                      <div class="sv-invgw-portrait-name">Lalit Kundu</div>
+                      <div class="sv-invgw-portrait-co">Built Google Pay</div>
+                    </div>
+                  </a>
+                  <a href="investors.html#inv-bento" class="sv-invgw-portrait is-meta" aria-label="See all 38 strategic investors on the investors page">
+                    <div class="sv-invgw-portrait-meta-num">+33</div>
+                    <div class="sv-invgw-portrait-meta-label">more investors</div>
+                  </a>
                 </div>
               </div>
             </div>
@@ -2393,6 +2855,29 @@ document.addEventListener("DOMContentLoaded", () => {
     initHeroScrollSwiper();
   }
 });
+</script>
+<script>
+// Homepage v2 — Mission scale-dots renderer.
+// Reads data-sv-scale (total), data-live, data-soon from the dot container
+// and renders the corresponding number of <span> dots with the right state.
+// Kept inline + tiny so we don't add a new asset file for a single helper.
+(function () {
+  document.querySelectorAll('[data-sv-scale]').forEach(function (host) {
+    var total = parseInt(host.getAttribute('data-sv-scale'), 10) || 0;
+    var live  = parseInt(host.getAttribute('data-live'), 10)  || 0;
+    var soon  = parseInt(host.getAttribute('data-soon'), 10)  || 0;
+    if (host.children.length || !total) return;
+    var frag = document.createDocumentFragment();
+    for (var i = 0; i < total; i++) {
+      var d = document.createElement('span');
+      d.className = 'sv-mission2-scale-dot' +
+        (i < live ? ' is-live' :
+        (i < live + soon ? ' is-soon' : ''));
+      frag.appendChild(d);
+    }
+    host.appendChild(frag);
+  });
+})();
 </script>
 </body>
 </html>
