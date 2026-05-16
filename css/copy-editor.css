@@ -1,0 +1,484 @@
+/* ===============================================================
+   Shifu Ventures — Copy Editor styles
+   ---------------------------------------------------------------
+   Floating toolbar at top-right; modal popups for edit + master
+   list. Surface tokens match the site (dark grey, brand orange,
+   subtle white hairlines). Selected (non-original) text on the
+   page gets a soft green tint so the visitor sees what they've
+   changed at a glance.
+   =============================================================== */
+
+#copy-editor-root {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2147483600;
+  font-family: 'Figtree', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color: #ffffff;
+}
+#copy-editor-root > * { pointer-events: auto; }
+
+/* ── Toolbar (top-right, two pills) ──────────────────────────── */
+#copy-editor-root .ce-toolbar {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.ce-pill {
+  appearance: none;
+  -webkit-appearance: none;
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: rgba(15, 15, 15, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  letter-spacing: 0.01em;
+  transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+.ce-pill:hover { background: rgba(28, 28, 28, 0.96); }
+.ce-pill.ce-active {
+  background: rgba(245, 110, 56, 0.10);
+  border-color: rgba(245, 110, 56, 0.55);
+}
+.ce-pill .ce-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+}
+.ce-pill.ce-active .ce-dot { background: #f56e38; box-shadow: 0 0 6px rgba(245, 110, 56, 0.55); }
+.ce-pill-icon { padding: 7px 10px; }
+.ce-pill-icon svg { width: 14px; height: 14px; }
+.ce-pill-count {
+  background: rgba(245, 110, 56, 0.22);
+  color: #f56e38;
+  font-weight: 600;
+  font-size: 11px;
+  padding: 2px 7px;
+  border-radius: 999px;
+  min-width: 18px;
+  text-align: center;
+}
+
+/* ── Edit-mode page affordances ──────────────────────────────── */
+body.ce-edit-mode [data-copy-id] {
+  cursor: pointer;
+  outline-offset: 2px;
+}
+body.ce-edit-mode [data-copy-id]:hover {
+  outline: 1px dashed rgba(245, 110, 56, 0.5);
+}
+
+/* Selected (replaced) text gets a soft green tint with a thin
+   left rail — visible but not distracting against the dark site. */
+[data-ce-status="selected"] {
+  background: rgba(120, 200, 130, 0.10);
+  box-shadow: inset 2px 0 0 0 rgba(120, 200, 130, 0.55);
+  padding-left: 4px;
+  border-radius: 1px;
+  transition: background 0.25s ease, box-shadow 0.25s ease;
+}
+/* Drafted-but-not-selected entries get a faint orange ghost so the
+   visitor knows they've started a draft. */
+body.ce-edit-mode [data-ce-status="drafted"] {
+  box-shadow: inset 2px 0 0 0 rgba(245, 110, 56, 0.45);
+  padding-left: 4px;
+}
+
+/* ── Backdrop + popup (shared chrome) ────────────────────────── */
+.ce-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 1;
+  animation: ce-fade 0.18s ease;
+}
+@keyframes ce-fade { from { opacity: 0 } to { opacity: 1 } }
+
+.ce-popup {
+  width: 560px;
+  max-width: 100%;
+  max-height: 88vh;
+  overflow: auto;
+  background: #141414;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+}
+.ce-popup-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.ce-popup-crumbs {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+.ce-popup-close {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px 6px;
+}
+.ce-popup-close:hover { color: #ffffff; }
+
+/* ── Original-copy strip (read-only, never overwritten) ──────── */
+.ce-original-strip {
+  margin: 16px 18px 0;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 2px solid rgba(255, 255, 255, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ce-original-tag {
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+.ce-original-tag em {
+  font-style: normal;
+  color: rgba(255, 255, 255, 0.32);
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+.ce-original-text {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #ffffff;
+}
+
+/* ── Options block ───────────────────────────────────────────── */
+.ce-options-wrap { padding: 16px 18px; }
+.ce-options-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+.ce-options-hint {
+  text-transform: none;
+  letter-spacing: 0.01em;
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.35);
+}
+.ce-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ce-option-row {
+  display: grid;
+  grid-template-columns: 26px 1fr 28px;
+  align-items: start;
+  gap: 8px;
+  padding: 10px 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+.ce-option-row:hover {
+  background: rgba(255, 255, 255, 0.045);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+.ce-option-row-selected {
+  background: rgba(120, 200, 130, 0.08);
+  border-color: rgba(120, 200, 130, 0.45);
+}
+.ce-radio-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  margin-top: 4px;
+  cursor: pointer;
+  user-select: none;
+}
+.ce-radio { appearance: none; -webkit-appearance: none; position: absolute; opacity: 0; }
+.ce-radio-pill {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  background: transparent;
+  position: relative;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+.ce-radio:checked + .ce-radio-pill {
+  border-color: rgba(120, 200, 130, 0.85);
+  background: rgba(120, 200, 130, 0.18);
+}
+.ce-radio:checked + .ce-radio-pill::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  background: rgba(120, 200, 130, 0.9);
+}
+.ce-option-text {
+  appearance: none;
+  -webkit-appearance: none;
+  font: inherit;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #ffffff;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  resize: vertical;
+  min-height: 38px;
+  padding: 6px 4px;
+}
+.ce-option-text::placeholder { color: rgba(255, 255, 255, 0.32); }
+.ce-option-delete {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 2px 4px;
+  margin-top: 2px;
+  border-radius: 4px;
+}
+.ce-option-delete:hover { background: rgba(255, 90, 90, 0.18); color: rgba(255, 180, 180, 0.95); }
+
+.ce-options-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+.ce-add-option,
+.ce-clear-select {
+  appearance: none;
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 500;
+  padding: 7px 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  cursor: pointer;
+  border-radius: 0;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.ce-add-option:hover {
+  background: rgba(245, 110, 56, 0.08);
+  border-color: rgba(245, 110, 56, 0.45);
+}
+.ce-clear-select:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.10);
+}
+.ce-clear-select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ce-popup-foot {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 18px 14px;
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.45);
+  min-height: 18px;
+}
+
+/* ── Master list ─────────────────────────────────────────────── */
+.ce-master {
+  width: 1100px;
+  max-width: 100%;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  background: #141414;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.5);
+}
+.ce-master-header {
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.ce-master-header h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.ce-master-sub {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 400;
+}
+.ce-master-controls {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.ce-master-controls input[type="search"],
+.ce-master-controls select {
+  appearance: none;
+  -webkit-appearance: none;
+  font: inherit;
+  font-size: 13px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  padding: 7px 11px;
+  outline: 0;
+  border-radius: 0;
+}
+.ce-master-controls input[type="search"] {
+  min-width: 240px;
+  flex: 1 1 240px;
+}
+.ce-master-controls select { padding-right: 22px; }
+.ce-master-controls input[type="search"]:focus,
+.ce-master-controls select:focus { border-color: rgba(245, 110, 56, 0.55); }
+.ce-export-btn { background: rgba(245, 110, 56, 0.12); border-color: rgba(245, 110, 56, 0.55); }
+.ce-export-btn:hover { background: rgba(245, 110, 56, 0.20); }
+.ce-master-close-btn { background: rgba(255, 255, 255, 0.04); }
+
+.ce-master-body { overflow: auto; flex: 1; }
+.ce-master-body table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.ce-master-body th,
+.ce-master-body td {
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  vertical-align: top;
+}
+.ce-master-body thead th {
+  position: sticky;
+  top: 0;
+  background: #181818;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 600;
+  z-index: 1;
+}
+.ce-master-body tr.ce-row { cursor: pointer; }
+.ce-master-body tr.ce-row:hover { background: rgba(255, 255, 255, 0.03); }
+.ce-col-orig { color: rgba(255, 255, 255, 0.85); }
+.ce-col-sel { color: rgba(180, 255, 200, 0.92); }
+.ce-muted { color: rgba(255, 255, 255, 0.35); }
+
+.ce-page-tag,
+.ce-section-tag {
+  display: inline-block;
+  font-size: 10.5px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+}
+.ce-page-tag {
+  color: #f56e38;
+  font-weight: 600;
+  margin-right: 4px;
+}
+.ce-section-tag {
+  color: rgba(255, 255, 255, 0.42);
+  display: block;
+  margin-top: 4px;
+  font-weight: 400;
+}
+
+.ce-status-pill {
+  display: inline-block;
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.ce-status-pill.ce-status-selected {
+  color: rgba(180, 255, 200, 0.95);
+  border-color: rgba(120, 200, 130, 0.55);
+  background: rgba(120, 200, 130, 0.10);
+}
+.ce-status-pill.ce-status-drafted {
+  color: #f56e38;
+  border-color: rgba(245, 110, 56, 0.55);
+  background: rgba(245, 110, 56, 0.08);
+}
+.ce-status-pill.ce-status-untouched {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.ce-empty {
+  padding: 32px 18px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 13px;
+}
+
+/* ── Toast ───────────────────────────────────────────────────── */
+.ce-toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translate(-50%, 12px);
+  background: rgba(20, 20, 20, 0.96);
+  color: #ffffff;
+  padding: 10px 16px;
+  font-size: 13px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2147483647;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  font-family: 'Figtree', system-ui, sans-serif;
+}
+.ce-toast.ce-show { opacity: 1; transform: translate(-50%, 0); }
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 720px) {
+  .ce-popup { width: 100%; }
+  .ce-master { width: 100%; }
+  #copy-editor-root .ce-toolbar { top: 8px; right: 8px; }
+  .ce-pill { font-size: 11.5px; padding: 7px 11px; }
+}

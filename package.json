@@ -1,0 +1,15 @@
+{
+  "name": "shifu-ventures-copy-editor",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Copy editor backend (Neon Postgres) for the Shifu Ventures site.",
+  "scripts": {
+    "migrate": "node scripts/migrate.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "pg": "^8.13.1"
+  }
+}

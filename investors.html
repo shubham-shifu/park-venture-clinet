@@ -170,6 +170,8 @@ html.lenis {height: auto;}
   background-color: var(--_primitives---colors--white);
 }
 </style>
+<link rel="stylesheet" href="css/copy-editor.css">
+<script src="js/copy-editor.js" defer></script>
 </head>
 <body>
   <div class="page-wrapper">
@@ -1409,43 +1411,90 @@ Webflow.push(() => {
                     <p class="inv-flow-sub">One cheque into Shifu Ventures gives you indirect exposure to every AI-first B2B company in the studio. You don&rsquo;t pick winners &mdash; the whole portfolio compounds for you.</p>
                   </div>
 
-                  <div class="inv-flow-diagram">
-                    <div class="inv-flow-node inv-flow-you">
-                      <div class="inv-flow-node-value">Your investment</div>
-                    </div>
-                    <div class="inv-flow-arrow" aria-hidden="true">
-                      <span class="inv-flow-arrow-label">Capital</span>
-                      <svg viewBox="0 0 140 8" class="inv-flow-arrow-svg">
-                        <path d="M0 4 H132 M127 1 L132 4 L127 7" stroke="currentColor" stroke-width="0.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
-                    </div>
-                    <div class="inv-flow-node inv-flow-shifu">
-                      <img src="images/Logo.svg" alt="Shifu Ventures" class="inv-flow-shifu-logo">
-                    </div>
-                    <div class="inv-flow-arrow" aria-hidden="true">
-                      <span class="inv-flow-arrow-label">Indirect exposure</span>
-                      <svg viewBox="0 0 140 8" class="inv-flow-arrow-svg">
-                        <path d="M0 4 H132 M127 1 L132 4 L127 7" stroke="currentColor" stroke-width="0.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
-                    </div>
-                    <div class="inv-flow-portcos">
-                      <!-- Subtle bordered wrap holds the 5-cell fractional
-                           row plus the 90-cell grid below. Symmetric 10×9
-                           grid (no leftover partial row); the first two cells
-                           carry the real Photon Legal + CMF logos so the
-                           grid reads as "real PortCos, more coming". -->
-                      <div class="inv-flow-portcos-wrap" aria-hidden="true">
-                        <div class="inv-flow-fractional-row">
-                          <div class="inv-flow-fractional-cell">CMO</div>
-                          <div class="inv-flow-fractional-cell">CRO</div>
-                          <div class="inv-flow-fractional-cell">CPO</div>
-                          <div class="inv-flow-fractional-cell">CHRO</div>
-                          <div class="inv-flow-fractional-cell">CFO</div>
-                        </div>
-                        <div class="inv-flow-portcos-grid" data-flow-grid></div>
+                  <!-- Pie-metaphor flow: Your Investment → Shifu Ventures pie
+                       → 100 PortCo pies. The orange wedge on each pie is the
+                       "slice you own" — directly in Shifu, indirectly in
+                       every PortCo. Slices are visually exaggerated (~30°)
+                       for legibility at grid scale; this is a metaphor
+                       diagram, not data viz.
+
+                       Plays a scroll-triggered cascade once when the panel
+                       comes into view: Your Inv → arrow → Shifu pie + slice
+                       → arrow → frame appears → 5 fractional pies + 95
+                       PortCo pies cascade in row-by-row with each slice
+                       drawing in just after its pie. -->
+                  <div class="inv-flow-diagram" data-flow-diagram>
+
+                    <!-- Node 1: Your Investment — three stacked cards with
+                         a $ glyph + "Your Investment" label inside the
+                         front card (no separate label below). -->
+                    <div class="inv-flow-node inv-flow-you" data-flow-stage="1">
+                      <div class="inv-flow-cards">
+                        <span class="inv-flow-card is-back" aria-hidden="true"></span>
+                        <span class="inv-flow-card is-mid" aria-hidden="true"></span>
+                        <span class="inv-flow-card is-front">
+                          <span class="inv-flow-card-dollar" aria-hidden="true">$</span>
+                          <span class="inv-flow-card-text">Your<br>Investment</span>
+                        </span>
                       </div>
-                      <div class="inv-flow-portcos-label">100 PortCos</div>
                     </div>
+
+                    <!-- Arrow 1 — bidirectional exchange between Your
+                         Investment and Shifu Ventures.
+                           Top: "Capital" → (forward)  — investor sends capital
+                           Bottom: ← "Equity"          — investor receives equity
+                         Both arrows draw simultaneously so the visual reads
+                         as a single transaction (capital out, equity in). -->
+                    <div class="inv-flow-arrow inv-flow-arrow--duo" data-flow-stage="2">
+                      <span class="inv-flow-arrow-label">Capital</span>
+                      <svg viewBox="0 0 140 24" class="inv-flow-arrow-svg" preserveAspectRatio="none" aria-hidden="true">
+                        <!-- Forward: investment → Shifu -->
+                        <path class="inv-flow-arrow-line" d="M2 8 H130" stroke="currentColor" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+                        <path class="inv-flow-arrow-head" d="M126 4 L132 8 L126 12" stroke="currentColor" stroke-width="0.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        <!-- Reverse: Shifu → investment -->
+                        <path class="inv-flow-arrow-line" d="M132 16 H4" stroke="currentColor" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+                        <path class="inv-flow-arrow-head" d="M8 12 L2 16 L8 20" stroke="currentColor" stroke-width="0.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                      <span class="inv-flow-arrow-label">Equity</span>
+                    </div>
+
+                    <!-- Node 2: Shifu Ventures pie — big circle, dark fill,
+                         translucent-orange ~30° wedge with thin orange
+                         stroke, Shifu logo centred (the logotype IS the
+                         label, so no text below). -->
+                    <div class="inv-flow-node inv-flow-shifu" data-flow-stage="2">
+                      <div class="inv-flow-pie-wrap is-big">
+                        <svg viewBox="-50 -50 100 100" class="inv-flow-pie inv-flow-pie--big" aria-hidden="true">
+                          <circle class="inv-flow-pie-bg" cx="0" cy="0" r="46"/>
+                          <path class="inv-flow-pie-slice" d="M0 0 L 0 -46 A 46 46 0 0 1 23 -39.84 Z"/>
+                          <circle class="inv-flow-pie-ring" cx="0" cy="0" r="46"/>
+                        </svg>
+                        <img src="images/Logo.svg" alt="Shifu Ventures" class="inv-flow-pie-logo">
+                      </div>
+                    </div>
+
+                    <!-- Arrow 2 — "Indirect Exposure" label sits above the
+                         arrow with generous spacing. -->
+                    <div class="inv-flow-arrow" data-flow-stage="3">
+                      <span class="inv-flow-arrow-label">Indirect Exposure</span>
+                      <svg viewBox="0 0 140 12" class="inv-flow-arrow-svg" preserveAspectRatio="none" aria-hidden="true">
+                        <path class="inv-flow-arrow-line" d="M2 6 H130" stroke="currentColor" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+                        <path class="inv-flow-arrow-head" d="M126 2 L132 6 L126 10" stroke="currentColor" stroke-width="0.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </div>
+
+                    <!-- Node 3: 100 PortCos — bordered frame holds the
+                         5 labelled fractional pies on top + 95 anonymous
+                         PortCo pies below. The 95 pies are generated by
+                         JS so the markup stays clean. -->
+                    <div class="inv-flow-portcos" data-flow-stage="3">
+                      <div class="inv-flow-portcos-frame">
+                        <div class="inv-flow-fractional-row" data-flow-fractional></div>
+                        <div class="inv-flow-portcos-grid" data-flow-grid aria-hidden="true"></div>
+                      </div>
+                      <div class="inv-flow-node-label inv-flow-portcos-label">100 PortCos</div>
+                    </div>
+
                   </div>
                 </div>
 
@@ -1531,7 +1580,7 @@ Webflow.push(() => {
             <div class="padding-section-large">
               <div fd-section-reveal="">
                 <div class="section-tabs-header is-center">
-                  <h2 fd-heading-reveal="" class="heading-style-h2">Three ways we <span fd-svg-underline-text="scroll" fd-svg-underline-stroke="4">involve</span> you in the studio.</h2>
+                  <h2 fd-heading-reveal="" class="heading-style-h2">Three ways we <span fd-svg-underline-text="scroll" fd-svg-underline-stroke="4" fd-svg-underline-offset="2">involve</span> you in the studio.</h2>
                   <p fd-fade-reveal="" class="text-size-medium">From a live workspace to monthly videos and a private channel — you stay close to every PortCo without booking a single meeting.</p>
                 </div>
                 <div class="spacer-56"></div>
@@ -1578,7 +1627,7 @@ Webflow.push(() => {
                       <button type="button" role="tab" class="inv-involve-btn" data-involve-tab="whatsapp" aria-pressed="false">
                         <span class="inv-involve-num">03</span>
                         <span class="inv-involve-text">
-                          <span class="inv-involve-label">WhatsApp Channel</span>
+                          <span class="inv-involve-label">WhatsApp Investor Hub</span>
                           <span class="inv-involve-desc">A private investor channel for real-time broadcasts and one-on-one threads with the studio.</span>
                         </span>
                       </button>
@@ -1604,6 +1653,7 @@ Webflow.push(() => {
                             allow="autoplay; encrypted-media; picture-in-picture"
                             title="February 2026 investor update — muted preview"
                             loading="lazy"></iframe>
+                          <span class="inv-involve-trio-month" aria-hidden="true">Feb &rsquo;26</span>
                         </div>
                         <div class="inv-involve-trio-cell">
                           <iframe class="inv-involve-iframe"
@@ -1612,6 +1662,7 @@ Webflow.push(() => {
                             allow="autoplay; encrypted-media; picture-in-picture"
                             title="March 2026 investor update — muted preview"
                             loading="lazy"></iframe>
+                          <span class="inv-involve-trio-month" aria-hidden="true">Mar &rsquo;26</span>
                         </div>
                         <div class="inv-involve-trio-cell">
                           <iframe class="inv-involve-iframe"
@@ -1620,6 +1671,7 @@ Webflow.push(() => {
                             allow="autoplay; encrypted-media; picture-in-picture"
                             title="April 2026 investor update — muted preview"
                             loading="lazy"></iframe>
+                          <span class="inv-involve-trio-month" aria-hidden="true">Apr &rsquo;26</span>
                         </div>
                       </div>
                     </div>
@@ -1628,7 +1680,7 @@ Webflow.push(() => {
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                           <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
                         </svg>
-                        <div class="inv-involve-placeholder-h">WhatsApp Channel</div>
+                        <div class="inv-involve-placeholder-h">WhatsApp Investor Hub</div>
                         <div class="inv-involve-placeholder-d">Visual coming soon</div>
                       </div>
                     </div>
@@ -2190,10 +2242,10 @@ Webflow.push(() => {
         <div class="padding-global">
           <div class="container-large">
             <div class="padding-section-large">
-              <div fd-section-reveal="" class="home_faq_component">
+              <div fd-section-reveal="" class="home_faq_component is-split">
                 <div class="section-header">
                   <div class="max-width-large">
-                    <h2 fd-heading-reveal="" class="heading-style-h2"><span fd-svg-underline-stroke="2.5" fd-svg-underline-text="scroll">Frequently Asked Questions</span></h2>
+                    <h2 fd-heading-reveal="" class="heading-style-h2">Frequently Asked <span fd-svg-underline-stroke="2.5" fd-svg-underline-text="scroll">Questions</span></h2>
                   </div>
                   <div fd-fade-reveal="" class="max-width-small">
                     <p class="text-size-medium">The questions investors ask first — fit, cheque, time, vehicle.</p>
@@ -3097,22 +3149,190 @@ const isMobile = matchMedia("(max-width: 768px)").matches;
     t.addEventListener('click', () => activate(t.dataset.askTab));
   });
 
-  // 90 cells in a clean 10×9 grid beneath the 5-cell fractional row.
-  // Total reads as "5 fractional + 90 representative slots = 100 PortCos"
-  // (the label below the wrap carries the conceptual count). Cells 0 and
-  // 1 get is-pl / is-cmf and render the real Photon Legal + CMF logos as
-  // background images.
-  const grid = document.querySelector('[data-flow-grid]');
+  // Pie-metaphor capital flow:
+  //   - 5 labelled fractional pies (CMO / CRO / CPO / CHRO / CFO) on top
+  //   - 95 anonymous PortCo pies in a tight grid below
+  //   - Total reads as "5 fractional + 95 PortCos = 100 PortCos"
+  // Each pie is a small SVG with a dark circle + orange ~30° wedge
+  // (the "your slice" visual metaphor). Per-element --i CSS variable
+  // is set so the cascade-in animation can stagger via CSS calc().
+  const fracHost = document.querySelector('[data-flow-fractional]');
+  const grid     = document.querySelector('[data-flow-grid]');
+  const diagram  = document.querySelector('[data-flow-diagram]');
+
+  // Pie SVG markup — layers, in draw order (later = on top):
+  //   1. dark bg circle (fallback / dark backing for transparent logos)
+  //   2. optional logo <image> clipped to the circle (PL / CMF cells)
+  //   3. orange wedge path (always on top of the logo)
+  //   4. faint ring to crisp the outer edge
+  //
+  // The wedge is drawn AFTER the image, so it sits above the logo —
+  // matching the brief: "the fraction of the circle should come above
+  // it (the logo)".
+  const pieMarkup = (logoUrl, clipId) => {
+    const defs = logoUrl
+      ? `<defs><clipPath id="${clipId}"><circle cx="0" cy="0" r="46"/></clipPath></defs>`
+      : '';
+    const logoLayer = logoUrl ? `
+      <image href="${logoUrl}" x="-46" y="-46" width="92" height="92"
+             clip-path="url(#${clipId})" preserveAspectRatio="xMidYMid slice"/>
+    ` : '';
+    return `
+      <svg viewBox="-50 -50 100 100" class="inv-flow-pie" aria-hidden="true">
+        ${defs}
+        <circle class="inv-flow-pie-bg" cx="0" cy="0" r="46"/>
+        ${logoLayer}
+        <path   class="inv-flow-pie-slice" d="M0 0 L 0 -46 A 46 46 0 0 1 23 -39.84 Z"/>
+        <circle class="inv-flow-pie-ring" cx="0" cy="0" r="46"/>
+      </svg>`;
+  };
+
+  // Logo URLs for the two real PortCo circles in the top row —
+  // dedicated Cloudinary uploads scoped to the capital-flow diagram
+  // ONLY. Do not reuse these on other sections; they're sized + masked
+  // for the circle-clip rendering here.
+  const PL_LOGO  = 'https://res.cloudinary.com/dkwqszhed/image/upload/v1778923477/Frame_2085665472_eodm7h.png';
+  const CMF_LOGO = 'https://res.cloudinary.com/dkwqszhed/image/upload/v1778923477/Frame_2085665473_ddedie.png';
+
+  // 1. Build the top row — 7 BIG circles:
+  //      cells 0-4: fractional (CMO / CRO / CPO / CHRO / CFO) with
+  //                 the role acronym inside the circle at the bottom
+  //      cells 5-6: the two real PortCos (Photon Legal + CMF) with
+  //                 their logos clipped to the circle, wedge on top
+  //    Together these are the 7 "named" circles; the remaining 93 are
+  //    anonymous placeholders below.
+  if (fracHost && fracHost.children.length === 0) {
+    const TOP_ROW = [
+      { kind: 'frac', label: 'CMO'  },
+      { kind: 'frac', label: 'CRO'  },
+      { kind: 'frac', label: 'CPO'  },
+      { kind: 'frac', label: 'CHRO' },
+      { kind: 'frac', label: 'CFO'  },
+      { kind: 'portco', label: 'Photon Legal',       logoUrl: PL_LOGO,  cls: 'is-pl' },
+      { kind: 'portco', label: 'Curious Men Films',  logoUrl: CMF_LOGO, cls: 'is-cmf' },
+    ];
+    const frag = document.createDocumentFragment();
+    TOP_ROW.forEach((item, i) => {
+      const cell = document.createElement('div');
+      cell.className = 'inv-flow-fractional-cell';
+      if (item.cls) cell.classList.add(item.cls);
+      cell.style.setProperty('--i', String(i));
+      if (item.kind === 'frac') {
+        cell.innerHTML = `
+          <span class="inv-flow-pie-wrap">
+            ${pieMarkup()}
+            <span class="inv-flow-fractional-cell-label">${item.label}</span>
+          </span>
+        `;
+      } else {
+        cell.setAttribute('aria-label', item.label);
+        cell.innerHTML = `
+          <span class="inv-flow-pie-wrap">
+            ${pieMarkup(item.logoUrl, 'invFlowPieClipTop-' + i)}
+          </span>
+        `;
+      }
+      frag.appendChild(cell);
+    });
+    fracHost.appendChild(frag);
+  }
+
+  // 2. Build the 93 anonymous PortCo pies for the bottom grid. These
+  //    represent the slots yet to be filled in the studio's 100-PortCo
+  //    plan — 100 total = 5 fractional + 2 active PortCos (top row)
+  //    + 93 placeholders here.
   if (grid && grid.children.length === 0) {
     const frag = document.createDocumentFragment();
-    for (let i = 0; i < 90; i++) {
-      const c = document.createElement('span');
-      c.className = 'inv-flow-portcos-cell';
-      if (i === 0) c.classList.add('is-pl');
-      if (i === 1) c.classList.add('is-cmf');
-      frag.appendChild(c);
+    for (let i = 0; i < 93; i++) {
+      const wrap = document.createElement('span');
+      wrap.className = 'inv-flow-pie-wrap';
+      wrap.style.setProperty('--i', String(i));
+      wrap.innerHTML = pieMarkup();
+      frag.appendChild(wrap);
     }
     grid.appendChild(frag);
+  }
+
+  // 3. Trigger the cascade animation when the diagram scrolls into
+  //    view AND the capital panel is visible. After the third stage
+  //    (95-pie cascade) finishes, pause 7s and replay — so the
+  //    metaphor lands repeatedly as long as the section is on screen.
+  //    Pauses when the diagram scrolls out of view or the user
+  //    switches to a different tab; resumes when it's back in view.
+  if (diagram) {
+    const capitalPanel = document.querySelector('[data-ask-panel="capital"]');
+    // Total animation duration: last pie's wedge settles at
+    //   3110ms + 92 * 10ms + 320ms ≈ 4350ms. Round up to 4600ms.
+    // Then pause for 6-8s before replaying (7s feels balanced).
+    const ANIM_DURATION_MS = 4600;
+    const REPLAY_PAUSE_MS  = 7000;
+    const reducedMotion    = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let loopTimer = null;
+
+    const isInView = () => {
+      const r = diagram.getBoundingClientRect();
+      return r.top < window.innerHeight && r.bottom > 0;
+    };
+
+    const cycle = () => {
+      if (!capitalPanel || capitalPanel.hasAttribute('hidden')) return;
+      if (!isInView()) return;
+      // Reset any in-flight class then re-add to restart animations
+      diagram.classList.remove('is-animating');
+      // Force reflow so the class removal takes effect before re-add
+      // eslint-disable-next-line no-unused-expressions
+      void diagram.offsetWidth;
+      diagram.classList.add('is-animating');
+      // Schedule next loop after the cascade finishes + the pause.
+      // Skip looping entirely under prefers-reduced-motion.
+      if (!reducedMotion) {
+        loopTimer = setTimeout(cycle, ANIM_DURATION_MS + REPLAY_PAUSE_MS);
+      }
+    };
+
+    const stopLoop = () => {
+      if (loopTimer) { clearTimeout(loopTimer); loopTimer = null; }
+    };
+
+    const reset = () => {
+      stopLoop();
+      diagram.classList.remove('is-animating');
+    };
+
+    // IntersectionObserver — start looping when ≥30% in view, stop
+    // (and reset) when scrolled away. Resuming after re-entry begins
+    // a fresh cycle from beat 1.
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            if (!loopTimer) cycle();
+          } else {
+            reset();
+          }
+        }
+      }, { threshold: 0.3 });
+      io.observe(diagram);
+    } else {
+      // No IO support — fire once immediately, no loop
+      cycle();
+    }
+
+    // Tab change: stop the loop when leaving the capital tab; start
+    // it when entering (if diagram is in view).
+    tabs.forEach(t => {
+      t.addEventListener('click', () => {
+        if (t.dataset.askTab === 'capital') {
+          reset();
+          if (isInView()) {
+            // Defer so the panel's hidden attribute is removed first
+            requestAnimationFrame(() => requestAnimationFrame(cycle));
+          }
+        } else {
+          reset();
+        }
+      });
+    });
   }
 })();
 </script>

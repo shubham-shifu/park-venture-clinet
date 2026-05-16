@@ -143,6 +143,8 @@ html.lenis {height: auto;}
   .about-hero .header30_content > video { display: none; }
 }
 </style>
+<link rel="stylesheet" href="css/copy-editor.css">
+<script src="js/copy-editor.js" defer></script>
 </head>
 <body>
   <div class="page-wrapper">
@@ -559,371 +561,334 @@ Webflow.push(() => {
           </div>
         </div>
       </header>
-      <section class="section-journey-v2" id="our-journey">
+
+      <!-- ============================================================
+           Our Journey — vertical scroll-pinned timeline. Mirrors the
+           Sri's-journey pattern on investors.html: a sticky left rail
+           with year stops + a vertical progress fill, and a column of
+           year slides on the right that the user scrolls through. The
+           rail dot + line-fill light up as each slide enters the
+           viewport. Mobile collapses to a horizontal sticky year rail
+           at the top with the slides stacked vertically below.
+           ============================================================ -->
+      <section class="oj-section" id="our-journey">
         <div class="padding-global">
-          <div class="padding-section-medium about">
-            <div class="container-large">
-              <div>
-                <div class="journey-v2-heading-wrap">
-                  <h2 fd-svg-underline-stroke="4" fd-svg-underline-text="scroll" class="heading-style-h2">Our Journey</h2>
-                </div>
-                <div class="spacer-64"></div>
+          <div class="container-large">
+            <div class="padding-section-large">
 
-                <div class="journey-v2-rail" data-journey-rail role="tablist" aria-label="Shifu Ventures journey by year">
-                  <button type="button" class="journey-v2-year is-active" data-journey-year="2024" role="tab" aria-selected="true" aria-controls="journey-slide-2024" id="journey-tab-2024">
-                    <span class="journey-v2-year-num">2024</span>
-                  </button>
-                  <span class="journey-v2-track" data-journey-track="2024-2025" aria-hidden="true"><span class="journey-v2-track-fill" data-journey-fill="2024-2025"></span></span>
-                  <button type="button" class="journey-v2-year" data-journey-year="2025" role="tab" aria-selected="false" aria-controls="journey-slide-2025" id="journey-tab-2025">
-                    <span class="journey-v2-year-num">2025</span>
-                  </button>
-                  <span class="journey-v2-track" data-journey-track="2025-2026" aria-hidden="true"><span class="journey-v2-track-fill" data-journey-fill="2025-2026"></span></span>
-                  <button type="button" class="journey-v2-year" data-journey-year="2026" role="tab" aria-selected="false" aria-controls="journey-slide-2026" id="journey-tab-2026">
-                    <span class="journey-v2-year-num">2026</span>
-                  </button>
-                </div>
-
-                <div class="journey-v2-deck">
-                  <span class="journey-v2-deck-notch" data-journey-notch aria-hidden="true"></span>
-
-                  <div class="journey-v2-stage" data-journey-stage>
-                    <article class="journey-v2-slide is-active" data-journey-slide="2024" id="journey-slide-2024" role="tabpanel" aria-labelledby="journey-tab-2024">
-                      <div class="journey-v2-text">
-                        <span class="journey-v2-eyebrow">2024 &middot; Bharat SaaS Yatra</span>
-                        <h3 class="journey-v2-heading">Hit the road. Met India&rsquo;s serious SaaS founders.</h3>
-                        <p class="journey-v2-body">Prateek and I spent <strong>9 months literally travelling across India in a bus</strong>. The Bharat SaaS Yatra gave us the clarity and conviction to start something we can spend the next few decades on.</p>
-                      </div>
-                      <div class="journey-v2-media">
-                        <div class="journey-v2-frame" data-journey-reel>
-                          <video class="journey-v2-video is-active" data-journey-video-a playsinline muted autoplay loop preload="auto" aria-hidden="true"></video>
-                          <video class="journey-v2-video" data-journey-video-b playsinline muted loop preload="auto" aria-hidden="true"></video>
-                          <span class="journey-v2-corner-tl" aria-hidden="true"></span>
-                          <span class="journey-v2-corner-tr" aria-hidden="true"></span>
-                          <span class="journey-v2-corner-bl" aria-hidden="true"></span>
-                          <span class="journey-v2-corner-br" aria-hidden="true"></span>
-                        </div>
-                      </div>
-                    </article>
-
-                    <article class="journey-v2-slide" data-journey-slide="2025" id="journey-slide-2025" role="tabpanel" aria-labelledby="journey-tab-2025">
-                      <div class="journey-v2-text">
-                        <span class="journey-v2-eyebrow">2025 &middot; The studio takes shape</span>
-                        <h3 class="journey-v2-heading">Set up the studio. Started co-building.</h3>
-                        <ul class="journey-v2-list">
-                          <li>Launched <strong>Shifu Ventures</strong> and <strong>Shifu Foundation</strong>.</li>
-                          <li>Onboarded <strong>Mausmi Ambastha</strong> as CEO, Shifu Foundation.</li>
-                          <li>Onboarded our <strong>first two portfolio companies</strong> for full-time co-build.</li>
-                        </ul>
-                      </div>
-                      <div class="journey-v2-media">
-                        <div class="journey-v2-frame is-placeholder">
-                          <div class="journey-v2-placeholder">
-                            <span class="journey-v2-placeholder-icon" aria-hidden="true">
-                              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8 5v14l11-7L8 5z" fill="currentColor"/>
-                              </svg>
-                            </span>
-                            <span class="journey-v2-placeholder-label">Film coming soon</span>
-                          </div>
-                          <span class="journey-v2-corner-tl" aria-hidden="true"></span>
-                          <span class="journey-v2-corner-tr" aria-hidden="true"></span>
-                          <span class="journey-v2-corner-bl" aria-hidden="true"></span>
-                          <span class="journey-v2-corner-br" aria-hidden="true"></span>
-                        </div>
-                      </div>
-                    </article>
-
-                    <article class="journey-v2-slide" data-journey-slide="2026" id="journey-slide-2026" role="tabpanel" aria-labelledby="journey-tab-2026">
-                      <div class="journey-v2-text">
-                        <span class="journey-v2-eyebrow">2026 &middot; Scaling the model</span>
-                        <h3 class="journey-v2-heading">Two companies in motion. Three new bets ahead.</h3>
-                        <ul class="journey-v2-list">
-                          <li>One co-build <strong>crossed $2M ARR</strong>; the second is on a strong trajectory.</li>
-                          <li>Onboarded <strong>three fractional portfolio companies</strong>.</li>
-                          <li>Spinning up <strong>Marketing, Finance, and Product</strong> as fractional studios.</li>
-                        </ul>
-                      </div>
-                      <div class="journey-v2-media">
-                        <div class="journey-v2-frame is-placeholder">
-                          <div class="journey-v2-placeholder">
-                            <span class="journey-v2-placeholder-icon" aria-hidden="true">
-                              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8 5v14l11-7L8 5z" fill="currentColor"/>
-                              </svg>
-                            </span>
-                            <span class="journey-v2-placeholder-label">Film coming soon</span>
-                          </div>
-                          <span class="journey-v2-corner-tl" aria-hidden="true"></span>
-                          <span class="journey-v2-corner-tr" aria-hidden="true"></span>
-                          <span class="journey-v2-corner-bl" aria-hidden="true"></span>
-                          <span class="journey-v2-corner-br" aria-hidden="true"></span>
-                        </div>
-                      </div>
-                    </article>
-                  </div>
-                </div>
-
-                <script>
-                /* Journey v2 — year-stepped timeline with progress-bar loader + BSY video reel.
-                   Each track between two years carries an 8-second CSS animation that telegraphs
-                   the upcoming year change. Clicking a year resets to that point. The notch under
-                   the active year slides to anchor the deck card to the active pill. */
-                (function () {
-                  var rail = document.querySelector('[data-journey-rail]');
-                  var stage = document.querySelector('[data-journey-stage]');
-                  var deck = document.querySelector('.journey-v2-deck');
-                  var notch = document.querySelector('[data-journey-notch]');
-                  if (!rail || !stage) return;
-
-                  var tabs = rail.querySelectorAll('[data-journey-year]');
-                  var slides = stage.querySelectorAll('[data-journey-slide]');
-                  var fills = rail.querySelectorAll('[data-journey-fill]');
-                  var tracks = rail.querySelectorAll('[data-journey-track]');
-
-                  var years = ['2024', '2025', '2026'];
-                  var current = '2024';
-                  var autoTimer = null;
-                  var userPaused = false;
-                  var AUTO_MS = 8000;
-
-                  function positionNotch(year) {
-                    if (!notch || !deck) return;
-                    var tab = rail.querySelector('[data-journey-year="' + year + '"]');
-                    if (!tab) return;
-                    var tabRect = tab.getBoundingClientRect();
-                    var deckRect = deck.getBoundingClientRect();
-                    var x = tabRect.left + tabRect.width / 2 - deckRect.left;
-                    deck.style.setProperty('--journey-notch-x', x + 'px');
-                  }
-
-                  function setActive(year, opts) {
-                    opts = opts || {};
-                    var activeIdx = years.indexOf(year);
-
-                    tabs.forEach(function (t) {
-                      var ty = t.getAttribute('data-journey-year');
-                      var idx = years.indexOf(ty);
-                      t.classList.toggle('is-active', ty === year);
-                      t.classList.toggle('is-passed', idx < activeIdx);
-                      t.setAttribute('aria-selected', ty === year ? 'true' : 'false');
-                    });
-
-                    /* Track fills: past tracks → 100%; future tracks → 0%; current outgoing track → loading. */
-                    fills.forEach(function (f, i) {
-                      f.classList.remove('is-loading', 'is-passed');
-                      f.style.width = '';
-                      f.style.animation = '';
-                      if (i < activeIdx) {
-                        f.classList.add('is-passed');  /* already passed — full bar */
-                      } else if (i === activeIdx && opts.runLoader) {
-                        /* The track immediately AFTER the active year. Animate it. */
-                        // Force reflow before re-adding animation so it restarts cleanly
-                        // eslint-disable-next-line no-unused-expressions
-                        f.offsetWidth;
-                        f.classList.add('is-loading');
-                      }
-                    });
-
-                    slides.forEach(function (s) {
-                      var sy = s.getAttribute('data-journey-slide');
-                      s.classList.toggle('is-active', sy === year);
-                    });
-
-                    current = year;
-                    positionNotch(year);
-                  }
-
-                  function startAuto() {
-                    stopAuto();
-                    if (userPaused) return;
-                    var i = years.indexOf(current);
-                    if (i >= years.length - 1) {
-                      /* Reached the last year — pause the loop; user can click to reset. */
-                      return;
-                    }
-                    /* Kick the loader animation on the outgoing track */
-                    var outgoingFill = fills[i];
-                    if (outgoingFill) {
-                      outgoingFill.classList.remove('is-loading');
-                      // restart by forcing reflow
-                      // eslint-disable-next-line no-unused-expressions
-                      outgoingFill.offsetWidth;
-                      outgoingFill.classList.add('is-loading');
-                    }
-                    autoTimer = setTimeout(function () {
-                      var next = years[i + 1];
-                      setActive(next, { runLoader: true });
-                      startAuto();
-                    }, AUTO_MS);
-                  }
-                  function stopAuto() {
-                    if (autoTimer) { clearTimeout(autoTimer); autoTimer = null; }
-                  }
-
-                  function pauseLoaders() {
-                    fills.forEach(function (f) {
-                      var cs = window.getComputedStyle(f);
-                      if (cs.animationName && cs.animationName !== 'none') {
-                        f.style.animationPlayState = 'paused';
-                      }
-                    });
-                  }
-                  function resumeLoaders() {
-                    fills.forEach(function (f) {
-                      f.style.animationPlayState = '';
-                    });
-                  }
-
-                  tabs.forEach(function (t) {
-                    t.addEventListener('click', function () {
-                      var y = t.getAttribute('data-journey-year');
-                      userPaused = true;
-                      stopAuto();
-                      setActive(y, { runLoader: false });
-                      /* Clear any in-progress loaders */
-                      fills.forEach(function (f) { f.classList.remove('is-loading'); });
-                    });
-                  });
-
-                  /* Pause loader + auto-advance on hover/focus */
-                  ['mouseenter', 'focusin'].forEach(function (ev) {
-                    stage.addEventListener(ev, function () { stopAuto(); pauseLoaders(); });
-                    rail.addEventListener(ev, function () { stopAuto(); pauseLoaders(); });
-                  });
-                  ['mouseleave', 'focusout'].forEach(function (ev) {
-                    stage.addEventListener(ev, function () {
-                      if (!userPaused) { resumeLoaders(); startAuto(); }
-                    });
-                    rail.addEventListener(ev, function () {
-                      if (!userPaused) { resumeLoaders(); startAuto(); }
-                    });
-                  });
-
-                  /* Reposition notch on resize */
-                  window.addEventListener('resize', function () { positionNotch(current); });
-
-                  var section = document.getElementById('our-journey');
-                  function kickoff() {
-                    positionNotch(current);
-                    /* Start the loader + auto-advance immediately. IntersectionObserver
-                       below additionally pauses/resumes as the user scrolls in/out so we
-                       don't keep cycling out of view. */
-                    startAuto();
-                    if (section && 'IntersectionObserver' in window) {
-                      var wasInView = true;
-                      var inViewObs = new IntersectionObserver(function (entries) {
-                        entries.forEach(function (e) {
-                          if (e.isIntersecting && !wasInView && !userPaused) {
-                            wasInView = true;
-                            startAuto();
-                          } else if (!e.isIntersecting && wasInView) {
-                            wasInView = false;
-                            stopAuto();
-                          }
-                        });
-                      }, { threshold: 0.2 });
-                      inViewObs.observe(section);
-                    }
-                  }
-                  /* Wait two frames so the rail's bounding rects settle before we
-                     measure for the notch offset. */
-                  function delayedKickoff() {
-                    /* setTimeout (not rAF) — background tabs throttle rAFs. */
-                    setTimeout(kickoff, 50);
-                  }
-                  if (document.readyState === 'loading') {
-                    document.addEventListener('DOMContentLoaded', delayedKickoff);
-                  } else {
-                    delayedKickoff();
-                  }
-
-                  /* ─── BSY-style crossfade video reel for the 2024 slide ─── */
-                  var reel = stage.querySelector('[data-journey-reel]');
-                  if (reel) {
-                    var sources = [
-                      'https://res.cloudinary.com/dkwqszhed/video/upload/v1775221784/sfvid5_s1lqbs.mp4',
-                      'https://res.cloudinary.com/dkwqszhed/video/upload/v1775221784/sf_vid_12_li9eeg.mp4',
-                      'https://res.cloudinary.com/dkwqszhed/video/upload/v1775221784/sfvid2_umlxgp.mp4',
-                      'https://res.cloudinary.com/dkwqszhed/video/upload/v1775225401/Drone_prr0ih.mp4',
-                      'https://res.cloudinary.com/dkwqszhed/video/upload/v1775222434/sfvid15_jtcyfi.mp4'
-                    ];
-                    var trims = [2.0, 0.35, 0.35, 0.35, 0.35];
-
-                    var a = reel.querySelector('[data-journey-video-a]');
-                    var b = reel.querySelector('[data-journey-video-b]');
-
-                    if (a && b) {
-                      var idx = 0;
-                      var cur = a;
-                      var nxt = b;
-                      var swapping = false;
-
-                      cur.src = sources[idx];
-                      nxt.src = sources[(idx + 1) % sources.length];
-                      nxt.load();
-
-                      function syncPlayback() {
-                        var slide = reel.closest('[data-journey-slide]');
-                        if (slide && slide.classList.contains('is-active')) {
-                          cur.play().catch(function () {});
-                        } else if (slide) {
-                          cur.pause();
-                        }
-                      }
-                      syncPlayback();
-
-                      var slide2024 = reel.closest('[data-journey-slide]');
-                      if (slide2024) {
-                        new MutationObserver(syncPlayback).observe(slide2024, {
-                          attributes: true, attributeFilter: ['class']
-                        });
-                      }
-
-                      function advance() {
-                        if (swapping) return;
-                        swapping = true;
-                        nxt.currentTime = 0;
-                        var p = nxt.play();
-                        if (p && typeof p.catch === 'function') p.catch(function () {});
-                        nxt.classList.add('is-active');
-                        cur.classList.remove('is-active');
-                        var out = cur;
-                        cur = nxt; nxt = out;
-                        idx = (idx + 1) % sources.length;
-                        setTimeout(function () {
-                          out.pause();
-                          out.currentTime = 0;
-                          var upcoming = sources[(idx + 1) % sources.length];
-                          if (out.src !== upcoming) {
-                            out.src = upcoming;
-                            out.load();
-                          }
-                          swapping = false;
-                        }, 350);
-                      }
-
-                      function watch(e) {
-                        var v = e.target;
-                        if (v !== cur) return;
-                        var dur = v.duration;
-                        var trim = trims[idx];
-                        if (isFinite(dur) && dur > 0 && v.currentTime >= dur - trim) {
-                          advance();
-                        }
-                      }
-                      a.addEventListener('timeupdate', watch);
-                      b.addEventListener('timeupdate', watch);
-                      a.addEventListener('ended', function () { if (cur === a) advance(); });
-                      b.addEventListener('ended', function () { if (cur === b) advance(); });
-                    }
-                  }
-                })();
-                </script>
+              <div class="oj-header">
+                <h2 fd-svg-underline-stroke="4" fd-svg-underline-text="scroll" class="heading-style-h2">Our <span fd-svg-underline-text="scroll" fd-svg-underline-stroke="4">Journey</span></h2>
+                <p class="oj-subhead">Bharat SaaS Yatra to today &mdash; how Shifu Ventures took shape, one year at a time.</p>
               </div>
+
+              <!-- Mobile horizontal year rail — sticks under the nav so
+                   users can tap to jump and always see the year context
+                   while scrolling through slides. -->
+              <nav class="oj-mobile-rail" aria-label="Journey by year" data-oj-mobile-rail>
+                <div class="oj-mobile-rail-inner">
+                  <span class="oj-mobile-rail-line" aria-hidden="true"></span>
+                  <span class="oj-mobile-rail-fill" aria-hidden="true" data-oj-mobile-fill></span>
+                  <button type="button" class="oj-mobile-dot is-active" data-oj-mobile-dot="2024" aria-label="Jump to 2024">
+                    <span class="oj-mobile-dot-mark" aria-hidden="true"></span>
+                    <span class="oj-mobile-dot-year">2024</span>
+                  </button>
+                  <button type="button" class="oj-mobile-dot" data-oj-mobile-dot="2025" aria-label="Jump to 2025">
+                    <span class="oj-mobile-dot-mark" aria-hidden="true"></span>
+                    <span class="oj-mobile-dot-year">2025</span>
+                  </button>
+                  <button type="button" class="oj-mobile-dot" data-oj-mobile-dot="2026" aria-label="Jump to 2026">
+                    <span class="oj-mobile-dot-mark" aria-hidden="true"></span>
+                    <span class="oj-mobile-dot-year">2026</span>
+                  </button>
+                </div>
+              </nav>
+
+              <div class="oj-stage" data-oj-stage>
+
+                <!-- Desktop sticky rail — vertical line + 3 stops -->
+                <aside class="oj-rail" data-oj-rail>
+                  <span class="oj-rail-line" aria-hidden="true"></span>
+                  <span class="oj-rail-fill" aria-hidden="true" data-oj-rail-fill></span>
+
+                  <button type="button" class="oj-rail-stop is-active" data-oj-stop="2024" aria-label="Jump to 2024">
+                    <span class="oj-rail-dot" aria-hidden="true"></span>
+                    <span class="oj-rail-stop-text">
+                      <span class="oj-rail-stop-year">2024</span>
+                      <span class="oj-rail-stop-title">Bharat SaaS Yatra</span>
+                    </span>
+                  </button>
+
+                  <button type="button" class="oj-rail-stop" data-oj-stop="2025" aria-label="Jump to 2025">
+                    <span class="oj-rail-dot" aria-hidden="true"></span>
+                    <span class="oj-rail-stop-text">
+                      <span class="oj-rail-stop-year">2025</span>
+                      <span class="oj-rail-stop-title">Studio takes shape</span>
+                    </span>
+                  </button>
+
+                  <button type="button" class="oj-rail-stop" data-oj-stop="2026" aria-label="Jump to 2026">
+                    <span class="oj-rail-dot" aria-hidden="true"></span>
+                    <span class="oj-rail-stop-text">
+                      <span class="oj-rail-stop-year">2026</span>
+                      <span class="oj-rail-stop-title">Scaling the model</span>
+                    </span>
+                  </button>
+                </aside>
+
+                <!-- Right column — 3 year slides, each scrolls naturally
+                     into view. IntersectionObserver flips the active
+                     state based on which slide is in the viewport's
+                     middle band. -->
+                <div class="oj-slides">
+
+                  <article class="oj-slide is-active" data-oj-slide="2024" id="oj-slide-2024">
+                    <span class="oj-slide-eyebrow">2024 &middot; Bharat SaaS Yatra</span>
+                    <h3 class="oj-slide-heading">Hit the road. Met India&rsquo;s serious SaaS founders.</h3>
+                    <p class="oj-slide-body">Prateek and I spent <strong>9 months literally travelling across India in a bus</strong>. The Bharat SaaS Yatra gave us the clarity and conviction to start something we can spend the next few decades on.</p>
+                    <div class="oj-slide-media">
+                      <div class="oj-frame" data-oj-reel>
+                        <video class="oj-video is-active" data-oj-video-a playsinline muted autoplay loop preload="auto" aria-hidden="true"></video>
+                        <video class="oj-video" data-oj-video-b playsinline muted loop preload="auto" aria-hidden="true"></video>
+                        <span class="oj-corner-tl" aria-hidden="true"></span>
+                        <span class="oj-corner-tr" aria-hidden="true"></span>
+                        <span class="oj-corner-bl" aria-hidden="true"></span>
+                        <span class="oj-corner-br" aria-hidden="true"></span>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="oj-slide" data-oj-slide="2025" id="oj-slide-2025">
+                    <span class="oj-slide-eyebrow">2025 &middot; The studio takes shape</span>
+                    <h3 class="oj-slide-heading">Set up the studio. Started co-building.</h3>
+                    <ul class="oj-slide-list">
+                      <li>Launched <strong>Shifu Ventures</strong> and <strong>Shifu Foundation</strong>.</li>
+                      <li>Onboarded <strong>Mausmi Ambastha</strong> as CEO, Shifu Foundation.</li>
+                      <li>Onboarded our <strong>first two portfolio companies</strong> for full-time co-build.</li>
+                    </ul>
+                    <div class="oj-slide-media">
+                      <div class="oj-frame is-placeholder">
+                        <div class="oj-placeholder">
+                          <span class="oj-placeholder-icon" aria-hidden="true">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M8 5v14l11-7L8 5z" fill="currentColor"/>
+                            </svg>
+                          </span>
+                          <span class="oj-placeholder-label">Film coming soon</span>
+                        </div>
+                        <span class="oj-corner-tl" aria-hidden="true"></span>
+                        <span class="oj-corner-tr" aria-hidden="true"></span>
+                        <span class="oj-corner-bl" aria-hidden="true"></span>
+                        <span class="oj-corner-br" aria-hidden="true"></span>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="oj-slide" data-oj-slide="2026" id="oj-slide-2026">
+                    <span class="oj-slide-eyebrow">2026 &middot; Scaling the model</span>
+                    <h3 class="oj-slide-heading">Two companies in motion. Three new bets ahead.</h3>
+                    <ul class="oj-slide-list">
+                      <li>One co-build <strong>crossed &#8377;22 Cr ARR</strong>; the second is on a strong trajectory.</li>
+                      <li>Onboarded <strong>three fractional portfolio companies</strong>.</li>
+                      <li>Spinning up <strong>Marketing, Finance, and Product</strong> as fractional studios.</li>
+                    </ul>
+                    <div class="oj-slide-media">
+                      <div class="oj-frame is-placeholder">
+                        <div class="oj-placeholder">
+                          <span class="oj-placeholder-icon" aria-hidden="true">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M8 5v14l11-7L8 5z" fill="currentColor"/>
+                            </svg>
+                          </span>
+                          <span class="oj-placeholder-label">Film coming soon</span>
+                        </div>
+                        <span class="oj-corner-tl" aria-hidden="true"></span>
+                        <span class="oj-corner-tr" aria-hidden="true"></span>
+                        <span class="oj-corner-bl" aria-hidden="true"></span>
+                        <span class="oj-corner-br" aria-hidden="true"></span>
+                      </div>
+                    </div>
+                  </article>
+
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
+
+        <script>
+        /* Our Journey — vertical scroll-pinned timeline.
+           One IntersectionObserver watches the three slides; whichever
+           is centred in the viewport (middle 40%) becomes "active",
+           which lights up its rail dot, fills the rail-line up to that
+           point, and dims the other slides slightly. Mobile rail dots
+           are scroll-anchors. The 2024 slide carries a 5-clip
+           crossfading video reel using two <video> tags that swap
+           every clip end. */
+        (function () {
+          var section = document.getElementById('our-journey');
+          if (!section) return;
+          var stage = section.querySelector('[data-oj-stage]');
+          if (!stage) return;
+
+          var rail        = section.querySelector('[data-oj-rail]');
+          var railFill    = section.querySelector('[data-oj-rail-fill]');
+          var mobileFill  = section.querySelector('[data-oj-mobile-fill]');
+          var stops       = section.querySelectorAll('[data-oj-stop]');
+          var slides      = section.querySelectorAll('[data-oj-slide]');
+          var mobileDots  = section.querySelectorAll('[data-oj-mobile-dot]');
+          var YEARS       = ['2024', '2025', '2026'];
+
+          function setActive(idx) {
+            if (idx < 0 || idx >= YEARS.length) return;
+            stops.forEach(function (s, i) {
+              s.classList.toggle('is-active', i === idx);
+              s.classList.toggle('is-passed', i < idx);
+            });
+            slides.forEach(function (s, i) {
+              s.classList.toggle('is-active', i === idx);
+            });
+            mobileDots.forEach(function (d, i) {
+              d.classList.toggle('is-active', i === idx);
+              d.classList.toggle('is-passed', i < idx);
+            });
+            var progress = idx === 0 ? 0 : idx / (YEARS.length - 1);
+            // Rail fill — set height directly in pixels. The line
+            // element's rendered height gives us the actual span
+            // between the first and last dots, so progress × that
+            // span = correct fill length regardless of viewport size.
+            if (railFill) {
+              var line = section.querySelector('.oj-rail-line');
+              var lineH = line ? line.getBoundingClientRect().height : 0;
+              railFill.style.height = (progress * lineH) + 'px';
+            }
+            if (rail) rail.style.setProperty('--oj-progress', String(progress));
+            if (mobileFill) mobileFill.style.width = (progress * 100) + '%';
+          }
+
+          // Scroll-to handler: shared by desktop stops + mobile dots.
+          function scrollToYear(year) {
+            var slide = section.querySelector('[data-oj-slide="' + year + '"]');
+            if (!slide) return;
+            var top = slide.getBoundingClientRect().top + window.pageYOffset - 100;
+            window.scrollTo({ top: top, behavior: 'smooth' });
+          }
+          stops.forEach(function (stop) {
+            stop.addEventListener('click', function () {
+              scrollToYear(stop.getAttribute('data-oj-stop'));
+            });
+          });
+          mobileDots.forEach(function (dot) {
+            dot.addEventListener('click', function () {
+              scrollToYear(dot.getAttribute('data-oj-mobile-dot'));
+            });
+          });
+
+          // Active-slide detection — find whichever slide's middle is
+          // closest to the viewport's middle. Runs on scroll (rAF-
+          // throttled). More robust than IntersectionObserver for this
+          // shape of layout: works on any browser, any scroll position,
+          // and doesn't depend on rootMargin thresholds being just right.
+          var lastIdx = -1;
+          var ticking = false;
+          function computeActiveIdx() {
+            var vh = window.innerHeight;
+            var viewportMid = vh * 0.45;  // slightly above centre
+            var bestIdx = 0;
+            var bestDist = Infinity;
+            slides.forEach(function (s, i) {
+              var r = s.getBoundingClientRect();
+              var mid = r.top + r.height / 2;
+              var dist = Math.abs(mid - viewportMid);
+              if (dist < bestDist) {
+                bestDist = dist;
+                bestIdx = i;
+              }
+            });
+            return bestIdx;
+          }
+          function onScroll() {
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(function () {
+              var idx = computeActiveIdx();
+              if (idx !== lastIdx) {
+                lastIdx = idx;
+                setActive(idx);
+              }
+              ticking = false;
+            });
+          }
+          window.addEventListener('scroll', onScroll, { passive: true });
+          window.addEventListener('resize', onScroll, { passive: true });
+          // Lenis smooth-scrolling can sometimes throttle native scroll
+          // events — hook into Lenis's own emitter too if it's loaded.
+          if (window.lenis && typeof window.lenis.on === 'function') {
+            window.lenis.on('scroll', onScroll);
+          }
+          // Fire once on init so the initial state matches scroll position.
+          onScroll();
+
+          // 2024 video reel — five clips that crossfade with two <video>
+          // tags alternating as "current" + "next". Mirrors the Sri's
+          // journey BSY reel logic.
+          var reel = section.querySelector('[data-oj-reel]');
+          if (reel) {
+            var sources = [
+              'https://res.cloudinary.com/dkwqszhed/video/upload/v1775221784/sfvid5_s1lqbs.mp4',
+              'https://res.cloudinary.com/dkwqszhed/video/upload/v1775221784/sf_vid_12_li9eeg.mp4',
+              'https://res.cloudinary.com/dkwqszhed/video/upload/v1775221784/sfvid2_umlxgp.mp4',
+              'https://res.cloudinary.com/dkwqszhed/video/upload/v1775225401/Drone_prr0ih.mp4',
+              'https://res.cloudinary.com/dkwqszhed/video/upload/v1775222434/sfvid15_jtcyfi.mp4'
+            ];
+            var a = reel.querySelector('[data-oj-video-a]');
+            var b = reel.querySelector('[data-oj-video-b]');
+            if (a && b) {
+              var idx = 0;
+              var cur = a;
+              var nxt = b;
+              var swapping = false;
+              cur.src = sources[idx];
+              nxt.src = sources[(idx + 1) % sources.length];
+              nxt.load();
+
+              function advance() {
+                if (swapping) return;
+                swapping = true;
+                nxt.currentTime = 0;
+                var p = nxt.play();
+                if (p && typeof p.catch === 'function') p.catch(function () {});
+                nxt.classList.add('is-active');
+                cur.classList.remove('is-active');
+                var out = cur;
+                cur = nxt; nxt = out;
+                idx = (idx + 1) % sources.length;
+                setTimeout(function () {
+                  out.pause();
+                  out.currentTime = 0;
+                  var upcoming = sources[(idx + 1) % sources.length];
+                  if (out.src !== upcoming) {
+                    out.src = upcoming;
+                    out.load();
+                  }
+                  swapping = false;
+                }, 350);
+              }
+              function watch(e) {
+                var v = e.target;
+                if (v !== cur) return;
+                if (v.duration && v.currentTime >= v.duration - 0.4) advance();
+              }
+              a.addEventListener('timeupdate', watch);
+              b.addEventListener('timeupdate', watch);
+              a.addEventListener('ended', function () { if (cur === a) advance(); });
+              b.addEventListener('ended', function () { if (cur === b) advance(); });
+            }
+          }
+        })();
+        </script>
       </section>
+
       <section class="section_about_layout">
         <div class="padding-global">
           <div class="container-large">

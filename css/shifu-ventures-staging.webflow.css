@@ -7892,3 +7892,27 @@ figcaption {
   0%, 100% { box-shadow: 0 0 0 0 rgba(86, 211, 145, 0.55); }
   50%      { box-shadow: 0 0 0 6px rgba(86, 211, 145, 0); }
 }
+
+/* =====================================================================
+   Footer — full-width override. The page-wide .container-xlarge caps
+   content at 76.375rem (1222px), which leaves visible margins on
+   either side of the footer content. For the footer specifically, we
+   want the content to stretch edge-to-edge so the closing band reads
+   as a full-width "footing" for the page. Modest 2rem horizontal
+   padding keeps content from touching the viewport edges.
+   Loaded on every page via shifu-ventures-staging.webflow.css.
+   ===================================================================== */
+.footer11_component .container-xlarge {
+  max-width: none;
+}
+.footer11_component .padding-global.footer {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+@media (max-width: 767px) {
+  .footer11_component .padding-global.footer {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+

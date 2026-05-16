@@ -43,9 +43,34 @@
   gap: 2.5rem;
 }
 
+/* Centered variant — single column, page-aligned. Used when the header
+   carries an eyebrow ("Our Vision") above the headline and reads as a
+   section anchor rather than a left-justified intro. */
+.sv-mission2-head.is-centered {
+  grid-template-columns: 1fr;
+  justify-items: center;
+  text-align: center;
+}
+.sv-mission2-head.is-centered .sv-mission2-head-left {
+  max-width: 44rem;
+  margin: 0 auto;
+}
+
 .sv-mission2-head-left { max-width: 38rem; }
 
 .sv-mission2-head .heading-style-h2 { margin: 0 0 0.875rem; }
+
+/* Eyebrow above the mission headline — matches the .sv-pl-eyebrow rhythm
+   (same letter-spacing, weight, color) for cross-section consistency. */
+.sv-mission2-head-eyebrow {
+  font-size: 0.8125rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 0.875rem;
+}
 
 .sv-mission2-head-sub {
   margin: 0;
@@ -180,19 +205,23 @@
   box-shadow: none;
 }
 
-/* Role block — the hero content */
+/* Role block — the hero content. Pinned to the top of the card so the
+   eyebrow + title sit flush at the top regardless of tagline line count.
+   (The divider below carries `margin-top: auto` so the person block
+   anchors to the bottom — keeping both ends uniform across all 5 cards
+   even when CRO has a 2-line tagline and CHRO has a 1-line tagline.) */
 .sv-mission2-frac-role {
   display: flex;
   flex-direction: column;
   gap: 0.0625rem;
-  margin-top: auto;
 }
 .sv-mission2-frac-eyebrow {
   font-size: 0.6875rem;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.45);
   font-weight: 500;
+  white-space: nowrap;
 }
 .sv-mission2-frac-card.is-soon .sv-mission2-frac-eyebrow {
   color: rgba(255, 255, 255, 0.32);
@@ -208,12 +237,28 @@
 .sv-mission2-frac-card.is-soon .sv-mission2-frac-title {
   color: rgba(255, 255, 255, 0.62);
 }
+/* One-liner under the role title — explains the value the role brings
+   in six words. Subtle, secondary to the role title above, doesn't
+   compete with the credibility block below. */
+.sv-mission2-frac-tagline {
+  margin-top: 0.5rem;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0;
+}
+.sv-mission2-frac-card.is-soon .sv-mission2-frac-tagline {
+  color: rgba(255, 255, 255, 0.4);
+}
 
-/* Divider between role and credentials */
+/* Divider between role and credentials. `margin-top: auto` pushes the
+   divider + person block down to the bottom of the card so the eyebrow
+   above stays pinned at the top while the credentials anchor to the
+   bottom. */
 .sv-mission2-frac-divider {
   height: 1px;
   background: rgba(255, 255, 255, 0.08);
-  margin: 1rem 0 0.875rem;
+  margin: auto 0 0.875rem;
 }
 .sv-mission2-frac-card.is-soon .sv-mission2-frac-divider {
   background: rgba(255, 255, 255, 0.06);
@@ -271,7 +316,12 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.45);
-  font-weight: 500;
+  font-weight: 600;
+}
+/* Credibility tag on the closed cards (Ex-Founder, 2x Founder, etc.)
+   uses brand orange so the credential pops vs a generic role label. */
+.sv-mission2-frac-card.is-closed .sv-mission2-frac-name-sub {
+  color: var(--_primitives---colors--brand-orange);
 }
 .sv-mission2-frac-card.is-soon .sv-mission2-frac-name-sub {
   color: rgba(255, 255, 255, 0.42);
@@ -315,19 +365,37 @@
 }
 .sv-mission2-frac-li svg { display: block; }
 
-/* Status badges — pinned top-right of each card */
+/* Role-head row — eyebrow flush left, status pill flush right. width:
+   100% is explicit so the row reliably spans the role column on every
+   card (otherwise stretch inheritance can be wobbly when titles vary
+   in width, leading to pill drifting toward the eyebrow). */
+.sv-mission2-frac-role-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: 100%;
+  margin-bottom: 0.125rem;
+}
+.sv-mission2-frac-role-head .sv-mission2-frac-eyebrow {
+  /* Natural text width, no grow / shrink — pill sits at the row's
+     right edge via justify-content: space-between. */
+  flex: 0 0 auto;
+}
+
+/* Status badges — inline pills inside the role-head row. Sized to fit
+   alongside the eyebrow even on the narrowest cards: smaller font,
+   tighter letter-spacing, lighter padding. */
 .sv-mission2-status,
 .sv-mission2-soon-status {
-  position: absolute;
-  top: 0.875rem;
-  right: 0.875rem;
+  flex-shrink: 0;
   display: inline-flex;
   align-items: center;
-  gap: 0.375rem;
-  padding: 0.1875rem 0.5rem;
-  font-size: 0.5625rem;
+  gap: 0.3125rem;
+  padding: 0.1875rem 0.4375rem;
+  font-size: 0.5rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   line-height: 1;
   white-space: nowrap;
@@ -426,17 +494,40 @@
 }
 
 .sv-mission2-pc-card-logo {
-  height: 2.625rem;
+  height: 2.25rem;
   width: auto;
   max-width: 11rem;
   object-fit: contain;
   object-position: left center;
   display: block;
 }
+/* Company identity block — sits below the logo, above the transition
+   stat. Name reads as the proper noun; tagline gives "who they are"
+   in one line so the card carries meaning without the user clicking. */
+.sv-mission2-pc-card-id {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-top: -0.25rem;
+}
+.sv-mission2-pc-card-name {
+  font-family: var(--_typography---font-styles--heading);
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+  color: #fff;
+}
+.sv-mission2-pc-card-tagline {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.4;
+}
 .sv-mission2-pc-card-body {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+  margin-top: auto;
 }
 .sv-mission2-pc-card-stat {
   font-family: var(--_typography---font-styles--heading);
@@ -450,26 +541,62 @@
   font-style: normal;
   color: var(--_primitives---colors--brand-orange);
 }
+/* "Before → after" emphasis. The from-state (₹6.7Cr / Traditional) is
+   dimmed to anchor the baseline; the to-state (₹22Cr / AI-native) is
+   brand-orange to highlight the transformation. Reads as the change
+   itself in a single glance. */
+.sv-mission2-pc-card-stat-from {
+  color: rgba(255, 255, 255, 0.42);
+}
+.sv-mission2-pc-card-stat-to {
+  color: var(--_primitives---colors--brand-orange);
+}
 .sv-mission2-pc-card-meta {
   font-size: 0.8125rem;
   color: rgba(255, 255, 255, 0.55);
   line-height: 1.4;
 }
 
-/* +93 block — quiet, centered typographic stat. Same neutral surface
-   as the PortCo cards (no orange tint, no glow). Centered so the
-   block reads as "this is going to happen" — calm, anchored.        */
+/* +93 block — tiny lattice of future-PortCo cells in the background,
+   masked toward the centre so the prominent "+93 · others to come"
+   reads clean. Pattern says "more is coming" without spelling it. */
 .sv-mission2-pc-card.is-plus {
   background: rgba(255, 255, 255, 0.012);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
+  align-items: stretch;
+  justify-content: stretch;
+  gap: 0;
   text-align: center;
+  padding: 0;
+  cursor: default;
 }
 .sv-mission2-pc-card.is-plus:hover {
   background: rgba(255, 255, 255, 0.025);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+/* Tiling SVG pattern — a tiny filled square repeats every 17px across
+   the entire card, so the lattice fills the tile edge-to-edge instead
+   of sitting in a centred band. Radial mask preserves the centre
+   clearing so "+93 / OTHERS TO COME" reads clean over the pattern. */
+.sv-mission2-pc-plus-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='17' height='17'><rect x='0' y='0' width='12' height='12' fill='%23ffffff' fill-opacity='0.06' stroke='%23ffffff' stroke-opacity='0.06' stroke-width='1'/></svg>");
+  background-size: 17px 17px;
+  background-repeat: repeat;
+  background-position: 4px 4px;
+  mask-image: radial-gradient(circle at center, rgba(0,0,0,0) 24%, rgba(0,0,0,0.6) 52%, rgba(0,0,0,1) 78%);
+  -webkit-mask-image: radial-gradient(circle at center, rgba(0,0,0,0) 24%, rgba(0,0,0,0.6) 52%, rgba(0,0,0,1) 78%);
+}
+.sv-mission2-pc-plus-center {
+  position: relative;
+  z-index: 1;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.75rem 1rem;
 }
 .sv-mission2-pc-plus-num {
   font-family: var(--_typography---font-styles--heading);
@@ -477,7 +604,7 @@
   font-weight: 500;
   line-height: 0.95;
   letter-spacing: -0.02em;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.7);
 }
 .sv-mission2-pc-plus-label {
   font-size: 0.6875rem;
@@ -504,6 +631,20 @@
   align-items: end;
   gap: 2rem;
   margin-bottom: 2rem;
+}
+
+/* Centered variant — single column, page-aligned. Visit link drops
+   below the headline (still inline-flex, just centered in the column).
+   Used to anchor the case-study section to the page centerline. */
+.sv-pl-head.is-centered {
+  grid-template-columns: 1fr;
+  justify-items: center;
+  text-align: center;
+  gap: 1.25rem;
+}
+.sv-pl-head.is-centered .sv-pl-head-left {
+  max-width: 50rem;
+  margin: 0 auto;
 }
 .sv-pl-head-left { max-width: 42rem; }
 .sv-pl-head .heading-style-h2 em {
@@ -549,10 +690,8 @@
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows:
-    minmax(15.5rem, auto)   /* row 1: hero + repos */
-    minmax(13.5rem, auto)   /* row 2: acv + time + product */
-    auto                    /* row 3: plays (full-width thin) */
-    minmax(16rem, auto);    /* row 4: video + customers */
+    minmax(18rem, auto)         /* row 1: hero + position */
+    minmax(15rem, 17rem);       /* row 2: acv + time + testimonial (3-up) */
   gap: 1rem;
 }
 
@@ -588,14 +727,11 @@
    Row 2: acv  (4)  + time-graph (4) + product (4)
    Row 3: what-we-did (12) — full-width thin chip strip
    Row 4: video (7) + customers (5)                                  */
-.sv-pl-tile.is-hero      { grid-column: span 8; grid-row: span 1; }
-.sv-pl-tile.is-position  { grid-column: span 4; grid-row: span 1; }
-.sv-pl-tile.is-acv       { grid-column: span 4; }
-.sv-pl-tile.is-time      { grid-column: span 4; }
-.sv-pl-tile.is-product   { grid-column: span 4; }
-.sv-pl-tile.is-plays     { grid-column: span 12; }
-.sv-pl-tile.is-video     { grid-column: span 7; min-height: 16rem; }
-.sv-pl-tile.is-customers { grid-column: span 5; }
+.sv-pl-tile.is-hero      { grid-column: span 8; grid-row: 1 / 2; }
+.sv-pl-tile.is-position  { grid-column: span 4; grid-row: 1 / 2; }
+.sv-pl-tile.is-acv       { grid-column: span 4; grid-row: 2 / 3; }
+.sv-pl-tile.is-time      { grid-column: span 4; grid-row: 2 / 3; }
+.sv-pl-tile.is-video     { grid-column: span 4; grid-row: 2 / 3; min-height: 0; }
 
 /* Hero tile — orange-tinted radial accent so the headline ARR number
    gets a distinct frame from the rest of the bento. */
@@ -614,9 +750,9 @@
 }
 .sv-pl-hero-stat {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 1rem 1.25rem;
+  gap: 0.75rem 1rem;
   font-family: var(--_typography---font-styles--heading);
   font-weight: 500;
   line-height: 0.95;
@@ -625,17 +761,13 @@
 }
 .sv-pl-hero-from {
   font-size: clamp(2.25rem, 4vw, 3rem);
-  color: rgba(255, 255, 255, 0.4);
-  text-decoration: line-through;
-  text-decoration-color: rgba(255, 255, 255, 0.18);
-  text-decoration-thickness: 2px;
+  color: rgba(255, 255, 255, 0.42);
 }
 .sv-pl-hero-arrow {
   width: 2.25rem;
-  height: 1.125rem;
+  height: 2.25rem;
   flex: 0 0 auto;
   color: var(--_primitives---colors--brand-orange);
-  align-self: center;
 }
 .sv-pl-hero-to {
   font-size: clamp(3rem, 6vw, 4.5rem);
@@ -708,9 +840,11 @@
   line-height: 1.2;
   letter-spacing: -0.005em;
 }
+/* "Before" name — dimmed for hierarchy (the after-state is the focal
+   point), but no strike-through line: the BEFORE/AFTER tags + the
+   arrow already communicate the change without striking the text. */
 .sv-pl-position-block.is-before .sv-pl-position-block-name {
-  text-decoration: line-through;
-  text-decoration-color: rgba(255, 255, 255, 0.32);
+  color: rgba(255, 255, 255, 0.55);
 }
 .sv-pl-position-arrow-down {
   align-self: center;
@@ -730,6 +864,52 @@
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
   border-top: 5px solid var(--_primitives---colors--brand-orange);
+}
+
+/* Product strip embedded inside the After block — small thumbnail
+   (GIF/screenshot of the MVP) on the left, name + one-liner on the
+   right. Reads as "we re-positioned them AND built the product that
+   makes the new position real" in one place. */
+.sv-pl-position-product {
+  margin-top: 0.75rem;
+  display: grid;
+  grid-template-columns: 4.5rem 1fr;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.625rem 0.625rem;
+  background: rgba(255, 255, 255, 0.025);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+.sv-pl-position-product-thumb {
+  width: 4.5rem;
+  height: 3.5rem;
+  overflow: hidden;
+  background: #0a0a0a;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+.sv-pl-position-product-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.sv-pl-position-product-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1875rem;
+  min-width: 0;
+}
+.sv-pl-position-product-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+}
+.sv-pl-position-product-desc {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.62);
+  line-height: 1.35;
 }
 
 /* ACV / biggest-deal tile — leads with the ₹9 Cr wow stat (biggest
@@ -763,17 +943,91 @@
   justify-content: center;
   gap: 0;
 }
+/* Anchor the graph to the bottom of the tile with real breathing room
+   above. The wrap's margin-top is the breathing space between the
+   eyebrow ("TIME TO SCALE") and the chart top — keep this generous so
+   the heading doesn't crowd the chart. No transform: scale (it
+   inflates the visual past the layout box and overflows upward into
+   the eyebrow zone). */
 .sv-pl-time-graph-wrap {
   flex: 1 1 auto;
   display: flex;
-  align-items: stretch;
+  align-items: flex-end;
   justify-content: center;
-  margin-top: 0.5rem;
+  margin-top: 2.5rem;
+  padding-bottom: 0.5rem;
+  min-height: 0;
 }
+/* Fix the chart height so it fits cleanly under the eyebrow with
+   visible breathing room above. Width auto-sizes via the 400:240
+   viewBox aspect — gives a 267×160 chart centered in the ~311-wide
+   tile, leaving ~40px of empty space between heading and chart top. */
 .sv-pl-time-graph {
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 10rem;
+  max-width: 100%;
   display: block;
+}
+
+/* Sequenced path-draw animation for the time-to-scale graph:
+   1. before-line draws from origin to inflection (₹6.7 Cr)  — 1.2s
+   2. inflection dot + "₹6.7 Cr" label fade in              — at 1.2s
+   3. after-line draws from inflection to endpoint (₹22 Cr) — 0.9s @ 1.6s
+   4. arrowhead pops at the tip                             — at 2.4s
+   5. "₹22 Cr" endpoint label fades in                      — at 2.5s
+   The graph stays in its final state at rest; the .is-animating
+   class fires once when the tile scrolls into view. */
+.sv-pl-graph-before-line {
+  stroke-dasharray: 254;
+  stroke-dashoffset: 254;
+}
+.sv-pl-graph-after-line {
+  stroke-dasharray: 113;
+  stroke-dashoffset: 113;
+}
+.sv-pl-graph-mid-dot,
+.sv-pl-graph-mid-label,
+.sv-pl-graph-after-head,
+.sv-pl-graph-end-label { opacity: 0; }
+
+.sv-pl-time-graph.is-animating .sv-pl-graph-before-line {
+  animation: svGraphDraw 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+.sv-pl-time-graph.is-animating .sv-pl-graph-mid-dot,
+.sv-pl-time-graph.is-animating .sv-pl-graph-mid-label {
+  animation: svGraphFade 0.45s ease-out 1.15s forwards;
+}
+.sv-pl-time-graph.is-animating .sv-pl-graph-after-line {
+  animation: svGraphDraw 0.9s cubic-bezier(0.4, 0, 0.2, 1) 1.6s forwards;
+}
+.sv-pl-time-graph.is-animating .sv-pl-graph-after-head {
+  animation: svGraphPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 2.4s forwards;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+.sv-pl-time-graph.is-animating .sv-pl-graph-end-label {
+  animation: svGraphFade 0.5s ease-out 2.55s forwards;
+}
+
+@keyframes svGraphDraw {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes svGraphFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes svGraphPop {
+  0%   { opacity: 0; transform: scale(0.4); }
+  100% { opacity: 1; transform: scale(1);   }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sv-pl-graph-before-line,
+  .sv-pl-graph-after-line { stroke-dasharray: none; stroke-dashoffset: 0; }
+  .sv-pl-graph-mid-dot,
+  .sv-pl-graph-mid-label,
+  .sv-pl-graph-after-head,
+  .sv-pl-graph-end-label { opacity: 1; }
+  .sv-pl-time-graph.is-animating * { animation: none !important; }
 }
 
 /* Product MVP tile — a dedicated tile for the AI product we built
@@ -848,30 +1102,109 @@
   flex-direction: column;
   transition: box-shadow 0.2s ease;
 }
+/* Match the neutral hover the rest of the bento tiles use — same
+   inset white hairline strength, no orange tint. The translucent play
+   disc inside is what reacts on hover; the tile frame stays calm. */
 .sv-pl-tile.is-video:hover {
-  box-shadow: inset 0 0 0 1px rgba(245, 110, 56, 0.45);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
   background: #0f0f0f;
 }
-.sv-pl-video-inner {
+/* Compact video tile cover (span-4 width). Stacked content: eyebrow,
+   short headline, big centered play button, duration chip. No bottom
+   caption strip, no busy AVIF thumbnail. Reads as a clean call-to-
+   play card alongside the ACV + Time tiles. */
+.sv-pl-video-cover {
   position: relative;
   flex: 1 1 auto;
   display: flex;
-  align-items: stretch;
-  background: #111;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1.75rem 1.5rem 1.5rem;
+  background:
+    radial-gradient(ellipse at 75% 25%, rgba(245, 110, 56, 0.16), transparent 60%),
+    linear-gradient(135deg, #0f0f0f 0%, #1a1413 100%);
   overflow: hidden;
 }
-.sv-pl-video-inner img {
+.sv-pl-video-cover-grain {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.35s ease, filter 0.25s ease;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 18% 70%, rgba(255,255,255,0.025), transparent 36%),
+    radial-gradient(circle at 82% 82%, rgba(245,110,56,0.10), transparent 40%);
 }
-.sv-pl-tile.is-video:hover .sv-pl-video-inner img {
-  transform: scale(1.025);
-  filter: brightness(1.05);
+.sv-pl-video-cover-eyebrow {
+  position: relative;
+  z-index: 1;
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--_primitives---colors--brand-orange);
+  font-weight: 700;
+}
+.sv-pl-video-cover-headline {
+  position: relative;
+  z-index: 1;
+  font-family: var(--_typography---font-styles--heading);
+  font-size: clamp(1.125rem, 1.5vw, 1.375rem);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: #fff;
+}
+.sv-pl-video-cover-meta {
+  position: relative;
+  z-index: 1;
+  margin-top: auto;
+  display: flex;
+  gap: 0.5rem;
+}
+.sv-pl-video-cover-stat {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3125rem 0.625rem;
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.045);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.10);
+  color: rgba(255, 255, 255, 0.78);
+}
+.sv-pl-video-cover-stat.is-orange {
+  background: rgba(245, 110, 56, 0.12);
+  box-shadow: inset 0 0 0 1px rgba(245, 110, 56, 0.55);
+  color: var(--_primitives---colors--brand-orange);
+}
+/* Translucent play disc — frosted-glass surface, thin white border,
+   white triangle. Sits unobtrusively over the cover; the eyebrow + the
+   "Watch · N min" chip do the labelling. Hover brightens the surface
+   and tightens the border. */
+.sv-pl-video-cover-play {
+  align-self: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.22s ease, background-color 0.22s ease, border-color 0.22s ease;
+  position: relative;
+  z-index: 2;
+  margin: 0.5rem 0 0.25rem;
+}
+.sv-pl-video-cover-play svg { width: 1.125rem; height: 1.125rem; margin-left: 2px; }
+.sv-pl-tile.is-video:hover .sv-pl-video-cover-play {
+  transform: scale(1.06);
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.42);
 }
 
 /* Caption strip — full footer below the thumbnail. Holds the
@@ -1089,6 +1422,13 @@
   align-self: stretch;
   max-width: 30rem;
 }
+/* Slim variant — just the header pill, no stat block underneath.
+   Matches the visual weight of a single inline status strip. */
+.sv-invgw-fomo.is-slim {
+  padding: 0.75rem 1rem;
+  gap: 0;
+  max-width: 26rem;
+}
 .sv-invgw-fomo-header {
   display: inline-flex;
   align-items: center;
@@ -1120,15 +1460,22 @@
   flex-direction: column;
   gap: 0.25rem;
 }
+.sv-invgw-fomo-stat.is-solo {
+  gap: 0.375rem;
+}
 .sv-invgw-fomo-num {
   font-family: var(--_typography---font-styles--heading);
   font-size: 1.625rem;
   font-weight: 500;
-  line-height: 0.95;
+  line-height: 1.05;
   letter-spacing: -0.015em;
   color: #fff;
 }
 .sv-invgw-fomo-stat.is-accent .sv-invgw-fomo-num {
+  color: var(--_primitives---colors--brand-orange);
+}
+.sv-invgw-fomo-stat.is-solo .sv-invgw-fomo-num {
+  font-size: 1.875rem;
   color: var(--_primitives---colors--brand-orange);
 }
 .sv-invgw-fomo-label {
@@ -1137,6 +1484,14 @@
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.55);
   font-weight: 600;
+}
+.sv-invgw-fomo-stat.is-solo .sv-invgw-fomo-label {
+  text-transform: none;
+  letter-spacing: 0.005em;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.62);
+  line-height: 1.4;
 }
 .sv-invgw-fomo-sep {
   width: 1px;
@@ -1161,30 +1516,80 @@
   gap: 0.75rem;
 }
 
-/* Right side — portrait grid teaser */
+/* Right side — portrait grid teaser. Full-bleed: the right column
+   escapes the .sv-invgw padding on the right + top + bottom so the
+   tile mosaic reads as one continuous image strip. Zero gaps so the
+   six tiles touch each other, forming a single composite block. */
 .sv-invgw-portraits {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0.5rem;
+  grid-template-rows: 1fr 1fr;
+  gap: 0;
+  margin: -3.25rem -3rem -3.25rem 0;
+  align-self: stretch;
 }
 .sv-invgw-portrait {
   position: relative;
-  aspect-ratio: 3 / 4;
-  background: rgba(255, 255, 255, 0.025);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.07);
+  background: transparent;  /* let the section gradient show through */
   overflow: hidden;
-  transition: box-shadow 0.22s ease, transform 0.22s ease;
+  transition: transform 0.22s ease;
   text-decoration: none;
+  min-height: 11rem;
 }
-.sv-invgw-portrait:hover {
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.22);
+/* Hairline border system — uniform 0.05 alpha on every edge (inner
+   dividers + outer frame). Soft enough to whisper "frame" without
+   reading as a hard line. Edges per cell:
+     1 Karthik    (col 1, row 1):  L + R + B   (all 0.05)
+     2 Raveen     (col 2, row 1):      R + B
+     3 Kesavan    (col 3, row 1):      R + B
+     4 Nageshwara (col 1, row 2):  L + R
+     5 Lalit      (col 2, row 2):      R
+     6 +33        (col 3, row 2):      R
+*/
+.sv-invgw-portrait:not(:nth-child(3n)) {
+  box-shadow: inset -1px 0 0 0 rgba(255, 255, 255, 0.05);
 }
+.sv-invgw-portrait:nth-child(-n + 3) {
+  box-shadow: inset 0 -1px 0 0 rgba(255, 255, 255, 0.05);
+}
+.sv-invgw-portrait:not(:nth-child(3n)):nth-child(-n + 3) {
+  box-shadow:
+    inset -1px 0 0 0 rgba(255, 255, 255, 0.05),
+    inset 0 -1px 0 0 rgba(255, 255, 255, 0.05);
+}
+/* First-column cards: soft LEFT outer + standard internal R divider. */
+.sv-invgw-portrait:nth-child(3n + 1) {
+  box-shadow:
+    inset 1px 0 0 0 rgba(255, 255, 255, 0.05),
+    inset -1px 0 0 0 rgba(255, 255, 255, 0.05);
+}
+.sv-invgw-portrait:nth-child(3n + 1):nth-child(-n + 3) {
+  box-shadow:
+    inset 1px 0 0 0 rgba(255, 255, 255, 0.05),
+    inset -1px 0 0 0 rgba(255, 255, 255, 0.05),
+    inset 0 -1px 0 0 rgba(255, 255, 255, 0.05);
+}
+/* Last-column cards: soft RIGHT outer edge — closes the grid frame
+   without imposing a hard wall. */
+.sv-invgw-portrait:nth-child(3n) {
+  box-shadow: inset -1px 0 0 0 rgba(255, 255, 255, 0.05);
+}
+.sv-invgw-portrait:nth-child(3n):nth-child(-n + 3) {
+  box-shadow:
+    inset -1px 0 0 0 rgba(255, 255, 255, 0.05),
+    inset 0 -1px 0 0 rgba(255, 255, 255, 0.05);
+}
+.sv-invgw-portrait:hover { z-index: 2; }
+.sv-invgw-portrait:hover img { transform: scale(1.04); }
 .sv-invgw-portrait img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: top center;
   display: block;
+  transition: transform 0.35s ease;
 }
 /* Portrait meta — bottom-left chip overlay (name + credibility line).
    Sits in the bottom-left corner of the card on a subtle dark + blur
@@ -1232,14 +1637,18 @@
   align-items: center;
   justify-content: center;
   padding: 1rem 0.875rem;
-  background: rgba(255, 255, 255, 0.015);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  /* Match the section's gradient instead of a separate tile-bg so the
+     +33 cell reads as part of the same surface as the portraits. */
+  background:
+    radial-gradient(ellipse at 50% 100%, rgba(245, 110, 56, 0.06), transparent 60%),
+    rgba(255, 255, 255, 0.02);
   text-align: center;
   gap: 0.375rem;
 }
 .sv-invgw-portrait.is-meta:hover {
-  background: rgba(255, 255, 255, 0.04);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16);
+  background:
+    radial-gradient(ellipse at 50% 100%, rgba(245, 110, 56, 0.12), transparent 60%),
+    rgba(255, 255, 255, 0.045);
 }
 .sv-invgw-portrait.is-meta:hover .sv-invgw-portrait-meta-num {
   color: #fff;
@@ -1266,6 +1675,54 @@
   align-items: center;
   gap: 0.375rem;
   transition: color 0.2s ease;
+}
+
+
+/* =====================================================================
+   FAQ — split layout: heading + sub on the LEFT (sticky during scroll
+   through the section), question list on the RIGHT. The left column
+   stays anchored ~5rem below the top of the viewport while the user
+   scrolls through the question list, giving the FAQ an editorial,
+   reference-style feel.
+   ===================================================================== */
+.home_faq_component.is-split {
+  display: grid;
+  grid-template-columns: minmax(16rem, 22rem) minmax(0, 1fr);
+  gap: 4rem;
+  align-items: start;
+}
+.home_faq_component.is-split .section-header {
+  position: sticky;
+  top: 5rem;
+  align-self: start;
+  /* Left-aligned. The default .section-header is a column flex; allow
+     items to size to their own width here (no centering). */
+  text-align: left;
+}
+.home_faq_component.is-split .section-header .max-width-large,
+.home_faq_component.is-split .section-header .max-width-small {
+  margin-left: 0;
+  margin-right: 0;
+  max-width: 100%;
+}
+/* Webflow's .text-size-medium has a hardcoded width: 506px which would
+   overflow .max-width-small inside the narrower left column. Unset it
+   so the paragraph honors the column width. */
+.home_faq_component.is-split .section-header .text-size-medium {
+  width: auto;
+  max-width: 100%;
+}
+
+/* Collapse to single column on tablet + below; drop the sticky so the
+   header reads + scrolls naturally above the questions. */
+@media (max-width: 991px) {
+  .home_faq_component.is-split {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .home_faq_component.is-split .section-header {
+    position: static;
+  }
 }
 
 
@@ -1299,23 +1756,48 @@
     grid-template-columns: 1fr;
     gap: 1rem;
   }
-  .sv-pl-bento { grid-template-columns: repeat(6, 1fr); }
-  .sv-pl-tile.is-hero      { grid-column: span 6; }
-  .sv-pl-tile.is-position  { grid-column: span 6; }
-  .sv-pl-tile.is-acv       { grid-column: span 3; }
-  .sv-pl-tile.is-time      { grid-column: span 3; }
-  .sv-pl-tile.is-product   { grid-column: span 6; }
-  .sv-pl-tile.is-plays     { grid-column: span 6; }
-  .sv-pl-tile.is-video     { grid-column: span 6; min-height: 16rem; }
-  .sv-pl-tile.is-customers { grid-column: span 6; }
-  .sv-pl-customers-grid    { grid-template-columns: repeat(3, 1fr); }
+  .sv-pl-bento {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: auto;
+  }
+  /* Tablet: linearise — every tile in its own band; position no longer
+     spans rows so the product strip just sits inside the After block. */
+  .sv-pl-tile.is-hero      { grid-column: span 6; grid-row: auto; }
+  .sv-pl-tile.is-position  { grid-column: span 6; grid-row: auto; }
+  .sv-pl-tile.is-acv       { grid-column: span 3; grid-row: auto; }
+  .sv-pl-tile.is-time      { grid-column: span 3; grid-row: auto; }
+  .sv-pl-tile.is-video     { grid-column: span 6; grid-row: auto; min-height: 14rem; }
 
-  /* Investor Gateway */
+  /* Investor Gateway — stack on tablet. Full-bleed only makes sense
+     side-by-side, so reset the negative margins and re-enable a
+     small gap between portrait tiles. */
   .sv-invgw {
     grid-template-columns: 1fr;
     padding: 2.5rem 2rem;
     gap: 2.5rem;
   }
+  .sv-invgw-portraits {
+    margin: 0;
+    gap: 0.5rem;
+    grid-template-rows: auto;
+  }
+  .sv-invgw-portrait {
+    aspect-ratio: 3 / 4;
+    min-height: 0;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.07);
+  }
+
+  /* Fractional cards on tablet — tagline below the role title may be
+     tight at 3-col widths; trim a touch. */
+  .sv-mission2-frac-tagline { font-size: 0.75rem; }
+
+  /* Position tile on tablet — the product strip inside the After
+     block was sized for desktop spacing; tighten on narrower widths
+     so the thumbnail doesn't dominate the small tile. */
+  .sv-pl-position-product { grid-template-columns: 3.5rem 1fr; }
+  .sv-pl-position-product-thumb { width: 3.5rem; height: 2.75rem; }
+  .sv-pl-position-product-name { font-size: 0.8125rem; }
+  .sv-pl-position-product-desc { font-size: 0.6875rem; }
 }
 
 @media screen and (max-width: 767px) {
@@ -1335,21 +1817,78 @@
   .sv-mission2-pc-card.is-plus { padding-top: 1.5rem; padding-bottom: 1.5rem; }
   .sv-mission2-pc-plus-num { font-size: clamp(2.5rem, 12vw, 3rem); }
 
-  /* Bento — single column on mobile */
-  .sv-pl-bento { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+  /* Bento — single-column-ish on mobile */
+  .sv-pl-bento {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 0.75rem;
+  }
   .sv-pl-tile.is-hero,
   .sv-pl-tile.is-position,
   .sv-pl-tile.is-acv,
   .sv-pl-tile.is-time,
-  .sv-pl-tile.is-product,
-  .sv-pl-tile.is-plays,
-  .sv-pl-tile.is-video,
-  .sv-pl-tile.is-customers { grid-column: span 2; }
+  .sv-pl-tile.is-video {
+    grid-column: span 2;
+    grid-row: auto;
+  }
   .sv-pl-tile { padding: 1.375rem; }
-  .sv-pl-tile.is-video     { min-height: 14rem; }
-
-  .sv-pl-customers-grid { grid-template-columns: repeat(2, 1fr); }
+  .sv-pl-tile.is-video { min-height: 13rem; }
+  .sv-pl-video-cover { padding: 1.5rem 1.5rem 4.5rem; }
+  .sv-pl-video-cover-play { right: 1.25rem; bottom: 1.25rem; width: 3rem; height: 3rem; }
 
   .sv-invgw { padding: 2rem 1.5rem; gap: 2rem; }
-  .sv-invgw-portraits { grid-template-columns: repeat(3, 1fr); }
+  .sv-invgw-portraits {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    gap: 0.4rem;
+  }
+
+  /* PortCo cards at 1-col on mobile — drop card min-height so the
+     content (logo + name + tagline + stat + meta) determines size
+     rather than forcing a tall card with empty space. */
+  .sv-mission2-pc-card { min-height: 0; padding: 1.375rem 1.25rem; }
+  .sv-mission2-pc-card-name { font-size: 1rem; }
+
+  /* +93 mosaic grid scales down with auto-fill so the box density
+     stays similar on narrow widths. */
+  .sv-mission2-pc-plus-grid {
+    grid-template-columns: repeat(auto-fill, 10px);
+    grid-auto-rows: 10px;
+    gap: 4px;
+  }
+
+  /* Fractional taglines wrap to 2 lines on a 2-col grid; cap them
+     to a tight, predictable height so card stops don't jitter. */
+  .sv-mission2-frac-tagline {
+    font-size: 0.6875rem;
+    line-height: 1.35;
+  }
+
+  /* Time-to-scale graph SVG already scales via viewBox, but the wrap
+     can over-shrink at narrow widths. Floor it. */
+  .sv-pl-time-graph-wrap { min-height: 10rem; }
+
+  /* Video cover stacks on mobile: bigger play hit-target. */
+  .sv-pl-video-cover-quote { font-size: 1rem; }
+  .sv-pl-video-cover-meta { gap: 0.4rem; }
+}
+
+/* Small phones (≤479) — final polish for the most cramped widths. */
+@media screen and (max-width: 479px) {
+  .sv-mission2-frac-row { grid-template-columns: 1fr; }
+  .sv-mission2-frac-card:nth-child(5) { grid-column: auto; }
+  .sv-mission2-frac-card { min-height: 0; padding: 1rem 1.125rem 1.125rem; }
+  .sv-mission2-frac-title { font-size: 1.625rem; }
+  .sv-mission2-frac-tagline { font-size: 0.75rem; }
+
+  .sv-pl-tile { padding: 1.125rem; }
+  .sv-pl-tile.is-hero { padding: 1.5rem 1.25rem; }
+  .sv-pl-hero-to { font-size: 2.5rem; }
+  .sv-pl-hero-from { font-size: 1.75rem; }
+  .sv-pl-acv-stat { font-size: 2.5rem; }
+
+  .sv-pl-video-cover { padding: 1.25rem 1.25rem 4rem; }
+  .sv-pl-video-cover-play { width: 2.75rem; height: 2.75rem; right: 1rem; bottom: 1rem; }
+
+  .sv-invgw-portraits { grid-template-columns: repeat(2, 1fr); }
 }
