@@ -56,7 +56,7 @@
   --background-color--background-secondary\<deleted\|relume-variable-background-color-2\>: var(--base-color-neutral--neutral-lightest\<deleted\|relume-variable-color-neutral-3\>);
   --border-color--border-primary\<deleted\|relume-variable-border-color-1\>: var(--base-color-neutral--black\<deleted\|relume-variable-color-neutral-1\>);
   --_primitives---opacity--white-5: #ffffff0d;
-  --_ui-styles---radius--small: .5rem;
+  --_ui-styles---radius--small: 0;
   --color-scheme-1--background: var(--_primitives---colors--white);
   --color-scheme-1--foreground: var(--_primitives---colors--neutral-lightest);
   --_ui-styles---radius--large: 0px;
@@ -816,7 +816,7 @@ figcaption {
   background-color: var(--_primitives---colors--neutral-lightest);
   color: var(--secondary-black);
   text-align: center;
-  border-radius: .5rem;
+  border-radius: var(--_ui-styles---radius--small);
   justify-content: center;
   align-items: center;
   padding: .75rem 1.5rem;
@@ -831,7 +831,7 @@ figcaption {
   background-color: var(--_primitives---opacity--transparent);
   color: var(--_primitives---colors--white);
   border-color: #dddddd80;
-  border-radius: .25rem;
+  border-radius: var(--_ui-styles---radius--small);
   padding: 1rem 1.5rem;
 }
 
@@ -7916,3 +7916,48 @@ figcaption {
   }
 }
 
+
+
+/* ════════════════════════════════════════════════════════════════════
+   RADIUS UNIFICATION — sharp corners everywhere (matches homepage).
+   The homepage uses 0px on every block/card/image. About + Investors
+   inherited a mix of 0.5rem-14px values from earlier Webflow chrome
+   + per-page styles. This block flattens every visible rectangle to
+   0 while PRESERVING the intentional rounded shapes:
+     • 50% / 100% circles (avatars, dots, profile photos)         → kept
+     • 999px / 100px pills (status dots, tag chips, success icons)→ kept
+     • 1px on thin "line" elements (rail lines / fills)           → kept
+     • Animations / box-shadows / inset-borders                    → untouched
+   Sourced from the audit dated 2026-05-17.
+   ════════════════════════════════════════════════════════════════════ */
+
+/* ── About page chrome that was rounded ─────────────────────────── */
+.team-v2-photo,
+.about_layout_tab-content,
+.about_core-values_image-wrapper,
+.about_team_image-wrapper,
+.swiper-image-wrap {
+  border-radius: 0;
+}
+
+/* (NOTE: .inv-geo-panel and .inv-wall-modal-card have INTENTIONAL
+   14px top-rounded corners — they're mobile bottom-sheets that slide
+   up from below, and the rounded top is the universal "this is a
+   sheet, not a page" affordance. We leave those alone.) */
+
+/* ── Webflow legacy hero / video / portfolio chrome ─────────────── */
+.home_testimonial_lightbox-image,
+.home-video-wrap-inner,
+.hero-slider-image,
+.portfolio-cards-image-wrapper,
+.portfolio-tab-card-image,
+.portfolio-tab-card-video,
+.hiring-overlay,
+.portfolio-tab-main-link.eco {
+  border-radius: 0;
+}
+
+/* ── Footer container ───────────────────────────────────────────── */
+.footer11_top-wrapper {
+  border-radius: 0;
+}

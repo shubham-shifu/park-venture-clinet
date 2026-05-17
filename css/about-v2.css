@@ -439,17 +439,16 @@
   transform: translateY(-3px);
 }
 
-/* Photo — square, consistent rounded corners across all sources.
-   overflow:hidden + border-radius on the wrapper normalises both the
-   AVIFs (baked-in rounded corners) and the Cloudinary PNGs (full-bleed
-   squares) so every card reads the same. */
+/* Photo — square corners, matches the homepage's geometric system.
+   All 8 portraits are now full-bleed Cloudinary squares (no baked-in
+   rounded corners), so the wrapper can sit flush at 0. */
 .team-v2-photo {
   position: relative;
   width: 100%;
   aspect-ratio: 1 / 1;
   overflow: hidden;
   background: #000;
-  border-radius: 14px;
+  border-radius: 0;
 }
 
 .team-v2-photo img {
