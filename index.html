@@ -1322,21 +1322,21 @@ Webflow.push(function () {
         </div>
       </section>
       <!-- ============================================================
-           §B-ARCHIVED — Original "How we help our Portfolio Companies"
-           section (nested-tabs system: GTM / Product / Fundraising / OPS
-           / Hiring / Ecosystem with sub-tabs and per-pane image cards),
-           PLUS the standalone "Here's how we helped Photon Legal achieve
-           300% growth" testimonial video band that used to sit below it.
+           §B-LIVE — "How we help our Portfolio Companies?" — the
+           process-tabs section (GTM / Product / Fundraising / OPS /
+           Hiring / Ecosystem with sub-tabs and per-pane image cards).
+           Restored from the v1 archive on 2026-05-18.
 
-           Replaced by .sv-pl-bento below — a Photon Legal case-study
-           bento grid that absorbs the testimonial video into one tile
-           and leads with proof (ARR jump, deal size, named customers)
-           in a single scan rather than buried behind tab interactions.
+           Order on the page: this section (process narrative — HOW we
+           help every PortCo) comes BEFORE the .sv-pl-bento below
+           (specific Photon Legal case study — proof that it works).
+           Process first, proof after.
 
-           Preserved verbatim inside <template> so the markup stays in
-           the repo for reference / future resurrection.
+           The standalone "Here's how we helped Photon Legal achieve
+           300% growth" testimonial video band that used to follow this
+           section is permanently dropped — its content is folded into
+           the video tile of the .sv-pl-bento case-study grid below.
            ============================================================ -->
-      <template id="home-archive-portfolio-and-testimonial-v1">
       <section id="how-we-help" class="section_home_portfolio-companies">
         <div class="padding-global">
           <div class="container-large">
@@ -1925,42 +1925,14 @@ Webflow.push(function () {
           </div>
         </div>
       </section>
-      <section class="section_home_testimonial">
-        <div class="padding-global">
-          <div class="container-large">
-            <div class="padding-section-large">
-              <div fd-section-reveal="" class="home_testimonial_component">
-                <div class="home_testimonial_content-right">
-                  <div class="max-width-large">
-                    <h2 fd-heading-reveal="" class="heading-style-h2">Here’s how we helped Photon Legal to achieve <span fd-svg-underline-text="scroll">300% Growth</span> in <em>just 18 months</em>.</h2>
-                  </div>
-                  <div fd-fade-reveal="" class="button-group order-3">
-                    <a fd-video-modal-src="https://flowdojo.github.io/webflow-public-files/Shifu/Pl%20Testimonial%20Video.mp4" fd-video-modal-trigger="" href="#" class="button w-inline-block">
-                      <div>Watch Now</div>
-                      <div class="button-icon w-embed"><svg width="100%" height="100%" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M15.625 5V13.125C15.625 13.2908 15.5592 13.4497 15.442 13.5669C15.3247 13.6842 15.1658 13.75 15 13.75C14.8343 13.75 14.6753 13.6842 14.5581 13.5669C14.4409 13.4497 14.375 13.2908 14.375 13.125V6.50891L5.44195 15.442C5.32473 15.5592 5.16575 15.625 4.99999 15.625C4.83422 15.625 4.67525 15.5592 4.55804 15.4419C4.44084 15.3247 4.37499 15.1657 4.375 15C4.37501 14.8342 4.44086 14.6752 4.55808 14.558L13.4911 5.625H6.87501C6.70925 5.625 6.55028 5.55915 6.43307 5.44194C6.31586 5.32473 6.25001 5.16576 6.25001 5C6.25001 4.83424 6.31586 4.67527 6.43307 4.55806C6.55028 4.44085 6.70925 4.375 6.87501 4.375H15C15.1658 4.37501 15.3247 4.44086 15.4419 4.55807C15.5592 4.67528 15.625 4.83424 15.625 5Z" fill="currentColor"></path>
-                        </svg></div>
-                    </a>
-                  </div>
-                </div>
-                <div fd-fade-reveal="" class="home-video-wrap">
-                  <div fd-video-modal-src="https://flowdojo.github.io/webflow-public-files/Shifu/Pl%20Testimonial%20Video.mp4" fd-video-modal-trigger="" data-w-id="0fe5838a-a3a6-2ae6-7d19-8793f769b44c" class="home-video-wrap-inner">
-                    <div class="play-btn"><img src="images/image-8-1.avif" loading="lazy" alt="YouTube play button icon with a white triangle on a red rounded rectangle background."></div><img src="images/Frame-2085665520.png" loading="lazy" style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" sizes="(max-width: 758px) 100vw, 758px" alt="Thumbnail with text &#x27;How Shifu helped Photon Legal achieve 300% growth in just months? Watch now!&#x27; showing portraits of two men on either side and a red play button in the center." srcset="images/Frame-2085665520-p-500.png 500w, images/Frame-2085665520.png 758w" class="home_testimonial_lightbox-image">
-                  </div>
-                  <p class="image-caption">Photon Legal’s Testimonial</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      </template>
       <!-- ============================================================
-           §B-LIVE — Photon Legal case-study bento grid
-           Replaces both .section_home_portfolio-companies and
-           .section_home_testimonial (folded into the video tile).
+           §C-LIVE — Photon Legal case-study bento grid
+           Sits AFTER the §B-LIVE process-tabs section above; together
+           they read as "here's HOW we help every PortCo" → "here's
+           PROOF — what it looked like at Photon Legal". Absorbs the
+           old standalone testimonial-video band into its video tile.
            ============================================================ -->
-      <section id="how-we-help" class="section_home_portfolio-companies sv-pl-section">
+      <section id="how-we-helped-photon-legal" class="section_home_portfolio-companies sv-pl-section">
         <div class="padding-global">
           <div class="container-large">
             <div class="padding-section-large top-big">
