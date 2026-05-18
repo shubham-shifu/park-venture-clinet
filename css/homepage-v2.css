@@ -153,6 +153,20 @@
   height: 1px;
   background: linear-gradient(to right, rgba(255,255,255,0.20), rgba(255,255,255,0));
 }
+/* Subhead under each tier label — explains what "Fractional Portfolio
+   Company" / "Portfolio Company" means in two to three lines. Sits
+   between the labelled header and the cards row, sized down so it
+   reads as supporting copy, not as a competing headline. The parent
+   .sv-mission2-tier has gap: 1.375rem so spacing above and below this
+   paragraph stays consistent without extra margin. */
+.sv-mission2-tier-sub {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.62);
+  font-family: 'Figtree', sans-serif;
+  font-size: 1rem;
+  line-height: 1.55;
+  max-width: 68ch;
+}
 
 /* ── Row 1 — Fractional Co-Founders (5 cards in one row).
       The fractional role (CMO / CPO / CFO / CRO / CHRO) is the HERO
@@ -1542,6 +1556,30 @@
   transition: transform 0.22s ease;
   text-decoration: none;
   min-height: 11rem;
+}
+/* The 5 rotating slots slide their inner photo + meta horizontally on
+   each batch rotation. We animate the children (not the <a> itself)
+   so the cell border, hover affordance, and click target stay stable
+   while content moves through. JS drives a 3-phase sequence per cycle:
+     1. add .is-slide-out  → current 5 slide out to the left (~450ms)
+     2. swap content + add .is-slide-in-prep → snap to off-right with
+        no transition so the next 5 are waiting just outside the cell
+     3. remove .is-slide-in-prep → next 5 slide back to centre (~450ms)
+   The same easing curves on every slot keep all 5 cards in lockstep. */
+.sv-invgw-portrait[data-invgw-slot] > img,
+.sv-invgw-portrait[data-invgw-slot] > .sv-invgw-portrait-meta {
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.45s ease;
+}
+.sv-invgw-portrait[data-invgw-slot].is-slide-out > img,
+.sv-invgw-portrait[data-invgw-slot].is-slide-out > .sv-invgw-portrait-meta {
+  transform: translateX(-30%);
+  opacity: 0;
+}
+.sv-invgw-portrait[data-invgw-slot].is-slide-in-prep > img,
+.sv-invgw-portrait[data-invgw-slot].is-slide-in-prep > .sv-invgw-portrait-meta {
+  transform: translateX(30%);
+  opacity: 0;
+  transition: none;
 }
 /* Hairline border system — uniform 0.05 alpha on every edge (inner
    dividers + outer frame). Soft enough to whisper "frame" without

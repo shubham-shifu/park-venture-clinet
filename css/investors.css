@@ -5450,8 +5450,11 @@ body.inv-form-modal-open .navbar { display: none; }
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
-  padding: 2.25rem 0.5rem 1.5rem;
+  gap: 0.875rem;
+  /* Generous horizontal padding so the diagram doesn't stretch
+     edge-to-edge inside the boxed panel — the previous 0.5rem made
+     the row feel crammed against the panel border. */
+  padding: 2.25rem 3rem 1.5rem;
   flex-wrap: nowrap;
 }
 /* Center-aligned so all three visual centres sit on one horizontal
@@ -5483,8 +5486,8 @@ body.inv-form-modal-open .navbar { display: none; }
    is now 100×72 so the text fits comfortably under the $.            */
 .inv-flow-cards {
   position: relative;
-  width: 100px;
-  height: 72px;
+  width: 88px;
+  height: 64px;
 }
 .inv-flow-card {
   position: absolute;
@@ -5544,8 +5547,15 @@ body.inv-form-modal-open .navbar { display: none; }
   align-items: center;
   justify-content: center;
   gap: 0.625rem;
-  width: 120px;
+  width: 104px;
   color: rgba(255, 255, 255, 0.55);
+}
+/* Stage-3 arrow carries a longer label ("Indirect Exposure / to 100
+   PortCos") that needs two lines plus a wider track so it stops
+   colliding with the Shifu pie on the left and the PortCos frame on
+   the right. */
+.inv-flow-arrow.inv-flow-arrow--wide {
+  width: 144px;
 }
 .inv-flow-arrow-label {
   font-size: 0.6875rem;
@@ -5555,6 +5565,13 @@ body.inv-form-modal-open .navbar { display: none; }
   font-weight: 600;
   line-height: 1;
   white-space: nowrap;
+  text-align: center;
+}
+/* Wide-arrow labels are allowed to wrap (two-line layout) and the
+   line-height opens up to compensate. */
+.inv-flow-arrow--wide .inv-flow-arrow-label {
+  white-space: normal;
+  line-height: 1.25;
 }
 .inv-flow-arrow-svg {
   width: 100%;
@@ -5591,8 +5608,8 @@ body.inv-form-modal-open .navbar { display: none; }
   display: block;
 }
 .inv-flow-pie-wrap.is-big {
-  width: 132px;
-  height: 132px;
+  width: 116px;
+  height: 116px;
 }
 .inv-flow-pie {
   width: 100%;
@@ -5612,16 +5629,22 @@ body.inv-form-modal-open .navbar { display: none; }
   stroke-width: 0.75;
   vector-effect: non-scaling-stroke;
 }
-/* Orange wedge — 30° clockwise from 12 o'clock. Path: from centre to
-   top, arc to (sin30°·r, -cos30°·r), close back to centre. Translucent
-   fill + thin orange stroke so the slice reads as "highlighted region"
-   rather than a solid block — softer, more elegant. */
+/* Orange highlight — two renderings depending on tile shape.
+   - Shifu centre pie (circle): the slice is a 30° wedge <path>
+     drawn from the centre (0,0); transform-origin: 0 0 = centre.
+   - PortCo tiles (rect): the slice is a 14%-height top strip;
+     transform-origin: 50% 0 makes the wedge-pop animation grow
+     from the top edge centre — reads as a strip materialising. */
 .inv-flow-pie-slice {
   fill: rgba(245, 110, 56, 0.38);
   stroke: var(--_primitives---colors--brand-orange);
   stroke-width: 1;
   vector-effect: non-scaling-stroke;
   transform-origin: 0 0;
+}
+.inv-flow-fractional-cell .inv-flow-pie-slice,
+.inv-flow-portcos-grid .inv-flow-pie-slice {
+  transform-origin: 50% 0;
 }
 .inv-flow-pie-wrap.is-big .inv-flow-pie-slice {
   fill: rgba(245, 110, 56, 0.32);
@@ -5687,8 +5710,8 @@ body.inv-form-modal-open .navbar { display: none; }
   align-items: center;
 }
 .inv-flow-fractional-cell .inv-flow-pie-wrap {
-  width: 52px;
-  height: 52px;
+  width: 44px;
+  height: 44px;
 }
 /* Acronym label — absolutely positioned at the bottom interior of
    the circle (≈70% from top), centred horizontally. The wedge lives
@@ -5720,8 +5743,8 @@ body.inv-form-modal-open .navbar { display: none; }
   gap: 5px;
 }
 .inv-flow-portcos-grid .inv-flow-pie-wrap {
-  width: 22px;
-  height: 22px;
+  width: 19px;
+  height: 19px;
 }
 
 /* ── Animation ────────────────────────────────────────────────────
@@ -6779,6 +6802,57 @@ body.inv-form-modal-open .navbar { display: none; }
   margin: 0;
 }
 
+/* Long-form slides (Almabase, Bharat SaaS Yatra) clamp to 3 lines by
+   default; the .sri-slide-readmore button toggles .is-clamped to
+   expand. The button sits absolutely at the bottom-right of the
+   clamped paragraph so it reads as inline-with-truncation, not as a
+   separate row underneath. When expanded, the wrap drops the absolute
+   positioning so the button shows below the (now full) text.
+
+   -webkit-line-clamp works across modern browsers; the keyword
+   fallback below is for spec-compliant builds. */
+.sri-slide-body-wrap {
+  position: relative;
+}
+.sri-slide-body--clampable.is-clamped {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+}
+.sri-slide-readmore {
+  margin-top: 4px;
+  padding: 0 0 0 8px;
+  background: none;
+  border: 0;
+  color: rgba(255, 255, 255, 0.55);
+  font-family: 'Figtree', sans-serif;
+  font-size: 1.0625rem;
+  font-weight: 500;
+  line-height: 1.65;
+  letter-spacing: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: rgba(255, 255, 255, 0.3);
+}
+.sri-slide-readmore:hover {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration-color: rgba(255, 255, 255, 0.55);
+}
+/* Inline-after-truncation: button parks bottom-right of the clamped
+   paragraph; a soft fade behind it hides any text it overlaps so the
+   transition between body copy and "Read more" reads clean. */
+.sri-slide-body-wrap:has(.sri-slide-body--clampable.is-clamped) .sri-slide-readmore {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin-top: 0;
+  padding-left: 28px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0.92) 18px, #000 100%);
+}
+
 .sri-slide-media {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -6790,6 +6864,81 @@ body.inv-form-modal-open .navbar { display: none; }
    default two-photo grid. */
 .sri-slide-media.is-video {
   grid-template-columns: 1fr;
+}
+
+/* Shifu Ventures slide embeds the homepage tier-01 + tier-02 portfolio
+   block instead of two photos. Drop the 2-col grid and stack the two
+   tiers; tighten the inner card paddings so the 5-card fractional row
+   doesn't crowd inside the narrower journey-slide width. */
+.sri-slide-media.is-portfolio {
+  grid-template-columns: 1fr;
+  gap: 22px;
+}
+.sri-portfolio-embed {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  min-width: 0;
+}
+.sri-portfolio-embed .sv-mission2-frac-row {
+  gap: 0.625rem;
+}
+/* Compact frac-card: the homepage min-height assumes an avatar/person
+   block below the role; in this embed we only show status-bar +
+   eyebrow + title, so drop the floor height + cancel the auto-margin
+   that vertically centers .sv-mission2-frac-role into empty space. */
+.sri-portfolio-embed .sv-mission2-frac-card {
+  padding: 0.875rem 0.875rem 1rem;
+  min-height: 0;
+  gap: 0.5rem;
+}
+.sri-portfolio-embed .sv-mission2-frac-role {
+  margin: 0;
+}
+.sri-portfolio-embed .sv-mission2-frac-title {
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
+}
+.sri-portfolio-embed .sv-mission2-pc-row {
+  gap: 0.75rem;
+}
+/* PC card: same situation — homepage shipped with a metric block below
+   the tagline. We removed it, so the card's 11rem floor + space-between
+   distribution leaves a big gap under the tagline. Collapse both. */
+.sri-portfolio-embed .sv-mission2-pc-card {
+  padding: 1rem 1rem 1rem;
+  min-height: 0;
+  gap: 0.625rem;
+  justify-content: flex-start;
+}
+.sri-portfolio-embed .sv-mission2-pc-card-name {
+  font-size: 1.125rem;
+}
+.sri-portfolio-embed .sv-mission2-pc-card-tagline {
+  font-size: 0.8125rem;
+}
+.sri-portfolio-embed .sv-mission2-pc-card-logo {
+  height: 1.75rem;
+}
+/* The "+93" tile is a sibling of the PL/CMF cards; preserve a clean
+   square-ish aspect now that the cards next to it are short. */
+.sri-portfolio-embed .sv-mission2-pc-card.is-plus {
+  min-height: 0;
+}
+
+/* Mobile: collapse to a single column for both tiers so cards stay
+   readable instead of squishing five abreast. */
+@media screen and (max-width: 767px) {
+  .sri-portfolio-embed .sv-mission2-frac-row {
+    grid-template-columns: 1fr 1fr;
+  }
+  .sri-portfolio-embed .sv-mission2-pc-row {
+    grid-template-columns: 1fr;
+  }
+}
+@media screen and (max-width: 479px) {
+  .sri-portfolio-embed .sv-mission2-frac-row {
+    grid-template-columns: 1fr;
+  }
 }
 
 .sri-video-frame {
@@ -6954,6 +7103,9 @@ body.inv-form-modal-open .navbar { display: none; }
   grid-template-columns: repeat(3, 1fr);
   gap: 14px;
   margin-top: 10px;
+}
+.sri-metrics.is-two {
+  grid-template-columns: repeat(2, 1fr);
 }
 
 /* Metric card: thin orange accent stripe across the top, then a big

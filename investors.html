@@ -23,6 +23,12 @@
   <link href="css/webflow.css" rel="stylesheet" type="text/css">
   <link href="css/shifu-ventures-staging.webflow.css" rel="stylesheet" type="text/css">
   <link href="css/investors.css" rel="stylesheet" type="text/css">
+  <!-- Needed for the embedded tier-01/02 portfolio block inside Sri's
+       "Shifu Ventures" journey slide. Loaded AFTER investors.css so any
+       conflicting selector falls to investors.css. All sv-mission2-*
+       rules are prefix-scoped and don't collide with the page's own
+       .inv-*/.sri-* namespaces. -->
+  <link href="css/homepage-v2.css" rel="stylesheet" type="text/css">
 <!-- Removed: Leaflet CSS — the geo map uses a custom SVG, not Leaflet. -->
   <!-- Swiper base CSS — site CSS only has per-instance overrides for the
        journey/team/careers swipers; my generic .swiper-slide on the Time
@@ -647,30 +653,30 @@ Webflow.push(() => {
                   <div class="inv-bento-grid" data-bento-panel="founders" role="tabpanel">
                 <article class="inv-bento-card is-a">
                   <div class="inv-bento-photo-wrap">
-                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_640/v1778818002/b9b41550-5a74-461b-94be-c2847d177333.png" alt="Karthik Ramamoorthy" class="inv-bento-photo-img">
-                    <a class="inv-bento-li" href="https://www.linkedin.com/in/karthikramamoorthy5" target="_blank" rel="noopener noreferrer" aria-label="Karthik Ramamoorthy on LinkedIn"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_640/v1778818692/15d2cdc5-f96c-4a6b-bca7-c50a76196130.png" alt="Raveen Sastry" class="inv-bento-photo-img">
+                    <a class="inv-bento-li" href="https://www.linkedin.com/in/raveens/" target="_blank" rel="noopener noreferrer" aria-label="Raveen Sastry on LinkedIn"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
                   </div>
                   <div class="inv-bento-meta">
-                    <span class="inv-bento-stamp">$15M ARR Exited Founder, Angel Investor</span>
+                    <span class="inv-bento-stamp">3x Exited Founder, Investor</span>
                     <div class="inv-bento-name-block">
-                      <h3 class="inv-bento-name">Karthik Ramamoorthy</h3>
-                      <div class="inv-bento-role">Co-Founder &amp; CEO</div>
+                      <h3 class="inv-bento-name">Raveen Sastry</h3>
+                      <div class="inv-bento-role">Founding Partner</div>
                     </div>
-                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_320/v1778756624/numero_logp_xsp8ul.png" alt="Numero" class="inv-bento-logo">
+                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_png,h_120/e_trim/v1778821713/image_315_Vectorized_jtqis9.svg" alt="Multiply Ventures" class="inv-bento-logo">
                   </div>
                 </article>
                 <article class="inv-bento-card is-b">
                   <div class="inv-bento-photo-wrap">
-                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_640/v1778818131/9f466440-04ac-40fc-ba82-93de9d3a85b5.png" alt="Lalit Kundu" class="inv-bento-photo-img">
-                    <a class="inv-bento-li" href="https://www.linkedin.com/in/lalitkundu" target="_blank" rel="noopener noreferrer" aria-label="Lalit Kundu on LinkedIn"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_640/v1778818898/6699394e-b16c-43ba-9236-2b922a4cd1fc.png" alt="Harshit Agarwal" class="inv-bento-photo-img">
+                    <a class="inv-bento-li" href="https://www.linkedin.com/in/agarwalharshit/" target="_blank" rel="noopener noreferrer" aria-label="Harshit Agarwal on LinkedIn"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
                   </div>
                   <div class="inv-bento-meta">
-                    <span class="inv-bento-stamp">YC Founder</span>
+                    <span class="inv-bento-stamp">Bootstrapped to MM$ ARR</span>
                     <div class="inv-bento-name-block">
-                      <h3 class="inv-bento-name">Lalit Kundu</h3>
-                      <div class="inv-bento-role">Co-Founder</div>
+                      <h3 class="inv-bento-name">Harshit Agarwal</h3>
+                      <div class="inv-bento-role">CEO</div>
                     </div>
-                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/v1778821712/image_314_Vectorized_yv6mxj.svg" alt="delty" class="inv-bento-logo">
+                    <img loading="lazy" src="https://www.appknox.com/hubfs/appknox-logo.svg" alt="Appknox" class="inv-bento-logo">
                   </div>
                 </article>
                 <article class="inv-bento-card is-b">
@@ -689,30 +695,30 @@ Webflow.push(() => {
                 </article>
                 <article class="inv-bento-card is-a">
                   <div class="inv-bento-photo-wrap">
-                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_640/v1778818692/15d2cdc5-f96c-4a6b-bca7-c50a76196130.png" alt="Raveen Sastry" class="inv-bento-photo-img">
-                    <a class="inv-bento-li" href="https://www.linkedin.com/in/raveens/" target="_blank" rel="noopener noreferrer" aria-label="Raveen Sastry on LinkedIn"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_640/v1778818002/b9b41550-5a74-461b-94be-c2847d177333.png" alt="Karthik Ramamoorthy" class="inv-bento-photo-img">
+                    <a class="inv-bento-li" href="https://www.linkedin.com/in/karthikramamoorthy5" target="_blank" rel="noopener noreferrer" aria-label="Karthik Ramamoorthy on LinkedIn"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
                   </div>
                   <div class="inv-bento-meta">
-                    <span class="inv-bento-stamp">3x Exited Founder, Investor</span>
+                    <span class="inv-bento-stamp">$15M ARR Exited Founder, Angel Investor</span>
                     <div class="inv-bento-name-block">
-                      <h3 class="inv-bento-name">Raveen Sastry</h3>
-                      <div class="inv-bento-role">Founding Partner</div>
+                      <h3 class="inv-bento-name">Karthik Ramamoorthy</h3>
+                      <div class="inv-bento-role">Co-Founder &amp; CEO</div>
                     </div>
-                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_png,h_120/e_trim/v1778821713/image_315_Vectorized_jtqis9.svg" alt="Multiply Ventures" class="inv-bento-logo">
+                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_320/v1778756624/numero_logp_xsp8ul.png" alt="Numero" class="inv-bento-logo">
                   </div>
                 </article>
                 <article class="inv-bento-card is-c">
                   <div class="inv-bento-photo-wrap">
-                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_640/v1778819168/6d9f8fda-9063-41be-b8fd-1bbc452ac256.png" alt="Prateek Bondala" class="inv-bento-photo-img">
-                    <a class="inv-bento-li" href="https://www.linkedin.com/in/prateekb" target="_blank" rel="noopener noreferrer" aria-label="Prateek Bondala on LinkedIn"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_640/v1778818131/9f466440-04ac-40fc-ba82-93de9d3a85b5.png" alt="Lalit Kundu" class="inv-bento-photo-img">
+                    <a class="inv-bento-li" href="https://www.linkedin.com/in/lalitkundu" target="_blank" rel="noopener noreferrer" aria-label="Lalit Kundu on LinkedIn"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
                   </div>
                   <div class="inv-bento-meta">
-                    <span class="inv-bento-stamp">EX-RIPPLING, LYFT</span>
+                    <span class="inv-bento-stamp">YC Founder</span>
                     <div class="inv-bento-name-block">
-                      <h3 class="inv-bento-name">Prateek Bondala</h3>
-                      <div class="inv-bento-role">Founder &amp; CEO</div>
+                      <h3 class="inv-bento-name">Lalit Kundu</h3>
+                      <div class="inv-bento-role">Co-Founder</div>
                     </div>
-                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_png,h_120/e_trim/v1778821713/image_316_Vectorized_gyokvx.svg" alt="Open Legal Inc" class="inv-bento-logo">
+                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/v1778821712/image_314_Vectorized_yv6mxj.svg" alt="delty" class="inv-bento-logo">
                   </div>
                 </article>
                 <article class="inv-bento-card is-c">
@@ -731,30 +737,30 @@ Webflow.push(() => {
                 </article>
                 <article class="inv-bento-card is-c">
                   <div class="inv-bento-photo-wrap">
-                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_640/v1778818898/6699394e-b16c-43ba-9236-2b922a4cd1fc.png" alt="Harshit Agarwal" class="inv-bento-photo-img">
-                    <a class="inv-bento-li" href="https://www.linkedin.com/in/agarwalharshit/" target="_blank" rel="noopener noreferrer" aria-label="Harshit Agarwal on LinkedIn"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
-                  </div>
-                  <div class="inv-bento-meta">
-                    <span class="inv-bento-stamp">Bootstrapped to multi-million ARR</span>
-                    <div class="inv-bento-name-block">
-                      <h3 class="inv-bento-name">Harshit Agarwal</h3>
-                      <div class="inv-bento-role">CEO</div>
-                    </div>
-                    <img loading="lazy" src="https://www.appknox.com/hubfs/appknox-logo.svg" alt="Appknox" class="inv-bento-logo">
-                  </div>
-                </article>
-                <article class="inv-bento-card is-c">
-                  <div class="inv-bento-photo-wrap">
                     <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_640/v1778818565/71477b34-3a6c-4f02-b262-8f2e7e57649f.png" alt="Amit Koshal" class="inv-bento-photo-img">
                     <a class="inv-bento-li" href="https://www.linkedin.com/in/koshalamit" target="_blank" rel="noopener noreferrer" aria-label="Amit Koshal on LinkedIn"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
                   </div>
                   <div class="inv-bento-meta">
-                    <span class="inv-bento-stamp">Bootstrapped Multi-Million Legal-Tech</span>
+                    <span class="inv-bento-stamp">Bootstrapped MM$ Legal-Tech</span>
                     <div class="inv-bento-name-block">
                       <h3 class="inv-bento-name">Amit<br>Koshal</h3>
                       <div class="inv-bento-role">Founder &amp; CEO</div>
                     </div>
                     <img loading="lazy" src="https://cdn.prod.website-files.com/68aff49a2d99cde3f08d8936/68c6b2f88a596f31bd92b6c4_98dd3ba5fb5b7bf4e229f2289c6c5a79_Photon%20Legal%201%20%281%29.webp" alt="Photon Legal" class="inv-bento-logo">
+                  </div>
+                </article>
+                <article class="inv-bento-card is-c">
+                  <div class="inv-bento-photo-wrap">
+                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_640/v1778819168/6d9f8fda-9063-41be-b8fd-1bbc452ac256.png" alt="Prateek Bondala" class="inv-bento-photo-img">
+                    <a class="inv-bento-li" href="https://www.linkedin.com/in/prateekb" target="_blank" rel="noopener noreferrer" aria-label="Prateek Bondala on LinkedIn"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+                  </div>
+                  <div class="inv-bento-meta">
+                    <span class="inv-bento-stamp">EX-RIPPLING, LYFT</span>
+                    <div class="inv-bento-name-block">
+                      <h3 class="inv-bento-name">Prateek Bondala</h3>
+                      <div class="inv-bento-role">Founder &amp; CEO</div>
+                    </div>
+                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_png,h_120/e_trim/v1778821713/image_316_Vectorized_gyokvx.svg" alt="Open Legal Inc" class="inv-bento-logo">
                   </div>
                 </article>
                   </div>
@@ -779,7 +785,7 @@ Webflow.push(() => {
                     <a class="inv-bento-li" href="https://www.linkedin.com/in/sayyaparaju-sunil-8a82515" target="_blank" rel="noopener noreferrer" aria-label="Sayyaparaju Sunil on LinkedIn"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
                   </div>
                   <div class="inv-bento-meta">
-                    <span class="inv-bento-stamp">#2 Engineering Employee in Aerospike ( $50M+ ARR )</span>
+                    <span class="inv-bento-stamp">#2 Eng Employee in a $50M+ ARR Co.</span>
                     <div class="inv-bento-name-block">
                       <h3 class="inv-bento-name">S. Sunil</h3>
                       <div class="inv-bento-role">VP of Engineering</div>
@@ -1474,9 +1480,12 @@ Webflow.push(() => {
                     </div>
 
                     <!-- Arrow 2 — "Indirect Exposure" label sits above the
-                         arrow with generous spacing. -->
-                    <div class="inv-flow-arrow" data-flow-stage="3">
-                      <span class="inv-flow-arrow-label">Indirect Exposure to 100 PortCos</span>
+                         arrow with generous spacing. Label breaks to two
+                         lines via the <br> so the long string doesn't
+                         overflow the arrow's column and bleed into the
+                         Shifu pie / PortCos frame on either side. -->
+                    <div class="inv-flow-arrow inv-flow-arrow--wide" data-flow-stage="3">
+                      <span class="inv-flow-arrow-label">Indirect Exposure<br>to 100 PortCos</span>
                       <svg viewBox="0 0 140 12" class="inv-flow-arrow-svg" preserveAspectRatio="none" aria-hidden="true">
                         <path class="inv-flow-arrow-line" d="M2 6 H130" stroke="currentColor" stroke-width="0.8" fill="none" stroke-linecap="round"/>
                         <path class="inv-flow-arrow-head" d="M126 2 L132 6 L126 10" stroke="currentColor" stroke-width="0.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1886,23 +1895,18 @@ Webflow.push(() => {
                     </div>
                     <div class="inv-fit-table-row">
                       <div class="inv-fit-cell-label">Investment Horizon</div>
-                      <div class="inv-fit-cell fit">Think in years, not quarters</div>
+                      <div class="inv-fit-cell fit">Think in years, not months</div>
                       <div class="inv-fit-cell no">Need short-term liquidity</div>
                     </div>
                     <div class="inv-fit-table-row">
+                      <div class="inv-fit-cell-label">Investor Type</div>
+                      <div class="inv-fit-cell fit">Are individuals who love backing startups — angels, operators, founders</div>
+                      <div class="inv-fit-cell no">Are an institution deploying a fund mandate</div>
+                    </div>
+                    <div class="inv-fit-table-row">
                       <div class="inv-fit-cell-label">Engagement</div>
-                      <div class="inv-fit-cell fit">Want to be hands-on (1&ndash;2 hrs / month)</div>
+                      <div class="inv-fit-cell fit">Want to co-build with us, hands-on (~1 hr a month)</div>
                       <div class="inv-fit-cell no">Want passive cheque-writing only</div>
-                    </div>
-                    <div class="inv-fit-table-row">
-                      <div class="inv-fit-cell-label">What you optimise for</div>
-                      <div class="inv-fit-cell fit">Profitable, founder-controlled growth</div>
-                      <div class="inv-fit-cell no">Chase unicorns over profitable exits</div>
-                    </div>
-                    <div class="inv-fit-table-row">
-                      <div class="inv-fit-cell-label">What you bring</div>
-                      <div class="inv-fit-cell fit">Networks, hiring, GTM beyond capital</div>
-                      <div class="inv-fit-cell no">Capital only, no operator help</div>
                     </div>
                   </div>
                 </div>
@@ -2138,7 +2142,10 @@ Webflow.push(() => {
                       <div class="sri-slide-meta">
                         <h3 class="sri-slide-title">Co-founded Almabase into the global category leader in alumni engagement.</h3>
                       </div>
-                      <p class="sri-slide-body">Sri co-founded Almabase and ran it as CEO - and the early years were the grind every founder knows: wrong market, no traction, which every first-time founder goes through. Then came a moment, where Almabase pivoted into US and in just a few years - Almabase became the category leader: #1 in America on G2, 250+ institutions, along with a deep strategic partnership with Blackbaud ( A Public Listed Company )</p>
+                      <div class="sri-slide-body-wrap">
+                        <p id="sri-body-2" class="sri-slide-body sri-slide-body--clampable is-clamped">Sri co-founded Almabase and ran it as CEO - and the early years were the grind every founder knows: wrong market, no traction, which every first-time founder goes through. Then came a moment, where Almabase pivoted into US and in just a few years - Almabase became the category leader: #1 in America on G2, 250+ institutions, along with a deep strategic partnership with Blackbaud ( A Public Listed Company )</p>
+                        <button type="button" class="sri-slide-readmore" data-sri-readmore data-no-edit aria-controls="sri-body-2" aria-expanded="false">Read more</button>
+                      </div>
                       <div class="sri-slide-media">
                         <div class="sri-photo">
                           <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_960/v1778829495/image_327_bvzdhk.png" alt="Almabase YC batch · 2014">
@@ -2147,7 +2154,7 @@ Webflow.push(() => {
                           <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_960/v1778829493/image_326_ozf4i1.png" alt="Almabase HQ · 2019">
                         </div>
                       </div>
-                      <div class="sri-metrics">
+                      <div class="sri-metrics is-two">
                         <div class="sri-metric">
                           <span class="sri-metric-num">240+</span>
                           <span class="sri-metric-label">Institutions served</span>
@@ -2155,10 +2162,6 @@ Webflow.push(() => {
                         <div class="sri-metric">
                           <span class="sri-metric-num">~$10M</span>
                           <span class="sri-metric-label">Annual revenue</span>
-                        </div>
-                        <div class="sri-metric">
-                          <span class="sri-metric-num">10 yrs</span>
-                          <span class="sri-metric-label">One bet, compounded</span>
                         </div>
                       </div>
                     </article>
@@ -2170,7 +2173,10 @@ Webflow.push(() => {
                       <div class="sri-slide-meta">
                         <h3 class="sri-slide-title">Travelled 10,000 km to test an idea and build it into conviction.</h3>
                       </div>
-                      <p class="sri-slide-body">With Almabase built, Sri asked what's next — and found the answer in Prateek, an early Almabase employee who shared the same itch: not one more company, but hundreds, co-built the way Almabase was. Before betting the next few decades on that, they wanted to truly understand the market they'd live in. So — as crazy as it sounds — they took a bus across India, district after district, meeting thousands of aspiring founders and hundreds who'd already made it. They left with questions and came back with answers — what to build, who for, why now. The studio finally had its shape.</p>
+                      <div class="sri-slide-body-wrap">
+                        <p id="sri-body-3" class="sri-slide-body sri-slide-body--clampable is-clamped">With Almabase built, Sri asked what's next — and found the answer in Prateek, an early Almabase employee who shared the same itch: not one more company, but hundreds, co-built the way Almabase was. Before betting the next few decades on that, they wanted to truly understand the market they'd live in. So — as crazy as it sounds — they took a bus across India, district after district, meeting thousands of aspiring founders and hundreds who'd already made it. They left with questions and came back with answers — what to build, who for, why now. The studio finally had its shape.</p>
+                        <button type="button" class="sri-slide-readmore" data-sri-readmore data-no-edit aria-controls="sri-body-3" aria-expanded="false">Read more</button>
+                      </div>
                       <div class="sri-slide-media is-video">
                         <div class="sri-video-frame" data-bsy-reel>
                           <video class="sri-video sri-video-a is-active" playsinline muted autoplay preload="auto" aria-hidden="true"></video>
@@ -2201,12 +2207,92 @@ Webflow.push(() => {
                         <h3 class="sri-slide-title">Building a Venture Studio to co-build 100 companies to $10M in ARR, in a profitable, capital efficient way!</h3>
                       </div>
                       <p class="sri-slide-body">Shifu Ventures is that conviction in action. The first two years were a deliberate pilot: two companies, co-built — one already grew from $700K to $2.5M ARR in 18 months, the other cash-flow positive from month one. The pilots worked. Three more are now onboarded in early 2026 — five companies in, with a team here to build for the decades ahead.</p>
-                      <div class="sri-slide-media">
-                        <div class="sri-photo">
-                          <span class="sri-photo-label">Photo · Studio kickoff · 2024</span>
-                        </div>
-                        <div class="sri-photo">
-                          <span class="sri-photo-label">Photo · Founder offsite · 2025</span>
+                      <!-- Embedded copy of the homepage tier-01 + tier-02
+                           portfolio block (Fractional + Portfolio Companies).
+                           Uses the .sv-mission2-* classes from homepage-v2.css
+                           (loaded in <head>). The .is-portfolio modifier on
+                           .sri-slide-media + .sri-portfolio-embed wrapper
+                           collapse the default 2-photo grid to a single full
+                           width column and compact spacing so the block fits
+                           inside the journey slide pane. -->
+                      <div class="sri-slide-media is-portfolio">
+                        <div class="sri-portfolio-embed">
+                          <div class="sv-mission2-tier">
+                            <div class="sv-mission2-tier-label">
+                              <span class="sv-mission2-tier-num">01</span>
+                              <span class="sv-mission2-tier-name">Fractional Portfolio Companies</span>
+                              <span class="sv-mission2-tier-rule" aria-hidden="true"></span>
+                            </div>
+                            <div class="sv-mission2-frac-row">
+                              <div class="sv-mission2-frac-card is-closed">
+                                <div class="sv-mission2-frac-status-bar"><span class="sv-mission2-status">Closed</span></div>
+                                <div class="sv-mission2-frac-role">
+                                  <div class="sv-mission2-frac-eyebrow">Fractional</div>
+                                  <div class="sv-mission2-frac-title">CMO</div>
+                                </div>
+                              </div>
+                              <div class="sv-mission2-frac-card is-closed">
+                                <div class="sv-mission2-frac-status-bar"><span class="sv-mission2-status">Closed</span></div>
+                                <div class="sv-mission2-frac-role">
+                                  <div class="sv-mission2-frac-eyebrow">Fractional</div>
+                                  <div class="sv-mission2-frac-title">CPO</div>
+                                </div>
+                              </div>
+                              <div class="sv-mission2-frac-card is-closed">
+                                <div class="sv-mission2-frac-status-bar"><span class="sv-mission2-status">Closed</span></div>
+                                <div class="sv-mission2-frac-role">
+                                  <div class="sv-mission2-frac-eyebrow">Fractional</div>
+                                  <div class="sv-mission2-frac-title">CFO</div>
+                                </div>
+                              </div>
+                              <div class="sv-mission2-frac-card is-soon">
+                                <div class="sv-mission2-frac-status-bar"><span class="sv-mission2-soon-status">Closing 2026</span></div>
+                                <div class="sv-mission2-frac-role">
+                                  <div class="sv-mission2-frac-eyebrow">Fractional</div>
+                                  <div class="sv-mission2-frac-title">CRO</div>
+                                </div>
+                              </div>
+                              <div class="sv-mission2-frac-card is-soon">
+                                <div class="sv-mission2-frac-status-bar"><span class="sv-mission2-soon-status">Closing 2026</span></div>
+                                <div class="sv-mission2-frac-role">
+                                  <div class="sv-mission2-frac-eyebrow">Fractional</div>
+                                  <div class="sv-mission2-frac-title">CHRO</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="sv-mission2-tier">
+                            <div class="sv-mission2-tier-label">
+                              <span class="sv-mission2-tier-num">02</span>
+                              <span class="sv-mission2-tier-name">Portfolio Companies</span>
+                              <span class="sv-mission2-tier-rule" aria-hidden="true"></span>
+                            </div>
+                            <div class="sv-mission2-pc-row">
+                              <a href="https://photonlegal.com/" target="_blank" rel="noopener" class="sv-mission2-pc-card">
+                                <span class="sv-mission2-pc-arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 11 L11 5 M5.75 5 L11 5 L11 10.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                                <img loading="lazy" src="images/Frame-2085665472.avif" alt="Photon Legal logo" class="sv-mission2-pc-card-logo">
+                                <div class="sv-mission2-pc-card-id">
+                                  <div class="sv-mission2-pc-card-name">Photon Legal</div>
+                                  <div class="sv-mission2-pc-card-tagline">AI-native legal tech for IP &amp; patent work.</div>
+                                </div>
+                              </a>
+                              <a href="https://curiousmenfilms.com/" target="_blank" rel="noopener" class="sv-mission2-pc-card">
+                                <span class="sv-mission2-pc-arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 11 L11 5 M5.75 5 L11 5 L11 10.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                                <img loading="lazy" src="images/Frame-2085665473.avif" alt="Curious Men Films logo" class="sv-mission2-pc-card-logo">
+                                <div class="sv-mission2-pc-card-id">
+                                  <div class="sv-mission2-pc-card-name">Curious Men Films</div>
+                                  <div class="sv-mission2-pc-card-tagline">AI-native content studio for brand storytelling.</div>
+                                </div>
+                              </a>
+                              <div class="sv-mission2-pc-card is-plus" aria-label="93 more portfolio companies to come">
+                                <div class="sv-mission2-pc-plus-grid" aria-hidden="true"></div>
+                                <div class="sv-mission2-pc-plus-center">
+                                  <div class="sv-mission2-pc-plus-num">+93</div>
+                                  <div class="sv-mission2-pc-plus-label">Others to come</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                       <div class="sri-metrics">
@@ -2261,7 +2347,7 @@ Webflow.push(() => {
                         </div>
                         <div class="home_faq_answer">
                           <div class="home_faq_answer-text">
-                            <p>AI-first B2B companies built to $10M ARR, profitable, and founder-controlled. 2026 focus is fractional CMO, CPO, CFO, CRO, and CHRO companies. We co-build 4–5 a year — never more — so each one gets real help on GTM, product, hiring, and fundraise.</p>
+                            <p>To start, mostly outcome-as-a-service and foundational companies — the kind we’re co-building now, like Photon Legal and Curious Men Films — plus fractional-CXO companies, wherever the market is clear and big enough to win. Once we have a few wins behind us, we’ll take bigger, higher-risk bets — think space tech and hardware.</p>
                           </div>
                         </div>
                         <div class="faq-focused-bg">
@@ -2271,11 +2357,11 @@ Webflow.push(() => {
 
                       <div class="home_faq_accordion">
                         <div data-click="faq" data-w-id="af149833-e1e8-3065-e5eb-154801a1f462" class="home_faq_question">
-                          <div>What’s the minimum cheque?</div>
+                          <div>What’s the cheque size?</div>
                         </div>
                         <div class="home_faq_answer">
                           <div class="home_faq_answer-text">
-                            <p>$25K into Shifu Ventures via a single SAFE. That gives you indirect exposure to all 4–5 PortCos we co-build this year — and the 100 we plan to co-build over the studio’s lifetime. Larger cheques ($50K–$100K+) get you into earlier priority tranches.</p>
+                            <p>We’re raising from Indian-origin investors who think in years, not months, and want to be hands-on as we build. Cheques run roughly <strong>$25K–$250K</strong>, via a single SAFE — indirect exposure to every company we co-build in the next few decades to come.</p>
                           </div>
                         </div>
                         <div class="faq-focused-bg">
@@ -2289,7 +2375,28 @@ Webflow.push(() => {
                         </div>
                         <div class="home_faq_answer">
                           <div class="home_faq_answer-text">
-                            <p>~1–2 hours a month. One group office hour with the studio and portfolio, plus ad-hoc asks (intros, hiring panels, pricing reviews) routed by lane. All scheduled. Never on-call.</p>
+                            <p>About ~1 hour a month. The intent is simple: the investors should be genuinely involved with the companies we co-build, and not just be passive investors.</p>
+                          </div>
+                        </div>
+                        <div class="faq-focused-bg">
+                          <div class="faq-focused-bg-copy"><img loading="lazy" src="images/Vector-31.svg" alt="" class="focused-icon top"><img loading="lazy" src="images/Vector-32.svg" alt="" class="focused-icon _2"><img loading="lazy" src="images/Vector-34.svg" alt="" class="focused-icon _3"><img loading="lazy" src="images/Vector-33.svg" alt="" class="focused-icon _4"></div>
+                        </div>
+                      </div>
+
+                      <div class="home_faq_accordion">
+                        <div data-click="faq" data-w-id="af149833-e1e8-3065-e5eb-154801a1f462" class="home_faq_question">
+                          <div>What kind of help are you looking for from investors?</div>
+                        </div>
+                        <div class="home_faq_answer">
+                          <div class="home_faq_answer-text">
+                            <p>The companies we co-build are selling to the B2B segment, and typically have $100K–$1M ACV.</p>
+                            <p>The help we look for falls into three buckets:</p>
+                            <ol>
+                              <li><strong>Warm intros</strong> — to potential customers and ICPs for these companies.</li>
+                              <li><strong>Expertise on demand</strong> — when a company hits something in engineering, product, or GTM, investors with that depth step in.</li>
+                              <li><strong>Market access</strong> — our investors span geographies; when a company enters a new market, the investor native to it helps open the door.</li>
+                            </ol>
+                            <p>There might be diverse set of help needed by our PortCo companies, and we’d be looking up to our investors for that.</p>
                           </div>
                         </div>
                         <div class="faq-focused-bg">
@@ -2303,21 +2410,7 @@ Webflow.push(() => {
                         </div>
                         <div class="home_faq_answer">
                           <div class="home_faq_answer-text">
-                            <p>No — Shifu Ventures is a venture studio, not a VC. You invest directly onto our cap table. There’s no Shifu fund, no AUM, no GP/LP structure, no annual capital commitment. We co-build 4–5 AI-first B2B companies a year and carry equity for the work; you participate in that upside as a Strategic Investor on the cap table.</p>
-                          </div>
-                        </div>
-                        <div class="faq-focused-bg">
-                          <div class="faq-focused-bg-copy"><img loading="lazy" src="images/Vector-31.svg" alt="" class="focused-icon top"><img loading="lazy" src="images/Vector-32.svg" alt="" class="focused-icon _2"><img loading="lazy" src="images/Vector-34.svg" alt="" class="focused-icon _3"><img loading="lazy" src="images/Vector-33.svg" alt="" class="focused-icon _4"></div>
-                        </div>
-                      </div>
-
-                      <div class="home_faq_accordion">
-                        <div data-click="faq" data-w-id="af149833-e1e8-3065-e5eb-154801a1f462" class="home_faq_question">
-                          <div>What’s the legal vehicle?</div>
-                        </div>
-                        <div class="home_faq_answer">
-                          <div class="home_faq_answer-text">
-                            <p>A single SAFE into Shifu Ventures — Delaware (US) or Mauritius (rest-of-world), your choice. KYC and e-sign happen in-app via Venture OS. One signature, indirect exposure to every PortCo we co-build.</p>
+                            <p>No — we’re a venture studio, not a fund. You come in directly on the cap table through a single SAFE: no fund, no AUM, no GP/LP, no management fee. You own a piece of what we build, not units in a vehicle.</p>
                           </div>
                         </div>
                         <div class="faq-focused-bg">
@@ -2331,7 +2424,7 @@ Webflow.push(() => {
                         </div>
                         <div class="home_faq_answer">
                           <div class="home_faq_answer-text">
-                            <p>Operators (founders, CXOs, senior IC), family offices, and a small number of angels and micro-funds. We index on what you bring beyond the cheque — see §02.</p>
+                            <p>Indian-origin investors who love startups and think in years, not months — founders, operators, angels, and family offices who want to be involved in helping us co-build 100 companies.</p>
                           </div>
                         </div>
                         <div class="faq-focused-bg">
@@ -2341,11 +2434,11 @@ Webflow.push(() => {
 
                       <div class="home_faq_accordion">
                         <div data-click="faq" data-w-id="af149833-e1e8-3065-e5eb-154801a1f462" class="home_faq_question">
-                          <div>How do PortCos get matched to my expertise?</div>
+                          <div>How do companies get matched to my expertise?</div>
                         </div>
                         <div class="home_faq_answer">
                           <div class="home_faq_answer-text">
-                            <p>Venture OS routes founder asks (intros, hires, customer panels) to investors by tag. You only see asks that match your stated lanes.</p>
+                            <p>Once you’re in, we onboard you to Venture OS and map your expertise. As the companies raise specific asks, Venture OS routes the relevant ones to you — so you only ever see where you can genuinely help.</p>
                           </div>
                         </div>
                         <div class="faq-focused-bg">
@@ -3031,6 +3124,25 @@ const isMobile = matchMedia("(max-width: 768px)").matches;
   })();
 
   // ----------------------------------------------------------------
+  // Sri's-journey body "Read more" toggles. Long slides (Almabase,
+  // BSY) ship with .is-clamped on the <p> + a button below it. Click
+  // flips .is-clamped and rewrites the label.
+  // ----------------------------------------------------------------
+  (function initSriReadMore () {
+    document.querySelectorAll('[data-sri-readmore]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.getAttribute('aria-controls');
+        const body = id && document.getElementById(id);
+        if (!body) return;
+        body.classList.toggle('is-clamped');
+        const clamped = body.classList.contains('is-clamped');
+        btn.textContent = clamped ? 'Read more' : 'Read less';
+        btn.setAttribute('aria-expanded', String(!clamped));
+      });
+    });
+  })();
+
+  // ----------------------------------------------------------------
   // §06 Process timeline — sequential walk-and-glow loop.
   // Line draws from 1→2, then 2 glows; 2→3, then 3 glows; 3→4, then
   // 4 glows; reset and repeat. Each step picks up an "active" trail
@@ -3160,39 +3272,39 @@ const isMobile = matchMedia("(max-width: 768px)").matches;
   const grid     = document.querySelector('[data-flow-grid]');
   const diagram  = document.querySelector('[data-flow-diagram]');
 
-  // Pie SVG markup — layers, in draw order (later = on top):
-  //   1. dark bg circle (fallback / dark backing for transparent logos)
-  //   2. optional logo <image> clipped to the circle (PL / CMF cells)
-  //   3. orange wedge path (always on top of the logo)
-  //   4. faint ring to crisp the outer edge
+  // Tile SVG markup — layers, in draw order (later = on top):
+  //   1. dark bg rect (fallback / dark backing for transparent logos)
+  //   2. optional logo <image> clipped to the rect (PL / CMF cells)
+  //   3. orange strip rect at the top (always on top of the logo)
+  //   4. faint outline rect to crisp the edge
   //
-  // The wedge is drawn AFTER the image, so it sits above the logo —
-  // matching the brief: "the fraction of the circle should come above
-  // it (the logo)".
+  // viewBox is 0 0 100 100 with preserveAspectRatio="none" so the tile
+  // stretches to whatever aspect the CSS wrap gives it. The orange
+  // strip is 14% of the tile height, hugging the top — same "fraction"
+  // metaphor as the previous circle wedge.
   const pieMarkup = (logoUrl, clipId) => {
     const defs = logoUrl
-      ? `<defs><clipPath id="${clipId}"><circle cx="0" cy="0" r="46"/></clipPath></defs>`
+      ? `<defs><clipPath id="${clipId}"><rect x="0" y="0" width="100" height="100"/></clipPath></defs>`
       : '';
     const logoLayer = logoUrl ? `
-      <image href="${logoUrl}" x="-46" y="-46" width="92" height="92"
+      <image href="${logoUrl}" x="0" y="0" width="100" height="100"
              clip-path="url(#${clipId})" preserveAspectRatio="xMidYMid slice"/>
     ` : '';
     return `
-      <svg viewBox="-50 -50 100 100" class="inv-flow-pie" aria-hidden="true">
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="inv-flow-pie" aria-hidden="true">
         ${defs}
-        <circle class="inv-flow-pie-bg" cx="0" cy="0" r="46"/>
+        <rect class="inv-flow-pie-bg"    x="0" y="0" width="100" height="100"/>
         ${logoLayer}
-        <path   class="inv-flow-pie-slice" d="M0 0 L 0 -46 A 46 46 0 0 1 23 -39.84 Z"/>
-        <circle class="inv-flow-pie-ring" cx="0" cy="0" r="46"/>
+        <rect class="inv-flow-pie-slice" x="0" y="0" width="100" height="14"/>
+        <rect class="inv-flow-pie-ring"  x="0" y="0" width="100" height="100"/>
       </svg>`;
   };
 
-  // Logo URLs for the two real PortCo circles in the top row —
-  // dedicated Cloudinary uploads scoped to the capital-flow diagram
-  // ONLY. Do not reuse these on other sections; they're sized + masked
-  // for the circle-clip rendering here.
-  const PL_LOGO  = 'https://res.cloudinary.com/dkwqszhed/image/upload/v1778923477/Frame_2085665472_eodm7h.png';
-  const CMF_LOGO = 'https://res.cloudinary.com/dkwqszhed/image/upload/v1778923477/Frame_2085665473_ddedie.png';
+  // Logo URLs for the two real PortCo tiles in the top row — dedicated
+  // Cloudinary uploads sized for the tile aspect (logos sit centred on
+  // a transparent / brand-coloured background, no wordmark cropping).
+  const PL_LOGO  = 'https://res.cloudinary.com/dkwqszhed/image/upload/v1779122219/Frame_2085665541_vlnd9z.png';
+  const CMF_LOGO = 'https://res.cloudinary.com/dkwqszhed/image/upload/v1779122219/Frame_2085665542_ksjbew.png';
 
   // 1. Build the top row — 7 BIG circles:
   //      cells 0-4: fractional (CMO / CRO / CPO / CHRO / CFO) with
@@ -3203,13 +3315,13 @@ const isMobile = matchMedia("(max-width: 768px)").matches;
   //    anonymous placeholders below.
   if (fracHost && fracHost.children.length === 0) {
     const TOP_ROW = [
+      { kind: 'portco', label: 'Photon Legal',       logoUrl: PL_LOGO,  cls: 'is-pl' },
+      { kind: 'portco', label: 'Curious Men Films',  logoUrl: CMF_LOGO, cls: 'is-cmf' },
       { kind: 'frac', label: 'CMO'  },
       { kind: 'frac', label: 'CRO'  },
       { kind: 'frac', label: 'CPO'  },
       { kind: 'frac', label: 'CHRO' },
       { kind: 'frac', label: 'CFO'  },
-      { kind: 'portco', label: 'Photon Legal',       logoUrl: PL_LOGO,  cls: 'is-pl' },
-      { kind: 'portco', label: 'Curious Men Films',  logoUrl: CMF_LOGO, cls: 'is-cmf' },
     ];
     const frag = document.createDocumentFragment();
     TOP_ROW.forEach((item, i) => {
