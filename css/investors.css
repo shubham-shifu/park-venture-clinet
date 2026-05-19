@@ -6427,7 +6427,7 @@ body.inv-form-modal-open .navbar { display: none; }
   }
 } */
 .sri-journey-h2 { letter-spacing: -0.01em; }
-@media (max-width: 699px) {
+@media (max-width: 1100px) {
   .sri-journey-h2-br { display: none; }
 }
 
@@ -7506,11 +7506,11 @@ h2.inv-footer-cta-h {
    wrappers are unaffected.
    ===================================================================== */
 @media (min-width: 992px) and (max-height: 900px) {
-  .padding-section-large:has(.inv-bento-grid),
+  /* .padding-section-large:has(.inv-bento-grid),
   .padding-section-large:has(.inv-ask-boxes) {
     padding-top: 2.75rem;
     padding-bottom: 2.75rem;
-  }
+  } */
   .section-tabs-header.is-center + .spacer-56 { padding-top: 1.5rem; }
   .inv-bento-grid {
     grid-template-rows: 165px 165px 135px;
