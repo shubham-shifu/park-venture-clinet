@@ -2019,7 +2019,7 @@ body.inv-wall-modal-open { overflow: hidden; position: fixed; width: 100%; }
    cheque." in two lines inside the 620px column. The default .is-44
    (2.75rem) wraps to 3 lines because "Diversify across 100 companies"
    doesn't fit on one line at that size. */
-.inv-hero-h1 { font-size: 2.25rem; line-height: 1.2; }
+.inv-hero-h1 { font-size: 2rem; line-height: 1.2; }
 
 .inv-hero-vid {
   position: relative;
@@ -6096,17 +6096,13 @@ body.inv-form-modal-open .navbar { display: none; }
    into the same viewport and feel overwhelming.
    ════════════════════════════════════════════════════════════════════ */
 .section_header30 .padding-section-large.hero {
-  /* Hero hugs its content. Cap is set just above content + padding
-     (~686px) so on every viewport the section ends right where the
-     content ends — no dead empty band below the video, and §01's
-     heading sits just past the fold on a standard 900px viewport
-     (ready to appear on first scroll). The 92vh floor only matters
-     on viewports shorter than ~760px. */
-  min-height: min(92vh, 700px);
+  /* Hero hugs its content — no min-height floor, so when the text
+     column is shorter than the 16:10 video tile we don't get a dead
+     band below the section before §01 starts. */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding-top: 12rem;
+  padding-top: 8rem;
   padding-bottom: 4rem;
 }
 
@@ -6421,7 +6417,7 @@ body.inv-form-modal-open .navbar { display: none; }
    lines instead of three. The parent .section-tabs-header caps at 43rem
    by default, which forces the final phrase ("100 times.") onto a third
    line. Lift the cap on this section only. */
-[data-sri-journey] .section-tabs-header.is-center { max-width: 56rem; }
+[data-sri-journey] .section-tabs-header.is-center { max-width: 72rem; }
 /* [fd-section-reveal]:has(> .inv-ask-boxes) > .section-tabs-header.is-center {
   max-width: none;
 }
@@ -6431,6 +6427,9 @@ body.inv-form-modal-open .navbar { display: none; }
   }
 } */
 .sri-journey-h2 { letter-spacing: -0.01em; }
+@media (max-width: 699px) {
+  .sri-journey-h2-br { display: none; }
+}
 
 .sri-journey-stage {
   --sri-progress: 0;
