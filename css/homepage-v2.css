@@ -165,7 +165,7 @@
   font-family: 'Figtree', sans-serif;
   font-size: 1rem;
   line-height: 1.55;
-  max-width: 68ch;
+  /* max-width: 68c; */
 }
 
 /* ── Row 1 — Fractional Co-Founders (5 cards in one row).

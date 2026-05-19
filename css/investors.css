@@ -2015,6 +2015,11 @@ body.inv-wall-modal-open { overflow: hidden; position: fixed; width: 100%; }
 }
 .inv-hero-text { max-width: 620px; }
 .inv-hero-text h1 [fd-svg-underline-text] { white-space: nowrap; }
+/* Hero h1 specifically — fit "Diversify across 100 companies / with one
+   cheque." in two lines inside the 620px column. The default .is-44
+   (2.75rem) wraps to 3 lines because "Diversify across 100 companies"
+   doesn't fit on one line at that size. */
+.inv-hero-h1 { font-size: 2.25rem; line-height: 1.2; }
 
 .inv-hero-vid {
   position: relative;
@@ -4628,7 +4633,9 @@ body.inv-form-modal-open .navbar { display: none; }
   top: 18px;
   right: 0;
   padding: 11px 18px;
-  background: #141414;
+  background: rgba(20, 20, 20, 0.391);
+  /* backdrop-filter: blur(10px); */
+  opacity: 0.67;
   color: #f56e38;
   font-family: inherit;
   font-size: 13px;
@@ -4637,7 +4644,6 @@ body.inv-form-modal-open .navbar { display: none; }
   letter-spacing: 0.1em;
   line-height: 1.05;
   white-space: nowrap;
-  opacity: 1;
   border-left: 1px solid rgba(255, 255, 255, 0.06);
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
@@ -6411,6 +6417,12 @@ body.inv-form-modal-open .navbar { display: none; }
   margin-inline: auto;
   text-align: center;
 }
+/* Widen the heading container so "Built by a 2× founder..." fits in two
+   lines instead of three. The parent .section-tabs-header caps at 43rem
+   by default, which forces the final phrase ("100 times.") onto a third
+   line. Lift the cap on this section only. */
+[data-sri-journey] .section-tabs-header.is-center { max-width: 56rem; }
+.sri-journey-h2 { letter-spacing: -0.01em; }
 
 .sri-journey-stage {
   --sri-progress: 0;

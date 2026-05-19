@@ -489,7 +489,7 @@ Webflow.push(() => {
       last = y;
       return;
     }
-    // BELOW NAV HEIGHT — HARD STOP
+    // BELOW NAV HEIGHT - HARD STOP
     lottie?.goToAndStop(0, true);
     if (Math.abs(y - last) < 5) return;
     nav.classList.toggle("nav--hidden", y > last);

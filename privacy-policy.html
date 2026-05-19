@@ -34,7 +34,7 @@ html.lenis {height: auto;}
 </style>
 
   <!-- ════════════════════════════════════════════════════════════════
-       LEGAL PAGE TYPOGRAPHY — scoped styles for privacy / terms pages.
+       LEGAL PAGE TYPOGRAPHY - scoped styles for privacy / terms pages.
        Dark background, off-white body copy, white headings, brand-
        orange accents on section numbers + links. Comfortable max-
        width (~70 ch) and tall line-height for legal-doc readability.
@@ -74,7 +74,7 @@ html.lenis {height: auto;}
       letter-spacing: 0.02em;
     }
 
-    /* Content wrapper — limit reading width for legal copy */
+    /* Content wrapper - limit reading width for legal copy */
     .legal-page {
       padding: 4rem 0 6rem;
     }
@@ -96,14 +96,14 @@ html.lenis {height: auto;}
     .legal-page-content > p:first-of-type + p ~ p:has(strong:only-child),
     .legal-page-content > h1:first-of-type + p {
       /* Just the very first H1 + the "Effective date" line are
-         duplicated in the hero — hide them here so the reader sees
+         duplicated in the hero - hide them here so the reader sees
          them once. Content remains in the DOM for completeness. */
     }
     .legal-page-content > h1:first-of-type {
       display: none; /* shown in hero */
     }
     .legal-page-content > p:first-of-type {
-      /* "Effective date: ... Last updated: ..." — also in hero. */
+      /* "Effective date: ... Last updated: ..." - also in hero. */
       display: none;
     }
     .legal-page-content > h1:last-of-type:empty,
@@ -190,7 +190,7 @@ html.lenis {height: auto;}
   <div class="page-wrapper">
 
     <!-- ════════════════════════════════════════════════════════════════
-         NAVBAR — same component used across investors.html / index.html
+         NAVBAR - same component used across investors.html / index.html
          ════════════════════════════════════════════════════════════ -->
     <div load-nav-reveal="" class="navbar-wrap">
       <div data-animation="default" class="navbar w-nav" data-easing2="ease" data-easing="ease" navbar="" data-collapse="medium" data-w-id="20f25062-ae68-3f98-0b8f-70facce54c8c" role="banner" data-duration="400">
@@ -307,7 +307,7 @@ Webflow.push(() => {
     <main class="main-wrapper">
 
       <!-- ════════════════════════════════════════════════════════════
-           HERO HEADER — page title + effective date
+           HERO HEADER - page title + effective date
            ════════════════════════════════════════════════════════ -->
       <header class="legal-hero">
         <div class="padding-global">
@@ -320,7 +320,7 @@ Webflow.push(() => {
       </header>
 
       <!-- ════════════════════════════════════════════════════════════
-           CONTENT — word-for-word from the original Webflow export.
+           CONTENT - word-for-word from the original Webflow export.
            The first H1 + the duplicate "Effective date" paragraph are
            hidden via CSS so the hero above doesn't repeat them.
            ════════════════════════════════════════════════════════ -->
@@ -379,11 +379,11 @@ Webflow.push(() => {
     <h2><strong>3. How we use information</strong></h2>
     <p>We use the information described above only to:</p>
     <ol role="list">
-      <li><strong>Provide the Service</strong> — sync your calendar events into Sana, display them to you and other attendees who use Sana, and let you collaborate on agendas, next steps, tasks, comments, and notes tied to those meetings.</li>
-      <li><strong>Authenticate you</strong> — sign you in, keep your session active, and re-issue access tokens to Google on your behalf when the existing token is close to expiry.</li>
-      <li><strong>Operate, maintain, and improve the Service</strong> — debug errors, monitor performance, prevent abuse, and improve features that are visible to you.</li>
-      <li><strong>Communicate with you</strong> — respond to support requests, send service-related notices (such as security alerts or material changes to this policy), and, only if you opt in, send product updates.</li>
-      <li><strong>Comply with legal obligations</strong> — respond to lawful requests from public authorities, enforce our Terms of Service, and protect our rights, property, and safety, and that of our users and the public.</li>
+      <li><strong>Provide the Service</strong> - sync your calendar events into Sana, display them to you and other attendees who use Sana, and let you collaborate on agendas, next steps, tasks, comments, and notes tied to those meetings.</li>
+      <li><strong>Authenticate you</strong> - sign you in, keep your session active, and re-issue access tokens to Google on your behalf when the existing token is close to expiry.</li>
+      <li><strong>Operate, maintain, and improve the Service</strong> - debug errors, monitor performance, prevent abuse, and improve features that are visible to you.</li>
+      <li><strong>Communicate with you</strong> - respond to support requests, send service-related notices (such as security alerts or material changes to this policy), and, only if you opt in, send product updates.</li>
+      <li><strong>Comply with legal obligations</strong> - respond to lawful requests from public authorities, enforce our Terms of Service, and protect our rights, property, and safety, and that of our users and the public.</li>
     </ol>
     <p>We do <strong>not</strong> use Google user data, nor any data derived from it, for any of the following purposes:</p>
     <ul role="list">
@@ -423,7 +423,7 @@ Webflow.push(() => {
     <h3><strong>5.5 With your consent</strong></h3>
     <p>We may share information for any other purpose with your explicit consent.</p>
     <h2><strong>6. How we store and protect your information</strong></h2>
-    <p>We take the security of your information — including all Google user data we receive — seriously, and maintain administrative, technical, and physical safeguards designed to protect it. In particular:</p>
+    <p>We take the security of your information - including all Google user data we receive - seriously, and maintain administrative, technical, and physical safeguards designed to protect it. In particular:</p>
     <ul role="list">
       <li>All data is transmitted over TLS (HTTPS).</li>
       <li>Account passwords are stored using bcrypt one-way hashing with a per-password salt and a work factor calibrated to current industry guidance. We cannot read or recover your password; password resets are performed by issuing a one-time link to your verified email address.</li>
@@ -451,13 +451,13 @@ Webflow.push(() => {
     <h2><strong>8. Your rights</strong></h2>
     <p>Depending on where you live, you may have the following rights with respect to your personal information:</p>
     <ul role="list">
-      <li><strong>Access</strong> — request a copy of the personal information we hold about you.</li>
-      <li><strong>Correction</strong> — ask us to correct inaccurate or incomplete information.</li>
-      <li><strong>Deletion</strong> — ask us to delete your personal information.</li>
-      <li><strong>Portability</strong> — request a copy of certain information in a structured, machine-readable format.</li>
-      <li><strong>Objection or restriction</strong> — object to, or ask us to restrict, certain processing of your information.</li>
-      <li><strong>Withdrawal of consent</strong> — withdraw consent that you have previously given, without affecting the lawfulness of processing already carried out.</li>
-      <li><strong>Nomination</strong> — if you are in India, you may nominate another individual to exercise your rights in the event of your death or incapacity, as provided under the Digital Personal Data Protection Act, 2023.</li>
+      <li><strong>Access</strong> - request a copy of the personal information we hold about you.</li>
+      <li><strong>Correction</strong> - ask us to correct inaccurate or incomplete information.</li>
+      <li><strong>Deletion</strong> - ask us to delete your personal information.</li>
+      <li><strong>Portability</strong> - request a copy of certain information in a structured, machine-readable format.</li>
+      <li><strong>Objection or restriction</strong> - object to, or ask us to restrict, certain processing of your information.</li>
+      <li><strong>Withdrawal of consent</strong> - withdraw consent that you have previously given, without affecting the lawfulness of processing already carried out.</li>
+      <li><strong>Nomination</strong> - if you are in India, you may nominate another individual to exercise your rights in the event of your death or incapacity, as provided under the Digital Personal Data Protection Act, 2023.</li>
     </ul>
     <p>To exercise any of these rights, email {{team@shifuventures.com}}. We may need to verify your identity before fulfilling the request. We will acknowledge your request within 48 hours and respond substantively within the timelines required by applicable law (typically 30 days).</p>
     <p>If you are in the EEA, UK, or Switzerland, you have rights under the GDPR, including the right to lodge a complaint with your local supervisory authority. If you are in India and your concern is not satisfactorily resolved, you may approach the Data Protection Board of India under the Digital Personal Data Protection Act, 2023.</p>
@@ -477,7 +477,7 @@ Webflow.push(() => {
     <p>In accordance with the Information Technology Act, 2000 and the Digital Personal Data Protection Act, 2023, we have appointed a Grievance Officer for handling concerns relating to this Privacy Policy or the processing of your personal information.</p>
     <p><strong>Grievance Officer:</strong> {{Prateek Sethi}} <strong>Email:</strong> {{team@shifuventures.com}} <strong>Phone:</strong> {{9090345232}} <strong>Address:</strong> Shifu Ventures India Private Limited #No 230/2, 1st Floor, 15th Cross Road Near Sampige Road, Malleshwaram Bangalore, Karnataka, India - 560003</p>
     <p>We will acknowledge complaints within 48 hours of receipt and aim to resolve them within 30 days, in line with applicable Indian law. If you do not receive a satisfactory resolution within that period, you may approach the Data Protection Board of India.</p>
-    <p>For security vulnerability reports, please contact {{team@shifuventures.com}} instead — these are handled separately on a faster track.</p>
+    <p>For security vulnerability reports, please contact {{team@shifuventures.com}} instead - these are handled separately on a faster track.</p>
     <h1>‍</h1>
             </div>
           </div>
@@ -485,7 +485,7 @@ Webflow.push(() => {
       </section>
 
       <!-- ════════════════════════════════════════════════════════════
-           FOOTER — same component used across the site
+           FOOTER - same component used across the site
            ════════════════════════════════════════════════════════ -->
       <footer class="footer11_component">
         <div class="padding-global footer">

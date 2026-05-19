@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <title>Become an Investor | Shifu Ventures</title>
-  <meta content="Co-build 100 AI-first B2B companies to $10M ARR with Shifu Ventures. $25K minimum into Shifu Ventures — indirect exposure to every PortCo. No fund commit, no management fee, no exclusivity." name="description">
+  <meta content="Co-build 100 AI-first B2B companies to $10M ARR with Shifu Ventures. $25K minimum into Shifu Ventures - indirect exposure to every PortCo. No fund commit, no management fee, no exclusivity." name="description">
   <meta content="Become an Investor | Shifu Ventures" property="og:title">
-  <meta content="Co-build 100 AI-first B2B companies to $10M ARR with Shifu Ventures. $25K minimum into Shifu Ventures — indirect exposure to every PortCo. No fund commit, no management fee, no exclusivity." property="og:description">
+  <meta content="Co-build 100 AI-first B2B companies to $10M ARR with Shifu Ventures. $25K minimum into Shifu Ventures - indirect exposure to every PortCo. No fund commit, no management fee, no exclusivity." property="og:description">
   <meta content="https://cdn.prod.website-files.com/697a054b87060ef313c21ed0/697f4bf102a922642247532c_ogi.png" property="og:image">
   <meta content="Become an Investor | Shifu Ventures" property="twitter:title">
-  <meta content="Co-build 100 AI-first B2B companies to $10M ARR with Shifu Ventures. $25K minimum into Shifu Ventures — indirect exposure to every PortCo. No fund commit, no management fee, no exclusivity." property="twitter:description">
+  <meta content="Co-build 100 AI-first B2B companies to $10M ARR with Shifu Ventures. $25K minimum into Shifu Ventures - indirect exposure to every PortCo. No fund commit, no management fee, no exclusivity." property="twitter:description">
   <meta property="og:type" content="website">
   <meta content="summary_large_image" name="twitter:card">
   <meta content="width=device-width, initial-scale=1" name="viewport">
@@ -18,7 +18,7 @@
        revalidate the HTML. Assets (CSS/JS/fonts/images) below get
        `max-age=31536000, immutable` so they're served from cache
        instantly until their filenames change. No manual `?v=` busting
-       needed — change a filename or path to bust. -->
+       needed - change a filename or path to bust. -->
   <link href="css/normalize.css" rel="stylesheet" type="text/css">
   <link href="css/webflow.css" rel="stylesheet" type="text/css">
   <link href="css/shifu-ventures-staging.webflow.css" rel="stylesheet" type="text/css">
@@ -29,8 +29,8 @@
        rules are prefix-scoped and don't collide with the page's own
        .inv-*/.sri-* namespaces. -->
   <link href="css/homepage-v2.css" rel="stylesheet" type="text/css">
-<!-- Removed: Leaflet CSS — the geo map uses a custom SVG, not Leaflet. -->
-  <!-- Swiper base CSS — site CSS only has per-instance overrides for the
+<!-- Removed: Leaflet CSS - the geo map uses a custom SVG, not Leaflet. -->
+  <!-- Swiper base CSS - site CSS only has per-instance overrides for the
        journey/team/careers swipers; my generic .swiper-slide on the Time
        carousel needs the bundled base rules (.swiper{overflow:hidden},
        .swiper-wrapper{display:flex}, .swiper-slide{flex-shrink:0;width:100%}). -->
@@ -80,7 +80,7 @@ html.lenis {height: auto;}
   opacity: 0;
   transition: opacity 0.25s ease;
 }
-/* Generic reveal — animates in via CSS, no JS dependency */
+/* Generic reveal - animates in via CSS, no JS dependency */
 [load-reveal] {
   animation: fdLoadRevealIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
   will-change: opacity, transform;
@@ -549,7 +549,7 @@ Webflow.push(() => {
       last = y;
       return;
     }
-    // BELOW NAV HEIGHT — HARD STOP
+    // BELOW NAV HEIGHT - HARD STOP
     lottie?.goToAndStop(0, true);
     if (Math.abs(y - last) < 5) return;
     nav.classList.toggle("nav--hidden", y > last);
@@ -565,7 +565,7 @@ Webflow.push(() => {
     <main class="main-wrapper">
 
       <!-- ============================================================
-           HERO — Co-build 100 AI-first B2B companies with us
+           HERO - Co-build 100 AI-first B2B companies with us
            ============================================================ -->
       <header class="section_header30 text-color-white">
         <div class="padding-global">
@@ -573,7 +573,7 @@ Webflow.push(() => {
             <div class="container-large is-relative">
               <div class="inv-hero-grid">
                 <div class="inv-hero-text">
-                  <h1 load-heading-reveal="" class="heading-style-h1 is-44">Diversify across <span fd-svg-underline-text="" fd-svg-underline-stroke="2">100 companies</span><br>with one cheque.</h1>
+                  <h1 load-heading-reveal="" class="heading-style-h1 is-44 inv-hero-h1">Diversify across <span fd-svg-underline-text="" fd-svg-underline-stroke="2">100 companies</span> with one cheque.</h1>
                   <div class="spacer-small"></div>
                   <p load-reveal="" class="text-size-medium">It takes a village to raise a company - and we're raising 100. Doing that takes more than capital, so we're architecting the cap table deliberately with strategic investors who help scale each one to <em>$10M ARR</em>, profitably.</p>
                 </div>
@@ -589,7 +589,7 @@ Webflow.push(() => {
                   <span class="inv-hero-vid-play" aria-hidden="true">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
                   </span>
-                  <p class="inv-hero-vid-cap">Watch Sri explain the Shifu Ventures vision &mdash; what we invest in and how the process works.</p>
+                  <p class="inv-hero-vid-cap">Watch Sri explain the Shifu Ventures vision - what we invest in and how the process works.</p>
                   <div class="inv-hero-vid-frame">
                     <img loading="lazy" src="images/Vector-31.svg" alt="" class="focused-icon top">
                     <img loading="lazy" src="images/Vector-32.svg" alt="" class="focused-icon _2">
@@ -597,7 +597,7 @@ Webflow.push(() => {
                     <img loading="lazy" src="images/Vector-33.svg" alt="" class="focused-icon _4">
                   </div>
                 </button>
-                <!-- Hero founder-video modal — YouTube lightbox -->
+                <!-- Hero founder-video modal - YouTube lightbox -->
                 <div class="inv-hero-modal" data-hero-video-modal hidden>
                   <div class="inv-hero-modal-backdrop" data-hero-video-close></div>
                   <div class="inv-hero-modal-card" role="dialog" aria-modal="true" aria-label="Founder intro video">
@@ -613,7 +613,7 @@ Webflow.push(() => {
         </div>
       </header>
 
-      <!-- §02 SRI'S JOURNEY moved further down the page — section now
+      <!-- §02 SRI'S JOURNEY moved further down the page - section now
            sits directly above §07 FAQ. The original markup lives there
            verbatim (search "SRI'S JOURNEY" again). -->
 
@@ -628,7 +628,7 @@ Webflow.push(() => {
             <div class="padding-section-large">
               <div fd-section-reveal="">
                 <!-- ============================================================
-                     §01 — FOUNDERS / OPERATORS BENTO
+                     §01 - FOUNDERS / OPERATORS BENTO
                      Section header row: h2 + subhead on the left, Founders /
                      Operators toggle on the right (saves the vertical gap
                      between the subheading and the mosaic). Per-tab subtitle
@@ -642,7 +642,7 @@ Webflow.push(() => {
                 <div class="spacer-56"></div>
 
                 <!-- Full-width toggle bar, sits directly above the mosaic
-                     grid with the same 8px gap the grid uses internally —
+                     grid with the same 8px gap the grid uses internally -
                      reads as part of the mosaic, not a separate widget. -->
                 <div class="inv-bento-tabs is-fullwidth" role="tablist" aria-label="Filter cap-table members by role">
                   <button class="inv-bento-tab is-active" type="button" role="tab" data-bento-tab="founders" aria-pressed="true">Founders</button>
@@ -723,13 +723,13 @@ Webflow.push(() => {
                 </article>
                 <article class="inv-bento-card is-c">
                   <div class="inv-bento-photo-wrap">
-                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_640/v1778818799/bd5fa35b-6914-4501-996b-126190e6d1c3.png" alt="Nageswara Rao M" class="inv-bento-photo-img">
-                    <a class="inv-bento-li" href="https://www.linkedin.com/in/naagas" target="_blank" rel="noopener noreferrer" aria-label="Nageswara Rao M on LinkedIn"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+                    <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_640/v1778818799/bd5fa35b-6914-4501-996b-126190e6d1c3.png" alt="Nageswara Rao" class="inv-bento-photo-img">
+                    <a class="inv-bento-li" href="https://www.linkedin.com/in/naagas" target="_blank" rel="noopener noreferrer" aria-label="Nageswara Rao on LinkedIn"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11.01-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
                   </div>
                   <div class="inv-bento-meta">
                     <span class="inv-bento-stamp">#15th Engineer in Snapchat</span>
                     <div class="inv-bento-name-block">
-                      <h3 class="inv-bento-name">Nageswara Rao M</h3>
+                      <h3 class="inv-bento-name">Nageswara Rao</h3>
                       <div class="inv-bento-role">Co-Founder</div>
                     </div>
                     <img loading="lazy" src="https://syft.com/assets/Uploads/syft-rev-RGB2x.png" alt="Syft" class="inv-bento-logo">
@@ -743,7 +743,7 @@ Webflow.push(() => {
                   <div class="inv-bento-meta">
                     <span class="inv-bento-stamp">Bootstrapped $2M+ Legal-Tech</span>
                     <div class="inv-bento-name-block">
-                      <h3 class="inv-bento-name">Amit<br>Koshal</h3>
+                      <h3 class="inv-bento-name">Amit Koshal</h3>
                       <div class="inv-bento-role">Founder &amp; CEO</div>
                     </div>
                     <img loading="lazy" src="https://cdn.prod.website-files.com/68aff49a2d99cde3f08d8936/68c6b2f88a596f31bd92b6c4_98dd3ba5fb5b7bf4e229f2289c6c5a79_Photon%20Legal%201%20%281%29.webp" alt="Photon Legal" class="inv-bento-logo">
@@ -885,7 +885,7 @@ Webflow.push(() => {
                     var root = document.querySelector('[data-bento]');
                     if (!root) return;
                     /* Tabs now live outside [data-bento] (they sit beside
-                       the section header) — query at document scope. */
+                       the section header) - query at document scope. */
                     var tabs   = document.querySelectorAll('[data-bento-tab]');
                     var panels = document.querySelectorAll('[data-bento-panel]');
                     function activate (which) {
@@ -909,7 +909,7 @@ Webflow.push(() => {
                 </script>
 
                 <!-- ============================================================
-                     §01-ARCHIVED — Original "Star Investors" portraits,
+                     §01-ARCHIVED - Original "Star Investors" portraits,
                      "+33 more on the cap table" roster CTA, and the entire
                      "By Geography / By Expertise" toggle (map + lane wall).
 
@@ -1139,7 +1139,7 @@ Webflow.push(() => {
                         </header>
                         <div class="inv-geo-panel-head">
                           <button type="button" class="inv-geo-panel-title" data-geo-city-toggle aria-haspopup="listbox" aria-expanded="false">
-                            <span class="inv-geo-panel-city" data-geo-panel-city>—</span>
+                            <span class="inv-geo-panel-city" data-geo-panel-city>-</span>
                             <svg class="inv-geo-panel-city-caret" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
                               <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
@@ -1189,7 +1189,7 @@ Webflow.push(() => {
       </section>
 
       <!-- ============================================================
-           §02 THE ASK — Time / Money tabs + Time carousel + Ladder
+           §02 THE ASK - Time / Money tabs + Time carousel + Ladder
            ============================================================ -->
       <section>
         <div class="padding-global">
@@ -1231,7 +1231,7 @@ Webflow.push(() => {
 
                 <div class="spacer-large"></div>
 
-                <!-- Case-study carousel — shown when "1–2 hours / month" tab
+                <!-- Case-study carousel - shown when "1–2 hours / month" tab
                      is active. Wrapped in a boxed surface; carries
                      data-ask-panel="time". -->
                 <div class="inv-ask-cases is-boxed" data-ask-panel="time" role="tabpanel">
@@ -1405,7 +1405,7 @@ Webflow.push(() => {
                   </div>
                 </div>
 
-                <!-- Capital-flow diagram — shown when "$25K minimum" tab is
+                <!-- Capital-flow diagram - shown when "$25K minimum" tab is
                      active. Renders the implicit value: a single cheque into
                      Shifu Ventures translates into a fraction of every PortCo
                      in the studio (drawn here as a 10×10 grid of 100). Same
@@ -1419,7 +1419,7 @@ Webflow.push(() => {
 
                   <!-- Pie-metaphor flow: Your Investment → Shifu Ventures pie
                        → 100 PortCo pies. The orange wedge on each pie is the
-                       "slice you own" — directly in Shifu, indirectly in
+                       "slice you own" - directly in Shifu, indirectly in
                        every PortCo. Slices are visually exaggerated (~30°)
                        for legibility at grid scale; this is a metaphor
                        diagram, not data viz.
@@ -1431,7 +1431,7 @@ Webflow.push(() => {
                        drawing in just after its pie. -->
                   <div class="inv-flow-diagram" data-flow-diagram>
 
-                    <!-- Node 1: Your Investment — three stacked cards with
+                    <!-- Node 1: Your Investment - three stacked cards with
                          a $ glyph + "Your Investment" label inside the
                          front card (no separate label below). -->
                     <div class="inv-flow-node inv-flow-you" data-flow-stage="1">
@@ -1445,10 +1445,10 @@ Webflow.push(() => {
                       </div>
                     </div>
 
-                    <!-- Arrow 1 — bidirectional exchange between Your
+                    <!-- Arrow 1 - bidirectional exchange between Your
                          Investment and Shifu Ventures.
-                           Top: "Capital" → (forward)  — investor sends capital
-                           Bottom: ← "Equity"          — investor receives equity
+                           Top: "Capital" → (forward)  - investor sends capital
+                           Bottom: ← "Equity"          - investor receives equity
                          Both arrows draw simultaneously so the visual reads
                          as a single transaction (capital out, equity in). -->
                     <div class="inv-flow-arrow inv-flow-arrow--duo" data-flow-stage="2">
@@ -1464,7 +1464,7 @@ Webflow.push(() => {
                       <span class="inv-flow-arrow-label">Equity</span>
                     </div>
 
-                    <!-- Node 2: Shifu Ventures pie — big circle, dark fill,
+                    <!-- Node 2: Shifu Ventures pie - big circle, dark fill,
                          translucent-orange ~30° wedge with thin orange
                          stroke, Shifu logo centred (the logotype IS the
                          label, so no text below). -->
@@ -1479,7 +1479,7 @@ Webflow.push(() => {
                       </div>
                     </div>
 
-                    <!-- Arrow 2 — "Indirect Exposure" label sits above the
+                    <!-- Arrow 2 - "Indirect Exposure" label sits above the
                          arrow with generous spacing. Label breaks to two
                          lines via the <br> so the long string doesn't
                          overflow the arrow's column and bleed into the
@@ -1492,7 +1492,7 @@ Webflow.push(() => {
                       </svg>
                     </div>
 
-                    <!-- Node 3: 100 PortCos — bordered frame holds the
+                    <!-- Node 3: 100 PortCos - bordered frame holds the
                          5 labelled fractional pies on top + 95 anonymous
                          PortCo pies below. The 95 pies are generated by
                          JS so the markup stays clean. -->
@@ -1508,7 +1508,7 @@ Webflow.push(() => {
                 </div>
 
                 <!-- ============================================================
-                     §02-ARCHIVED — original "Money" panel: 3× Priority Return
+                     §02-ARCHIVED - original "Money" panel: 3× Priority Return
                      emphasis, live-tranche strip, the 4-row Priority Return
                      Ladder, and the realisation foot-note. Preserved verbatim
                      inside <template> so the markup stays in the repo for
@@ -1527,7 +1527,7 @@ Webflow.push(() => {
                       </div>
                       <div>
                         <h3 class="inv-money-headline">Before any common stock sees a dollar.</h3>
-                        <p class="inv-money-body">Early Strategic Investors backed us while the model was still being shaped — so we offered 3x priority on liquidity events. Photon Legal is past $2M ARR ($4M pipeline). CMF is profitable. And we have 3 more PortCos being onboarded by end of June. Execution risk is materially lower now, so the next tranche moves to 2x.</p>
+                        <p class="inv-money-body">Early Strategic Investors backed us while the model was still being shaped - so we offered 3x priority on liquidity events. Photon Legal is past $2M ARR ($4M pipeline). CMF is profitable. And we have 3 more PortCos being onboarded by end of June. Execution risk is materially lower now, so the next tranche moves to 2x.</p>
                       </div>
                     </div>
                   </div>
@@ -1581,7 +1581,7 @@ Webflow.push(() => {
       </section>
 
       <!-- ============================================================
-           §03 VENTURE OS — workspace screenshot
+           §03 VENTURE OS - workspace screenshot
            ============================================================ -->
       <section>
         <div class="padding-global">
@@ -1589,13 +1589,13 @@ Webflow.push(() => {
             <div class="padding-section-large">
               <div fd-section-reveal="">
                 <div class="section-tabs-header is-center">
-                  <h2 fd-heading-reveal="" class="heading-style-h2">Most investors get a quarterly PDF. You hear from us every week. <span fd-svg-underline-text="scroll" fd-svg-underline-stroke="4" fd-svg-underline-offset="2">involve</span></h2>
+                  <h2 fd-heading-reveal="" class="heading-style-h2">Most investors get a quarterly PDF. You hear from us <span fd-svg-underline-text="scroll" fd-svg-underline-stroke="4" fd-svg-underline-offset="2">every week.</span></h2>
                   <p fd-fade-reveal="" class="text-size-medium">The same updates we run the studio on, shared the moment they happen - so you always know where you can step in to help.</p>
                 </div>
                 <div class="spacer-56"></div>
 
                 <!-- ============================================================
-                     §03 — INVOLVE: 3-tab vertical rail + media pane.
+                     §03 - INVOLVE: 3-tab vertical rail + media pane.
                      Left rail = label + 1-line "what's in it for you".
                      Right pane swaps the media when you click a tab.
                      Default selection: VOSS.
@@ -1607,7 +1607,7 @@ Webflow.push(() => {
                         <span class="inv-involve-num">01</span>
                         <span class="inv-involve-text">
                           <span class="inv-involve-label">Venture OS</span>
-                          <span class="inv-involve-desc">Your live workspace — track dealflow, ecosystem, asks, and updates from every PortCo at a glance.</span>
+                          <span class="inv-involve-desc">Your live workspace - track dealflow, ecosystem, asks, and updates from every PortCo at a glance.</span>
                         </span>
                       </button>
                       <div class="focused-bg" aria-hidden="true">
@@ -1651,7 +1651,7 @@ Webflow.push(() => {
 
                   <div class="inv-involve-media">
                     <div class="inv-involve-pane is-active" data-involve-pane="voss" role="tabpanel">
-                      <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/v1778596489/VOS_sR_f1zoum.gif" alt="Venture OS — dashboard preview" class="inv-involve-img">
+                      <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/v1778596489/VOS_sR_f1zoum.gif" alt="Venture OS - dashboard preview" class="inv-involve-img">
                     </div>
                     <div class="inv-involve-pane" data-involve-pane="monthly" role="tabpanel" aria-hidden="true">
                       <div class="inv-involve-trio">
@@ -1660,7 +1660,7 @@ Webflow.push(() => {
                             data-src="https://www.youtube-nocookie.com/embed/Db4XNeTg6sc?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=Db4XNeTg6sc&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playsinline=1&amp;disablekb=1&amp;iv_load_policy=3&amp;fs=0&amp;start=8&amp;enablejsapi=1"
                             src="about:blank"
                             allow="autoplay; encrypted-media; picture-in-picture"
-                            title="February 2026 investor update — muted preview"
+                            title="February 2026 investor update - muted preview"
                             loading="lazy"></iframe>
                           <span class="inv-involve-trio-month" aria-hidden="true">Feb &rsquo;26</span>
                         </div>
@@ -1669,7 +1669,7 @@ Webflow.push(() => {
                             data-src="https://www.youtube-nocookie.com/embed/9F0quI-tjBM?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=9F0quI-tjBM&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playsinline=1&amp;disablekb=1&amp;iv_load_policy=3&amp;fs=0&amp;start=9&amp;enablejsapi=1"
                             src="about:blank"
                             allow="autoplay; encrypted-media; picture-in-picture"
-                            title="March 2026 investor update — muted preview"
+                            title="March 2026 investor update - muted preview"
                             loading="lazy"></iframe>
                           <span class="inv-involve-trio-month" aria-hidden="true">Mar &rsquo;26</span>
                         </div>
@@ -1678,7 +1678,7 @@ Webflow.push(() => {
                             data-src="https://www.youtube-nocookie.com/embed/qBTsetZf4k4?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=qBTsetZf4k4&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playsinline=1&amp;disablekb=1&amp;iv_load_policy=3&amp;fs=0&amp;start=8&amp;enablejsapi=1"
                             src="about:blank"
                             allow="autoplay; encrypted-media; picture-in-picture"
-                            title="April 2026 investor update — muted preview"
+                            title="April 2026 investor update - muted preview"
                             loading="lazy"></iframe>
                           <span class="inv-involve-trio-month" aria-hidden="true">Apr &rsquo;26</span>
                         </div>
@@ -1702,7 +1702,7 @@ Webflow.push(() => {
                     var panes = root.querySelectorAll('[data-involve-pane]');
                     var iframes = root.querySelectorAll('.inv-involve-iframe[data-src]');
                     /* YouTube iframes are kept dormant (src=about:blank) until
-                       the user activates the Monthly Update tab — saves the
+                       the user activates the Monthly Update tab - saves the
                        up-front YouTube load on first paint. Swap src once,
                        then leave it alone (looping autoplay handles repeats). */
                     function lazyLoadIframes (which) {
@@ -1742,7 +1742,7 @@ Webflow.push(() => {
       </section>
 
       <!-- ============================================================
-           §04-ARCHIVED — Monthly investor videos (3 video cards).
+           §04-ARCHIVED - Monthly investor videos (3 video cards).
            Replaced by the Monthly Update tab inside §03 Involve.
            Preserved verbatim inside <template> for future resurrection;
            doesn't render or run on the live page. Heavy YouTube iframes
@@ -1756,7 +1756,7 @@ Webflow.push(() => {
               <div fd-section-reveal="">
                 <div class="section-tabs-header">
                   <h2 fd-heading-reveal="" class="heading-style-h2"><span fd-svg-underline-text="scroll" fd-svg-underline-stroke="4">Monthly investor</span> updates.</h2>
-                  <p fd-fade-reveal="" class="text-size-medium">A 5–7 min founder video on the 1st of every month — what shipped, what didn’t, and what we’re asking for.</p>
+                  <p fd-fade-reveal="" class="text-size-medium">A 5–7 min founder video on the 1st of every month - what shipped, what didn’t, and what we’re asking for.</p>
                 </div>
                 <div class="spacer-56"></div>
 
@@ -1767,7 +1767,7 @@ Webflow.push(() => {
                         data-src="https://www.youtube-nocookie.com/embed/Db4XNeTg6sc?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=Db4XNeTg6sc&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playsinline=1&amp;disablekb=1&amp;iv_load_policy=3&amp;fs=0&amp;start=8&amp;enablejsapi=1"
                         src="about:blank"
                         allow="autoplay; encrypted-media; picture-in-picture"
-                        title="February 2026 investor update — muted preview"
+                        title="February 2026 investor update - muted preview"
                         loading="lazy"></iframe>
                       <div class="inv-video-shield" aria-hidden="true"></div>
                       <div class="inv-video-tag" aria-hidden="true">Preview · muted</div>
@@ -1788,7 +1788,7 @@ Webflow.push(() => {
                         data-src="https://www.youtube-nocookie.com/embed/9F0quI-tjBM?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=9F0quI-tjBM&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playsinline=1&amp;disablekb=1&amp;iv_load_policy=3&amp;fs=0&amp;start=8&amp;enablejsapi=1"
                         src="about:blank"
                         allow="autoplay; encrypted-media; picture-in-picture"
-                        title="March 2026 investor update — muted preview"
+                        title="March 2026 investor update - muted preview"
                         loading="lazy"></iframe>
                       <div class="inv-video-shield" aria-hidden="true"></div>
                       <div class="inv-video-tag" aria-hidden="true">Preview · muted</div>
@@ -1809,7 +1809,7 @@ Webflow.push(() => {
                         data-src="https://www.youtube-nocookie.com/embed/qBTsetZf4k4?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=qBTsetZf4k4&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;playsinline=1&amp;disablekb=1&amp;iv_load_policy=3&amp;fs=0&amp;start=8&amp;enablejsapi=1"
                         src="about:blank"
                         allow="autoplay; encrypted-media; picture-in-picture"
-                        title="April 2026 investor update — muted preview"
+                        title="April 2026 investor update - muted preview"
                         loading="lazy"></iframe>
                       <div class="inv-video-shield" aria-hidden="true"></div>
                       <div class="inv-video-tag" aria-hidden="true">Preview · muted</div>
@@ -1867,7 +1867,7 @@ Webflow.push(() => {
       </template>
 
       <!-- ============================================================
-           §05 LONG-GAME FIT — intro + ✓ card + ✕ card
+           §05 LONG-GAME FIT - intro + ✓ card + ✕ card
            ============================================================ -->
       <section>
         <div class="padding-global">
@@ -1882,7 +1882,7 @@ Webflow.push(() => {
                   <div class="spacer-large"></div>
 
                   <!-- 3-column comparison table: row label | fit | not-fit.
-                       Reads like a settings table, no bullets — the rows
+                       Reads like a settings table, no bullets - the rows
                        themselves carry the categorical structure. -->
                   <div fd-fade-reveal="" class="inv-fit-table">
                     <div class="inv-fit-table-head">
@@ -1897,7 +1897,7 @@ Webflow.push(() => {
                     </div>
                     <div class="inv-fit-table-row">
                       <div class="inv-fit-cell-label">Investor Type</div>
-                      <div class="inv-fit-cell fit">Are individuals who love backing startups — angels, operators, founders</div>
+                      <div class="inv-fit-cell fit">Are individuals who love backing startups - angels, operators, founders</div>
                       <div class="inv-fit-cell no">Are an institution deploying a fund mandate</div>
                     </div>
                     <div class="inv-fit-table-row">
@@ -1914,8 +1914,8 @@ Webflow.push(() => {
       </section>
 
       <!-- ============================================================
-           §06-ARCHIVED — Investment process 4-step timeline
-           ("From hello to first wire — ~14 days"). Preserved verbatim
+           §06-ARCHIVED - Investment process 4-step timeline
+           ("From hello to first wire - ~14 days"). Preserved verbatim
            inside <template>; doesn't render or run on the live page.
            The process-timeline init JS short-circuits because the
            [data-process-timeline] selector returns null.
@@ -1927,7 +1927,7 @@ Webflow.push(() => {
             <div class="padding-section-large">
               <div fd-section-reveal="">
                 <div class="section-tabs-header">
-                  <h2 fd-heading-reveal="" class="heading-style-h2">From hello to first wire — <span fd-svg-underline-text="scroll" fd-svg-underline-stroke="4">~14 days.</span></h2>
+                  <h2 fd-heading-reveal="" class="heading-style-h2">From hello to first wire - <span fd-svg-underline-text="scroll" fd-svg-underline-stroke="4">~14 days.</span></h2>
                   <p fd-fade-reveal="" class="text-size-medium">Four async-friendly steps. KYC and e-sign in-app via Venture OS. One signature, indirect exposure to every PortCo.</p>
                 </div>
                 <div class="spacer-56"></div>
@@ -1991,9 +1991,7 @@ Webflow.push(() => {
                   <div class="section-header is-center">
                     <div class="margin-bottom margin-xxsmall">
                       <div fd-heading-reveal="">
-                        <h2 class="heading-style-h2">Built by a 2× founder who's walked the road to $10M ARR - and is doing it again, 100 times. 
-                          <!-- <em><span fd-svg-underline-text="scroll" fd-svg-underline-offset="4">at a time</span></em>. -->
-                        </h2>
+                        <h2 class="heading-style-h2 sri-journey-h2">Built by a 2× founder who's walked the road to $10M ARR - and is doing it again, <span fd-svg-underline-text="scroll" fd-svg-underline-offset="4">100 times</span>.</h2>
                       </div>
                     </div>
                     <div class="max-width-large align-center text-align-center" fd-fade-reveal="">
@@ -2015,23 +2013,23 @@ Webflow.push(() => {
                   <div class="sri-mobile-track-inner">
                     <div class="sri-mobile-track-line"></div>
                     <div class="sri-mobile-track-fill" data-sri-mobile-fill></div>
-                    <button type="button" class="sri-mobile-dot is-active" data-sri-mtdot="0" aria-label="Jump to 2006 — NIT Warangal">
+                    <button type="button" class="sri-mobile-dot is-active" data-sri-mtdot="0" aria-label="Jump to 2006 - NIT Warangal">
                       <span class="sri-mobile-dot-mark"></span>
                       <span class="sri-mobile-dot-year">2006</span>
                     </button>
-                    <button type="button" class="sri-mobile-dot" data-sri-mtdot="1" aria-label="Jump to 2008 — Lakshya Foundation">
+                    <button type="button" class="sri-mobile-dot" data-sri-mtdot="1" aria-label="Jump to 2008 - Lakshya Foundation">
                       <span class="sri-mobile-dot-mark"></span>
                       <span class="sri-mobile-dot-year">2008</span>
                     </button>
-                    <button type="button" class="sri-mobile-dot" data-sri-mtdot="2" aria-label="Jump to 2014 — Almabase">
+                    <button type="button" class="sri-mobile-dot" data-sri-mtdot="2" aria-label="Jump to 2014 - Almabase">
                       <span class="sri-mobile-dot-mark"></span>
                       <span class="sri-mobile-dot-year">2014</span>
                     </button>
-                    <button type="button" class="sri-mobile-dot" data-sri-mtdot="3" aria-label="Jump to 2023 — Bharat SaaS Yatra">
+                    <button type="button" class="sri-mobile-dot" data-sri-mtdot="3" aria-label="Jump to 2023 - Bharat SaaS Yatra">
                       <span class="sri-mobile-dot-mark"></span>
                       <span class="sri-mobile-dot-year">2023</span>
                     </button>
-                    <button type="button" class="sri-mobile-dot" data-sri-mtdot="4" aria-label="Jump to 2024 — Shifu Ventures">
+                    <button type="button" class="sri-mobile-dot" data-sri-mtdot="4" aria-label="Jump to 2024 - Shifu Ventures">
                       <span class="sri-mobile-dot-mark"></span>
                       <span class="sri-mobile-dot-year">2024</span>
                     </button>
@@ -2043,7 +2041,7 @@ Webflow.push(() => {
                     <div class="sri-rail-line"></div>
                     <div class="sri-rail-fill"></div>
                     <div class="sri-rail-avatar" data-sri-avatar>
-                      <a class="sri-rail-avatar-link is-primary" href="https://www.linkedin.com/in/srimaneru/" target="_blank" rel="noopener noreferrer" aria-label="Sri Maneru, Co-Founder &amp; CEO — open LinkedIn">
+                      <a class="sri-rail-avatar-link is-primary" href="https://www.linkedin.com/in/srimaneru/" target="_blank" rel="noopener noreferrer" aria-label="Sri Maneru, Co-Founder &amp; CEO - open LinkedIn">
                         <img src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_240/v1769246644/808af0fe-bcc6-46ea-adc6-221e749bb1bc.png" alt="Sri Maneru" loading="lazy" decoding="async">
                         <span class="sri-rail-tooltip" role="tooltip">
                           <span class="sri-rail-tooltip-name">Sri Maneru</span>
@@ -2051,7 +2049,7 @@ Webflow.push(() => {
                           <span class="sri-rail-tooltip-cta">View LinkedIn <span aria-hidden="true">↗</span></span>
                         </span>
                       </a>
-                      <a class="sri-rail-avatar-link is-secondary" href="https://www.linkedin.com/in/pratsethi/" target="_blank" rel="noopener noreferrer" aria-label="Prateek Sethi, Co-Founder &amp; COO — open LinkedIn">
+                      <a class="sri-rail-avatar-link is-secondary" href="https://www.linkedin.com/in/pratsethi/" target="_blank" rel="noopener noreferrer" aria-label="Prateek Sethi, Co-Founder &amp; COO - open LinkedIn">
                         <img src="https://res.cloudinary.com/dkwqszhed/image/upload/v1779002701/prateek_bmfvas.png" alt="Prateek Sethi" loading="lazy" decoding="async">
                         <span class="sri-rail-tooltip" role="tooltip">
                           <span class="sri-rail-tooltip-name">Prateek Sethi</span>
@@ -2103,9 +2101,9 @@ Webflow.push(() => {
                         <span class="sri-slide-badge-title">NIT Warangal</span>
                       </div>
                       <div class="sri-slide-meta">
-                        <h3 class="sri-slide-title">In his third year, Sri ran for student-union president — and won, unanimously.</h3>
+                        <h3 class="sri-slide-title">In his third year, Sri ran for student-union president - and won, unanimously.</h3>
                       </div>
-                      <p class="sri-slide-body">Engineering was the degree - but he derailed fast, getting himself unanimously elected Student Union President. One problem kept finding him: bright students who couldn't make the college fees. So he led the motion that mattered — rallying alumni to fund them through. The first time he saw alumni become the answer.</p>
+                      <p class="sri-slide-body">Engineering was the degree - but he derailed fast, getting himself unanimously elected Student Union President. One problem kept finding him: bright students who couldn't make the college fees. So he led the motion that mattered - rallying alumni to fund them through. The first time he saw alumni become the answer.</p>
                       <div class="sri-slide-media">
                         <div class="sri-photo">
                           <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_960/v1778829489/image_323_xowocn.png" alt="NIT Warangal campus · 2006">
@@ -2123,7 +2121,7 @@ Webflow.push(() => {
                       <div class="sri-slide-meta">
                         <h3 class="sri-slide-title">Co-Founded an educational non-profit to raise 10s of crores of scholarship for underprivileged students</h3>
                       </div>
-                      <p class="sri-slide-body">After college he built Lakshya, the non-profit version of that motion. It started with one girl, funded by alumni who barely knew her — then it compounded: tens of crores raised, hundreds of students kept in college, all on spreadsheets and goodwill. Which raised the question that wouldn't let go: if alumni gave this much with no real technology, what could technology do?</p>
+                      <p class="sri-slide-body">After college he built Lakshya, the non-profit version of that motion. It started with one girl, funded by alumni who barely knew her - then it compounded: tens of crores raised, hundreds of students kept in college, all on spreadsheets and goodwill. Which raised the question that wouldn't let go: if alumni gave this much with no real technology, what could technology do?</p>
                       <div class="sri-slide-media">
                         <div class="sri-photo">
                           <img loading="lazy" src="https://res.cloudinary.com/dkwqszhed/image/upload/f_auto,q_auto,w_960/v1778829490/image_324_du4ldb.png" alt="Lakshya Foundation cohort · 2009">
@@ -2173,7 +2171,7 @@ Webflow.push(() => {
                         <h3 class="sri-slide-title">Travelled 10,000 km to test an idea and build it into conviction.</h3>
                       </div>
                       <div class="sri-slide-body-wrap">
-                        <p id="sri-body-3" class="sri-slide-body sri-slide-body--clampable is-clamped">With Almabase built, Sri asked what's next — and found the answer in Prateek, an early Almabase employee who shared the same itch: not one more company, but hundreds, co-built the way Almabase was. Before betting the next few decades on that, they wanted to truly understand the market they'd live in. So — as crazy as it sounds — they took a bus across India, district after district, meeting thousands of aspiring founders and hundreds who'd already made it. They left with questions and came back with answers — what to build, who for, why now. The studio finally had its shape.</p>
+                        <p id="sri-body-3" class="sri-slide-body sri-slide-body--clampable is-clamped">With Almabase built, Sri asked what's next - and found the answer in Prateek, an early Almabase employee who shared the same itch: not one more company, but hundreds, co-built the way Almabase was. Before betting the next few decades on that, they wanted to truly understand the market they'd live in. So - as crazy as it sounds - they took a bus across India, district after district, meeting thousands of aspiring founders and hundreds who'd already made it. They left with questions and came back with answers - what to build, who for, why now. The studio finally had its shape.</p>
                         <button type="button" class="sri-slide-readmore" data-sri-readmore data-no-edit aria-controls="sri-body-3" aria-expanded="false">Read more</button>
                       </div>
                       <div class="sri-slide-media is-video">
@@ -2205,7 +2203,7 @@ Webflow.push(() => {
                       <div class="sri-slide-meta">
                         <h3 class="sri-slide-title">Building a Venture Studio to co-build 100 companies to $10M in ARR, in a profitable, capital efficient way!</h3>
                       </div>
-                      <p class="sri-slide-body">Shifu Ventures is that conviction in action. The first two years were a deliberate pilot: two companies, co-built — one already grew from $700K to $2.5M ARR in 18 months, the other cash-flow positive from month one. The pilots worked. Three more are now onboarded in early 2026 — five companies in, with a team here to build for the decades ahead.</p>
+                      <p class="sri-slide-body">Shifu Ventures is that conviction in action. The first two years were a deliberate pilot: two companies, co-built - one already grew from $700K to $2.5M ARR in 18 months, the other cash-flow positive from month one. The pilots worked. Three more are now onboarded in early 2026 - five companies in, with a team here to build for the decades ahead.</p>
                       <!-- Embedded copy of the homepage tier-01 + tier-02
                            portfolio block (Fractional + Portfolio Companies).
                            Uses the .sv-mission2-* classes from homepage-v2.css
@@ -2318,7 +2316,7 @@ Webflow.push(() => {
       </section>
 
       <!-- ============================================================
-           §07 FAQs — reuses .home_faq_* pattern from index.html.
+           §07 FAQs - reuses .home_faq_* pattern from index.html.
            The existing global [data-click="faq"] handler wires the
            open/close. First FAQ opens by default. L-bracket appears
            on .open via the same Webflow interaction.
@@ -2333,7 +2331,7 @@ Webflow.push(() => {
                     <h2 fd-heading-reveal="" class="heading-style-h2">Frequently Asked <span fd-svg-underline-stroke="2.5" fd-svg-underline-text="scroll">Questions</span></h2>
                   </div>
                   <div fd-fade-reveal="" class="max-width-small">
-                    <p class="text-size-medium">The questions investors ask first — fit, cheque, time, vehicle.</p>
+                    <p class="text-size-medium">The questions investors ask first - fit, cheque, time, vehicle.</p>
                   </div>
                 </div>
                 <div class="home_faq_list">
@@ -2346,7 +2344,7 @@ Webflow.push(() => {
                         </div>
                         <div class="home_faq_answer">
                           <div class="home_faq_answer-text">
-                            <p>To start, mostly outcome-as-a-service and foundational companies — the kind we’re co-building now, like Photon Legal and Curious Men Films — plus fractional-CXO companies, wherever the market is clear and big enough to win. Once we have a few wins behind us, we’ll take bigger, higher-risk bets — think space tech and hardware.</p>
+                            <p>To start, mostly outcome-as-a-service and foundational companies - the kind we’re co-building now, like Photon Legal and Curious Men Films - plus fractional-CXO companies, wherever the market is clear and big enough to win. Once we have a few wins behind us, we’ll take bigger, higher-risk bets - think space tech and hardware.</p>
                           </div>
                         </div>
                         <div class="faq-focused-bg">
@@ -2360,7 +2358,7 @@ Webflow.push(() => {
                         </div>
                         <div class="home_faq_answer">
                           <div class="home_faq_answer-text">
-                            <p>We’re raising from Indian-origin investors who think in years, not months, and want to be hands-on as we build. Cheques run roughly <strong>$25K–$250K</strong>, via a single SAFE — indirect exposure to every company we co-build in the next few decades to come.</p>
+                            <p>We’re raising from Indian-origin investors who think in years, not months, and want to be hands-on as we build. Cheques run roughly <strong>$25K–$250K</strong>, via a single SAFE - indirect exposure to every company we co-build in the next few decades to come.</p>
                           </div>
                         </div>
                         <div class="faq-focused-bg">
@@ -2391,9 +2389,9 @@ Webflow.push(() => {
                             <p>The companies we co-build are selling to the B2B segment, and typically have $100K–$1M ACV.</p>
                             <p>The help we look for falls into three buckets:</p>
                             <ol>
-                              <li><strong>Warm intros</strong> — to potential customers and ICPs for these companies.</li>
-                              <li><strong>Expertise on demand</strong> — when a company hits something in engineering, product, or GTM, investors with that depth step in.</li>
-                              <li><strong>Market access</strong> — our investors span geographies; when a company enters a new market, the investor native to it helps open the door.</li>
+                              <li><strong>Warm intros</strong> - to potential customers and ICPs for these companies.</li>
+                              <li><strong>Expertise on demand</strong> - when a company hits something in engineering, product, or GTM, investors with that depth step in.</li>
+                              <li><strong>Market access</strong> - our investors span geographies; when a company enters a new market, the investor native to it helps open the door.</li>
                             </ol>
                             <p>There might be diverse set of help needed by our PortCo companies, and we’d be looking up to our investors for that.</p>
                           </div>
@@ -2409,7 +2407,7 @@ Webflow.push(() => {
                         </div>
                         <div class="home_faq_answer">
                           <div class="home_faq_answer-text">
-                            <p>No — we’re a venture studio, not a fund. You come in directly on the cap table through a single SAFE: no fund, no AUM, no GP/LP, no management fee. You own a piece of what we build, not units in a vehicle.</p>
+                            <p>No - we’re a venture studio, not a fund. You come in directly on the cap table through a single SAFE: no fund, no AUM, no GP/LP, no management fee. You own a piece of what we build, not units in a vehicle.</p>
                           </div>
                         </div>
                         <div class="faq-focused-bg">
@@ -2423,7 +2421,7 @@ Webflow.push(() => {
                         </div>
                         <div class="home_faq_answer">
                           <div class="home_faq_answer-text">
-                            <p>Indian-origin investors who love startups and think in years, not months — founders, operators, angels, and family offices who want to be involved in helping us co-build 100 companies.</p>
+                            <p>Indian-origin investors who love startups and think in years, not months - founders, operators, angels, and family offices who want to be involved in helping us co-build 100 companies.</p>
                           </div>
                         </div>
                         <div class="faq-focused-bg">
@@ -2437,7 +2435,7 @@ Webflow.push(() => {
                         </div>
                         <div class="home_faq_answer">
                           <div class="home_faq_answer-text">
-                            <p>Once you’re in, we onboard you to Venture OS and map your expertise. As the companies raise specific asks, Venture OS routes the relevant ones to you — so you only ever see where you can genuinely help.</p>
+                            <p>Once you’re in, we onboard you to Venture OS and map your expertise. As the companies raise specific asks, Venture OS routes the relevant ones to you - so you only ever see where you can genuinely help.</p>
                           </div>
                         </div>
                         <div class="faq-focused-bg">
@@ -2465,7 +2463,7 @@ Webflow.push(() => {
       <script src="js/investors.js" defer></script>
 
       <!-- =====================================================
-           INVESTOR SIGNUP MODAL — opened by any [data-invest-open]
+           INVESTOR SIGNUP MODAL - opened by any [data-invest-open]
            button. 5-field form, vanilla submit handler. Hook the
            POST endpoint inside the script (see the TODO comment).
            ===================================================== -->
@@ -2525,7 +2523,7 @@ Webflow.push(() => {
             <div class="inv-form-success-icon" aria-hidden="true">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
             </div>
-            <h3 class="inv-form-success-title">Got it — talk soon.</h3>
+            <h3 class="inv-form-success-title">Got it - talk soon.</h3>
             <p class="inv-form-success-sub">We received your details. Sri will personally reply within two business days with next steps.</p>
             <button type="button" class="button w-inline-block inv-form-submit" data-invest-close>
               <div>Close</div>
@@ -2537,7 +2535,7 @@ Webflow.push(() => {
       <script>
         /* Invest-form modal: open via [data-invest-open], close via
            [data-invest-close] / backdrop / Esc. Submit is a no-op
-           network call by default — replace SUBMIT_ENDPOINT with a
+           network call by default - replace SUBMIT_ENDPOINT with a
            Formspree URL, Vercel function, or any POST-accepting URL
            that takes JSON. */
         (function () {
@@ -2619,7 +2617,7 @@ Webflow.push(() => {
             }
 
             if (!SUBMIT_ENDPOINT) {
-              // No backend wired yet — log + show success so the
+              // No backend wired yet - log + show success so the
               // user can see the flow.
               console.info('[invest-form] submission (no endpoint configured):', data);
               showSuccess();
@@ -2722,7 +2720,7 @@ Webflow.push(() => {
   <script type="text/javascript">gsap.registerPlugin(ScrollTrigger);</script>
   <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-<!-- Removed: Leaflet JS — the geo map is a custom SVG, not Leaflet. -->
+<!-- Removed: Leaflet JS - the geo map is a custom SVG, not Leaflet. -->
   <!--  Lenis  -->
   <script>
 "use-strict";
@@ -2865,7 +2863,7 @@ const isMobile = matchMedia("(max-width: 768px)").matches;
   });
 
   // ----------------------------------------------------------------
-  // §02 Sri's Journey — scroll-pinned timeline.
+  // §02 Sri's Journey - scroll-pinned timeline.
   // The whole .sri-journey-stage is pinned for ~(N-1)*0.8 viewport
   // heights. JS writes --sri-progress (0..1) onto the stage; CSS
   // drives the avatar's `top` and the rail-fill's height from it.
@@ -2913,7 +2911,7 @@ const isMobile = matchMedia("(max-width: 768px)").matches;
         s.classList.toggle('is-active', idx === i);
       });
       slides.forEach((s, idx) => s.classList.toggle('is-active', idx === i));
-      // Duo avatar (Sri + Prateek) from BSY onward — Prateek joined the
+      // Duo avatar (Sri + Prateek) from BSY onward - Prateek joined the
       // journey at milestone 3 (Bharat SaaS Yatra) and continues on to
       // Shifu Ventures (milestone 4).
       if (avatar) avatar.classList.toggle('has-duo', i >= 3);
@@ -2926,7 +2924,7 @@ const isMobile = matchMedia("(max-width: 768px)").matches;
       const distance = window.innerHeight * (total - 1) * 0.8;
       // start 'center center' parks the stage's vertical center on the
       // viewport's vertical center the moment pinning engages, so there's
-      // breathing room above and below — the section feels intentionally
+      // breathing room above and below - the section feels intentionally
       // framed rather than slammed against the navbar.
       st = ScrollTrigger.create({
         trigger: stage,
@@ -3044,7 +3042,7 @@ const isMobile = matchMedia("(max-width: 768px)").matches;
         // Scroll-driven active detection. On each scroll tick we compute
         // which slide occupies the most of the viewport's "reading band"
         // (25% from top → 85% from top) and mark its dot active. This is
-        // simpler & more reliable than IntersectionObserver — fires on
+        // simpler & more reliable than IntersectionObserver - fires on
         // every scroll including programmatic ones, no threshold edge
         // cases, no fixed up-front threshold list.
         function computeActive () {
@@ -3070,8 +3068,8 @@ const isMobile = matchMedia("(max-width: 768px)").matches;
         // Run computeActive directly on each scroll tick. The earlier
         // requestAnimationFrame batching approach turned out unreliable
         // in the preview env (RAFs throttled when window wasn't focused),
-        // and the work computeActive does is cheap — 5 getBoundingClientRect
-        // calls — so a synchronous tick is fine.
+        // and the work computeActive does is cheap - 5 getBoundingClientRect
+        // calls - so a synchronous tick is fine.
         function onScroll () {
           computeActive();
         }
@@ -3142,7 +3140,7 @@ const isMobile = matchMedia("(max-width: 768px)").matches;
   })();
 
   // ----------------------------------------------------------------
-  // §06 Process timeline — sequential walk-and-glow loop.
+  // §06 Process timeline - sequential walk-and-glow loop.
   // Line draws from 1→2, then 2 glows; 2→3, then 3 glows; 3→4, then
   // 4 glows; reset and repeat. Each step picks up an "active" trail
   // marker after being passed.
@@ -3193,7 +3191,7 @@ const isMobile = matchMedia("(max-width: 768px)").matches;
       return scheduled;
     }
     function runCycle () {
-      if (!isInView) return; // paused while off-screen — saves CPU
+      if (!isInView) return; // paused while off-screen - saves CPU
       resetAll();
       steps[0].classList.add("is-focused");
       let i = 1;
@@ -3235,7 +3233,7 @@ const isMobile = matchMedia("(max-width: 768px)").matches;
 </script>
 
 <script>
-// §02 Ask — tab switching between the time (case-study carousel) and
+// §02 Ask - tab switching between the time (case-study carousel) and
 // capital (flow diagram) panels. The two boxes above act as triggers;
 // the corresponding panel below shows. Also generates 100 PortCo cells
 // once on init so the markup stays clean.
@@ -3271,7 +3269,7 @@ const isMobile = matchMedia("(max-width: 768px)").matches;
   const grid     = document.querySelector('[data-flow-grid]');
   const diagram  = document.querySelector('[data-flow-diagram]');
 
-  // Tile SVG markup — layers, in draw order (later = on top):
+  // Tile SVG markup - layers, in draw order (later = on top):
   //   1. dark bg rect (fallback / dark backing for transparent logos)
   //   2. optional logo <image> clipped to the rect (PL / CMF cells)
   //   3. orange strip rect at the top (always on top of the logo)
@@ -3279,7 +3277,7 @@ const isMobile = matchMedia("(max-width: 768px)").matches;
   //
   // viewBox is 0 0 100 100 with preserveAspectRatio="none" so the tile
   // stretches to whatever aspect the CSS wrap gives it. The orange
-  // strip is 14% of the tile height, hugging the top — same "fraction"
+  // strip is 14% of the tile height, hugging the top - same "fraction"
   // metaphor as the previous circle wedge.
   const pieMarkup = (logoUrl, clipId) => {
     const defs = logoUrl
@@ -3299,13 +3297,13 @@ const isMobile = matchMedia("(max-width: 768px)").matches;
       </svg>`;
   };
 
-  // Logo URLs for the two real PortCo tiles in the top row — dedicated
+  // Logo URLs for the two real PortCo tiles in the top row - dedicated
   // Cloudinary uploads sized for the tile aspect (logos sit centred on
   // a transparent / brand-coloured background, no wordmark cropping).
   const PL_LOGO  = 'https://res.cloudinary.com/dkwqszhed/image/upload/v1779122219/Frame_2085665541_vlnd9z.png';
   const CMF_LOGO = 'https://res.cloudinary.com/dkwqszhed/image/upload/v1779122219/Frame_2085665542_ksjbew.png';
 
-  // 1. Build the top row — 7 BIG circles:
+  // 1. Build the top row - 7 BIG circles:
   //      cells 0-4: fractional (CMO / CRO / CPO / CHRO / CFO) with
   //                 the role acronym inside the circle at the bottom
   //      cells 5-6: the two real PortCos (Photon Legal + CMF) with
@@ -3350,7 +3348,7 @@ const isMobile = matchMedia("(max-width: 768px)").matches;
 
   // 2. Build the 93 anonymous PortCo pies for the bottom grid. These
   //    represent the slots yet to be filled in the studio's 100-PortCo
-  //    plan — 100 total = 5 fractional + 2 active PortCos (top row)
+  //    plan - 100 total = 5 fractional + 2 active PortCos (top row)
   //    + 93 placeholders here.
   if (grid && grid.children.length === 0) {
     const frag = document.createDocumentFragment();
@@ -3366,7 +3364,7 @@ const isMobile = matchMedia("(max-width: 768px)").matches;
 
   // 3. Trigger the cascade animation when the diagram scrolls into
   //    view AND the capital panel is visible. After the third stage
-  //    (95-pie cascade) finishes, pause 7s and replay — so the
+  //    (95-pie cascade) finishes, pause 7s and replay - so the
   //    metaphor lands repeatedly as long as the section is on screen.
   //    Pauses when the diagram scrolls out of view or the user
   //    switches to a different tab; resumes when it's back in view.
@@ -3410,7 +3408,7 @@ const isMobile = matchMedia("(max-width: 768px)").matches;
       diagram.classList.remove('is-animating');
     };
 
-    // IntersectionObserver — start looping when ≥30% in view, stop
+    // IntersectionObserver - start looping when ≥30% in view, stop
     // (and reset) when scrolled away. Resuming after re-entry begins
     // a fresh cycle from beat 1.
     if ('IntersectionObserver' in window) {
@@ -3425,7 +3423,7 @@ const isMobile = matchMedia("(max-width: 768px)").matches;
       }, { threshold: 0.3 });
       io.observe(diagram);
     } else {
-      // No IO support — fire once immediately, no loop
+      // No IO support - fire once immediately, no loop
       cycle();
     }
 
@@ -3449,13 +3447,13 @@ const isMobile = matchMedia("(max-width: 768px)").matches;
 </script>
 
 <script>
-// BSY video reel — five clips in continuous loop with crossfade between
+// BSY video reel - five clips in continuous loop with crossfade between
 // them. Two <video> elements alternate as "current" and "next"; while one
 // plays, the other is preloaded with the upcoming source so the swap is
 // instant and free of buffering jerk.
 (function () {
   // Each entry is { src, trim }. `trim` is how many seconds before the
-  // clip's natural end we crossfade to the next clip — used to skip
+  // clip's natural end we crossfade to the next clip - used to skip
   // glitchy or frozen tail frames. Default 0.35s (just past the last
   // motion); sfvid5 has a stuck final ~2s so we cut it short.
   const sources = [
@@ -3483,7 +3481,7 @@ const isMobile = matchMedia("(max-width: 768px)").matches;
     next.load();
 
     // Slide 3 (BSY) starts with visibility:hidden until the user scrolls
-    // to it — Chrome blocks autoplay on hidden elements. Watch the
+    // to it - Chrome blocks autoplay on hidden elements. Watch the
     // slide's is-active class and play/pause accordingly.
     const slide = reel.closest('[data-sri-slide]');
     function syncPlayback() {

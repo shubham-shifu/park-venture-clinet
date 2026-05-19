@@ -106,7 +106,7 @@ html.lenis {height: auto;}
   opacity: 0;
   transition: opacity 0.25s ease;
 }
-/* Generic reveal — animates in via CSS, no JS dependency */
+/* Generic reveal - animates in via CSS, no JS dependency */
 [load-reveal] {
   animation: fdLoadRevealIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
   will-change: opacity, transform;
@@ -553,7 +553,7 @@ Webflow.push(() => {
       last = y;
       return;
     }
-    // BELOW NAV HEIGHT — HARD STOP
+    // BELOW NAV HEIGHT - HARD STOP
     lottie?.goToAndStop(0, true);
     if (Math.abs(y - last) < 5) return;
     nav.classList.toggle("nav--hidden", y > last);
@@ -912,7 +912,7 @@ Webflow.push(function () {
         </div>
       </section>
       <!-- ============================================================
-           §A-ARCHIVED — Original "On a mission to co-build 100 Companies"
+           §A-ARCHIVED - Original "On a mission to co-build 100 Companies"
            section: 5 fractional cards (CMO/CRO/CPO/CHRO/CFO) with closed-
            state badges on the right + a 100-tile mission grid where only
            tiles #1 (Photon Legal) and #2 (Curious Men Films) were filled.
@@ -1161,7 +1161,7 @@ Webflow.push(function () {
       </section>
       </template>
       <!-- ============================================================
-           §A-LIVE — Mission v2: three-tier proof stack
+           §A-LIVE - Mission v2: three-tier proof stack
            ============================================================ -->
       <section class="section_home_mission sv-mission2-section">
         <div class="padding-global">
@@ -1169,28 +1169,74 @@ Webflow.push(function () {
             <div class="padding-section-large">
               <div fd-section-reveal="" class="sv-mission2">
 
-                <!-- Header — eyebrow + headline + sub-copy. Centered on the
+                <!-- Header - eyebrow + headline + sub-copy. Centered on the
                      page so the vision statement sits as a single column
                      anchor above the tier system below. -->
                 <header class="sv-mission2-head is-centered">
                   <div class="sv-mission2-head-left">
                     <span fd-fade-reveal="" class="sv-mission2-head-eyebrow">Our Vision</span>
-                    <h2 fd-heading-reveal="" class="heading-style-h2 text-color-white">On a mission to co-build<br><span fd-svg-underline-offset="-4" fd-svg-underline-text="scroll">100 companies</span> in our lifetime.</h2>
-                    <p fd-fade-reveal="" class="sv-mission2-head-sub">We cap intake at 4&ndash;5 a year and only expand after each PortCo is scaled. Here&rsquo;s how the first seven are filling up &mdash; and the 93 still to come.</p>
+                    <h2 fd-heading-reveal="" class="heading-style-h2 text-color-white" style="margin-bottom: 1rem;">On a mission to co-build<br><span fd-svg-underline-offset="-4" fd-svg-underline-text="scroll">100 companies</span> in our lifetime.</h2>
+                    <p fd-fade-reveal="" class="sv-mission2-head-sub">We cap intake at 4&ndash;5 a year and only expand after each PortCo is scaled. Here&rsquo;s how the first seven are filling up - and the 93 still to come.</p>
                   </div>
                 </header>
 
-                <!-- ·01 Fractional Co-Founders (5 cards): 3 closed + 2 closing.
-                     Closed cards have a green top hairline + ambient tint;
-                     closing cards are dashed-stroke with italic copy so an
-                     investor reads the split in a single glance. -->
+
+                <!-- ·01 Portfolio Companies (3 cards): Photon Legal + Curious Men
+                     Films + the "+93 others" stat block that closes the math
+                     from the headline in a single row. -->
                 <div fd-fade-reveal="" class="sv-mission2-tier">
                   <div class="sv-mission2-tier-label">
                     <span class="sv-mission2-tier-num">01</span>
+                    <span class="sv-mission2-tier-name">Portfolio Companies</span>
+                    <span class="sv-mission2-tier-rule" aria-hidden="true"></span>
+                  </div>
+                  <div fd-child-fade="" class="sv-mission2-pc-row">
+                    <a href="https://photonlegal.com/" target="_blank" rel="noopener" class="sv-mission2-pc-card">
+                      <span class="sv-mission2-pc-arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 11 L11 5 M5.75 5 L11 5 L11 10.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                      <img loading="lazy" src="images/Frame-2085665472.avif" alt="Photon Legal logo" class="sv-mission2-pc-card-logo">
+                      <div class="sv-mission2-pc-card-id">
+                        <div class="sv-mission2-pc-card-name">Photon Legal</div>
+                        <div class="sv-mission2-pc-card-tagline">AI-First IP Tech Company</div>
+                      </div>
+                      <div class="sv-mission2-pc-card-body">
+                        <div class="sv-mission2-pc-card-stat"><span class="sv-mission2-pc-card-stat-from">$700K</span> <em>&rarr;</em> <span class="sv-mission2-pc-card-stat-to">$2.5M</span></div>
+                        <div class="sv-mission2-pc-card-meta">ARR in 18 months</div>
+                      </div>
+                    </a>
+                    <a href="https://curiousmenfilms.com/" target="_blank" rel="noopener" class="sv-mission2-pc-card">
+                      <span class="sv-mission2-pc-arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 11 L11 5 M5.75 5 L11 5 L11 10.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                      <img loading="lazy" src="images/Frame-2085665473.avif" alt="Curious Men Films logo" class="sv-mission2-pc-card-logo">
+                      <div class="sv-mission2-pc-card-id">
+                        <div class="sv-mission2-pc-card-name">Curious Men Films</div>
+                        <div class="sv-mission2-pc-card-tagline">AI-native content studio for brand storytelling.</div>
+                      </div>
+                      <div class="sv-mission2-pc-card-body">
+                        <div class="sv-mission2-pc-card-stat">Cashflow Positive</div>
+                        <div class="sv-mission2-pc-card-meta">from Month 0</div>
+                      </div>
+                    </a>
+                    <div class="sv-mission2-pc-card is-plus" aria-label="93 more portfolio companies to come">
+                      <div class="sv-mission2-pc-plus-grid" aria-hidden="true"></div>
+                      <div class="sv-mission2-pc-plus-center">
+                        <div class="sv-mission2-pc-plus-num">+95</div>
+                        <div class="sv-mission2-pc-plus-label">Others to come</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- ·02 Fractional Co-Founders (5 cards): 3 closed + 2 closing.
+                     Closed cards have a green top hairline + ambient tint;
+                     closing cards are dashed-stroke with italic copy so an
+                     investor reads the split in a single glance. -->
+                
+                <div fd-fade-reveal="" class="sv-mission2-tier">
+                  <div class="sv-mission2-tier-label">
+                    <span class="sv-mission2-tier-num">02</span>
                     <span class="sv-mission2-tier-name">Fractional Portfolio Companies</span>
                     <span class="sv-mission2-tier-rule" aria-hidden="true"></span>
                   </div>
-                  <p class="sv-mission2-tier-sub">Placeholder copy — two or three lines explaining what a fractional portfolio company is. Companies we co-build around a single fractional CXO who steps in at operator-level for B2B companies who need that depth on demand.</p>
+                  <p class="sv-mission2-tier-sub">Placeholder copy - two or three lines explaining what a fractional portfolio company is. Companies we co-build around a single fractional CXO who steps in at operator-level for B2B companies who need that depth on demand.</p>
                   <div fd-child-fade="" class="sv-mission2-frac-row">
                     <div class="sv-mission2-frac-card is-closed">
                       <div class="sv-mission2-frac-status-bar"><span class="sv-mission2-status">Closed</span></div>
@@ -1272,70 +1318,25 @@ Webflow.push(function () {
                     </div>
                   </div>
                 </div>
-
-                <!-- ·02 Portfolio Companies (3 cards): Photon Legal + Curious Men
-                     Films + the "+93 others" stat block that closes the math
-                     from the headline in a single row. -->
-                <div fd-fade-reveal="" class="sv-mission2-tier">
-                  <div class="sv-mission2-tier-label">
-                    <span class="sv-mission2-tier-num">02</span>
-                    <span class="sv-mission2-tier-name">Portfolio Companies</span>
-                    <span class="sv-mission2-tier-rule" aria-hidden="true"></span>
-                  </div>
-                  <div fd-child-fade="" class="sv-mission2-pc-row">
-                    <a href="https://photonlegal.com/" target="_blank" rel="noopener" class="sv-mission2-pc-card">
-                      <span class="sv-mission2-pc-arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 11 L11 5 M5.75 5 L11 5 L11 10.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                      <img loading="lazy" src="images/Frame-2085665472.avif" alt="Photon Legal logo" class="sv-mission2-pc-card-logo">
-                      <div class="sv-mission2-pc-card-id">
-                        <div class="sv-mission2-pc-card-name">Photon Legal</div>
-                        <div class="sv-mission2-pc-card-tagline">AI-First IP Tech Company</div>
-                      </div>
-                      <div class="sv-mission2-pc-card-body">
-                        <div class="sv-mission2-pc-card-stat"><span class="sv-mission2-pc-card-stat-from">$700K</span> <em>&rarr;</em> <span class="sv-mission2-pc-card-stat-to">$2.5M</span></div>
-                        <div class="sv-mission2-pc-card-meta">ARR in 18 months</div>
-                      </div>
-                    </a>
-                    <a href="https://curiousmenfilms.com/" target="_blank" rel="noopener" class="sv-mission2-pc-card">
-                      <span class="sv-mission2-pc-arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 11 L11 5 M5.75 5 L11 5 L11 10.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                      <img loading="lazy" src="images/Frame-2085665473.avif" alt="Curious Men Films logo" class="sv-mission2-pc-card-logo">
-                      <div class="sv-mission2-pc-card-id">
-                        <div class="sv-mission2-pc-card-name">Curious Men Films</div>
-                        <div class="sv-mission2-pc-card-tagline">AI-native content studio for brand storytelling.</div>
-                      </div>
-                      <div class="sv-mission2-pc-card-body">
-                        <div class="sv-mission2-pc-card-stat">Cashflow Positive</div>
-                        <div class="sv-mission2-pc-card-meta">from Month 0</div>
-                      </div>
-                    </a>
-                    <div class="sv-mission2-pc-card is-plus" aria-label="93 more portfolio companies to come">
-                      <div class="sv-mission2-pc-plus-grid" aria-hidden="true"></div>
-                      <div class="sv-mission2-pc-plus-center">
-                        <div class="sv-mission2-pc-plus-num">+93</div>
-                        <div class="sv-mission2-pc-plus-label">Others to come</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
               </div>
             </div>
           </div>
         </div>
       </section>
       <!-- ============================================================
-           §B-LIVE — "How we help our Portfolio Companies?" — the
+           §B-LIVE - "How we help our Portfolio Companies?" - the
            process-tabs section (GTM / Product / Fundraising / OPS /
            Hiring / Ecosystem with sub-tabs and per-pane image cards).
            Restored from the v1 archive on 2026-05-18.
 
-           Order on the page: this section (process narrative — HOW we
+           Order on the page: this section (process narrative - HOW we
            help every PortCo) comes BEFORE the .sv-pl-bento below
-           (specific Photon Legal case study — proof that it works).
+           (specific Photon Legal case study - proof that it works).
            Process first, proof after.
 
            The standalone "Here's how we helped Photon Legal achieve
            300% growth" testimonial video band that used to follow this
-           section is permanently dropped — its content is folded into
+           section is permanently dropped - its content is folded into
            the video tile of the .sv-pl-bento case-study grid below.
            ============================================================ -->
       <section id="how-we-help" class="section_home_portfolio-companies">
@@ -1706,7 +1707,7 @@ Webflow.push(function () {
                                         <div class="text-block-3">2. How much to raise: align runway with milestones (team plan + GTM plan + product roadmap), not vanity dilution.</div>
                                       </div>
                                       <div class="div-block-5">
-                                        <div class="text-block-4">3. From whom to raise: angels vs micro-VCs vs VCs vs family offices — based on stage, pace, and risk profile.</div>
+                                        <div class="text-block-4">3. From whom to raise: angels vs micro-VCs vs VCs vs family offices - based on stage, pace, and risk profile.</div>
                                       </div>
                                     </div>
                                   </div>
@@ -1927,10 +1928,10 @@ Webflow.push(function () {
         </div>
       </section>
       <!-- ============================================================
-           §C-LIVE — Photon Legal case-study bento grid
+           §C-LIVE - Photon Legal case-study bento grid
            Sits AFTER the §B-LIVE process-tabs section above; together
            they read as "here's HOW we help every PortCo" → "here's
-           PROOF — what it looked like at Photon Legal". Absorbs the
+           PROOF - what it looked like at Photon Legal". Absorbs the
            old standalone testimonial-video band into its video tile.
            ============================================================ -->
       <section id="how-we-helped-photon-legal" class="section_home_portfolio-companies sv-pl-section">
@@ -1951,7 +1952,7 @@ Webflow.push(function () {
                 <div fd-child-fade="" class="sv-pl-bento-wrap">
                 <div class="sv-pl-bento">
 
-                  <!-- Hero tile — ARR jump ($700K → $2.5M) -->
+                  <!-- Hero tile - ARR jump ($700K → $2.5M) -->
                   <article class="sv-pl-tile is-hero">
                     <div class="sv-pl-tile-eyebrow">Annual Recurring Revenue</div>
                     <div class="sv-pl-hero-stat">
@@ -1965,7 +1966,7 @@ Webflow.push(function () {
                     </div>
                   </article>
 
-                  <!-- Repositioning tile — Before/After blocks make the
+                  <!-- Repositioning tile - Before/After blocks make the
                        traditional-firm → AI-tech-co transformation legible
                        at a glance. The After block also carries a product
                        strip with the Photon Pulse preview, so the
@@ -1996,20 +1997,20 @@ Webflow.push(function () {
                     </div>
                   </article>
 
-                  <!-- ACV / biggest-deal tile — leads with the $1M
+                  <!-- ACV / biggest-deal tile - leads with the $1M
                        wow number (biggest single deal closed), with the
                        ICP-refinement → ACV-jump story in the sub. -->
                   <article class="sv-pl-tile is-acv">
                     <div class="sv-pl-tile-eyebrow">Biggest deal closed</div>
                     <div class="sv-pl-acv-stat">$1M</div>
-                    <div class="sv-pl-acv-sub">We helped them find their right ICPs &mdash; avg ACV jumped from <strong>₹50K to $100K</strong>, unlocking enterprise-size contracts.</div>
+                    <div class="sv-pl-acv-sub">We helped them find their right ICPs - avg ACV jumped from <strong>₹50K to $100K</strong>, unlocking enterprise-size contracts.</div>
                   </article>
 
-                  <!-- Time-to-scale tile — slope-contrast graph.
+                  <!-- Time-to-scale tile - slope-contrast graph.
                        Real proportions: 6 yrs of slow climb to $700K
                        (long flat-ish slope), then 1.5 yrs of steep
                        climb to $2.5M with Shifu. Before zone takes 80%
-                       of the x-axis, with zone takes 20% — so the
+                       of the x-axis, with zone takes 20% - so the
                        ratio of slopes does the talking. -->
                   <article class="sv-pl-tile is-time">
                     <div class="sv-pl-tile-eyebrow">Time to scale</div>
@@ -2023,7 +2024,7 @@ Webflow.push(function () {
                         <!-- Zone divider: dashed vertical line at the inflection point -->
                         <line x1="292" y1="20" x2="292" y2="190" stroke="rgba(245,110,56,0.35)" stroke-width="1" stroke-dasharray="3 3"/>
 
-                        <!-- Horizontal gridline at the inflection y-level — so the eye reads "$700K was the plateau" before the spike. -->
+                        <!-- Horizontal gridline at the inflection y-level - so the eye reads "$700K was the plateau" before the spike. -->
                         <line x1="44" y1="138" x2="364" y2="138" stroke="rgba(255,255,255,0.07)" stroke-width="1" stroke-dasharray="2 4"/>
 
                         <!-- Y-axis -->
@@ -2034,7 +2035,7 @@ Webflow.push(function () {
                         <!-- "ARR" Y-axis label -->
                         <text x="54" y="34" font-family="Figtree, Arial, sans-serif" font-size="11" font-weight="600" letter-spacing="0.08em" fill="rgba(255,255,255,0.55)">ARR</text>
 
-                        <!-- Before Shifu — slow climb from origin (44, 190) to inflection (292, 138).
+                        <!-- Before Shifu - slow climb from origin (44, 190) to inflection (292, 138).
                              Slope visible but gentle: 248px wide × 52px rise. -->
                         <line class="sv-pl-graph-before-line" x1="44" y1="190" x2="292" y2="138" stroke="rgba(255,255,255,0.42)" stroke-width="2" stroke-linecap="round"/>
 
@@ -2042,7 +2043,7 @@ Webflow.push(function () {
                         <circle class="sv-pl-graph-mid-dot" cx="292" cy="138" r="4" fill="rgba(255,255,255,0.6)"/>
                         <text class="sv-pl-graph-mid-label" x="284" y="132" font-family="Figtree, Arial, sans-serif" font-size="13" font-weight="600" fill="rgba(255,255,255,0.78)" text-anchor="end">$700K</text>
 
-                        <!-- With Shifu — steep orange line from (292, 138) to endpoint (356, 36).
+                        <!-- With Shifu - steep orange line from (292, 138) to endpoint (356, 36).
                              Only 64px wide × 102px rise → ~9× steeper than the before slope.
                              A small filled dot at the endpoint punctuates the line cleanly
                              (replaces a chevron arrowhead, which kept reading lopsided at
@@ -2063,7 +2064,7 @@ Webflow.push(function () {
                     </div>
                   </article>
 
-                  <!-- Testimonial video tile — custom typographic cover
+                  <!-- Testimonial video tile - custom typographic cover
                        (no busy marketing thumbnail). Pulls the Photon
                        Legal credit + "300% growth · 18 months" stat into
                        a clean dark surface that sits with the rest of
@@ -2092,7 +2093,7 @@ Webflow.push(function () {
       </section>
 
       <!-- ============================================================
-           §C-LIVE — Investor Gateway band (new on homepage)
+           §C-LIVE - Investor Gateway band (new on homepage)
            Slim band funnelling investor-mode traffic to investors.html
            with a portrait teaser + round-close FOMO line.
            ============================================================ -->
@@ -2168,7 +2169,7 @@ Webflow.push(function () {
           </div>
         </div>
         <script>
-          // Investor-gateway rotation — every ~4s, all 5 visible portrait
+          // Investor-gateway rotation - every ~4s, all 5 visible portrait
           // cards slide out together to the left, content swaps to the
           // next batch of 5 (drawn from a shuffled 16-person pool), then
           // slides in from the right in lockstep. Cards are batched so
@@ -2216,7 +2217,7 @@ Webflow.push(function () {
 
             // Queue of POOL indices we'll dequeue 5 at a time. Skip the
             // 5 already on-screen so the first rotation actually changes
-            // every face — otherwise the user might see the same card
+            // every face - otherwise the user might see the same card
             // "slide out then slide back in unchanged".
             let queue = [];
             function refill () {
@@ -2235,7 +2236,7 @@ Webflow.push(function () {
             function nextBatch () {
               // Refill before we'd run short of 5 fresh investors. The
               // refilled queue is guaranteed to have all 16, so taking 5
-              // gives 5 distinct people — no intra-batch duplicates.
+              // gives 5 distinct people - no intra-batch duplicates.
               if (queue.length < 5) refill();
               return queue.splice(0, 5).map(i => POOL[i]);
             }
@@ -2255,11 +2256,11 @@ Webflow.push(function () {
               const next = nextBatch();
               if (next.length < 5) return;
 
-              // Phase 1 — all 5 slide out to the left simultaneously.
+              // Phase 1 - all 5 slide out to the left simultaneously.
               slots.forEach(s => s.classList.add('is-slide-out'));
               await wait(470);
 
-              // Phase 2 — swap content, then snap to off-right with no
+              // Phase 2 - swap content, then snap to off-right with no
               // transition. The .is-slide-in-prep class disables the
               // transition so the snap is instant.
               slots.forEach((s, i) => setSlotContent(s, next[i]));
@@ -2271,12 +2272,12 @@ Webflow.push(function () {
               // we hand the transition back in the next phase.
               void slots[0].offsetWidth;
 
-              // Phase 3 — remove the prep class. Default transition
+              // Phase 3 - remove the prep class. Default transition
               // resumes; the inner img + meta slide back into centre.
               slots.forEach(s => s.classList.remove('is-slide-in-prep'));
             }
 
-            // Main loop — 4s visible, ~1s slide, repeat forever. Skips
+            // Main loop - 4s visible, ~1s slide, repeat forever. Skips
             // rotation while the tab is hidden (saves CPU) but keeps the
             // loop alive so it resumes when the user returns.
             (async function loop () {
@@ -2310,7 +2311,7 @@ Webflow.push(function () {
                         </div>
                         <div class="home_faq_answer">
                           <div class="home_faq_answer-text">
-                            <p clamped-text="true">Traditional agencies have always been hard to scale.<br><br>Low margins, manual execution, and growth tied directly to headcount.<br><br>AI changes that equation.<br><br>For the first time, services can be delivered with software-like leverage — where the work is powered by AI, not people.<br><br>Instead of selling tools to help customers do the work, companies can use AI internally to deliver the outcome end-to-end — and charge accordingly.<br><br>Think:<br>- a design firm producing finished creative before a contract is signed<br>- an ad agency generating studio-quality video without a physical shoot<br>- a legal firm drafting documents in minutes, not weeks<br><br>These businesses won’t look like agencies.<br><br>They’ll look like software companies — with software margins.<br><br>That’s the future we’re building toward:<br><br>AI-native, Outcome-as-a-Service companies that scale to $10M ARR sustainably.<br><br>If you’re building in this direction, we’d love to talk.</p>
+                            <p clamped-text="true">Traditional agencies have always been hard to scale.<br><br>Low margins, manual execution, and growth tied directly to headcount.<br><br>AI changes that equation.<br><br>For the first time, services can be delivered with software-like leverage - where the work is powered by AI, not people.<br><br>Instead of selling tools to help customers do the work, companies can use AI internally to deliver the outcome end-to-end - and charge accordingly.<br><br>Think:<br>- a design firm producing finished creative before a contract is signed<br>- an ad agency generating studio-quality video without a physical shoot<br>- a legal firm drafting documents in minutes, not weeks<br><br>These businesses won’t look like agencies.<br><br>They’ll look like software companies - with software margins.<br><br>That’s the future we’re building toward:<br><br>AI-native, Outcome-as-a-Service companies that scale to $10M ARR sustainably.<br><br>If you’re building in this direction, we’d love to talk.</p>
                           </div>
                         </div>
                         <div class="faq-focused-bg">
@@ -2928,7 +2929,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 <script>
-// Homepage v2 — Mission scale-dots renderer.
+// Homepage v2 - Mission scale-dots renderer.
 // Reads data-sv-scale (total), data-live, data-soon from the dot container
 // and renders the corresponding number of <span> dots with the right state.
 // Kept inline + tiny so we don't add a new asset file for a single helper.
@@ -2952,7 +2953,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 <script>
-// Time-to-Scale graph — fire the path-draw animation when the tile
+// Time-to-Scale graph - fire the path-draw animation when the tile
 // scrolls into view (just once). Uses CSS classes defined in
 // homepage-v2.css; no GSAP dependency.
 (function () {
@@ -2974,7 +2975,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 <script>
-// Founder-testimonial tile — read the actual video duration from the
+// Founder-testimonial tile - read the actual video duration from the
 // MP4 metadata and update the "Watch · N min" chip so the label
 // matches the real length instead of a hardcoded value. Uses a hidden
 // <video> element with preload="metadata" so only the moov atom is

@@ -63,7 +63,7 @@ html.lenis {height: auto;}
   opacity: 0;
   transition: opacity 0.25s ease;
 }
-/* Generic reveal — animates in via CSS, no JS dependency */
+/* Generic reveal - animates in via CSS, no JS dependency */
 [load-reveal] {
   animation: fdLoadRevealIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
   will-change: opacity, transform;
@@ -516,7 +516,7 @@ Webflow.push(() => {
       last = y;
       return;
     }
-    // BELOW NAV HEIGHT — HARD STOP
+    // BELOW NAV HEIGHT - HARD STOP
     lottie?.goToAndStop(0, true);
     if (Math.abs(y - last) < 5) return;
     nav.classList.toggle("nav--hidden", y > last);
@@ -563,7 +563,7 @@ Webflow.push(() => {
       </header>
 
       <!-- ============================================================
-           Our Journey — vertical scroll-pinned timeline. Mirrors the
+           Our Journey - vertical scroll-pinned timeline. Mirrors the
            Sri's-journey pattern on investors.html: a sticky left rail
            with year stops + a vertical progress fill, and a column of
            year slides on the right that the user scrolls through. The
@@ -578,10 +578,10 @@ Webflow.push(() => {
 
               <div class="oj-header">
                 <h2 fd-svg-underline-stroke="4" fd-svg-underline-text="scroll" class="heading-style-h2">Our <span fd-svg-underline-text="scroll" fd-svg-underline-stroke="4">Journey</span></h2>
-                <p class="oj-subhead">Bharat SaaS Yatra to today &mdash; how Shifu Ventures took shape, one year at a time.</p>
+                <p class="oj-subhead">Bharat SaaS Yatra to today - how Shifu Ventures took shape, one year at a time.</p>
               </div>
 
-              <!-- Mobile horizontal year rail — sticks under the nav so
+              <!-- Mobile horizontal year rail - sticks under the nav so
                    users can tap to jump and always see the year context
                    while scrolling through slides. -->
               <nav class="oj-mobile-rail" aria-label="Journey by year" data-oj-mobile-rail>
@@ -605,7 +605,7 @@ Webflow.push(() => {
 
               <div class="oj-stage" data-oj-stage>
 
-                <!-- Desktop sticky rail — vertical line + 3 stops -->
+                <!-- Desktop sticky rail - vertical line + 3 stops -->
                 <aside class="oj-rail" data-oj-rail>
                   <span class="oj-rail-line" aria-hidden="true"></span>
                   <span class="oj-rail-fill" aria-hidden="true" data-oj-rail-fill></span>
@@ -635,7 +635,7 @@ Webflow.push(() => {
                   </button>
                 </aside>
 
-                <!-- Right column — 3 year slides, each scrolls naturally
+                <!-- Right column - 3 year slides, each scrolls naturally
                      into view. IntersectionObserver flips the active
                      state based on which slide is in the viewport's
                      middle band. -->
@@ -717,7 +717,7 @@ Webflow.push(() => {
         </div>
 
         <script>
-        /* Our Journey — vertical scroll-pinned timeline.
+        /* Our Journey - vertical scroll-pinned timeline.
            One IntersectionObserver watches the three slides; whichever
            is centred in the viewport (middle 40%) becomes "active",
            which lights up its rail dot, fills the rail-line up to that
@@ -753,7 +753,7 @@ Webflow.push(() => {
               d.classList.toggle('is-passed', i < idx);
             });
             var progress = idx === 0 ? 0 : idx / (YEARS.length - 1);
-            // Rail fill — set height directly in pixels. The line
+            // Rail fill - set height directly in pixels. The line
             // element's rendered height gives us the actual span
             // between the first and last dots, so progress × that
             // span = correct fill length regardless of viewport size.
@@ -784,7 +784,7 @@ Webflow.push(() => {
             });
           });
 
-          // Active-slide detection — find whichever slide's middle is
+          // Active-slide detection - find whichever slide's middle is
           // closest to the viewport's middle. Runs on scroll (rAF-
           // throttled). More robust than IntersectionObserver for this
           // shape of layout: works on any browser, any scroll position,
@@ -822,14 +822,14 @@ Webflow.push(() => {
           window.addEventListener('scroll', onScroll, { passive: true });
           window.addEventListener('resize', onScroll, { passive: true });
           // Lenis smooth-scrolling can sometimes throttle native scroll
-          // events — hook into Lenis's own emitter too if it's loaded.
+          // events - hook into Lenis's own emitter too if it's loaded.
           if (window.lenis && typeof window.lenis.on === 'function') {
             window.lenis.on('scroll', onScroll);
           }
           // Fire once on init so the initial state matches scroll position.
           onScroll();
 
-          // 2024 video reel — five clips that crossfade with two <video>
+          // 2024 video reel - five clips that crossfade with two <video>
           // tags alternating as "current" + "next". Mirrors the Sri's
           // journey BSY reel logic.
           var reel = section.querySelector('[data-oj-reel]');
@@ -962,7 +962,7 @@ Webflow.push(() => {
                     </div>
                     <div data-w-tab="Tab 2" tabs-nesting-src="2" class="about_layout_tab-pane w-tab-pane">
                       <div class="about_layout_tab-content">
-                        <button type="button" class="cv-video-trigger" data-cv-video="1YbBHPGGYeQkp7UIfpcm-mj3mRH0FvAWU" aria-label="Play: Balance — health, family and work">
+                        <button type="button" class="cv-video-trigger" data-cv-video="1YbBHPGGYeQkp7UIfpcm-mj3mRH0FvAWU" aria-label="Play: Balance - health, family and work">
                           <img class="cv-video-thumb" loading="lazy" src="videos/About-us-hero-video_poster.0000000.jpg" alt="" onerror="this.style.display='none'">
                           <span class="cv-video-play" aria-hidden="true">
                             <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7L8 5z"/></svg>
@@ -1028,7 +1028,7 @@ document.addEventListener("DOMContentLoaded", () => {
               <div class="about_core-values_component">
                 <div class="section-tabs-header">
                   <h2 class="heading-style-h2">The <span fd-svg-underline-text="">team behind</span> this massive vision</h2>
-                  <p>We’re founders and operators who’ve scaled companies to $10M ARR &mdash; empathetic, execution-first partners obsessed with building sustainably.</p>
+                  <p>We’re founders and operators who’ve scaled companies to $10M ARR - empathetic, execution-first partners obsessed with building sustainably.</p>
                 </div>
                 <div class="spacer-60 mob-36"></div>
 
@@ -1171,7 +1171,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="spacer-64"></div>
 
                 <div class="hiring-v2-grid">
-                  <a class="hiring-v2-card" href="https://founders-office.pages.dev/" target="_blank" rel="noopener noreferrer" aria-label="Founder’s Office &mdash; view job description">
+                  <a class="hiring-v2-card" href="https://founders-office.pages.dev/" target="_blank" rel="noopener noreferrer" aria-label="Founder’s Office - view job description">
                     <div class="hiring-v2-header-row">
                       <h3 class="hiring-v2-role">Founder&rsquo;s Office</h3>
                       <span class="hiring-v2-arrow" aria-hidden="true">
@@ -1186,7 +1186,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                   </a>
 
-                  <a class="hiring-v2-card" href="https://site-s-5ecc81c4.vercel.app/sv-dev/" target="_blank" rel="noopener noreferrer" aria-label="SDE Intern &mdash; view job description">
+                  <a class="hiring-v2-card" href="https://site-s-5ecc81c4.vercel.app/sv-dev/" target="_blank" rel="noopener noreferrer" aria-label="SDE Intern - view job description">
                     <div class="hiring-v2-header-row">
                       <h3 class="hiring-v2-role">SDE Intern</h3>
                       <span class="hiring-v2-arrow" aria-hidden="true">
@@ -1201,7 +1201,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                   </a>
 
-                  <a class="hiring-v2-card" href="https://site-s-5ecc81c4.vercel.app/sv-product/" target="_blank" rel="noopener noreferrer" aria-label="Product Design Intern &mdash; view job description">
+                  <a class="hiring-v2-card" href="https://site-s-5ecc81c4.vercel.app/sv-product/" target="_blank" rel="noopener noreferrer" aria-label="Product Design Intern - view job description">
                     <div class="hiring-v2-header-row">
                       <h3 class="hiring-v2-role">Product Design Intern</h3>
                       <span class="hiring-v2-arrow" aria-hidden="true">
@@ -1216,7 +1216,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                   </a>
 
-                  <a class="hiring-v2-card" href="https://site-s-5ecc81c4.vercel.app/sv-generalist/" target="_blank" rel="noopener noreferrer" aria-label="Generalist Intern at Shifu Ventures &mdash; view job description">
+                  <a class="hiring-v2-card" href="https://site-s-5ecc81c4.vercel.app/sv-generalist/" target="_blank" rel="noopener noreferrer" aria-label="Generalist Intern at Shifu Ventures - view job description">
                     <div class="hiring-v2-header-row">
                       <h3 class="hiring-v2-role">Generalist Intern, Shifu Ventures</h3>
                       <span class="hiring-v2-arrow" aria-hidden="true">
@@ -1231,7 +1231,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                   </a>
 
-                  <a class="hiring-v2-card" href="https://site-s-5ecc81c4.vercel.app/sf-generalist/" target="_blank" rel="noopener noreferrer" aria-label="Generalist Intern at Shifu Foundation &mdash; view job description">
+                  <a class="hiring-v2-card" href="https://site-s-5ecc81c4.vercel.app/sf-generalist/" target="_blank" rel="noopener noreferrer" aria-label="Generalist Intern at Shifu Foundation - view job description">
                     <div class="hiring-v2-header-row">
                       <h3 class="hiring-v2-role">Generalist Intern, Shifu Foundation</h3>
                       <span class="hiring-v2-arrow" aria-hidden="true">
@@ -1447,7 +1447,7 @@ const isMobile = matchMedia("(max-width: 768px)").matches;
 });
 </script>
 
-<!-- Core-values video lightbox — used by any [data-cv-video] trigger.
+<!-- Core-values video lightbox - used by any [data-cv-video] trigger.
      Opens a centred iframe of the matching Google Drive video and auto-
      plays. Esc / backdrop click / × button closes it. -->
 <div class="cv-lightbox" data-cv-lightbox role="dialog" aria-modal="true" aria-label="Video player" hidden>

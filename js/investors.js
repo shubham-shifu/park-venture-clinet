@@ -794,7 +794,7 @@
                 (function (gEl, label) {
                   gEl.addEventListener('mouseenter', function () { showTipFor(gEl, label); });
                   gEl.addEventListener('mouseleave', hideTip);
-                })(g, inv.name + ' — ' + inv.role);
+                })(g, inv.name + ' - ' + inv.role);
                 bubG.appendChild(g);
               });
             }
