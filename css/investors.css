@@ -6422,6 +6422,14 @@ body.inv-form-modal-open .navbar { display: none; }
    by default, which forces the final phrase ("100 times.") onto a third
    line. Lift the cap on this section only. */
 [data-sri-journey] .section-tabs-header.is-center { max-width: 56rem; }
+/* [fd-section-reveal]:has(> .inv-ask-boxes) > .section-tabs-header.is-center {
+  max-width: none;
+}
+@media (min-width: 992px) {
+  [fd-section-reveal]:has(> .inv-ask-boxes) > .section-tabs-header.is-center > .heading-style-h2 {
+    white-space: nowrap;
+  }
+} */
 .sri-journey-h2 { letter-spacing: -0.01em; }
 
 .sri-journey-stage {
