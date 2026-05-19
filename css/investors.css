@@ -6096,12 +6096,14 @@ body.inv-form-modal-open .navbar { display: none; }
    into the same viewport and feel overwhelming.
    ════════════════════════════════════════════════════════════════════ */
 .section_header30 .padding-section-large.hero {
-  /* Hero hugs its content — no min-height floor, so when the text
-     column is shorter than the 16:10 video tile we don't get a dead
-     band below the section before §01 starts. */
+  /* Hero fills the viewport so §01 (Founders/Operators tabs) always
+     lives below the fold and only appears once the user scrolls.
+     Content is vertically centered — avoids the dead band we'd get
+     with flex-start when content is shorter than the viewport. */
+  min-height: 70vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  /* justify-content: center; */
   padding-top: 8rem;
   padding-bottom: 4rem;
 }
