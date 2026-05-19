@@ -1635,29 +1635,25 @@
   z-index: 1;
   text-decoration: none;
 }
-/* LinkedIn icon — mirrors .inv-bento-li from the investors page so the
-   affordance is identical across pages. Hidden until card hover; click
-   goes to the investor's LinkedIn (separate target from card overlay). */
+/* LinkedIn icon — subtle, no chip background. Hidden until card hover,
+   then fades in as a quiet white icon (no border/box). Hover on the
+   icon itself brightens it. Click target sits above the card overlay. */
 .sv-invgw-portrait-li {
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
-  width: 32px;
-  height: 32px;
+  width: 22px;
+  height: 22px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.06);
-  color: rgba(255, 255, 255, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 0;
+  color: rgba(255, 255, 255, 0.55);
   text-decoration: none;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(4px);
-  transition: opacity 0.22s ease, visibility 0.22s, transform 0.22s ease, background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  transform: translateY(-2px);
+  transition: opacity 0.22s ease, visibility 0.22s, transform 0.22s ease, color 0.2s ease;
   z-index: 3;
-  backdrop-filter: blur(2px);
   pointer-events: none;
 }
 .sv-invgw-portrait:hover .sv-invgw-portrait-li,
@@ -1667,11 +1663,7 @@
   transform: translateY(0);
   pointer-events: auto;
 }
-.sv-invgw-portrait-li:hover {
-  background: rgba(245, 110, 56, 0.18);
-  border-color: rgba(245, 110, 56, 0.65);
-  color: #f56e38;
-}
+.sv-invgw-portrait-li:hover { color: #fff; }
 .sv-invgw-portrait-li svg { display: block; }
 .sv-invgw-portrait img {
   position: absolute;
@@ -1701,22 +1693,28 @@
   font-size: 0.8125rem;
   font-weight: 600;
   color: #fff;
-  line-height: 1.18;
-  letter-spacing: -0.005em;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  overflow-wrap: anywhere;
 }
 .sv-invgw-portrait-co {
   font-size: 0.5625rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.65);
-  line-height: 1.18;
+  line-height: 1.25;
   font-weight: 600;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  overflow-wrap: anywhere;
 }
 
 /* Meta-card — typographic "+33 more investors" tile that closes the
